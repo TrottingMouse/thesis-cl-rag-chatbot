@@ -1,6 +1,7 @@
 from pathlib import Path
 
-from docling.document_converter import DocumentConverter
+from docling.document_converter import DocumentConverter, PdfFormatOption
+from docling.datamodel.pipeline_options import PdfPipelineOptions, TableFormerMode
 
 from src.models import Document
 from src.offline.preprocessing.base import BasePreprocessor
@@ -16,7 +17,20 @@ class MarkdownProcessor(BasePreprocessor):
     def __init__(self):
         super().__init__()
         # Initialize the Docling converter
-        self.converter = DocumentConverter()
+        pipeline_options = PdfPipelineOptions(do_table_structure=True)
+
+        # 1. Force the high-accuracy model variant
+        pipeline_options.table_structure_options.mode = TableFormerMode.ACCURATE
+
+        # 2. Tell it to rely on its visual prediction rather than messy PDF text cells
+        pipeline_options.table_structure_options.do_cell_matching = False 
+
+        # Pass options into your converter
+        self.converter = DocumentConverter(
+            format_options={
+                "pdf": PdfFormatOption(pipeline_options=pipeline_options)
+            }
+        )
 
     @property
     def name(self) -> str:
@@ -35,7 +49,7 @@ class MarkdownProcessor(BasePreprocessor):
                 doc_id = document.doc_id
             )
 
-        # Convert the document from the file system
+        # convert the document
         result = self.converter.convert(source_path)
         markdown_text = result.document.export_to_markdown()
 
