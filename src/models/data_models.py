@@ -19,50 +19,17 @@ from typing import Any
 
 
 @dataclass
-class RawDocument:
-    """A document exactly as loaded from disk, before any preprocessing."""
-
-    doc_id: str
-    """Unique identifier derived from the file path (e.g. the stem)."""
+class Document:
+    """A single document flowing through the pipeline."""
 
     source_path: Path
     """Absolute path to the source file."""
 
-    content: bytes
-    """Raw binary content of the file."""
-
-    mime_type: str = "application/octet-stream"
-    """MIME type of the source file (e.g. 'application/pdf')."""
-
-    metadata: dict[str, Any] = field(default_factory=dict)
-    """Arbitrary key-value pairs attached by the loader (page count, author, …)."""
-
-
-@dataclass
-class ProcessedDocument:
-    """
-    A document after preprocessing.
-
-    Preprocessing may convert tables to Markdown, extract propositions via
-    an LLM/SLM, clean whitespace, etc.  The result is always plain text that
-    a chunker can consume.
-    """
-
-    doc_id: str
-    """Same identifier as the originating :class:`RawDocument`."""
-
-    source_path: Path
-    """Path to the originating file (preserved for provenance)."""
-
-    text: str
+    text: str = ""
     """Preprocessed plain-text content ready for chunking."""
 
     preprocessor_name: str = ""
     """Name of the :class:`BasePreprocessor` that produced this document."""
-
-    metadata: dict[str, Any] = field(default_factory=dict)
-    """Arbitrary key-value pairs forwarded from the raw document plus any
-    metadata added during preprocessing."""
 
 
 @dataclass
@@ -77,7 +44,7 @@ class Chunk:
     """Unique identifier for this chunk (e.g. ``'{doc_id}_chunk_{n}'``)."""
 
     doc_id: str
-    """Identifier of the :class:`ProcessedDocument` this chunk originates from."""
+    """Identifier of the :class:`Document` this chunk originates from (e.g. source_path.stem)."""
 
     text: str
     """The actual text content of the chunk."""
