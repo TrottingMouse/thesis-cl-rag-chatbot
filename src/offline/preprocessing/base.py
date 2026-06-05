@@ -1,8 +1,8 @@
 """
 Abstract base class for document preprocessors (Offline Pipeline – Step 1).
 
-A preprocessor transforms a :class:`~src.models.RawDocument` into a
-:class:`~src.models.ProcessedDocument` whose ``text`` field is ready for
+A preprocessor transforms a :class:`~src.models.Document` into another
+:class:`~src.models.Document` whose ``text`` field is ready for
 chunking.
 
 Possible concrete implementations
@@ -19,7 +19,7 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 
-from src.models import RawDocument, ProcessedDocument
+from src.models import Document
 
 
 class BasePreprocessor(ABC):
@@ -37,12 +37,12 @@ class BasePreprocessor(ABC):
         """
         Short human-readable identifier for this preprocessor.
 
-        Used to populate :attr:`ProcessedDocument.preprocessor_name` and for
+        Used to populate :attr:`Document.preprocessor_name` and for
         logging / experiment tracking.  Example: ``'markdown_table'``.
         """
 
     @abstractmethod
-    def preprocess(self, document: RawDocument) -> ProcessedDocument:
+    def preprocess(self, document: Document) -> Document:
         """
         Transform a single raw document into a processed document.
 
@@ -53,13 +53,13 @@ class BasePreprocessor(ABC):
 
         Returns
         -------
-        ProcessedDocument
+        Document
             The cleaned/converted document ready for chunking.
         """
 
     def preprocess_batch(
-        self, documents: list[RawDocument]
-    ) -> list[ProcessedDocument]:
+        self, documents: list[Document]
+    ) -> list[Document]:
         """
         Transform a list of raw documents.
 
@@ -73,6 +73,6 @@ class BasePreprocessor(ABC):
 
         Returns
         -------
-        list[ProcessedDocument]
+        list[Document]
         """
         return [self.preprocess(doc) for doc in documents]

@@ -22,7 +22,7 @@ import logging
 from dataclasses import dataclass
 from pathlib import Path
 
-from src.models import RawDocument, ProcessedDocument, Chunk
+from src.models import Document, Chunk
 from src.offline.preprocessing.base import BasePreprocessor
 from src.offline.chunking.base import BaseChunker
 from src.offline.indexing.base import BaseIndexBuilder
@@ -34,7 +34,7 @@ logger = logging.getLogger(__name__)
 class OfflinePipelineResult:
     """Carries the intermediate artefacts produced by the offline pipeline."""
 
-    processed_documents: list[ProcessedDocument]
+    processed_documents: list[Document]
     chunks: list[Chunk]
 
 
@@ -64,7 +64,7 @@ class OfflinePipeline:
     # Public API
     # ------------------------------------------------------------------
 
-    def run(self, raw_documents: list[RawDocument]) -> OfflinePipelineResult:
+    def run(self, raw_documents: list[Document]) -> OfflinePipelineResult:
         """
         Execute the full offline pipeline.
 

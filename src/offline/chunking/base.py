@@ -1,7 +1,7 @@
 """
 Abstract base class for chunkers (Offline Pipeline – Step 2).
 
-A chunker splits a :class:`~src.models.ProcessedDocument` into a list of
+A chunker splits a :class:`~src.models.Document` into a list of
 :class:`~src.models.Chunk` objects.  Chunking strategy has a large impact on
 retrieval quality, especially with small context windows (SLMs).
 
@@ -21,7 +21,7 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 
-from src.models import ProcessedDocument, Chunk
+from src.models import Document, Chunk
 
 
 class BaseChunker(ABC):
@@ -43,7 +43,7 @@ class BaseChunker(ABC):
         """
 
     @abstractmethod
-    def chunk(self, document: ProcessedDocument) -> list[Chunk]:
+    def chunk(self, document: Document) -> list[Chunk]:
         """
         Split a single processed document into chunks.
 
@@ -60,7 +60,7 @@ class BaseChunker(ABC):
         """
 
     def chunk_batch(
-        self, documents: list[ProcessedDocument]
+        self, documents: list[Document]
     ) -> list[Chunk]:
         """
         Split a list of documents into chunks.
