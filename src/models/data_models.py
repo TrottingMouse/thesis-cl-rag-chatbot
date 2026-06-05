@@ -22,14 +22,20 @@ from typing import Any
 class Document:
     """A single document flowing through the pipeline."""
 
+    # original nennen/entfernen?
     source_path: Path
     """Absolute path to the source file."""
 
     text: str = ""
     """Preprocessed plain-text content ready for chunking."""
 
+    # evtl entfernen
     preprocessor_name: str = ""
     """Name of the :class:`BasePreprocessor` that produced this document."""
+
+    doc_id: str = ""
+    """Unique identifier for this document (e.g. MHB_markdown).
+    Contains the raw document name and the preprocessing steps."""
 
 
 @dataclass
