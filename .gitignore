@@ -114,3 +114,4 @@ storage/indexes/
 storage/processed/
 *.rdb
 *.aof
+*example.jsonl

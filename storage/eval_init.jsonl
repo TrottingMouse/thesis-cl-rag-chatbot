@@ -1,0 +1,42 @@
+[
+  {
+    "user_input": "Welche Kurse sollte ich im ersten Semester belegen?",
+    "reference": "Laut dem exemplarischen Studienverlaufsplan solltest du im ersten Semester folgende Kurse belegen: Mathematische Grundlagen, Einführung in die computationelle Logik, Einführung in die Computerlinguistik, Einführung in die Programmierung mit Python, Morphologie und Syntax."
+  },
+  {
+    "user_input": "Muss ich fließend Englisch sprechen können um Computerlinguistik zu studieren?",
+    "reference": "Fließendes Englisch wird nicht vorausgesetzt, jedoch benötigst du Englischkenntnisse auf dem Niveau B1. Dies entspricht vergleichsweise einem erfolgreichen vierjährigen Schulunterricht an einer weiterführenden Schule."
+  },
+  {
+    "user_input": "Wie oft darf ich eine Prüfung nicht bestehen?",
+    "reference": "Aus den Dokumenten geht keine explizite Gesamtzahl der erlaubten Fehlversuche hervor. Es ist jedoch vermerkt, dass die zweite Wiederholung einer Modulprüfung als mündliche Prüfung erfolgen darf. Das bedeutet, dass du eine Prüfung mindestens zweimal wiederholen darfst."
+  },
+  {
+    "user_input": "Muss ich in Python eine Klausur/Prüfung absolvieren?",
+    "reference": "Ja, du musst im Modul \"Python-Programmierung\" eine Prüfung in Form einer Projektarbeit ablegen. Diese Modulprüfung ist jedoch erst im zweiten Fachsemester (Sommersemester) vorgesehen. Im ersten Semester musst du dafür lediglich Studienleistungen erbringen."
+  },
+  {
+    "user_input": "Wann soll ich das Praktikum machen?",
+    "reference": "Es wird empfohlen, das Berufsfeldpraktikum nach dem vierten oder fünften Semester zu absolvieren."
+  },
+  {
+    "user_input": "Wann kann ich ins Ausland gehen?",
+    "reference": "Ein Auslandsaufenthalt ist optional. Als sogenanntes \"Mobilitätsfenster\" ist das fünfte Semester vorgesehen."
+  },
+  {
+    "user_input": "Muss ich Kurse aus der Linguistik für das interdisziplinäre Vertiefungsmodul belegen?",
+    "reference": "Nein, Linguistik-Kurse sind keine Pflicht. Das Modul sieht vor, dass du zwei Vorlesungen oder Seminare aus der Linguistik oder der Informatik wählst, wobei lediglich der Informatik-Anteil von 4 SWS vorgeschrieben ist."
+  },
+  {
+    "user_input": "Warum kann ich mich nicht zu den Vertiefungsmodulen anmelden?",
+    "reference": "Dies liegt höchstwahrscheinlich daran, dass du die formalen Voraussetzungen noch nicht erfüllt hast. Für die Vertiefungsmodule \"Computerlinguistik 1\" und \"Computerlinguistik 2\" ist zwingend vorgeschrieben, dass du die Module \"Basismodul - Mathematische und logische Grundlagen\", \"Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung\" sowie das \"Aufbaumodul - Maschinelles Lernen\" vorher bestanden hast."
+  },
+  {
+    "user_input": "Wie stark zählt die Bachelorarbeit für meine Abschlussnote?",
+    "reference": "Die Note der Bachelorarbeit wird bei der Ermittlung der Gesamtnote dreifach gewichtet. Im Vergleich dazu gehen alle anderen Modulprüfungen nur einfach in die Gesamtnote ein."
+  },
+  {
+    "user_input": "Welche Programmiersprachen lerne ich im Laufe des Studiums?",
+    "reference": "In den Basismodulen lernst du ausführlich die Programmierung mit Python. Im Aufbaumodul \"Objektorientierte Programmierung\" wird eine objektorientierte Programmiersprache erlernt. Im Aufbaumodul \"Logische Programmierung\" wird in das logische Programmierparadigma anhand der Sprache Prolog eingeführt. Im Bereich Statistik kann die statistische Programmierung in einer geeigneten Sprache (beispielsweise R) erlernt werden."
+  }
+]
