@@ -51,7 +51,7 @@ class MarkdownProcessor(BasePreprocessor):
             doc_id=document.doc_id
         )
 
-doc = Document(Path("documents/PO.pdf"))
+doc = Document(Path("documents/PO.pdf"), doc_id="PO_markdown")
 
 markdown_processor = MarkdownProcessor()
 processed_document = markdown_processor.preprocess(doc)
