@@ -24,7 +24,7 @@ class MarkdownProcessor(BasePreprocessor):
 
     def preprocess(self, document: Document) -> Document:
         source_path = document.source_path
-        cached_path = "cached_documents/" + document.doc_id
+        cached_path = "storage/cached_documents/" + document.doc_id
         if os.path.exists(cached_path):
             with open(cached_path) as f:
                 content = f.read()
