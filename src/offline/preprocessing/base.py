@@ -19,6 +19,8 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 
+import re
+
 from src.models import Document
 
 
@@ -57,22 +59,23 @@ class BasePreprocessor(ABC):
             The cleaned/converted document ready for chunking.
         """
 
-    def preprocess_batch(
-        self, documents: list[Document]
+    def preprocess_from_path(self, path: str):
+        document = Document(path, "", "", re.search(r".+\/(.+)\.[^.]+$", path).group(1))
+        return self.preprocess(document)
+
+    def preprocess_from_paths(
+        self, paths: list[str]
     ) -> list[Document]:
         """
         Transform a list of raw documents.
 
-        Override for batched / async implementations.  The default
-        implementation calls :meth:`preprocess` sequentially.
-
         Parameters
         ----------
-        documents:
-            Raw documents to process.
+        paths:
+            Paths to the raw documents to process.
 
         Returns
         -------
         list[Document]
         """
-        return [self.preprocess(doc) for doc in documents]
+        return [self.preprocess_from_path(doc) for doc in paths]

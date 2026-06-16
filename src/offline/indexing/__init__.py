@@ -1,3 +1,4 @@
 from .base import BaseIndexBuilder
+from .indexing import FaissIndexBuilder
 
-__all__ = ["BaseIndexBuilder"]
+__all__ = ["BaseIndexBuilder", "FaissIndexBuilder"]

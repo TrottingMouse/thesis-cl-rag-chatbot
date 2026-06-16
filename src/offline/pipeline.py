@@ -15,8 +15,13 @@ Usage example (skeleton – components not yet implemented)::
     )
     pipeline.run(raw_documents)
 """
-
 from __future__ import annotations
+
+from src.config import OfflineConfig
+from src.offline.indexing.indexing import FaissIndexBuilder
+
+from src.offline.chunking.fixed_size import FixedCharacterChunker
+from src.offline.preprocessing.file_conversions import RawTextProcessor
 
 import logging
 from dataclasses import dataclass
@@ -64,7 +69,7 @@ class OfflinePipeline:
     # Public API
     # ------------------------------------------------------------------
 
-    def run(self, raw_documents: list[Document]) -> OfflinePipelineResult:
+    def run(self, raw_document_paths: list[str]) -> OfflinePipelineResult:
         """
         Execute the full offline pipeline.
 
@@ -87,8 +92,8 @@ class OfflinePipeline:
         )
 
         # Stage 1 – Preprocessing
-        logger.info("Stage 1/3: Preprocessing %d document(s)…", len(raw_documents))
-        processed_docs = self.preprocessor.preprocess_batch(raw_documents)
+        logger.info("Stage 1/3: Preprocessing %d document(s)…", len(raw_document_paths))
+        processed_docs = self.preprocessor.preprocess_from_paths(raw_document_paths)
         logger.info("Stage 1/3: Done – %d document(s) processed.", len(processed_docs))
 
         # Stage 2 – Chunking
@@ -113,3 +118,9 @@ class OfflinePipeline:
             "chunker": self.chunker.name,
             "index_builder": self.index_builder.name,
         }
+
+# logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+# config = OfflineConfig()
+# offline = OfflinePipeline(RawTextProcessor(), FixedCharacterChunker(),  FaissIndexBuilder(storage_path=Path("storage/index"), model_name=config.embedding_model))
+# print("here")
+# offline.run(["documents/PO.pdf", "documents/MHB.pdf"])

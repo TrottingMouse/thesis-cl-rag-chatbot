@@ -49,20 +49,17 @@ class Chunk:
     chunk_id: str
     """Unique identifier for this chunk (e.g. ``'{doc_id}_chunk_{n}'``)."""
 
-    doc_id: str
-    """Identifier of the :class:`Document` this chunk originates from (e.g. source_path.stem)."""
-
     text: str
     """The actual text content of the chunk."""
 
     chunker_name: str = ""
     """Name of the :class:`BaseChunker` that produced this chunk."""
 
-    char_start: int | None = None
-    """Character offset of the chunk's start within the source document text."""
+    # char_start: int | None = None
+    # """Character offset of the chunk's start within the source document text."""
 
-    char_end: int | None = None
-    """Character offset of the chunk's end within the source document text."""
+    # char_end: int | None = None
+    # """Character offset of the chunk's end within the source document text."""
 
     metadata: dict[str, Any] = field(default_factory=dict)
     """Arbitrary key-value pairs (page number, section heading, …)."""

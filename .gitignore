@@ -115,3 +115,5 @@ storage/processed/
 *.rdb
 *.aof
 *example.jsonl
+storage/index/
+storage/models/

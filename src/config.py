@@ -24,11 +24,14 @@ class OfflineConfig:
     """Root directory for persisted indexes and processed documents."""
 
     # Chunking defaults (concrete chunkers may expose additional fields)
-    chunk_size: int = 256
+    chunk_size: int = 500
     """Target chunk size in tokens/characters (interpretation depends on chunker)."""
 
-    chunk_overlap: int = 32
+    chunk_overlap: int = 50
     """Overlap between consecutive chunks to preserve context across boundaries."""
+
+    embedding_model: str = "storage/models/jina-embeddings"
+    """The embedding model to use for the pipeline."""
 
 
 @dataclass
@@ -41,6 +44,9 @@ class OnlineConfig:
     top_n: int = 5
     """Number of results returned after reranking (must be ≤ top_k)."""
 
+    embedding_model: str = "storage/models/jina-embeddings"
+    """The embedding model to use for the pipeline."""
+
 
 @dataclass
 class PipelineConfig:
@@ -52,7 +58,10 @@ class PipelineConfig:
     """
 
     offline: OfflineConfig = field(default_factory=OfflineConfig)
+    """Configuration for the offline pipeline."""
+
     online: OnlineConfig = field(default_factory=OnlineConfig)
+    """Configuration for the online pipeline."""
 
     experiment_name: str = "default"
     """Human-readable label for the current experiment run."""
