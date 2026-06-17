@@ -8,4 +8,7 @@ docling
 #faiss-gpu-cu12
 faiss-cpu
 peft
-sentence-transformersspacy
+sentence-transformers
+transformers<4.40.0
+spacy
+google-genai
