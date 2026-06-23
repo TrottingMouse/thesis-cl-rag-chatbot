@@ -119,8 +119,3 @@ class OfflinePipeline:
             "index_builder": self.index_builder.name,
         }
 
-# logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
-# config = OfflineConfig()
-# offline = OfflinePipeline(RawTextProcessor(), FixedCharacterChunker(),  FaissIndexBuilder(storage_path=Path("storage/index"), model_name=config.embedding_model))
-# print("here")
-# offline.run(["documents/PO.pdf", "documents/MHB.pdf"])

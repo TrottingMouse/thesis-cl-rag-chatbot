@@ -36,7 +36,7 @@ class FaissIndexBuilder(BaseIndexBuilder):
 
     @property
     def name(self) -> str:
-        return "faiss_index"
+        return "faiss_" + self.model_name.replace("/", "_")
 
     def build(self, chunks: list[Chunk]) -> None:
         """
