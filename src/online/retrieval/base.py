@@ -31,7 +31,7 @@ class BaseRetriever(ABC):
     Subclasses **must** implement :meth:`retrieve`.
     """
 
-    def __init__(self, index: BaseIndexBuilder, top_k: int = 20) -> None:
+    def __init__(self, index_builder: BaseIndexBuilder, top_k: int = 20) -> None:
         """
         Parameters
         ----------
@@ -42,7 +42,7 @@ class BaseRetriever(ABC):
             A generous ``top_k`` (e.g. 20–50) gives the reranker more to
             work with.
         """
-        self.index = index
+        self.index = index_builder.load()
         self.top_k = top_k
 
     @property
