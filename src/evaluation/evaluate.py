@@ -60,7 +60,7 @@ class Evaluator:
 
 
 load_dotenv()
-eval = Evaluator("storage/negative_example.json")
+eval = Evaluator("storage/negative_example.jsonl")
 eval.evaluate(accept=False)
 # evaluator = Evaluator("storage/queryeval_example.jsonl")
 # evaluator.evaluate(accept=True)
