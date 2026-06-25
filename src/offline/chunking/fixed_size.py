@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from src.models import Document, Chunk
-from src.offline.chunking.base import BaseChunker
+from .base import BaseChunker
 
 import re
 import spacy

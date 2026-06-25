@@ -13,8 +13,8 @@ from __future__ import annotations
 
 import logging
 
-from src.models.data_models import AugmentedQuery, RetrievalResult
-from src.online.reranking.base import BaseReranker
+from src.models import AugmentedQuery, RetrievalResult
+from src.online.reranking import BaseReranker
 
 logger = logging.getLogger(__name__)
 

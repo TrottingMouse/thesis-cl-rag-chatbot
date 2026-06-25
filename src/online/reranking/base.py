@@ -23,7 +23,7 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 
-from src.models.data_models import AugmentedQuery, RetrievalResult
+from src.models import AugmentedQuery, RetrievalResult
 
 
 class BaseReranker(ABC):

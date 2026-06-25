@@ -1,4 +1,4 @@
-from src.offline.preprocessing.base import BasePreprocessor
+from .base import BasePreprocessor
 from google import genai
 import pdfplumber
 import os

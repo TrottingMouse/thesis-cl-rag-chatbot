@@ -1,9 +1,9 @@
 import numpy as np
 import faiss
 
-from src.online.retrieval.base import BaseRetriever
-from src.models.data_models import AugmentedQuery, RetrievalResult
-from src.offline.indexing.indexing import FaissIndexBuilder
+from src.online.retrieval import BaseRetriever
+from src.models import AugmentedQuery, RetrievalResult
+from src.offline.indexing import FaissIndexBuilder
 
 
 class FaissRetriever(BaseRetriever):

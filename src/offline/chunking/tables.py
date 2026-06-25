@@ -1,4 +1,4 @@
-from src.offline.chunking.base import BaseChunker
+from .base import BaseChunker
 from src.models import Document, Chunk
 
 import re

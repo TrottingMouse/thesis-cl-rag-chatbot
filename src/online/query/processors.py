@@ -1,5 +1,5 @@
-from src.models.data_models import AugmentedQuery
-from .base import BaseQueryProcessor
+from src.models import AugmentedQuery
+from src.online.query import BaseQueryProcessor
 
 class NoProcessingProcessor(BaseQueryProcessor):
     @property

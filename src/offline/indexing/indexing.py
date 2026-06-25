@@ -6,7 +6,7 @@ import torch
 from sentence_transformers import SentenceTransformer
 
 from src.models import Chunk
-from src.offline.indexing.base import BaseIndexBuilder
+from .base import BaseIndexBuilder
 
 
 class FaissIndexBuilder(BaseIndexBuilder):

@@ -18,19 +18,18 @@ Usage example::
 from __future__ import annotations
 
 from src.config import OfflineConfig
-from src.offline.indexing.indexing import FaissIndexBuilder
-
-from src.offline.chunking.fixed_size import FixedCharacterChunker
-from src.offline.preprocessing.preprocessors import RawTextProcessor
+from src.offline.indexing import FaissIndexBuilder
+from src.offline.chunking import FixedCharacterChunker
+from src.offline.preprocessing import RawTextProcessor
 
 import logging
 from dataclasses import dataclass
 from pathlib import Path
 
 from src.models import Document, Chunk
-from src.offline.preprocessing.base import BasePreprocessor
-from src.offline.chunking.base import BaseChunker
-from src.offline.indexing.base import BaseIndexBuilder
+from src.offline.preprocessing import BasePreprocessor
+from src.offline.chunking import BaseChunker
+from src.offline.indexing import BaseIndexBuilder
 
 logger = logging.getLogger(__name__)
 

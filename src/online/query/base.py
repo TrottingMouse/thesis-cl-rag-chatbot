@@ -20,7 +20,7 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 
-from src.models.data_models import AugmentedQuery
+from src.models import AugmentedQuery
 
 
 class BaseQueryProcessor(ABC):

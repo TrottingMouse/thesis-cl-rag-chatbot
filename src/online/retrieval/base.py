@@ -17,8 +17,8 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 
-from src.models.data_models import AugmentedQuery, RetrievalResult
-from src.offline.indexing.base import BaseIndexBuilder
+from src.models import AugmentedQuery, RetrievalResult
+from src.offline.indexing import BaseIndexBuilder
 
 
 class BaseRetriever(ABC):

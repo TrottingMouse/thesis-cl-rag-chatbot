@@ -1,4 +1,4 @@
-from src.online.generation.base import BaseGenerator
+from src.online.generation import BaseGenerator
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 class SentenceTransformerGenerator(BaseGenerator):

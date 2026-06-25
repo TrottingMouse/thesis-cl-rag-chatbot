@@ -6,7 +6,7 @@ from docling.datamodel.pipeline_options import PdfPipelineOptions, TableFormerMo
 import pdfplumber
 
 from src.models import Document
-from src.offline.preprocessing.base import BasePreprocessor
+from .base import BasePreprocessor
 import re
 from google import genai
 

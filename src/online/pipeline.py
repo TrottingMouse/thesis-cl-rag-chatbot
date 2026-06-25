@@ -24,11 +24,11 @@ from __future__ import annotations
 import logging
 from dataclasses import dataclass
 
-from src.models.data_models import AugmentedQuery, RetrievalResult
-from src.online.generation.base import BaseGenerator
-from src.online.query.base import BaseQueryProcessor
-from src.online.retrieval.base import BaseRetriever
-from src.online.reranking.base import BaseReranker
+from src.models import AugmentedQuery, RetrievalResult
+from src.online.generation import BaseGenerator
+from src.online.query import BaseQueryProcessor
+from src.online.retrieval import BaseRetriever
+from src.online.reranking import BaseReranker
 
 logger = logging.getLogger(__name__)
 
@@ -131,6 +131,25 @@ class OnlinePipeline:
             reranked_results=reranked,
             generation_result=answer,
         )
+
+    def multiple_queries(self, raw_queries: list[str]) -> list[OnlinePipelineResult]:
+        """
+        Process multiple user queries through the full online pipeline.
+
+        Parameters
+        ----------
+        raw_queries:
+            The raw query strings from the user.
+
+        Returns
+        -------
+        list[OnlinePipelineResult]
+            Contains the augmented query, raw retrieval candidates, the final reranked results, and the generated answer string for each query.
+        """
+        results = []
+        for raw_query in raw_queries:
+            results.append(self.query(raw_query))
+        return results
 
     def describe(self) -> dict[str, str]:
         """Return a summary dict of the pipeline's component names."""
