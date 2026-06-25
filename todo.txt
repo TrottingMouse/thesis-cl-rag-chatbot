@@ -1,0 +1,9 @@
+llm-file-conversion
+query preprocessing
+llm chunking
+minirag paper ausprobieren
+bm25/hybrid retrieval
+header injection tabelle?
+
+wenn am Ende noch Zeit:
+converter von pdf für PaperLLMProcessor verbessern
