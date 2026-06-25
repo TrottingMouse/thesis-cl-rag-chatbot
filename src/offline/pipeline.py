@@ -21,7 +21,7 @@ from src.config import OfflineConfig
 from src.offline.indexing.indexing import FaissIndexBuilder
 
 from src.offline.chunking.fixed_size import FixedCharacterChunker
-from src.offline.preprocessing.file_conversions import RawTextProcessor
+from src.offline.preprocessing.preprocessors import RawTextProcessor
 
 import logging
 from dataclasses import dataclass
