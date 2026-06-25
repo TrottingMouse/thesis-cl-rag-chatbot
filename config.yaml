@@ -1,0 +1,28 @@
+data:
+  documents:
+    - "documents/PO.pdf"
+    - "documents/MHB.pdf"
+  evaluation_file: "storage/evaluation/eval_init.jsonl"
+  index_path: "storage/index"
+
+# --- NEW: Config Overrides ---
+offline_config:
+  embedding_model: "your-custom-model-name" # Example override
+
+online_config:
+  top_k: 15  # Override default retrieval count
+  top_n: 5   # Override default reranking count
+
+# --- Pipeline Components ---
+offline_pipeline:
+  preprocessors:
+    - "GeminiMarkdownProcessor"
+    - "DirectLLMProcessor"
+  chunker: "FixedParagraphChunker"
+  index_builder: "FaissIndexBuilder"
+
+online_pipeline:
+  query_processor: "NoProcessingProcessor"
+  retriever: "FaissRetriever"
+  reranker: "PassthroughReranker"
+  generator: "PassthroughGenerator"

@@ -1,51 +1,29 @@
-from src.offline.chunking import FixedParagraphChunker, FixedSentenceChunker, FixedCharacterChunker
-from src.offline.preprocessing import DirectLLMProcessor, GeminiMarkdownProcessor, PaperLLMProcessor, RawTextProcessor
-from src.offline.indexing import FaissIndexBuilder
-from src.offline.pipeline import OfflinePipeline
-from src.online.reranking import PassthroughReranker, Qwen3Reranker
-from src.online.generation import PassthroughGenerator
-from src.online.query import NoProcessingProcessor
-from src.online.retrieval import FaissRetriever
-from src.online.pipeline import OnlinePipeline, OnlinePipelineResult
-from src.config import OnlineConfig, OfflineConfig
-
 import logging
-from pathlib import Path
-from dotenv import load_dotenv
 import json
+from dotenv import load_dotenv
+from factory import build_pipelines_from_config
 
-
+# Setup
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 load_dotenv()
 
+def main():
+    # 1. Build everything from the config file
+    offline_pipeline, online_pipeline, data_config = build_pipelines_from_config("config.yaml")
 
+    # 2. Run Offline Pipeline
+    document_paths = data_config["documents"]
+    offline_result = offline_pipeline.run(document_paths)
 
-offline_config = OfflineConfig()
-online_config = OnlineConfig()
+    # 3. Run Online Pipeline
+    eval_file = data_config["evaluation_file"]
+    with open(eval_file) as f:
+        qa_pairs = json.load(f)
 
-#processor = RawTextProcessor()
-markdownprocessor = GeminiMarkdownProcessor()
-llmprocessor = DirectLLMProcessor()
-chunker = FixedParagraphChunker()
-index_builder = FaissIndexBuilder(storage_path=Path("storage/index"), model_name=offline_config.embedding_model)
+    queries = [item["user_input"] for item in qa_pairs]
+    online_results = online_pipeline.multiple_queries(queries)
 
-offline = OfflinePipeline([markdownprocessor, llmprocessor], chunker, index_builder)
+    # Do something with online_results...
 
-offline_result = offline.run(["documents/PO.pdf", "documents/MHB.pdf"])
-
-query_processor = NoProcessingProcessor()
-dense_retriever = FaissRetriever(index_builder, top_k=online_config.top_k)
-# reranker = Qwen3Reranker(top_n=online_config.top_n)
-reranker = PassthroughReranker(top_n=online_config.top_n)
-passthrough_generator = PassthroughGenerator()
-
-online: OnlinePipeline = OnlinePipeline(query_processor, dense_retriever, reranker, passthrough_generator)
-
-queries = json.load(open("storage/evaluation/eval_init.jsonl"))
-online_result: OnlinePipelineResult = online.query("Welche Kurse sollte ich im ersten Semester belegen?")
-print(online_result.generation_result)
-
-
-
-
-
+if __name__ == "__main__":
+    main()
