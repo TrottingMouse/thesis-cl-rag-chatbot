@@ -107,7 +107,7 @@ class BasePreprocessor(ABC):
                 f.write(content)
 
         return Document(
-            source_path=document.source_path,
+            source_path=cached_path,
             text=content,
             preprocessor_name=self.name,
             doc_id=new_id,

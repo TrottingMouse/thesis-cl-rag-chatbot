@@ -1,19 +1,19 @@
 """
 Offline pipeline orchestrator.
 
-Wires together a :class:`~src.offline.preprocessing.BasePreprocessor`,
-a :class:`~src.offline.chunking.BaseChunker`, and a
+Wires together a sequence of :class:`~src.offline.preprocessing.BasePreprocessor`
+instances, a :class:`~src.offline.chunking.BaseChunker`, and a
 :class:`~src.offline.indexing.BaseIndexBuilder` into a single callable
 pipeline.
 
-Usage example (skeleton – components not yet implemented)::
+Usage example::
 
     pipeline = OfflinePipeline(
-        preprocessor=MyPreprocessor(),
+        preprocessors=[RawTextProcessor(), MyLLMProcessor()],
         chunker=MyChunker(),
         index_builder=MyIndexBuilder(storage_path=Path("storage/my_index")),
     )
-    pipeline.run(raw_documents)
+    pipeline.run(raw_document_paths)
 """
 from __future__ import annotations
 
@@ -47,7 +47,8 @@ class OfflinePipeline:
     """
     Runs the three-stage offline pipeline:
 
-    1. **Preprocessing** – convert raw documents to plain text.
+    1. **Preprocessing** – pass documents through one or more preprocessors
+       in sequence; each preprocessor's output becomes the next one's input.
     2. **Chunking**       – split documents into chunks.
     3. **Indexing**       – build and persist the index.
 
@@ -57,11 +58,13 @@ class OfflinePipeline:
 
     def __init__(
         self,
-        preprocessor: BasePreprocessor,
+        preprocessors: list[BasePreprocessor],
         chunker: BaseChunker,
         index_builder: BaseIndexBuilder,
     ) -> None:
-        self.preprocessor = preprocessor
+        if not preprocessors:
+            raise ValueError("At least one preprocessor must be provided.")
+        self.preprocessors = preprocessors
         self.chunker = chunker
         self.index_builder = index_builder
 
@@ -75,8 +78,8 @@ class OfflinePipeline:
 
         Parameters
         ----------
-        raw_documents:
-            Documents loaded from disk (e.g. the two PDFs in ``documents/``).
+        raw_document_paths:
+            Paths to the raw documents on disk (e.g. PDFs in ``documents/``).
 
         Returns
         -------
@@ -84,16 +87,29 @@ class OfflinePipeline:
             Intermediate artefacts (processed docs + chunks) for inspection
             or debugging; the index is persisted to disk as a side effect.
         """
+        preprocessor_names = " -> ".join(p.name for p in self.preprocessors)
         logger.info(
-            "Offline pipeline started | preprocessor=%s | chunker=%s | index=%s",
-            self.preprocessor.name,
+            "Offline pipeline started | preprocessors=[%s] | chunker=%s | index=%s",
+            preprocessor_names,
             self.chunker.name,
             self.index_builder.name,
         )
 
-        # Stage 1 – Preprocessing
-        logger.info("Stage 1/3: Preprocessing %d document(s)…", len(raw_document_paths))
-        processed_docs = self.preprocessor.preprocess_from_paths(raw_document_paths)
+        # Stage 1 – Preprocessing (chained)
+        logger.info(
+            "Stage 1/3: Preprocessing %d document(s) through %d preprocessor(s)…",
+            len(raw_document_paths),
+            len(self.preprocessors),
+        )
+        processed_docs = self.preprocessors[0].preprocess_from_paths(raw_document_paths)
+        for i, preprocessor in enumerate(self.preprocessors[1:], start=2):
+            logger.info(
+                "Stage 1/3: Applying preprocessor %d/%d (%s)…",
+                i,
+                len(self.preprocessors),
+                preprocessor.name,
+            )
+            processed_docs = [preprocessor.preprocess(doc) for doc in processed_docs]
         logger.info("Stage 1/3: Done – %d document(s) processed.", len(processed_docs))
 
         # Stage 2 – Chunking
@@ -111,10 +127,10 @@ class OfflinePipeline:
             chunks=chunks,
         )
 
-    def describe(self) -> dict[str, str]:
+    def describe(self) -> dict[str, str | list[str]]:
         """Return a summary dict of the pipeline's component names."""
         return {
-            "preprocessor": self.preprocessor.name,
+            "preprocessors": [p.name for p in self.preprocessors],
             "chunker": self.chunker.name,
             "index_builder": self.index_builder.name,
         }

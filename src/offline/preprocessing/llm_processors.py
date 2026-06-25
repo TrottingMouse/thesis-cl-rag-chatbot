@@ -3,10 +3,12 @@ from google import genai
 import pdfplumber
 import os
 import time
+import random
+from google.genai import errors
 
+MODEL = "gemini-2.5-flash-lite"
 
 class PaperLLMProcessor(BasePreprocessor):
-    MODEL = "gemini-2.5-flash-lite"
     POLL_INTERVAL = 30  # seconds between status polls
 
     def __init__(self):
@@ -264,23 +266,74 @@ Beschreibung:
         return document_tables, contexts
 
 class DirectLLMProcessor(BasePreprocessor):
-    def __init__(self, model="gemini-3.1-flash-lite"):
+    """
+    Uses LLM to convert markdown to text.
+    Requires a Markdown processor to be run before (or the markdown documents as input).
+    """
+    def __init__(self):
         super().__init__()
-        self.model = model
+        self.client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
     @property
     def name(self) -> str:
-        return "direct_llm_" + self.model
+        return "direct_llm"
+
+    def _build_prompt(self, text: str) -> str:
+        return f"""
+            Wandle das folgende Markdown-Dokument in klaren, informationsdichten Fließtext um, der für eine semantische Suchmaschine (RAG-Pipeline) optimiert ist.
+
+            Befolge dabei strikt diese Regeln:
+            1. Informationserhalt: Übernimm ausnahmslos jede Information, jede Zahl und jedes Detail.
+            2. Hohe Entitätsdichte (WICHTIG): Vermeide Pronomen (er, sie, es, diese) über Absatzgrenzen hinweg. Wiederhole stattdessen immer wieder die konkreten Eigennamen, Produktnamen oder Fachbegriffe, damit jeder Absatz auch isoliert verständlich bleibt.
+            3. Tabellen & Listen: Wandle Tabellen und Aufzählungen in zusammenhängende Textabsätze um. Formuliere die Beziehungen zwischen Spalten/Zeilen in ganzen Sätzen aus.
+            4. Überschriften als Kontext: Nutze Überschriften, um den darauffolgenden Absatz mit einem klaren Kontext-Satz zu beginnen (z. B. statt nur "Spezifikationen:" -> "Die technischen Spezifikationen des Geräts X umfassen...").
+            5. Formatierung: Entferne alle Markdown-Zeichen (*, #, -, |). Behalte klare Absatzumbrüche bei, um logische Trennungen beizubehalten.
+
+            Input Text:
+            ---
+            {text}
+            ---
+            
+        """
 
     def process_document(self, source_path: str) -> str:
-        client = genai.Client()
-        response = client.models.generate_content(
-            model=self.model,
-            contents=f"""
+        with open(source_path, 'r') as f:
+            text = f.read()
             
-            """
-        )
-        return response.text
+        print(text)
+        
+        # Build the prompt once outside the loop to save processing time
+        prompt_contents = self._build_prompt(text)
+        
+        max_retries = 5
+        base_delay = 2.0  # Starts with a 2-second delay
+
+        for attempt in range(max_retries):
+            try:
+                interaction = self.client.interactions.create(
+                    model=MODEL,
+                    input=prompt_contents,
+                    service_tier='flex'
+                )
+                return interaction.output_text
+                                
+            except (errors.ServerError, errors.APIError) as e:
+                # Safely extract the status code (503 for ServerError, 429 for APIError)
+                status_code = getattr(e, 'code', None)
+                
+                # Check if the error is a temporary bottleneck we can wait out
+                if status_code in [503, 429] or "503" in str(e):
+                    if attempt < max_retries - 1:
+                        # Exponential backoff: 2s, 4s, 8s, 16s + 1-3 seconds of random jitter
+                        sleep_time = (base_delay * (2 ** attempt)) + random.uniform(1.0, 3.0)
+                        print(f"[API {status_code}] Backend stalled. Retrying in {sleep_time:.1f}s... (Attempt {attempt + 1}/{max_retries})")
+                        time.sleep(sleep_time)
+                    else:
+                        raise RuntimeError(f"Failed to process document after {max_retries} attempts due to API limits. Last error: {e}")
+                else:
+                    # If it's a 400 Bad Request (e.g., token limit exceeded, bad JSON), 
+                    # retrying won't fix it. Raise the error immediately.
+                    raise e
 
 
 
