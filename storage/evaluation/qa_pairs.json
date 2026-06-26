@@ -1,0 +1,202 @@
+[
+  {
+    "user_input": "Welche Kurse sollte ich im ersten Semester belegen?",
+    "reference": "Laut dem exemplarischen Studienverlaufsplan solltest du im ersten Semester folgende Kurse belegen: Mathematische Grundlagen, Einführung in die computationelle Logik, Einführung in die Computerlinguistik, Einführung in die Programmierung mit Python, Morphologie und Syntax."
+  },
+  {
+    "user_input": "Gibt es eine Übung für Mathematische Grundlagen?",
+    "reference": "Nein, für den Kurs \"Mathematische Grundlagen\" gibt es keine begleitende Übung. Es handelt sich dabei ausschließlich um ein Seminar."
+  },
+  {
+    "user_input": "Muss ich für den Python-Kurs Vorkenntnisse haben?",
+    "reference": "Nein, für das Modul \"Python-Programmierung\" werden weder formale noch inhaltliche Vorkenntnisse vorausgesetzt."
+  },
+  {
+    "user_input": "Muss ich fließend Englisch sprechen können um Computerlinguistik zu studieren?",
+    "reference": "Fließendes Englisch wird nicht vorausgesetzt, jedoch benötigst du Englischkenntnisse auf dem Niveau B1. Dies entspricht vergleichsweise einem erfolgreichen vierjährigen Schulunterricht an einer weiterführenden Schule."
+  },
+  {
+    "user_input": "Wie oft darf ich eine Prüfung nicht bestehen?",
+    "reference": "Aus den Dokumenten geht keine explizite Gesamtzahl der erlaubten Fehlversuche hervor. Es ist jedoch vermerkt, dass die zweite Wiederholung einer Modulprüfung als mündliche Prüfung erfolgen darf. Das bedeutet, dass du eine Prüfung mindestens zweimal wiederholen darfst."
+  },
+  {
+    "user_input": "Kann ich Einführung in die Programmierung mit Python auch im zweiten Semester belegen?",
+    "reference": "Der Studienverlaufsplan ist nur exemplarisch und nicht verpflichtend. Allerdings wird das Seminar \"Einführung in die Programmierung mit Python\" ausschließlich jedes Wintersemester angeboten. Da das zweite Semester in der Regel ein Sommersemester ist, ist eine reguläre Belegung dort nicht möglich."
+  },
+  {
+    "user_input": "Muss ich in mathematische Grundlagen und in Logik eine Klausur schreiben?",
+    "reference": "Nein, du musst nicht in beiden Veranstaltungen eine Klausur schreiben. Für das gesamte \"Basismodul - Mathematische und logische Grundlagen\" ist nur eine einzige Modulprüfung in Form eines Portfolios vorgesehen."
+  },
+  {
+    "user_input": "Wie viele Klausuren/Prüfungen habe ich im ersten Semester?",
+    "reference": "Wenn du dich an den exemplarischen Studienverlaufsplan hältst, hast du im ersten Semester insgesamt zwei Modulprüfungen. Diese finden in den Modulen \"Mathematische und logische Grundlagen\" (als Portfolio) und \"Morphologie und Syntax\" (als Klausur) statt."
+  },
+  {
+    "user_input": "Muss ich in Python eine Klausur/Prüfung absolvieren?",
+    "reference": "Ja, du musst im Modul \"Python-Programmierung\" eine Prüfung in Form einer Projektarbeit ablegen. Diese Modulprüfung ist jedoch erst im zweiten Fachsemester (Sommersemester) vorgesehen. Im ersten Semester musst du dafür lediglich Studienleistungen erbringen."
+  },
+  {
+    "user_input": "Muss ich in Grundlagen der Computerlinguistik eine Klausur/Prüfung machen?",
+    "reference": "Ja, für das Modul \"Grundlagen der Computerlinguistik und formale Grammatikbeschreibung\" musst du eine Klausur schreiben. Diese Modulprüfung findet allerdings erst im zweiten Fachsemester (Sommersemester) statt und wird dann in Kombination mit dem Kurs \"Grammatikformalismen\" geprüft."
+  },
+  {
+    "user_input": "Gibt es eine Klausur in Wahrscheinlichkeitstheorie?",
+    "reference": "Nein, im \"Basismodul - Statistische Methoden in der Computerlinguistik\", zu dem die Wahrscheinlichkeitstheorie gehört, gibt es gar keine Modulprüfung und somit auch keine Klausur. Es müssen lediglich Studienleistungen erbracht werden."
+  },
+  {
+    "user_input": "Gibt es eine Klausur in Parsing?",
+    "reference": "Nein, auch für das Aufbaumodul \"Parsing\" ist keine Modulprüfung vorgesehen."
+  },
+  {
+    "user_input": "Wann soll ich das Praktikum machen?",
+    "reference": "Es wird empfohlen, das Berufsfeldpraktikum nach dem vierten oder fünften Semester zu absolvieren."
+  },
+  {
+    "user_input": "Wann kann ich ins Ausland gehen?",
+    "reference": "Ein Auslandsaufenthalt ist optional. Als sogenanntes \"Mobilitätsfenster\" ist das fünfte Semester vorgesehen."
+  },
+  {
+    "user_input": "Muss ich für Semantik und Pragmatik vorher Morphologie und Syntax belegt haben?",
+    "reference": "Nein, für das Modul \"Basiswissen Linguistik - Semantik und Pragmatik\" gibt es keinerlei formale oder inhaltliche Teilnahmevoraussetzungen."
+  },
+  {
+    "user_input": "Gibt es in Machine Learning eine Klausur?",
+    "reference": "Nein, im Aufbaumodul \"Maschinelles Lernen\" wird keine Klausur geschrieben. Die Prüfungsform ist hier entweder eine Hausarbeit oder eine Studienarbeit, jeweils in Verbindung mit einem Programmierprojekt."
+  },
+  {
+    "user_input": "Wie lang ist das Praktikum?",
+    "reference": "Das Berufsfeldpraktikum dauert in der Regel mindestens sechs Wochen und wird in Vollzeit absolviert."
+  },
+  {
+    "user_input": "Kann ich mein Praktikum machen, wann ich will?",
+    "reference": "Nein, du kannst den Zeitpunkt nicht völlig frei wählen. Als formale Teilnahmevoraussetzung für das Praktikums-Modul ist vorgeschrieben, dass du dich mindestens im 4. Fachsemester befinden musst."
+  },
+  {
+    "user_input": "Kann ich für das interdisziplinäre Vertiefungsmodul nur linguistische Kurse belegen?",
+    "reference": "Nein, das ist nicht erlaubt. Das Modul verlangt zwingend, dass Veranstaltungen aus der Informatik im Umfang von mindestens 4 Semesterwochenstunden (SWS) belegt werden müssen."
+  },
+  {
+    "user_input": "Muss ich Kurse aus der Linguistik für das interdisziplinäre Vertiefungsmodul belegen?",
+    "reference": "Nein, Linguistik-Kurse sind keine Pflicht. Das Modul sieht vor, dass du zwei Vorlesungen oder Seminare aus der Linguistik oder der Informatik wählst, wobei lediglich der Informatik-Anteil von 4 SWS vorgeschrieben ist."
+  },
+  {
+    "user_input": "Warum kann ich mich nicht zu den Vertiefungsmodulen anmelden?",
+    "reference": "Dies liegt höchstwahrscheinlich daran, dass du die formalen Voraussetzungen noch nicht erfüllt hast. Für die Vertiefungsmodule \"Computerlinguistik 1\" und \"Computerlinguistik 2\" ist zwingend vorgeschrieben, dass du die Module \"Basismodul - Mathematische und logische Grundlagen\", \"Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung\" sowie das \"Aufbaumodul - Maschinelles Lernen\" vorher bestanden hast."
+  },
+  {
+    "user_input": "Muss ich alle Module bestanden haben, bevor ich meine Bachelorarbeit schreibe?",
+    "reference": "Nein, du musst nicht zwingend das gesamte Studium vorher abgeschlossen haben. Die einzige formale Teilnahmevoraussetzung für das Modul \"Abschlussarbeit und Forschungskolloquium\" ist der erfolgreiche Abschluss aller Basis- und Aufbaumodule."
+  },
+  {
+    "user_input": "Wie stark zählt die Bachelorarbeit für meine Abschlussnote?",
+    "reference": "Die Note der Bachelorarbeit wird bei der Ermittlung der Gesamtnote dreifach gewichtet. Im Vergleich dazu gehen alle anderen Modulprüfungen nur einfach in die Gesamtnote ein."
+  },
+  {
+    "user_input": "Wie viel Zeit sollte ich für die Bachelorarbeit einplanen?",
+    "reference": "Für das gesamte Modul \"Abschlussarbeit und Forschungskolloquium\" wird ein Arbeitsaufwand von 450 Stunden veranschlagt."
+  },
+  {
+    "user_input": "Welche Programmiersprachen lerne ich im Laufe des Studiums?",
+    "reference": "In den Basismodulen lernst du ausführlich die Programmierung mit Python. Im Aufbaumodul \"Objektorientierte Programmierung\" wird eine objektorientierte Programmiersprache erlernt. Im Aufbaumodul \"Logische Programmierung\" wird in das logische Programmierparadigma anhand der Sprache Prolog eingeführt. Im Bereich Statistik kann die statistische Programmierung in einer geeigneten Sprache (beispielsweise R) erlernt werden."
+  },
+  {
+    "user_input": "Muss ich nach dem Studienplan studieren?",
+    "reference": "Nein, bei dem Plan handelt es sich lediglich um eine exemplarische Darstellung, die nicht verpflichtend ist. Es ist nur eine Möglichkeit von vielen, wie das Studium strukturiert werden kann. Die Studienberatung kann aufgrund von didaktischen Überlegungen auch individuell zu anderen Studienverläufen raten."
+  },
+  {
+    "user_input": "Was muss ich nach dem Praktikum bei der Uni einreichen, um meine ECTS zu bekommen?",
+    "reference": "Um die Leistungspunkte für das Praktikum zu erhalten, musst du einen Praktikumsnachweis (ein Zeugnis der Praktikumsstelle) einreichen. Zusätzlich muss ein kurzer Praktikumsbericht im Umfang von etwa 3 bis 5 Seiten verfasst werden."
+  },
+  {
+    "user_input": "Wie viele Leistungspunkte (LP) müssen im Profilbildungsbereich erworben werden?",
+    "reference": "Im Profilbildungsbereich müssen über das Studium verteilt insgesamt 18 Leistungspunkte erworben werden."
+  },
+  {
+    "user_input": "Aus welchen Teilen besteht das Modul Objektorientierte Programmierung?",
+    "reference": "Das Modul umfasst eine Vorlesung, eine reguläre Übung sowie eine praktische Übung zur Vorlesung."
+  },
+  {
+    "user_input": "Worum geht es im Orientierungsseminar?",
+    "reference": "Das Seminar bietet eine Orientierung für die zweite Studienphase. Die Inhalte umfassen die Studienorganisation (wie Schwerpunktsetzung und Auslandsaufenthalte), die Vorbereitung auf die Abschlussarbeit (inklusive Themenwahl und wissenschaftlichem Arbeiten) sowie Berufsperspektiven und mögliche Anschlussstudiengänge."
+  },
+  {
+    "user_input": "Welche Themen kann ich im Vertiefungsmodul von der Informatik belegen?",
+    "reference": "Für die Computerlinguistik relevante, mögliche Themen in der Informatik sind: Professionelle Softwareentwicklung, Datenbanksysteme, Nichtkooperative Spieltheorie, Komplexitätstheorie, Numerische Optimierung, Dialogsysteme und Überblick Künstliche Intelligenz."
+  },
+  {
+    "user_input": "Welche Kurse muss ich für das Aufbaumodul Maschinelles Lernen schon belegt haben?",
+    "reference": "Um das Aufbaumodul \"Maschinelles Lernen\" belegen zu können, wird inhaltlich vorausgesetzt, dass du das \"Basismodul - Statistische Methoden in der Computerlinguistik\" bereits absolviert hast. Es gibt jedoch keine strengen formalen Teilnahmevoraussetzungen."
+  },
+  {
+    "user_input": "Wie wird die Gesamtnote meines Bachelorabschlusses berechnet?",
+    "reference": "Die Gesamtnote setzt sich aus den Noten der Modulprüfungen und der Bachelorarbeit zusammen. Dabei wird die Note der Bachelorarbeit dreifach gewichtet, während alle anderen Modulprüfungen nur einfach in die Gesamtnote einfließen."
+  },
+  {
+    "user_input": "Welche Vorkenntnisse brauche ich für das Aufbaumodul Mathematische Linguistik?",
+    "reference": "Inhaltlich wird vorausgesetzt, dass du die Kurse aus dem \"Basismodul - Mathematische und logische Grundlagen\" sowie dem \"Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung\" kennst. Formale Zulassungsbeschränkungen für die Teilnahme gibt es für dieses Modul aber nicht."
+  },
+  {
+    "user_input": "Was ist der Unterschied zwischen Vertiefungsmodul Computerlinguistik 1 und Vertiefungsmodul Computerlinguistik 2?",
+    "reference": "Die Unterschiede liegen im Umfang, der zeitlichen Verteilung und den Prüfungen: Computerlinguistik 1: Umfasst 12 ECTS-Leistungspunkte (8 SWS), ist für das 5. Fachsemester vorgesehen und besteht aus zwei frei wählbaren Seminaren. Es ist keine eigene Modulprüfung vorgesehen (0 MP), die Punkte werden durch aktive/erfolgreiche Mitwirkung erbracht. Computerlinguistik 2: Umfasst 9 ECTS-Leistungspunkte (4 SWS), ist für das 6. Fachsemester vorgesehen und besteht aus nur einem thematischen Seminar. Hier muss zwingend eine Modulprüfung (1 MP) abgelegt werden (z. B. als mündliche Prüfung, Klausur oder Hausarbeit)."
+  },
+  {
+    "user_input": "Kann ich auch im Sommersemester anfangen?",
+    "reference": "Nein, das Studium ist für einen Beginn im Wintersemester ausgelegt."
+  },
+  {
+    "user_input": "Wie viele Prüfungen muss ich insgesamt ablegen?",
+    "reference": "Im gesamten Bachelorstudium musst du 9 Modulprüfungen ablegen, zuzüglich der Bachelorarbeit."
+  },
+  {
+    "user_input": "Wie finde ich einen Praktikumsplatz?",
+    "reference": "Der oder die Praktikumsbeauftragte der Abteilung für Computerlinguistik ist bei der Vermittlung von Praktikumsplätzen behilflich. Zudem bietet diese Person eine fachliche Praktikumsberatung und -begleitung an."
+  },
+  {
+    "user_input": "Welche Prüfungsform hat das Basismodul - Mathematische und logische Grundlagen?",
+    "reference": "Die Modulprüfung für dieses Basismodul erbringst du in Form eines Portfolios."
+  },
+  {
+    "user_input": "Welche Themen werden im Modul Parsing behandelt?",
+    "reference": "Es werden verschiedene Algorithmen und Techniken für das automatische Erstellen syntaktischer Strukturen (Parsing) über bestehendem Text eingeführt. Dabei werden sowohl symbolische als auch datengetriebene Ansätze besprochen. Der Fokus liegt auf Konstituenten- und Dependenzstrukturen."
+  },
+  {
+    "user_input": "Was ist das Forschungskolloquium?",
+    "reference": "Im Forschungskolloquium tragen jede zweite Woche meist auswärtige Gäste ihre aktuelle Forschungsarbeit vor. In der Woche davor werden die Inhalte dieser Vorträge anhand von Artikeln gemeinsam besprochen und vorbereitet."
+  },
+  {
+    "user_input": "Wie bekomme ich ein Thema für meine Bachelorarbeit?",
+    "reference": "Das genaue Thema deiner Bachelorarbeit darfst du frei wählen, es muss jedoch zwingend im Bereich der Computerlinguistik liegen."
+  },
+  {
+    "user_input": "Welche Kursarten gehören zum Modul Semantik und Pragmatik?",
+    "reference": "Das Modul besteht aus einer Vorlesung sowie einem begleitenden Tutorium."
+  },
+  {
+    "user_input": "Wann sollte ich Automatentheorie belegen?",
+    "reference": "Den Kurs Automatentheorie aus dem Modul Aufbaumodul – Mathematische Linguistik solltest du im dritten Semester belegen."
+  },
+  {
+    "user_input": "Was ist der Unterschied zwischen den beiden python-Kursen?",
+    "reference": "Im Wintersemester werden die Grundlagen der Python-Programmierung, Datentypen, gängige Programmkonstrukte und elementare Textverarbeitung gelehrt. Im Sommersemester liegt der Fokus auf objektorientierter und funktionaler Programmierung, dem Einsatz von Bibliotheken für Data Science und NLP sowie den Grundzügen der Software-Entwicklung."
+  },
+  {
+    "user_input": "Muss ich ein Praktikum machen?",
+    "reference": "Nein, alternativ zu einem mindestens 6-wöchigen Berufsfeldpraktikum kann auch eine Projektarbeit absolviert werden, sofern diese einen einschlägig computerlinguistischen Inhalt aufweist."
+  },
+  {
+    "user_input": "Wie viele ECTS gibt es für Morphologie und Syntax?",
+    "reference": "Für den erfolgreichen Abschluss dieses Moduls erhältst du insgesamt 9 ECTS-Leistungspunkte."
+  },
+  {
+    "user_input": "Welche linguistischen Kursthemen kann ich im interdisziplinären Vertiefungsmodul wählen?",
+    "reference": "Beispiele für relevante Themengebiete in der Linguistik für dieses Modul sind Phonetik und Phonologie, Psycho- und Neurolinguistik sowie die historische Linguistik."
+  },
+  {
+    "user_input": "In welchem Semester wird empfohlen, das Seminar \"Linguistische Ressourcen\" zu belegen?",
+    "reference": "Dem exemplarischen Studienverlaufsplan nach sollte dieses Seminar im 3. Fachsemester (Wintersemester) belegt werden."
+  },
+  {
+    "user_input": "Wird im Studiengang KI behandelt?",
+    "reference": "Ja, das Thema Künstliche Intelligenz (KI) ist ein zentraler und fest verankerter Bestandteil des Studiengangs. Im Pflichtbereich (Deep Learning): Im Aufbaumodul \"Maschinelles Lernen\" lernen die Studierenden den Umgang mit künstlichen neuronalen Netzen (Deep Learning) kennen und implementieren diese zur Lösung von Aufgaben im Natural Language Processing (NLP). Als Wahlthema in der Informatik: Im \"Vertiefungsmodul - Interdisziplinär\" kann aus dem Bereich der Informatik explizit die Veranstaltung \"Überblick Künstliche Intelligenz\" belegt werden. Spezialisierung im 3. Studienjahr: In den Vertiefungsmodulen der Computerlinguistik werden hochaktuelle KI-Architekturen in Seminaren gelehrt, darunter ausdrücklich \"große Sprachmodelle\" (Large Language Models) und \"Transformer-Architekturen\"."
+  }
+]
