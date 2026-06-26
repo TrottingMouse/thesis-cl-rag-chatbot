@@ -1,3 +1,4 @@
+from src.evaluation import Evaluator
 import logging
 import json
 from dotenv import load_dotenv
@@ -27,9 +28,15 @@ def main():
         qa_pairs[i]["generated_answer"] = pipeline_result.generation_result
         qa_pairs[i]["retrieved_contexts"] = [retrieval_result.chunk.text for retrieval_result in pipeline_result.reranked_results]
     
-    with open(pipeline_name+".jsonl", "w") as f:
+    save_path = "storage/results/" + pipeline_name + ".jsonl"
+    with open(save_path, "w") as f:
         json.dump(qa_pairs, f, indent=4)
-    logging.info(f"Offline pipeline completed. Results saved to {pipeline_name}.jsonl")
+    logging.info(f"Offline pipeline completed. Results saved to {save_path}")
+
+    evaluator = Evaluator(save_path)
+    evaluation_df = evaluator.evaluate(accept=True)
+    
+    
     
     
 

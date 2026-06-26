@@ -56,12 +56,15 @@ class Evaluator:
                 metrics=[negative_rejection]
             )
 
-        print(result) #TODO: save results
+        print(result)
+        df = result.to_pandas()
+        return df
+        
 
 
-load_dotenv()
-eval = Evaluator("storage/negative_example.jsonl")
-eval.evaluate(accept=False)
+# load_dotenv()
+# eval = Evaluator("storage/negative_example.jsonl")
+# eval.evaluate(accept=False)
 # evaluator = Evaluator("storage/queryeval_example.jsonl")
 # evaluator.evaluate(accept=True)
 """,
