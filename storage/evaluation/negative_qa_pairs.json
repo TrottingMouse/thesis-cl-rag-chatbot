@@ -1,0 +1,82 @@
+[
+    {
+        "user_input": "Gibt es einen Numerus Clausus (NC) oder einen Mindest-Abiturschnitt für den Studiengang?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
+    },
+    {
+        "user_input": "Wie hoch ist der aktuelle Semesterbeitrag an der Heinrich-Heine-Universität Düsseldorf?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
+    },
+    {
+        "user_input": "Welche Fristen gelten für die Prüfungsanmeldung der Klausur in Morphologie und Syntax?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
+    },
+    {
+        "user_input": "Kann ich den Bachelor Computerlinguistik auch als Teilzeitstudium absolvieren?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
+    },
+    {
+        "user_input": "Wie lautet die E-Mail-Adresse oder Telefonnummer der fachlichen Studienberatung?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
+    },
+    {
+        "user_input": "Welche Dozenten oder Professoren unterrichten das Aufbaumodul Maschinelles Lernen?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
+    },
+    {
+        "user_input": "Was muss ich tun, wenn ich am Tag einer Modulprüfung krank bin und ein Attest habe?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
+    },
+    {
+        "user_input": "Welche Mindest-Systemanforderungen muss mein privater Laptop für den Python-Kurs erfüllen?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
+    },
+    {
+        "user_input": "Wer hat die Programmiersprache Python erfunden?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
+    },
+    {
+        "user_input": "Mit wie vielen Parametern wurde das Sprachmodell GPT-4 trainiert?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
+    },
+    {
+        "user_input": "In welchem Jahr wurde die Chomsky-Hierarchie zum ersten Mal publiziert?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
+    },
+    {
+        "user_input": "Wie hoch ist das durchschnittliche Einstiegsgehalt von Computerlinguisten in Deutschland?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
+    },
+    {
+        "user_input": "Welche Programmiersprache hat eine schnellere Ausführungszeit: Python oder C++?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
+    },
+    {
+        "user_input": "Was ist der genaue theoretische Unterschied zwischen Supervised Learning und Reinforcement Learning?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
+    },
+    {
+        "user_input": "Wo kann man auf dem Campus der Universität Düsseldorf am besten kostenlos parken?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
+    },
+    {
+        "user_input": "Wie viele Einwohner hat die Stadt Düsseldorf aktuell?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
+    },
+    {
+        "user_input": "Wie wird das Wetter am kommenden Wochenende in Nordrhein-Westfalen?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
+    },
+    {
+        "user_input": "Wer hat die Fußball-Europameisterschaft der Herren im Jahr 2024 gewonnen?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
+    },
+    {
+        "user_input": "Bei welcher Temperatur und wie lange muss ein klassischer Marmorkuchen im Ofen backen?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
+    },
+    {
+        "user_input": "Wie viele Kilometer ist die Sonne durchschnittlich von der Erde entfernt?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
+    }
+]

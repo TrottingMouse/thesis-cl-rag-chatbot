@@ -80,7 +80,7 @@ class BaseGenerator(ABC):
         context_str = "\n".join([f"Source {i+1}:\n{result.chunk.text}" for i, result in enumerate(context)])
         return f"""
         Du bist ein hilfreicher Assistent. Beantworte die Frage basierend auf dem gegebenen Kontext.
-        Wenn die Antwort nicht im Kontext zu finden ist, antworte: "Ich weiß es nicht."
+        Wenn die Antwort nicht im Kontext zu finden ist, antworte: "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
         
         Frage: {query}
         Kontext: {context_str}
