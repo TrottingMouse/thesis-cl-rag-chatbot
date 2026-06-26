@@ -7,3 +7,6 @@ header injection tabelle?
 
 wenn am Ende noch Zeit:
 converter von pdf für PaperLLMProcessor verbessern
+
+Architektur:
+RetrievalResult abschaffen und stattdessen Chunk retrieven?

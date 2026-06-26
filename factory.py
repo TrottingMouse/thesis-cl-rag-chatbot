@@ -26,6 +26,7 @@ def build_pipelines_from_config(yaml_path: str):
     preprocessors = [get_class(name)() for name in offline_cfg["preprocessors"]]
     chunker = get_class(offline_cfg["chunker"])()
     
+    #hier bei BM25 aufpassen weil kein model_name als parameter (Konstruktor überschrieben bei dense)
     IndexBuilderClass = get_class(offline_cfg["index_builder"])
     index_builder = IndexBuilderClass(
         storage_path=Path(config["data"]["index_path"]),
@@ -49,4 +50,16 @@ def build_pipelines_from_config(yaml_path: str):
     
     online_pipeline = OnlinePipeline(query_processor, retriever, reranker, generator)
 
-    return offline_pipeline, online_pipeline, config["data"]
+    # 4. Build a unique pipeline name from the first 6 letters of each component
+    component_names = (
+        offline_cfg["preprocessors"]          # list of preprocessor names
+        + [offline_cfg["chunker"]]
+        + [offline_cfg["index_builder"]]
+        + [online_cfg["query_processor"]]
+        + [online_cfg["retriever"]]
+        + [online_cfg["reranker"]]
+        + [online_cfg["generator"]]
+    )
+    pipeline_name = "_".join(name[:6] for name in component_names)
+
+    return offline_pipeline, online_pipeline, config["data"], pipeline_name

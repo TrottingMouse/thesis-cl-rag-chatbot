@@ -9,7 +9,7 @@ load_dotenv()
 
 def main():
     # 1. Build everything from the config file
-    offline_pipeline, online_pipeline, data_config = build_pipelines_from_config("config.yaml")
+    offline_pipeline, online_pipeline, data_config, pipeline_name = build_pipelines_from_config("config.yaml")
 
     # 2. Run Offline Pipeline
     document_paths = data_config["documents"]
@@ -23,7 +23,19 @@ def main():
     queries = [item["user_input"] for item in qa_pairs]
     online_results = online_pipeline.multiple_queries(queries)
 
-    # Do something with online_results...
+    for i, pipeline_result in enumerate(online_results):
+        qa_pairs[i]["generated_answer"] = pipeline_result.generation_result
+        qa_pairs[i]["retrieved_contexts"] = [retrieval_result.chunk.text for retrieval_result in pipeline_result.reranked_results]
+    
+    with open(pipeline_name+".jsonl", "w") as f:
+        json.dump(qa_pairs, f, indent=4)
+    logging.info(f"Offline pipeline completed. Results saved to {pipeline_name}.jsonl")
+    
+    
+
+        
+        
+        
 
 if __name__ == "__main__":
     main()
