@@ -1,6 +1,7 @@
 from src.evaluation import Evaluator
 import logging
 import json
+import os
 from dotenv import load_dotenv
 from factory import build_pipelines_from_config
 
@@ -28,7 +29,8 @@ def main():
         qa_pairs[i]["generated_answer"] = pipeline_result.generation_result
         qa_pairs[i]["retrieved_contexts"] = [retrieval_result.chunk.text for retrieval_result in pipeline_result.reranked_results]
     
-    save_path = "storage/results/" + pipeline_name + ".jsonl"
+    save_path = "storage/results/" + pipeline_name + ".json"
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)
     with open(save_path, "w") as f:
         json.dump(qa_pairs, f, indent=4)
     logging.info(f"Offline pipeline completed. Results saved to {save_path}")
