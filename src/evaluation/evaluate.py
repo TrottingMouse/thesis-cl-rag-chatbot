@@ -3,7 +3,7 @@ from ragas import evaluate
 from ragas.dataset_schema import SingleTurnSample, EvaluationDataset
 from ragas.metrics import context_recall, context_precision, faithfulness, answer_relevancy, answer_correctness, AspectCritic
 # 2. LangChain Module und Ragas Wrapper importieren
-from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from ragas.llms import LangchainLLMWrapper
 from ragas.embeddings import LangchainEmbeddingsWrapper
 
@@ -22,13 +22,13 @@ class Evaluator:
         # read data from json file
         with open(filepath, 'r', encoding='utf-8') as f:
             self.data = json.load(f)
-        # 3. Gemini via LangChain initialisieren
-        gemini_llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash-lite")
-        gemini_embeddings = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001")
+        # 3. OpenAI via LangChain initialisieren
+        openai_llm = ChatOpenAI(model="gpt-4o-mini")
+        openai_embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
 
         # 4. Die LangChain-Objekte für Ragas verpacken
-        self.ragas_llm = LangchainLLMWrapper(gemini_llm)
-        self.ragas_embeddings = LangchainEmbeddingsWrapper(gemini_embeddings)
+        self.ragas_llm = LangchainLLMWrapper(openai_llm)
+        self.ragas_embeddings = LangchainEmbeddingsWrapper(openai_embeddings)
         answer_relevancy.strictness = 1
         
 
