@@ -26,7 +26,7 @@ def main():
     online_results = online_pipeline.multiple_queries(queries)
 
     for i, pipeline_result in enumerate(online_results):
-        qa_pairs[i]["generated_answer"] = pipeline_result.generation_result
+        qa_pairs[i]["response"] = pipeline_result.generation_result
         qa_pairs[i]["retrieved_contexts"] = [retrieval_result.chunk.text for retrieval_result in pipeline_result.reranked_results]
     
     save_path = "storage/results/" + pipeline_name + ".json"
