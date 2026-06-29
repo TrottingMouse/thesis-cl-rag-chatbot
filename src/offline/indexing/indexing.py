@@ -92,7 +92,7 @@ class FaissIndexBuilder(BaseIndexBuilder):
         self.index = faiss.read_index(str(index_path))
 
         chunks_path = self.storage_path / "chunks.pkl"
-        with open(chunks_path, "rb") as f:
+        with open(chunks_path, "rb") as f:# Uses the overridden value!
             self.chunks = pickle.load(f)
 
     def is_built(self) -> bool:

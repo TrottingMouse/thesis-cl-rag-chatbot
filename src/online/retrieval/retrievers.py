@@ -34,10 +34,6 @@ class FaissRetriever(BaseRetriever):
         top_k:
             Maximum number of results to return.
         """
-        # BaseRetriever calls index_builder.load() and stores the return value
-        # (None) in self.index.  We additionally keep the builder itself so we
-        # can access the FAISS index object and the chunks list.
-        self._index_builder = index_builder
         super().__init__(index_builder, top_k)
 
     @property
@@ -87,9 +83,9 @@ class FaissRetriever(BaseRetriever):
         Embed *query*, search the FAISS index, and return up to ``top_k``
         ``RetrievalResult`` objects ordered by descending cosine similarity.
         """
-        faiss_index: faiss.Index = self._index_builder.index
-        chunks = self._index_builder.chunks
-        model = self._index_builder.model
+        faiss_index: faiss.Index = self.index_builder.index
+        chunks = self.index_builder.chunks
+        model = self.index_builder.model
 
         # Encode and normalise to unit length (matching build-time normalisation)
         query_vector: np.ndarray = model.encode(

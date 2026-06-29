@@ -37,7 +37,7 @@ class BaseIndexBuilder(ABC):
         ----------
         storage_path:
             Directory under which the index artefacts are stored.
-            Subclasses may create sub-directories within this path.
+            The index is overwritten every time the offline pipeline is run.
         """
         self.storage_path = storage_path
 

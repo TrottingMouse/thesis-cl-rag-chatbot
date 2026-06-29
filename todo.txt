@@ -12,6 +12,7 @@ bm25/hybrid retrieval
 
 Architektur:
 RetrievalResult abschaffen und stattdessen Chunk retrieven?
+indexbuilder.load() und isbuilt() löschen?
 
 
 DONE:

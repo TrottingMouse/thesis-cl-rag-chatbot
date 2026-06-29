@@ -30,7 +30,7 @@ def build_pipelines_from_config(yaml_path: str):
     IndexBuilderClass = get_class(offline_cfg["index_builder"])
     index_builder = IndexBuilderClass(
         storage_path=Path(config["data"]["index_path"]),
-        model_name=offline_config.embedding_model # Uses the overridden value!
+        model_name=offline_config.embedding_model
     )
     
     offline_pipeline = OfflinePipeline(preprocessors, chunker, index_builder)

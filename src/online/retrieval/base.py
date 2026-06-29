@@ -42,8 +42,9 @@ class BaseRetriever(ABC):
             A generous ``top_k`` (e.g. 20–50) gives the reranker more to
             work with.
         """
-        self.index = index_builder.load()
+        self.index_builder = index_builder
         self.top_k = top_k
+        self.index = None
 
     @property
     @abstractmethod
