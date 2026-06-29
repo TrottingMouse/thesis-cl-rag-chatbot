@@ -35,6 +35,7 @@ def main():
 
     evaluator = Evaluator(save_path)
     evaluation_df = evaluator.evaluate(accept=True)
+    print(evaluation_df)
     
     
     
