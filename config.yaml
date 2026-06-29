@@ -2,7 +2,7 @@ data:
   documents:
     - "documents/PO.pdf"
     - "documents/MHB.pdf"
-  evaluation_file: "storage/evaluation/eval_init.jsonl"
+  evaluation_file: "storage/evaluation/qa_pairs_grid.json"
   index_path: "storage/index"
 
 # --- NEW: Config Overrides ---
