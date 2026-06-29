@@ -35,13 +35,16 @@ class Evaluator:
     def evaluate(self, accept: bool):
         eval_dataset = EvaluationDataset.from_list(self.data)
 
+        my_run_config = RunConfig(max_workers=1, timeout=120, max_retries=10)
+
         if accept:
             result = evaluate(
                 dataset=eval_dataset,
                 llm=self.ragas_llm,
                 embeddings=self.ragas_embeddings,
                 metrics=[context_recall, context_precision, faithfulness, answer_relevancy, answer_correctness],
-                raise_exceptions=True
+                raise_exceptions=True,
+                run_config=my_run_config
             )
         else:
             negative_rejection = AspectCritic(
