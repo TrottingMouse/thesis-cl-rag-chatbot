@@ -1,12 +1,18 @@
-llm-file-conversion
+gridsearch
+lumberchunker auf server testen
+dynamicsentence testen
 query preprocessing
-llm chunking
 minirag paper ausprobieren
-bm25/hybrid retrieval
 header injection tabelle?
 
 wenn am Ende noch Zeit:
-converter von pdf für PaperLLMProcessor verbessern
+converter von pdf für PaperLLMProcessor verbessern/cleaner einbauen (siehe Lumberchunker chat)
+bm25/hybrid retrieval
+
 
 Architektur:
 RetrievalResult abschaffen und stattdessen Chunk retrieven?
+
+
+DONE:
+llm chunking

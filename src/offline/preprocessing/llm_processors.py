@@ -6,7 +6,7 @@ import time
 import random
 from google.genai import errors
 
-MODEL = "gemini-2.5-flash-lite"
+_MODEL = "gemini-2.5-flash-lite"
 
 class PaperLLMProcessor(BasePreprocessor):
     POLL_INTERVAL = 30  # seconds between status polls
@@ -311,7 +311,7 @@ class DirectLLMProcessor(BasePreprocessor):
         for attempt in range(max_retries):
             try:
                 interaction = self.client.interactions.create(
-                    model=MODEL,
+                    model=_MODEL,
                     input=prompt_contents,
                     service_tier='flex'
                 )

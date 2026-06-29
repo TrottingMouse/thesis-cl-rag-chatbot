@@ -10,11 +10,13 @@ Exports:
     FixedSentenceChunker    – splits text into fixed-size sentence windows
     FixedParagraphChunker   – splits text into fixed-size paragraph windows
     WholeTableParagraphChunker – keeps whole tables as single chunks
+    LumberChunker           – LLM-based semantic chunker (LumberChunker paper)
 """
 
 from .base import BaseChunker
 from .fixed_size import FixedCharacterChunker, FixedSentenceChunker, FixedParagraphChunker
 from .tables import WholeTableParagraphChunker
+from .llm import LumberChunker
 
 __all__ = [
     "BaseChunker",
@@ -22,4 +24,5 @@ __all__ = [
     "FixedSentenceChunker",
     "FixedParagraphChunker",
     "WholeTableParagraphChunker",
+    "LumberChunker",
 ]

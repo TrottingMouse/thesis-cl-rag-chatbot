@@ -1,4 +1,5 @@
 from src.offline.chunking.fixed_size import FixedParagraphChunker, FixedCharacterChunker
+from src.offline.chunking.llm import LumberChunker
 from src.offline.preprocessing.llm_processors import DirectLLMProcessor, PaperLLMProcessor
 from src.offline.preprocessing.preprocessors import GeminiMarkdownProcessor, RawTextProcessor
 from src.offline.indexing.indexing import FaissIndexBuilder
@@ -18,6 +19,7 @@ COMPONENT_REGISTRY = {
     # Chunkers
     "FixedParagraphChunker": FixedParagraphChunker,
     "FixedCharacterChunker": FixedCharacterChunker,
+    "LumberChunker": LumberChunker,
     
     # Index Builders
     "FaissIndexBuilder": FaissIndexBuilder,

@@ -115,6 +115,7 @@ class OfflinePipeline:
         logger.info("Stage 2/3: Chunking…")
         chunks = self.chunker.chunk_batch(processed_docs)
         logger.info("Stage 2/3: Done – %d chunk(s) produced.", len(chunks))
+        print(f"\nChunks: {chunks}")
 
         # Stage 3 – Indexing
         logger.info("Stage 3/3: Building index…")
