@@ -17,12 +17,8 @@ from ragas.metrics import (
     Faithfulness,
     AnswerRelevancy,
     AnswerCorrectness,
-    DiscreteMetric
+    AspectCritic
 )
-
-
-from dotenv import load_dotenv
-load_dotenv()
 
 class Evaluator:
     """
@@ -68,13 +64,9 @@ class Evaluator:
                 run_config=my_run_config
             )
         else:
-            negative_rejection = DiscreteMetric(
+            negative_rejection = AspectCritic(
                 name="negative_rejection",
-                allowed_values=["yes", "no"],
-                prompt="""Did the model reject the query as not answerable from the given context?
-Query: {user_input}
-Response: {response}
-Answer with only 'yes' or 'no'.""",
+                definition="Did the model reject the query as not answerable from the given context?",
                 llm=self.ragas_llm,
             )
             
@@ -93,8 +85,8 @@ Answer with only 'yes' or 'no'.""",
 # load_dotenv()
 # eval = Evaluator("storage/negative_example.jsonl")
 # eval.evaluate(accept=False)
-evaluator = Evaluator("storage/queryeval_example.jsonl")
-evaluator.evaluate(accept=True)
+# evaluator = Evaluator("storage/queryeval_example.jsonl")
+# evaluator.evaluate(accept=True)
 """,
   "metadata": {
     "experiment_id": "run_001",
