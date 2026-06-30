@@ -89,9 +89,8 @@ class FaissRetriever(BaseRetriever):
 
         # Encode and normalise to unit length (matching build-time normalisation)
         query_vector: np.ndarray = model.encode(
-            [query],
-            convert_to_numpy=True,
-            task="retrieval",
+            ["Query: " + query],
+            convert_to_numpy=True
         ).astype(np.float32)
         faiss.normalize_L2(query_vector)
 

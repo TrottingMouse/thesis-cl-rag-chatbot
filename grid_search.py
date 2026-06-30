@@ -98,7 +98,7 @@ def chunking_grid_search():
     with open(qa_eval_file) as f:
         qa_pairs_template = json.load(f)
 
-    qa_pairs = [item["user_input"] for item in qa_pairs_template]
+    queries = [item["user_input"] for item in qa_pairs_template]
 
     # Output directory for grid search results
     results_dir = Path("storage/grid_search_results")
@@ -121,14 +121,6 @@ def chunking_grid_search():
 
         for chunk_size in chunk_sizes:
             for overlap in overlaps:
-                # Skip invalid overlap values (overlap must be < chunk_size)
-                if overlap >= chunk_size:
-                    logger.warning(
-                        "Skipping invalid combination: chunker=%s, chunk_size=%d, overlap=%d "
-                        "(overlap must be < chunk_size)",
-                        chunker_name, chunk_size, overlap,
-                    )
-                    continue
 
                 run_name = _make_run_name(preprocessor_names, chunker_name, chunk_size, overlap)
                 logger.info("--- Run: %s ---", run_name)
@@ -189,7 +181,7 @@ def chunking_grid_search():
                 # ----------------------------------------------------------
                 # Phase 5: Run online queries
                 # ----------------------------------------------------------
-                qa_online_results = online_pipeline.multiple_queries(qa_pairs)
+                qa_online_results = online_pipeline.multiple_queries(queries)
 
                 # Attach results to QA pairs (deep copy to avoid mutating the template)
                 qa_pairs = copy.deepcopy(qa_pairs_template)
@@ -213,7 +205,7 @@ def chunking_grid_search():
                 evaluator = Evaluator(str(qa_save))
                 eval_df = evaluator.evaluate_retrieval()
 
-                logger.info("Evaluation:\n%s", eval_df.to_string())
+                #logger.info("Evaluation:\n%s", eval_df.to_string())
 
                 # Aggregate numeric metrics (mean across QA pairs)
                 metrics = eval_df.mean(numeric_only=True).to_dict()
