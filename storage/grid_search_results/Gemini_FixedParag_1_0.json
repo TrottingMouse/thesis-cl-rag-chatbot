@@ -1,0 +1,10 @@
+[
+    {
+        "user_input": "Welche Kurse sollte ich im ersten Semester belegen?",
+        "reference": "Laut dem exemplarischen Studienverlaufsplan solltest du im ersten Semester folgende Kurse belegen: Mathematische Grundlagen, Einf\u00fchrung in die computationelle Logik, Einf\u00fchrung in die Computerlinguistik, Einf\u00fchrung in die Programmierung mit Python, Morphologie und Syntax.",
+        "response": "Source 1:\n### 1. Semester Bachelor Computerlinguistik\n*Summe: 4 Module, 2 MP, 8 Veranstaltungen, 22 SWS, 30 LP, davon 1 LP im PBB*",
+        "retrieved_contexts": [
+            "### 1. Semester Bachelor Computerlinguistik\n*Summe: 4 Module, 2 MP, 8 Veranstaltungen, 22 SWS, 30 LP, davon 1 LP im PBB*"
+        ]
+    }
+]

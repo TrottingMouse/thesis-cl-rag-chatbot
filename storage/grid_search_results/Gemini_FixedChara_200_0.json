@@ -1,0 +1,14 @@
+[
+    {
+        "user_input": "Welche Kurse sollte ich im ersten Semester belegen?",
+        "reference": "Laut dem exemplarischen Studienverlaufsplan solltest du im ersten Semester folgende Kurse belegen: Mathematische Grundlagen, Einf\u00fchrung in die computationelle Logik, Einf\u00fchrung in die Computerlinguistik, Einf\u00fchrung in die Programmierung mit Python, Morphologie und Syntax.",
+        "response": "Source 1:\nr (a) mit \u00dcbung (b) und Seminar (c) mit \u00dcbung (d)<br>\n**Empfohlenes Studiensemester:** a: 1. Fachsemester (Wintersemester) | b: 1. Fachsemester (Wintersemester) | c: 2. Fachsemester (Sommersemester) |\nSource 2:\nminar) / 2102<br>\n**Belegung:** Seminar und \u00dcbung (a) und Seminar (b)<br>\n**Empfohlenes Studiensemester:** a: 1. Fachsemester (Wintersemester) | b: 1. Fachsemester (Wintersemester) | Pr\u00fcfung im 1. Fac\nSource 3:\n\n**Belegung:** Seminar mit \u00dcbung (a) und Seminar (b)<br>\n**Empfohlenes Studiensemester:** a: 3. Fachsemester (Wintersemester) | b: 4. Fachsemester (Sommersemester) | Pr\u00fcfung im 4. Fachsemester (Sommer\nSource 4:\n>\n**Belegung:** Seminar (a)<br>\n**Empfohlenes Studiensemester:** a: 4. Fachsemester (Sommersemester) | b: 5. Fachsemester (Wintersemester)<br>\n**H\u00e4ufigkeit des Angebots:** a: Jedes Sommersemester | b:\nSource 5:\n/ 5202<br>\n**Belegung:** Seminar (a) und Seminar (b)<br>\n**Empfohlenes Studiensemester:** a: 5. Fachsemester (Wintersemester) | b: 5. Fachsemester (Wintersemester)<br>\n**H\u00e4ufigkeit des Angebots:** Jed",
+        "retrieved_contexts": [
+            "r (a) mit \u00dcbung (b) und Seminar (c) mit \u00dcbung (d)<br>\n**Empfohlenes Studiensemester:** a: 1. Fachsemester (Wintersemester) | b: 1. Fachsemester (Wintersemester) | c: 2. Fachsemester (Sommersemester) |",
+            "minar) / 2102<br>\n**Belegung:** Seminar und \u00dcbung (a) und Seminar (b)<br>\n**Empfohlenes Studiensemester:** a: 1. Fachsemester (Wintersemester) | b: 1. Fachsemester (Wintersemester) | Pr\u00fcfung im 1. Fac",
+            "\n**Belegung:** Seminar mit \u00dcbung (a) und Seminar (b)<br>\n**Empfohlenes Studiensemester:** a: 3. Fachsemester (Wintersemester) | b: 4. Fachsemester (Sommersemester) | Pr\u00fcfung im 4. Fachsemester (Sommer",
+            ">\n**Belegung:** Seminar (a)<br>\n**Empfohlenes Studiensemester:** a: 4. Fachsemester (Sommersemester) | b: 5. Fachsemester (Wintersemester)<br>\n**H\u00e4ufigkeit des Angebots:** a: Jedes Sommersemester | b:",
+            "/ 5202<br>\n**Belegung:** Seminar (a) und Seminar (b)<br>\n**Empfohlenes Studiensemester:** a: 5. Fachsemester (Wintersemester) | b: 5. Fachsemester (Wintersemester)<br>\n**H\u00e4ufigkeit des Angebots:** Jed"
+        ]
+    }
+]
