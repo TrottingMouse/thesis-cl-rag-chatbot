@@ -43,8 +43,8 @@ class Evaluator:
                 llm=self.ragas_llm,
                 embeddings=self.ragas_embeddings,
                 metrics=[context_recall, context_precision, faithfulness, answer_relevancy, answer_correctness],
-                raise_exceptions=True
-                #run_config=my_run_config
+                raise_exceptions=True,
+                run_config=my_run_config
             )
         else:
             negative_rejection = AspectCritic(
