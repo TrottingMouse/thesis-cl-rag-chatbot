@@ -4,6 +4,7 @@ dynamicsentence testen
 query preprocessing
 minirag paper ausprobieren
 header injection tabelle?
+maxmin semantic
 
 wenn am Ende noch Zeit:
 converter von pdf für PaperLLMProcessor verbessern/cleaner einbauen (siehe Lumberchunker chat)
@@ -13,6 +14,7 @@ bm25/hybrid retrieval
 Architektur:
 RetrievalResult abschaffen und stattdessen Chunk retrieven?
 indexbuilder.load() und isbuilt() löschen?
+sentencechunking löschen
 
 
 DONE:

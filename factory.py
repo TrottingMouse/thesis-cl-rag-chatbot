@@ -29,7 +29,7 @@ def build_pipelines_from_config(yaml_path: str):
     #hier bei BM25 aufpassen weil kein model_name als parameter (Konstruktor überschrieben bei dense)
     IndexBuilderClass = get_class(offline_cfg["index_builder"])
     index_builder = IndexBuilderClass(
-        storage_path=Path(config["data"]["index_path"]),
+        storage_path=Path("storage/index"),
         model_name=offline_config.embedding_model
     )
     
