@@ -1,5 +1,4 @@
 import json
-import pandas as pd
 from ragas import evaluate
 from ragas.dataset_schema import EvaluationDataset
 from ragas.run_config import RunConfig
@@ -38,47 +37,74 @@ class Evaluator:
         self.ragas_llm = LangchainLLMWrapper(openai_llm)
         self.ragas_embeddings = LangchainEmbeddingsWrapper(openai_embeddings)
 
-    def evaluate(self, accept: bool):
+    def evaluate(self):
         eval_dataset = EvaluationDataset.from_list(self.data)
         
-        # 5. Keep the massive timeout so rate-limit backoffs succeed
         my_run_config = RunConfig(max_workers=2, timeout=1200, max_retries=10)
 
-        if accept:
-            # 6. Initialize the metric objects and pass the LLM/Embeddings
-            ans_rel = AnswerRelevancy(llm=self.ragas_llm, embeddings=self.ragas_embeddings)
-            ans_rel.strictness = 1
+        ans_rel = AnswerRelevancy(llm=self.ragas_llm, embeddings=self.ragas_embeddings)
+        ans_rel.strictness = 1
+        
+        metrics = [
+            ContextRecall(llm=self.ragas_llm),
+            ContextPrecision(llm=self.ragas_llm),
+            Faithfulness(llm=self.ragas_llm),
+            ans_rel,
+            AnswerCorrectness(llm=self.ragas_llm, embeddings=self.ragas_embeddings)
+        ]
+        
+        result = evaluate(
+            dataset=eval_dataset,
+            metrics=metrics,
+            raise_exceptions=False, 
+            run_config=my_run_config
+        )
             
-            metrics = [
-                ContextRecall(llm=self.ragas_llm),
-                ContextPrecision(llm=self.ragas_llm),
-                Faithfulness(llm=self.ragas_llm),
-                ans_rel,
-                AnswerCorrectness(llm=self.ragas_llm, embeddings=self.ragas_embeddings)
-            ]
-            
-            result = evaluate(
-                dataset=eval_dataset,
-                metrics=metrics,
-                raise_exceptions=False, 
-                run_config=my_run_config
-            )
-        else:
-            negative_rejection = AspectCritic(
+
+        print(result)
+        return result.to_pandas()
+    
+    def evaluate_rejection(self):
+        eval_dataset = EvaluationDataset.from_list(self.data)
+        
+        my_run_config = RunConfig(max_workers=2, timeout=1200, max_retries=10)
+
+        negative_rejection = AspectCritic(
                 name="negative_rejection",
                 definition="Did the model reject the query as not answerable from the given context?",
                 llm=self.ragas_llm,
             )
             
-            result = evaluate(
-                dataset=eval_dataset,
-                metrics=[negative_rejection],
-                raise_exceptions=False,
-                run_config=my_run_config
-            )
+        result = evaluate(
+            dataset=eval_dataset,
+            metrics=[negative_rejection],
+            raise_exceptions=False,
+            run_config=my_run_config
+        )
+
+    def evaluate_retrieval(self):
+        eval_dataset = EvaluationDataset.from_list(self.data)
+        
+        my_run_config = RunConfig(max_workers=2, timeout=1200, max_retries=10)
+
+        context_recall = ContextRecall(llm=self.ragas_llm)
+        context_precision = ContextPrecision(llm=self.ragas_llm)
+        
+        result = evaluate(
+            dataset=eval_dataset,
+            metrics=[context_recall, context_precision],
+            raise_exceptions=False,
+            run_config=my_run_config
+        )
 
         print(result)
         return result.to_pandas()
+
+    def calculate_f1_score(self, result_df):
+        avg_precision = result_df['context_precision'].mean()
+        avg_recall = result_df['context_recall'].mean()
+        f1_score = 2 * (avg_precision * avg_recall) / (avg_precision + avg_recall)
+        return f1_score
         
 
 

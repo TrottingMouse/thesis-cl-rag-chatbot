@@ -87,7 +87,7 @@ class FixedCharacterChunker(BaseChunker):
 
         return chunks
 
-class DynamicSentenceChunker(BaseChunker):
+class DynamicTokenChunker(BaseChunker):
     """
     Splits a document into chunks by grouping sentences until a token limit is reached.
     If a single sentence exceeds the token limit, it recursively falls back to 
@@ -425,7 +425,7 @@ class FixedParagraphChunker(BaseChunker):
 
 
 def main():
-    fix = DynamicSentenceChunker()
+    fix = DynamicTokenChunker()
     with open("storage/cached_documents/MHB_paper_llm_processor.txt", "r") as f:
         text = f.read()
     doc = Document(

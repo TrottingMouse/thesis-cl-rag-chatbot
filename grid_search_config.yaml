@@ -1,0 +1,24 @@
+# Grid search configuration
+#
+# preprocessing: ALL of these preprocessors are applied (in order) for EVERY run.
+# chunking:      For each chunker, the Cartesian product of chunk_sizes × overlaps is explored.
+#
+# top_n and top_k are NOT set here; they are derived automatically per run:
+#   top_n = floor(1000 / avg_chunk_size_in_chars)   (min 1)
+#   top_k = 3 × top_n
+
+preprocessing:
+  - GeminiMarkdownProcessor
+
+chunking:
+  - name: FixedParagraphChunker
+    # chunk_size = number of paragraphs per chunk
+    chunk_sizes: [1]
+    # overlap = number of paragraphs to overlap (must be < chunk_size)
+    overlaps: [0]
+
+  - name: FixedCharacterChunker
+    # chunk_size = number of characters per chunk
+    chunk_sizes: [200, 500]
+    # overlap = number of characters to overlap (must be < chunk_size)
+    overlaps: [0]
