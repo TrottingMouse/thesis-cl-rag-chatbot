@@ -94,7 +94,7 @@ def chunking_grid_search():
     online_cfg = base_cfg["online_pipeline"]
 
     # QA evaluation files
-    qa_eval_file = "storage/evaluation/qa_pairs.json"
+    qa_eval_file = "storage/evaluation/qa_minimal.json"
     with open(qa_eval_file) as f:
         qa_pairs_template = json.load(f)
 
