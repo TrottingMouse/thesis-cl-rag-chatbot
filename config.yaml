@@ -18,7 +18,7 @@ offline_pipeline:
   preprocessors:
     - "GeminiMarkdownProcessor"
     - "DirectLLMProcessor"
-  chunker: "LumberChunker"
+  chunker: "FixedParagraphChunker"
   index_builder: "FaissIndexBuilder"
 
 online_pipeline:
