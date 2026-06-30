@@ -6,8 +6,8 @@ langchain-openai
 python-dotenv
 pdfplumber
 docling
-faiss-gpu-cu12
-#faiss-cpu
+#faiss-gpu-cu12
+faiss-cpu
 peft
 sentence-transformers
 transformers==5.10.2

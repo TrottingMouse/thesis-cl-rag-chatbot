@@ -1,16 +1,28 @@
 import json
+import pandas as pd
 from ragas import evaluate
-from ragas.dataset_schema import SingleTurnSample, EvaluationDataset
-from ragas.metrics import context_recall, context_precision, faithfulness, answer_relevancy, answer_correctness, AspectCritic
-# 2. LangChain Module und Ragas Wrapper importieren
+from ragas.dataset_schema import EvaluationDataset
+from ragas.run_config import RunConfig
+
+# 1. Bring back the LangChain wrappers to satisfy the legacy embeddings requirement
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from ragas.llms import LangchainLLMWrapper
 from ragas.embeddings import LangchainEmbeddingsWrapper
 
-from ragas.run_config import RunConfig
-from dotenv import load_dotenv
-import os
+# 2. Import metrics from the base 'ragas.metrics' module to bypass the evaluate() bug
+# Notice these are the capitalized Class names, which we will initialize below.
+from ragas.metrics import (
+    ContextRecall,
+    ContextPrecision,
+    Faithfulness,
+    AnswerRelevancy,
+    AnswerCorrectness,
+    DiscreteMetric
+)
 
+
+from dotenv import load_dotenv
+load_dotenv()
 
 class Evaluator:
     """
@@ -19,57 +31,70 @@ class Evaluator:
     Outputs: metrics for evaluation
     """
     def __init__(self, filepath):
-        # read data from json file
         with open(filepath, 'r', encoding='utf-8') as f:
             self.data = json.load(f)
-        # 3. OpenAI via LangChain initialisieren
-        openai_llm = ChatOpenAI(model="gpt-4o-mini")
-        openai_embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+            
+        # 3. Initialize OpenAI via LangChain (with our massive timeouts to prevent crashes)
+        openai_llm = ChatOpenAI(model="gpt-4o-mini", timeout=120, max_retries=10)
+        openai_embeddings = OpenAIEmbeddings(model="text-embedding-3-small", timeout=120, max_retries=10)
 
-        # 4. Die LangChain-Objekte für Ragas verpacken
+        # 4. Wrap them for Ragas
         self.ragas_llm = LangchainLLMWrapper(openai_llm)
         self.ragas_embeddings = LangchainEmbeddingsWrapper(openai_embeddings)
-        answer_relevancy.strictness = 1
-        
 
     def evaluate(self, accept: bool):
         eval_dataset = EvaluationDataset.from_list(self.data)
-
-        my_run_config = RunConfig(max_workers=1, timeout=120, max_retries=10)
+        
+        # 5. Keep the massive timeout so rate-limit backoffs succeed
+        my_run_config = RunConfig(max_workers=2, timeout=1200, max_retries=10)
 
         if accept:
+            # 6. Initialize the metric objects and pass the LLM/Embeddings
+            ans_rel = AnswerRelevancy(llm=self.ragas_llm, embeddings=self.ragas_embeddings)
+            ans_rel.strictness = 1
+            
+            metrics = [
+                ContextRecall(llm=self.ragas_llm),
+                ContextPrecision(llm=self.ragas_llm),
+                Faithfulness(llm=self.ragas_llm),
+                ans_rel,
+                AnswerCorrectness(llm=self.ragas_llm, embeddings=self.ragas_embeddings)
+            ]
+            
             result = evaluate(
                 dataset=eval_dataset,
-                llm=self.ragas_llm,
-                embeddings=self.ragas_embeddings,
-                metrics=[context_recall, context_precision, faithfulness, answer_relevancy, answer_correctness],
-                raise_exceptions=True,
+                metrics=metrics,
+                raise_exceptions=False, 
                 run_config=my_run_config
             )
         else:
-            negative_rejection = AspectCritic(
+            negative_rejection = DiscreteMetric(
                 name="negative_rejection",
-                definition="Did the model reject the query as not answerable from the given context?",
+                allowed_values=["yes", "no"],
+                prompt="""Did the model reject the query as not answerable from the given context?
+Query: {user_input}
+Response: {response}
+Answer with only 'yes' or 'no'.""",
                 llm=self.ragas_llm,
             )
+            
             result = evaluate(
                 dataset=eval_dataset,
-                llm=self.ragas_llm,
-                embeddings=self.ragas_embeddings,
-                metrics=[negative_rejection]
+                metrics=[negative_rejection],
+                raise_exceptions=False,
+                run_config=my_run_config
             )
 
         print(result)
-        df = result.to_pandas()
-        return df
+        return result.to_pandas()
         
 
 
 # load_dotenv()
 # eval = Evaluator("storage/negative_example.jsonl")
 # eval.evaluate(accept=False)
-# evaluator = Evaluator("storage/queryeval_example.jsonl")
-# evaluator.evaluate(accept=True)
+evaluator = Evaluator("storage/queryeval_example.jsonl")
+evaluator.evaluate(accept=True)
 """,
   "metadata": {
     "experiment_id": "run_001",
