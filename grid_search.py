@@ -63,7 +63,7 @@ def _derive_retrieval_params(avg_chunk_size: float) -> tuple[int, int]:
     top_n = floor(1000 / avg_chunk_size)  (min 1)
     top_k = 3 * top_n
     """
-    top_n = max(1, math.floor(1000.0 / avg_chunk_size))
+    top_n = max(1, math.floor(1500.0 / avg_chunk_size))
     top_k = 3 * top_n
     return top_k, top_n
 
@@ -94,7 +94,7 @@ def chunking_grid_search():
     online_cfg = base_cfg["online_pipeline"]
 
     # QA evaluation files
-    qa_eval_file = "storage/evaluation/qa_minimal.json"
+    qa_eval_file = "storage/evaluation/qa_pairs_grid.json"
     with open(qa_eval_file) as f:
         qa_pairs_template = json.load(f)
 
