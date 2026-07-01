@@ -121,6 +121,8 @@ def chunking_grid_search():
 
         for chunk_size in chunk_sizes:
             for overlap in overlaps:
+                if overlap >= chunk_size:
+                    continue
 
                 run_name = _make_run_name(preprocessor_names, chunker_name, chunk_size, overlap)
                 logger.info("--- Run: %s ---", run_name)
