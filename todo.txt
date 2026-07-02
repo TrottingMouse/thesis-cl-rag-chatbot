@@ -1,5 +1,4 @@
 gridsearch
-lumberchunker auf server testen
 dynamicsentence testen
 query preprocessing
 minirag paper ausprobieren
@@ -15,7 +14,9 @@ Architektur:
 RetrievalResult abschaffen und stattdessen Chunk retrieven?
 indexbuilder.load() und isbuilt() löschen?
 sentencechunking löschen
+pipelineconfig aufräumen
 
 
 DONE:
 llm chunking
+lumberchunker auf server testen

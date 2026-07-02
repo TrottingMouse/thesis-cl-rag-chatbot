@@ -47,6 +47,9 @@ class OnlineConfig:
     embedding_model: str = "storage/models/jina-embeddings"
     """The embedding model to use for the pipeline."""
 
+    generator_model: str = "Qwen/Qwen3.5-0.8B"
+    """The generator model to use for the pipeline."""
+
 
 @dataclass
 class PipelineConfig:

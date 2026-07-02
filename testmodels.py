@@ -1,73 +1,49 @@
-import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
+from src.evaluation import Evaluator
+import logging
+import json
+import os
+from dotenv import load_dotenv
+from factory import build_pipelines_from_config
 
-# --- CONFIGURATION ---
-# Swap this out to test different models:
-# 1. "microsoft/Phi-4-mini-instruct"
-# 2. "Qwen/Qwen2.5-3B-Instruct" 
-MODEL_ID = "microsoft/Phi-4-mini-instruct"
+# Setup
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+load_dotenv()
 
-print(f"Loading tokenizer and model for: {MODEL_ID}...")
-tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
-model = AutoModelForCausalLM.from_pretrained(
-    MODEL_ID,
-    torch_dtype=torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16,
-    device_map="auto"
-)
+def main():
+    # 1. Build everything from the config file
+    offline_pipeline, online_pipeline, data_config, pipeline_name = build_pipelines_from_config("config.yaml")
 
-pipe = pipeline("text-generation", model=model, tokenizer=tokenizer)
+    # 2. Run Offline Pipeline
+    document_paths = data_config["documents"]
+    offline_result = offline_pipeline.run(document_paths)
 
-# --- SIMULATED GERMAN RAG CONTEXT ---
-mock_context = """
-Firmenrichtlinie Reisekosten (Stand 2026):
-1. Bahnfahrten innerhalb Deutschlands werden standardmäßig in der 2. Klasse gebucht. Executive-Manager dürfen ab einer Distanz von 300 km die 1. Klasse nutzen.
-2. Die Pauschale für das tägliche Verpflegungsgeld (Spesen) bei einer Abwesenheit von mehr als 8 Stunden beträgt 28 Euro im Inland.
-3. Hotelbuchungen müssen über das interne Portal 'KramTravel' vorgenommen werden. Ausgaben über 150 Euro pro Nacht bedürfen der vorherigen Freigabe durch den Teamleiter.
-"""
+    # 3. Run Online Pipeline
+    positive_eval_file = "storage/evaluation/qa_pairs_grid.json"
+    with open(positive_eval_file) as f:
+        positive_qa_pairs = json.load(f)
 
-# --- TEST CASES ---
-test_cases = [
-    {
-        "name": "Positive RAG Test (Direct Fact)",
-        "query": "Wie hoch ist die Spesenpauschale bei einer Abwesenheit von mehr als 8 Stunden im Inland?"
-    },
-    {
-        "name": "Negative RAG Test (Absence of Fact / Hallucination Check)",
-        "query": "Wie viel Geld bekomme ich zurückerstattet, wenn ich ein Taxi in Berlin nutze?"
-    }
-]
+    positive_queries = [item["user_input"] for item in positive_qa_pairs]
 
-# --- EVALUATION LOOP ---
-print("\n=== Starte RAG-Modell-Evaluierung ===\n")
+    positive_online_results = online_pipeline.multiple_queries(positive_queries)
 
-for test in test_cases:
-    print(f"Test-Szenario: {test['name']}")
-    print(f"Frage: {test['query']}")
+    for i, pipeline_result in enumerate(positive_online_results):
+        positive_qa_pairs[i]["response"] = pipeline_result.generation_result
+        positive_qa_pairs[i]["retrieved_contexts"] = [retrieval_result.chunk.text for retrieval_result in pipeline_result.reranked_results]
     
-    # Constructing a rigid RAG constraint prompt in German
-    prompt_messages = [
-        {
-            "role": "system",
-            "content": (
-                "Du bist ein präziser RAG-Assistent. Beantworte die Frage ausschließlich basierend auf dem "
-                "bereitgestellten Kontext. Wenn die Antwort nicht im Kontext direkt zu finden ist, erfinde "
-                "nichts, sondern antworte exakt mit: 'Diese Information ist im bereitgestellten Kontext nicht enthalten.'"
-            )
-        },
-        {
-            "role": "user",
-            "content": f"Kontext:\n{mock_context}\n\nFrage:\n{test['query']}"
-        }
-    ]
+    positive_save_path = "storage/results/" + data_config["online_config"]["generation_model"] + ".json"
+    os.makedirs(os.path.dirname(positive_save_path), exist_ok=True)
+    with open(positive_save_path, "w") as f:
+        json.dump(positive_qa_pairs, f, indent=4)
+    logging.info(f"Offline pipeline completed. Results saved to {positive_save_path}")
+
     
-    # Generate response
-    outputs = pipe(
-        prompt_messages, 
-        max_new_tokens=150, 
-        temperature=0.1,  # Low temperature is vital for deterministic RAG behavior
-        top_p=0.9
-    )
     
-    response = outputs[0]["generated_text"][-1]["content"].strip()
-    print(f"Modell-Antwort:\n{response}")
-    print("-" * 50)
+    
+    
+
+        
+        
+        
+
+if __name__ == "__main__":
+    main()

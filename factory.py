@@ -45,8 +45,13 @@ def build_pipelines_from_config(yaml_path: str):
     
     RerankerClass = get_class(online_cfg["reranker"])
     reranker = RerankerClass(top_n=online_config.top_n) # Uses overridden top_n
-    
-    generator = get_class(online_cfg["generator"])()
+
+    # Only init with model if generator 
+    GeneratorClass = get_class(online_cfg["generator"])
+    if online_cfg["generator"] == "HuggingfaceGenerator":
+        generator = GeneratorClass(model_name=online_config.generation_model)
+    else:
+        generator = GeneratorClass()
     
     online_pipeline = OnlinePipeline(query_processor, retriever, reranker, generator)
 
@@ -62,4 +67,4 @@ def build_pipelines_from_config(yaml_path: str):
     )
     pipeline_name = "_".join(name[:6] for name in component_names)
 
-    return offline_pipeline, online_pipeline, config["data"], pipeline_name
+    return offline_pipeline, online_pipeline, config, pipeline_name
