@@ -1,4 +1,12 @@
 run_name,preprocessors,chunker,chunk_size,overlap,num_chunks,avg_chunk_size_chars,top_k,top_n,context_recall,context_precision
-Gemini_FixedParag_1_0,GeminiMarkdownProcessor,FixedParagraphChunker,1,0,39,1389.9,3,1,1.0,0.9999999999
-Gemini_FixedChara_200_0,GeminiMarkdownProcessor,FixedCharacterChunker,200,0,272,199.6,15,5,0.0,0.49999999995
-Gemini_FixedChara_500_0,GeminiMarkdownProcessor,FixedCharacterChunker,500,0,109,498.0,6,2,0.0,0.49999999995
+Gemini_FixedParag_1_0,GeminiMarkdownProcessor,FixedParagraphChunker,1,0,39,1389.9,3,1,0.638888888888889,0.749999999925
+Gemini_FixedParag_2_0,GeminiMarkdownProcessor,FixedParagraphChunker,2,0,20,2712.2,3,1,0.5277777777777778,0.6666666666
+Gemini_FixedParag_2_1,GeminiMarkdownProcessor,FixedParagraphChunker,2,1,37,2862.7,3,1,0.4513888888888889,0.6666666666
+Gemini_FixedParag_3_0,GeminiMarkdownProcessor,FixedParagraphChunker,3,0,14,3875.4,3,1,0.611111111111111,0.83333333325
+Gemini_FixedParag_3_1,GeminiMarkdownProcessor,FixedParagraphChunker,3,1,19,4556.9,3,1,0.6458333333333334,0.749999999925
+Gemini_FixedChara_200_0,GeminiMarkdownProcessor,FixedCharacterChunker,200,0,272,199.6,21,7,0.27777777777777773,0.5870634920389394
+Gemini_FixedChara_200_50,GeminiMarkdownProcessor,FixedCharacterChunker,200,50,362,199.7,21,7,0.4236111111111111,0.6586375661121064
+Gemini_FixedChara_300_0,GeminiMarkdownProcessor,FixedCharacterChunker,300,0,182,298.2,15,5,0.24305555555555555,0.6303240740460435
+Gemini_FixedChara_300_50,GeminiMarkdownProcessor,FixedCharacterChunker,300,50,218,298.5,15,5,0.3958333333333333,0.6285879629414921
+Gemini_FixedChara_500_0,GeminiMarkdownProcessor,FixedCharacterChunker,500,0,109,498.0,9,3,0.4236111111111111,0.7986111110649307
+Gemini_FixedChara_500_50,GeminiMarkdownProcessor,FixedCharacterChunker,500,50,121,497.8,9,3,0.5,0.8680555555065972
