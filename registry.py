@@ -1,5 +1,7 @@
+from src.online.generation import HuggingfaceGenerator
 from src.offline.chunking.fixed_size import FixedParagraphChunker, FixedCharacterChunker
 from src.offline.chunking.llm import LumberChunker
+from src.offline.chunking.semantic import MaxMinChunker
 from src.offline.preprocessing.llm_processors import DirectLLMProcessor, PaperLLMProcessor
 from src.offline.preprocessing.preprocessors import GeminiMarkdownProcessor, RawTextProcessor
 from src.offline.indexing.indexing import FaissIndexBuilder
@@ -20,6 +22,7 @@ COMPONENT_REGISTRY = {
     "FixedParagraphChunker": FixedParagraphChunker,
     "FixedCharacterChunker": FixedCharacterChunker,
     "LumberChunker": LumberChunker,
+    "MaxMinChunker": MaxMinChunker,
     
     # Index Builders
     "FaissIndexBuilder": FaissIndexBuilder,
@@ -30,6 +33,7 @@ COMPONENT_REGISTRY = {
     "PassthroughReranker": PassthroughReranker,
     "Qwen3Reranker": Qwen3Reranker,
     "PassthroughGenerator": PassthroughGenerator,
+    "HuggingfaceGenerator": HuggingfaceGenerator,
 }
 
 def get_class(name: str):
