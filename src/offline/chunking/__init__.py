@@ -11,12 +11,14 @@ Exports:
     FixedParagraphChunker   – splits text into fixed-size paragraph windows
     WholeTableParagraphChunker – keeps whole tables as single chunks
     LumberChunker           – LLM-based semantic chunker (LumberChunker paper)
+    MaxMinChunker           – embedding-based semantic chunker (MaxMin algorithm)
 """
 
 from .base import BaseChunker
 from .fixed_size import FixedCharacterChunker, FixedSentenceChunker, FixedParagraphChunker
 from .tables import WholeTableParagraphChunker
 from .llm import LumberChunker
+from .semantic import MaxMinChunker
 
 __all__ = [
     "BaseChunker",
@@ -25,4 +27,5 @@ __all__ = [
     "FixedParagraphChunker",
     "WholeTableParagraphChunker",
     "LumberChunker",
+    "MaxMinChunker",
 ]

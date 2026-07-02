@@ -24,7 +24,13 @@ def build_pipelines_from_config(yaml_path: str):
     offline_cfg = config["offline_pipeline"]
     
     preprocessors = [get_class(name)() for name in offline_cfg["preprocessors"]]
-    chunker = get_class(offline_cfg["chunker"])()
+
+    # Chunkers that require an embedding model receive it from offline_config.
+    ChunkerClass = get_class(offline_cfg["chunker"])
+    if offline_cfg["chunker"] == "MaxMinChunker":
+        chunker = ChunkerClass(embedding_model_name=offline_config.embedding_model)
+    else:
+        chunker = ChunkerClass()
     
     #hier bei BM25 aufpassen weil kein model_name als parameter (Konstruktor überschrieben bei dense)
     IndexBuilderClass = get_class(offline_cfg["index_builder"])

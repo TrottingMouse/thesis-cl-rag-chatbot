@@ -3,7 +3,7 @@ dynamicsentence testen
 query preprocessing
 minirag paper ausprobieren
 header injection tabelle?
-maxmin semantic
+maxmin semantic testen
 
 wenn am Ende noch Zeit:
 converter von pdf für PaperLLMProcessor verbessern/cleaner einbauen (siehe Lumberchunker chat)
