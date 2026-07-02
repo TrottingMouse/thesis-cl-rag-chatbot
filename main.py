@@ -11,10 +11,10 @@ load_dotenv()
 
 def main():
     # 1. Build everything from the config file
-    offline_pipeline, online_pipeline, data_config, pipeline_name = build_pipelines_from_config("config.yaml")
+    offline_pipeline, online_pipeline, config, pipeline_name = build_pipelines_from_config("config.yaml")
 
     # 2. Run Offline Pipeline
-    document_paths = data_config["documents"]
+    document_paths = config["documents"]
     offline_result = offline_pipeline.run(document_paths)
 
     # 3. Run Online Pipeline

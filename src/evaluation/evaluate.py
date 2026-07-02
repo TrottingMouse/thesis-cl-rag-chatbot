@@ -12,7 +12,6 @@ from ragas.embeddings import LangchainEmbeddingsWrapper
 # Notice these are the capitalized Class names, which we will initialize below.
 from ragas.metrics import (
     ContextRecall,
-    ContextPrecision,
     Faithfulness,
     AnswerRelevancy,
     AnswerCorrectness,
@@ -47,7 +46,6 @@ class Evaluator:
         
         metrics = [
             ContextRecall(llm=self.ragas_llm),
-            ContextPrecision(llm=self.ragas_llm),
             Faithfulness(llm=self.ragas_llm),
             ans_rel,
             AnswerCorrectness(llm=self.ragas_llm, embeddings=self.ragas_embeddings)
@@ -82,29 +80,24 @@ class Evaluator:
             run_config=my_run_config
         )
 
-    def evaluate_retrieval(self):
-        eval_dataset = EvaluationDataset.from_list(self.data)
+    # def evaluate_retrieval(self):
+    #     eval_dataset = EvaluationDataset.from_list(self.data)
         
-        my_run_config = RunConfig(max_workers=2, timeout=1200, max_retries=10)
+    #     my_run_config = RunConfig(max_workers=2, timeout=1200, max_retries=10)
 
-        context_recall = ContextRecall(llm=self.ragas_llm)
-        context_precision = ContextPrecision(llm=self.ragas_llm)
+    #     context_recall = ContextRecall(llm=self.ragas_llm)
+    #     context_precision = ContextPrecision(llm=self.ragas_llm)
         
-        result = evaluate(
-            dataset=eval_dataset,
-            metrics=[context_recall, context_precision],
-            raise_exceptions=False,
-            run_config=my_run_config
-        )
+    #     result = evaluate(
+    #         dataset=eval_dataset,
+    #         metrics=[context_recall, context_precision],
+    #         raise_exceptions=False,
+    #         run_config=my_run_config
+    #     )
 
         print(result)
         return result.to_pandas()
 
-    def calculate_f1_score(self, result_df):
-        avg_precision = result_df['context_precision'].mean()
-        avg_recall = result_df['context_recall'].mean()
-        f1_score = 2 * (avg_precision * avg_recall) / (avg_precision + avg_recall)
-        return f1_score
         
 
 
