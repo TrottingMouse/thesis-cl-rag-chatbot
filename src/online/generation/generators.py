@@ -2,7 +2,7 @@ from src.online.generation import BaseGenerator
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 class HuggingfaceGenerator(BaseGenerator):
-    def __init__(self, model_name: str = ):
+    def __init__(self, model_name: str):
         self.model = AutoModelForCausalLM.from_pretrained(model_name)
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
 
