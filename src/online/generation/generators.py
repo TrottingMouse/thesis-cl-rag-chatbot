@@ -1,16 +1,29 @@
 from src.online.generation import BaseGenerator
 from transformers import AutoModelForCausalLM, AutoTokenizer
+import torch
 
 class HuggingfaceGenerator(BaseGenerator):
     def __init__(self, model_name: str):
-        self.model = AutoModelForCausalLM.from_pretrained(model_name)
+        # 1. Properly detect and isolate the GPU device
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        
+        # 2. Force model entirely into VRAM at FP16
+        self.model = AutoModelForCausalLM.from_pretrained(
+            model_name, 
+            torch_dtype=torch.float16
+        ).to(self.device)
+        
+        # 3. Configure tokenizer globally for batching safety
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        if self.tokenizer.pad_token is None:
+            self.tokenizer.pad_token = self.tokenizer.eos_token
+        self.tokenizer.padding_side = "left"
 
     @property
     def name(self) -> str:
         return "huggingface"
 
-    def generate(self, query: str, context):
+    def generate(self, query: str, context) -> str:
         context_str = "\n".join([f"Source {i+1}:\n{result.chunk.text}" for i, result in enumerate(context)])
         messages = [
             {
@@ -24,24 +37,24 @@ class HuggingfaceGenerator(BaseGenerator):
         ]
 
         prompt = self.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-        inputs = self.tokenizer(prompt, return_tensors="pt").to(self.model.device)
-        outputs = self.model.generate(
-            **inputs,
-            max_new_tokens=256,   
-            temperature=0.1,      
-            do_sample=False       
-        )
+        inputs = self.tokenizer(prompt, return_tensors="pt").to(self.device)
+        
+        with torch.no_grad():
+            outputs = self.model.generate(
+                **inputs,
+                max_new_tokens=256,   
+                do_sample=False
+            )
+            
         generated_tokens = outputs[0][inputs.input_ids.shape[-1]:]
         return self.tokenizer.decode(generated_tokens, skip_special_tokens=True).strip()
     
     def generate_batch(self, queries: list[str], contexts: list[list]) -> list[str]:
-        # 1. Build context strings exactly as you started
         context_strings = [
             "\n".join([f"Source {i+1}:\n{result.chunk.text}" for i, result in enumerate(context)]) 
             for context in contexts
         ]
         
-        # 2. Construct the messages list for each item in the batch
         batch_messages = []
         for query, context_str in zip(queries, context_strings):
             messages = [
@@ -56,54 +69,30 @@ class HuggingfaceGenerator(BaseGenerator):
             ]
             batch_messages.append(messages)
         
-        # 3. Apply chat template to all prompts in the batch
         prompts = self.tokenizer.apply_chat_template(batch_messages, tokenize=False, add_generation_prompt=True)
         
-        # 4. CRITICAL: Configure tokenizer for left-padding
-        # (Ensure the tokenizer has a pad_token set; if not, use the eos_token)
-        if self.tokenizer.pad_token is None:
-            self.tokenizer.pad_token = self.tokenizer.eos_token
-        
-        self.tokenizer.padding_side = "left"
-        
-        # 5. Tokenize the batch with padding and attention masks
+        # Tokenize using the global padding configuration
         inputs = self.tokenizer(
             prompts, 
             return_tensors="pt", 
             padding=True, 
-            truncation=False  # Set to True + max_length if you want to hard-cap long contexts
-        ).to(self.model.device)
+            truncation=False  
+        ).to(self.device)
         
-        # 6. Generate outputs for the whole batch
-        outputs = self.model.generate(
-            **inputs,
-            max_new_tokens=256,   
-            temperature=0.1,      
-            do_sample=False       
-        )
+        with torch.no_grad():
+            outputs = self.model.generate(
+                **inputs,
+                max_new_tokens=256,   
+                do_sample=False       
+            )
         
-        # 7. Decode only the newly generated tokens for each sequence
         results = []
+        input_len = inputs.input_ids.shape[-1] # Global width of input batch
+        
         for i in range(len(prompts)):
-            input_len = inputs.input_ids[i].shape[-1]
-            # Because we used left-padding, the generated tokens are strictly 
-            # everything *after* the original input length.
+            # Safely slice everything after the padded prompt window
             generated_tokens = outputs[i][input_len:]
             decoded_output = self.tokenizer.decode(generated_tokens, skip_special_tokens=True).strip()
             results.append(decoded_output)
             
         return results
-
-class PassthroughGenerator(BaseGenerator):
-    @property
-    def name(self) -> str:
-        return "passthrough"
-    
-    def generate(self, query: str, context):
-        context_str = "\n".join([f"Source {i+1}:\n{result.chunk.text}" for i, result in enumerate(context)])
-        return context_str
- 
-
-
-        
-    
