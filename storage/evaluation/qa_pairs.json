@@ -16,10 +16,6 @@
     "reference": "Fließendes Englisch wird nicht vorausgesetzt, jedoch benötigst du Englischkenntnisse auf dem Niveau B1. Dies entspricht vergleichsweise einem erfolgreichen vierjährigen Schulunterricht an einer weiterführenden Schule."
   },
   {
-    "user_input": "Wie oft darf ich eine Prüfung nicht bestehen?",
-    "reference": "Aus den Dokumenten geht keine explizite Gesamtzahl der erlaubten Fehlversuche hervor. Es ist jedoch vermerkt, dass die zweite Wiederholung einer Modulprüfung als mündliche Prüfung erfolgen darf. Das bedeutet, dass du eine Prüfung mindestens zweimal wiederholen darfst."
-  },
-  {
     "user_input": "Kann ich Einführung in die Programmierung mit Python auch im zweiten Semester belegen?",
     "reference": "Der Studienverlaufsplan ist nur exemplarisch und nicht verpflichtend. Allerdings wird das Seminar \"Einführung in die Programmierung mit Python\" ausschließlich jedes Wintersemester angeboten. Da das zweite Semester in der Regel ein Sommersemester ist, ist eine reguläre Belegung dort nicht möglich."
   },

@@ -20,10 +20,6 @@
     "reference": "Nein, für den Kurs \"Mathematische Grundlagen\" gibt es keine begleitende Übung. Es handelt sich dabei ausschließlich um ein Seminar."
   },
   {
-    "user_input": "Wie oft darf ich eine Prüfung nicht bestehen?",
-    "reference": "Aus den Dokumenten geht keine explizite Gesamtzahl der erlaubten Fehlversuche hervor. Es ist jedoch vermerkt, dass die zweite Wiederholung einer Modulprüfung als mündliche Prüfung erfolgen darf. Das bedeutet, dass du eine Prüfung mindestens zweimal wiederholen darfst."
-  },
-  {
     "user_input": "Muss ich in Python eine Klausur/Prüfung absolvieren?",
     "reference": "Ja, du musst im Modul \"Python-Programmierung\" eine Prüfung in Form einer Projektarbeit ablegen. Diese Modulprüfung ist jedoch erst im zweiten Fachsemester (Sommersemester) vorgesehen. Im ersten Semester musst du dafür lediglich Studienleistungen erbringen."
   },
@@ -46,5 +42,9 @@
   {
     "user_input": "Muss ich alle Module bestanden haben, bevor ich meine Bachelorarbeit schreibe?",
     "reference": "Nein, du musst nicht zwingend das gesamte Studium vorher abgeschlossen haben. Die einzige formale Teilnahmevoraussetzung für das Modul \"Abschlussarbeit und Forschungskolloquium\" ist der erfolgreiche Abschluss aller Basis- und Aufbaumodule."
+  },
+  {
+    "user_input": "Gibt es eine Klausur in Wahrscheinlichkeitstheorie?",
+    "reference": "Nein, im \"Basismodul - Statistische Methoden in der Computerlinguistik\", zu dem die Wahrscheinlichkeitstheorie gehört, gibt es gar keine Modulprüfung und somit auch keine Klausur. Es müssen lediglich Studienleistungen erbracht werden."
   }
 ]
