@@ -87,4 +87,34 @@ class BaseGenerator(ABC):
         
         Antwort:
         """
-    
+
+    def generate_batch(
+        self,
+        augmented_queries: list[AugmentedQuery],
+        contexts: list[list[RetrievalResult]],
+    ) -> list[str]:
+        """
+        Generate answers for a batch of queries.
+
+        The default implementation calls :meth:`generate` for each query
+        sequentially.  Subclasses that support true batched inference
+        (e.g. :class:`HuggingfaceGenerator`) should override this method
+        for better throughput.
+
+        Parameters
+        ----------
+        augmented_queries:
+            One per input query.
+        contexts:
+            One reranked context list per query, in the same order as
+            ``augmented_queries``.
+
+        Returns
+        -------
+        list[str]
+            One answer string per input query, in the same order.
+        """
+        return [
+            self.generate(aq, ctx)
+            for aq, ctx in zip(augmented_queries, contexts)
+        ]

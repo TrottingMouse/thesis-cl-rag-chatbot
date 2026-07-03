@@ -76,3 +76,34 @@ class BaseReranker(ABC):
             Up to ``self.top_n`` results, reordered by the reranker's
             scoring.  Each result's ``rank`` field must be set (1-indexed).
         """
+
+    def rerank_batch(
+        self,
+        augmented_queries: list[AugmentedQuery],
+        candidates_batch: list[list[RetrievalResult]],
+    ) -> list[list[RetrievalResult]]:
+        """
+        Rerank candidates for a batch of queries.
+
+        The default implementation calls :meth:`rerank` for each query
+        sequentially.  Subclasses that can exploit batched model inference
+        (e.g. a single cross-encoder forward pass for all pairs) should
+        override this method.
+
+        Parameters
+        ----------
+        augmented_queries:
+            One :class:`~src.models.AugmentedQuery` per input query.
+        candidates_batch:
+            One candidate list per query, in the same order as
+            ``augmented_queries``.
+
+        Returns
+        -------
+        list[list[RetrievalResult]]
+            One reranked result list per input query, in the same order.
+        """
+        return [
+            self.rerank(aq, candidates)
+            for aq, candidates in zip(augmented_queries, candidates_batch)
+        ]

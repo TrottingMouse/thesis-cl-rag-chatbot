@@ -151,6 +151,72 @@ class OnlinePipeline:
             results.append(self.query(raw_query))
         return results
 
+    def batch_query(self, raw_queries: list[str]) -> list[OnlinePipelineResult]:
+        """
+        Process a batch of user queries through the full online pipeline,
+        using the batched methods of each component for better throughput.
+
+        Each stage operates on the complete batch before the next stage
+        begins, which allows components to amortise model-loading and
+        GPU/CPU dispatch overhead across all queries at once.
+
+        Parameters
+        ----------
+        raw_queries:
+            The raw query strings from the user.
+
+        Returns
+        -------
+        list[OnlinePipelineResult]
+            One result per input query, in the same order.  Each result
+            contains the augmented query, raw retrieval candidates, the
+            final reranked results, and the generated answer string.
+        """
+        if not raw_queries:
+            return []
+
+        n = len(raw_queries)
+        logger.info(
+            "Batch online pipeline query | n=%d | processor=%s | retriever=%s | reranker=%s | generator=%s",
+            n,
+            self.query_processor.name,
+            self.retriever.name,
+            self.reranker.name,
+            self.generator.name,
+        )
+
+        # Stage 1 – Query processing (batch)
+        logger.debug("Stage 1/4: Batch-processing %d query(ies)…", n)
+        augmented_queries: list[AugmentedQuery] = self.query_processor.process_batch(raw_queries)
+        logger.debug("Stage 1/4: Done.")
+
+        # Stage 2 – Retrieval (batch)
+        logger.debug("Stage 2/4: Batch-retrieving top-%d candidates for %d query(ies)…", self.retriever.top_k, n)
+        candidates_batch: list[list[RetrievalResult]] = self.retriever.retrieve_batch(augmented_queries)
+        logger.debug("Stage 2/4: Done.")
+
+        # Stage 3 – Reranking (batch)
+        logger.debug("Stage 3/4: Batch-reranking to top-%d for %d query(ies)…", self.reranker.top_n, n)
+        reranked_batch: list[list[RetrievalResult]] = self.reranker.rerank_batch(augmented_queries, candidates_batch)
+        logger.debug("Stage 3/4: Done.")
+
+        # Stage 4 – Generation (batch)
+        logger.debug("Stage 4/4: Batch-generating answers for %d query(ies)…", n)
+        answers: list[str] = self.generator.generate_batch(raw_queries, reranked_batch)
+        logger.debug("Stage 4/4: Done.")
+
+        return [
+            OnlinePipelineResult(
+                augmented_query=aq,
+                retrieval_candidates=candidates,
+                reranked_results=reranked,
+                generation_result=answer,
+            )
+            for aq, candidates, reranked, answer in zip(
+                augmented_queries, candidates_batch, reranked_batch, answers
+            )
+        ]
+
     def describe(self) -> dict[str, str]:
         """Return a summary dict of the pipeline's component names."""
         return {

@@ -125,6 +125,79 @@ class Qwen3Reranker(BaseReranker):
         logger.debug("Reranking done – returning %d result(s).", len(reranked))
         return reranked
 
+    def rerank_batch(
+        self,
+        augmented_queries: list[AugmentedQuery],
+        candidates_batch: list[list[RetrievalResult]],
+    ) -> list[list[RetrievalResult]]:
+        """
+        Rerank candidates for a batch of queries in a single model forward pass.
+
+        All (query, passage) pairs from every query in the batch are flattened
+        into one list and scored by the cross-encoder in one call to
+        ``CrossEncoder.predict``.  The scores are then distributed back to the
+        original per-query candidate lists.
+
+        Parameters
+        ----------
+        augmented_queries:
+            One per input query.
+        candidates_batch:
+            One candidate list per query, in the same order.
+
+        Returns
+        -------
+        list[list[RetrievalResult]]
+            One reranked result list per input query, in the same order.
+        """
+        if not augmented_queries:
+            return []
+
+        # Flatten all (query, passage) pairs
+        flat_pairs: list[tuple[str, str]] = []
+        # Track slice boundaries so we can redistribute scores later
+        slices: list[tuple[int, int]] = []  # (start, end) into flat_pairs
+        for aq, candidates in zip(augmented_queries, candidates_batch):
+            start = len(flat_pairs)
+            query = aq.original_query
+            for result in candidates:
+                flat_pairs.append((query, result.chunk.text))
+            slices.append((start, len(flat_pairs)))
+
+        if not flat_pairs:
+            return [[] for _ in augmented_queries]
+
+        logger.debug(
+            "Batch reranking %d pair(s) across %d query(ies) with '%s' …",
+            len(flat_pairs),
+            len(augmented_queries),
+            self._model_name,
+        )
+
+        # Single batched predict call
+        all_scores: list[float] = self._model.predict(flat_pairs, convert_to_numpy=True).tolist()
+
+        # Redistribute scores back to per-query results
+        batch_reranked: list[list[RetrievalResult]] = []
+        for (start, end), candidates in zip(slices, candidates_batch):
+            query_scores = all_scores[start:end]
+            # Sort indices by descending score and take top_n
+            ranked_indices = sorted(
+                range(len(query_scores)), key=lambda i: query_scores[i], reverse=True
+            )[: self.top_n]
+            reranked: list[RetrievalResult] = []
+            for rank_pos, idx in enumerate(ranked_indices, start=1):
+                result = candidates[idx]
+                result.score = query_scores[idx]
+                result.rank = rank_pos
+                result.metadata["rerank_score"] = result.score
+                result.metadata["reranker"] = self._model_name
+                reranked.append(result)
+            batch_reranked.append(reranked)
+
+        logger.debug("Batch reranking done.")
+        return batch_reranked
+
 
 class PassthroughReranker(BaseReranker):
     """
@@ -147,3 +220,10 @@ class PassthroughReranker(BaseReranker):
         for rank_pos, result in enumerate(top, start=1):
             result.rank = rank_pos
         return top
+
+    def rerank_batch(
+        self,
+        augmented_queries: list[AugmentedQuery],
+        candidates_batch: list[list[RetrievalResult]],
+    ) -> list[list[RetrievalResult]]:
+        return [self.rerank(aq, candidates) for aq, candidates in zip(augmented_queries, candidates_batch)]

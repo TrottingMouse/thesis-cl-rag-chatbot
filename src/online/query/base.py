@@ -27,7 +27,8 @@ class BaseQueryProcessor(ABC):
     """
     Contract for all query processors.
 
-    Subclasses **must** implement :meth:`process`.
+    Subclasses **must** implement :meth:`process`.  For throughput-sensitive
+    workloads, subclasses may also override :meth:`process_batch`.
     """
 
     @property
@@ -55,3 +56,25 @@ class BaseQueryProcessor(ABC):
             Contains the original query plus one or more processed query
             strings to retrieve against.
         """
+
+    def process_batch(self, queries: list[str]) -> list[AugmentedQuery]:
+        """
+        Process a batch of raw user queries.
+
+        The default implementation calls :meth:`process` for each query
+        sequentially.  Subclasses that can exploit true batch-level
+        parallelism (e.g. a single LLM call for all queries) should
+        override this method.
+
+        Parameters
+        ----------
+        queries:
+            A list of raw query strings from the user.
+
+        Returns
+        -------
+        list[AugmentedQuery]
+            One :class:`~src.models.AugmentedQuery` per input query,
+            in the same order.
+        """
+        return [self.process(q) for q in queries]

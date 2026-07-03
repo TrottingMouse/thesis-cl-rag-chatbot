@@ -1,6 +1,7 @@
 import numpy as np
 import faiss
 
+
 from src.online.retrieval import BaseRetriever
 from src.models import AugmentedQuery, RetrievalResult
 from src.offline.indexing import FaissIndexBuilder
@@ -114,6 +115,94 @@ class FaissRetriever(BaseRetriever):
             )
 
         return results
+
+    def retrieve_batch(
+        self, augmented_queries: list[AugmentedQuery]
+    ) -> list[list[RetrievalResult]]:
+        """
+        Retrieve top-k candidates for a batch of augmented queries.
+
+        All ``processed_queries`` across every item in the batch are embedded
+        in a single :func:`model.encode` call and searched in a single
+        :func:`faiss_index.search` call, dramatically reducing per-query
+        overhead compared with calling :meth:`retrieve` in a loop.
+
+        Parameters
+        ----------
+        augmented_queries:
+            One :class:`~src.models.AugmentedQuery` per input query.
+
+        Returns
+        -------
+        list[list[RetrievalResult]]
+            One result list per input query, in the same order.  Each list
+            contains up to ``self.top_k`` results, duplicates removed, ordered
+            by descending relevance score (with RRF when multiple processed
+            query variants exist for a single query).
+        """
+        if not augmented_queries:
+            return []
+
+        faiss_index: faiss.Index = self.index_builder.index
+        chunks = self.index_builder.chunks
+        model = self.index_builder.model
+
+        # Build a flat list of all processed query strings, tracking which
+        # augmented-query index each one belongs to.
+        # flat_queries[i]  -> the query string to embed
+        # query_owners[i]  -> index into augmented_queries
+        flat_queries: list[str] = []
+        query_owners: list[int] = []
+        for aq_idx, aq in enumerate(augmented_queries):
+            for pq in aq.processed_queries:
+                flat_queries.append("Query: " + pq)
+                query_owners.append(aq_idx)
+
+        if not flat_queries:
+            return [[] for _ in augmented_queries]
+
+        # Single batched encode + normalise
+        all_vectors: np.ndarray = model.encode(
+            flat_queries,
+            convert_to_numpy=True,
+            task="retrieval",
+        ).astype(np.float32)
+        faiss.normalize_L2(all_vectors)
+
+        # Single batched FAISS search: shape (num_flat, top_k)
+        all_scores, all_indices = faiss_index.search(all_vectors, self.top_k)
+
+        # Group per-query ranked lists back by augmented-query index
+        # per_query_ranked_lists[aq_idx] accumulates one list per variant
+        per_query_ranked_lists: list[list[list[RetrievalResult]]] = [
+            [] for _ in augmented_queries
+        ]
+        for flat_idx, (scores, indices) in enumerate(zip(all_scores, all_indices)):
+            aq_idx = query_owners[flat_idx]
+            results: list[RetrievalResult] = []
+            for score, idx in zip(scores, indices):
+                if idx == -1:
+                    continue
+                results.append(
+                    RetrievalResult(
+                        chunk=chunks[idx],
+                        score=float(score),
+                        retriever_name=self.name,
+                    )
+                )
+            per_query_ranked_lists[aq_idx].append(results)
+
+        # For each original augmented query, fuse or pass through
+        batch_results: list[list[RetrievalResult]] = []
+        for aq_idx, ranked_lists in enumerate(per_query_ranked_lists):
+            if not ranked_lists:
+                batch_results.append([])
+            elif len(ranked_lists) == 1:
+                batch_results.append(ranked_lists[0])
+            else:
+                batch_results.append(self._reciprocal_rank_fusion(ranked_lists))
+
+        return batch_results
 
     def _reciprocal_rank_fusion(
         self, ranked_lists: list[list[RetrievalResult]]

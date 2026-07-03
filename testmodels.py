@@ -24,7 +24,7 @@ def main():
 
     positive_queries = [item["user_input"] for item in positive_qa_pairs]
 
-    positive_online_results = online_pipeline.multiple_queries(positive_queries)
+    positive_online_results = online_pipeline.batch_query(positive_queries)
 
     for i, pipeline_result in enumerate(positive_online_results):
         positive_qa_pairs[i]["response"] = pipeline_result.generation_result

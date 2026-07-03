@@ -28,7 +28,8 @@ class BaseRetriever(ABC):
     A retriever is **read-only** with respect to the index; it only calls
     :meth:`BaseIndexBuilder.load` to get query-time access to the index.
 
-    Subclasses **must** implement :meth:`retrieve`.
+    Subclasses **must** implement :meth:`retrieve`.  For throughput-sensitive
+    workloads, subclasses may also override :meth:`retrieve_batch`.
     """
 
     def __init__(self, index_builder: BaseIndexBuilder, top_k: int = 20) -> None:
@@ -75,3 +76,25 @@ class BaseRetriever(ABC):
             Up to ``self.top_k`` results, ordered by descending relevance
             score.  Duplicates (same ``chunk_id``) must be removed.
         """
+
+    def retrieve_batch(
+        self, augmented_queries: list[AugmentedQuery]
+    ) -> list[list[RetrievalResult]]:
+        """
+        Retrieve candidates for a batch of augmented queries.
+
+        The default implementation calls :meth:`retrieve` for each query
+        sequentially.  Subclasses that can exploit batched embedding or
+        index operations should override this method.
+
+        Parameters
+        ----------
+        augmented_queries:
+            One :class:`~src.models.AugmentedQuery` per input query.
+
+        Returns
+        -------
+        list[list[RetrievalResult]]
+            One result list per input query, in the same order.
+        """
+        return [self.retrieve(aq) for aq in augmented_queries]

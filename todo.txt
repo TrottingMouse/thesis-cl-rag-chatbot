@@ -11,6 +11,8 @@ bm25/hybrid retrieval
 
 
 Architektur:
+pipeline batching!
+so dass api key nicht gebraucht wenn docs da?
 RetrievalResult abschaffen und stattdessen Chunk retrieven?
 indexbuilder.load() und isbuilt() löschen?
 sentencechunking löschen
