@@ -103,27 +103,27 @@ class OnlinePipeline:
         )
 
         # Stage 1 – Query processing
-        logger.debug("Stage 1/4: Processing query…")
+        logger.info("Stage 1/4: Processing query…")
         augmented_query: AugmentedQuery = self.query_processor.process(raw_query)
-        logger.debug(
+        logger.info(
             "Stage 1/4: Done – %d query variant(s) produced.",
             len(augmented_query.processed_queries),
         )
 
         # Stage 2 – Retrieval
-        logger.debug("Stage 2/4: Retrieving top-%d candidates…", self.retriever.top_k)
+        logger.info("Stage 2/4: Retrieving top-%d candidates…", self.retriever.top_k)
         candidates: list[RetrievalResult] = self.retriever.retrieve(augmented_query)
-        logger.debug("Stage 2/4: Done – %d candidate(s) retrieved.", len(candidates))
+        logger.info("Stage 2/4: Done – %d candidate(s) retrieved.", len(candidates))
 
         # Stage 3 – Reranking
-        logger.debug("Stage 3/4: Reranking to top-%d…", self.reranker.top_n)
+        logger.info("Stage 3/4: Reranking to top-%d…", self.reranker.top_n)
         reranked: list[RetrievalResult] = self.reranker.rerank(augmented_query, candidates)
-        logger.debug("Stage 3/4: Done – %d result(s) returned.", len(reranked))
+        logger.info("Stage 3/4: Done – %d result(s) returned.", len(reranked))
 
         # Stage 4 – Generation
-        logger.debug("Stage 4/4: Generating answer…")
+        logger.info("Stage 4/4: Generating answer…")
         answer: str = self.generator.generate(raw_query, reranked)
-        logger.debug("Stage 4/4: Done – answer produced by '%s'.", self.generator.name)
+        logger.info("Stage 4/4: Done – answer produced by '%s'.", self.generator.name)
 
         return OnlinePipelineResult(
             augmented_query=augmented_query,
@@ -186,24 +186,24 @@ class OnlinePipeline:
         )
 
         # Stage 1 – Query processing (batch)
-        logger.debug("Stage 1/4: Batch-processing %d query(ies)…", n)
+        logger.info("Stage 1/4: Batch-processing %d query(ies)…", n)
         augmented_queries: list[AugmentedQuery] = self.query_processor.process_batch(raw_queries)
-        logger.debug("Stage 1/4: Done.")
+        logger.info("Stage 1/4: Done.")
 
         # Stage 2 – Retrieval (batch)
-        logger.debug("Stage 2/4: Batch-retrieving top-%d candidates for %d query(ies)…", self.retriever.top_k, n)
+        logger.info("Stage 2/4: Batch-retrieving top-%d candidates for %d query(ies)…", self.retriever.top_k, n)
         candidates_batch: list[list[RetrievalResult]] = self.retriever.retrieve_batch(augmented_queries)
-        logger.debug("Stage 2/4: Done.")
+        logger.info("Stage 2/4: Done.")
 
         # Stage 3 – Reranking (batch)
-        logger.debug("Stage 3/4: Batch-reranking to top-%d for %d query(ies)…", self.reranker.top_n, n)
+        logger.info("Stage 3/4: Batch-reranking to top-%d for %d query(ies)…", self.reranker.top_n, n)
         reranked_batch: list[list[RetrievalResult]] = self.reranker.rerank_batch(augmented_queries, candidates_batch)
-        logger.debug("Stage 3/4: Done.")
+        logger.info("Stage 3/4: Done.")
 
         # Stage 4 – Generation (batch)
-        logger.debug("Stage 4/4: Batch-generating answers for %d query(ies)…", n)
+        logger.info("Stage 4/4: Batch-generating answers for %d query(ies)…", n)
         answers: list[str] = self.generator.generate_batch(raw_queries, reranked_batch)
-        logger.debug("Stage 4/4: Done.")
+        logger.info("Stage 4/4: Done.")
 
         return [
             OnlinePipelineResult(
