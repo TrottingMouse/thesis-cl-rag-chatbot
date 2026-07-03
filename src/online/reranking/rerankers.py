@@ -12,6 +12,7 @@ Currently implemented
 from __future__ import annotations
 
 import logging
+import torch
 
 from src.models import AugmentedQuery, RetrievalResult
 from src.online.reranking import BaseReranker
@@ -45,8 +46,7 @@ class Qwen3Reranker(BaseReranker):
     def __init__(
         self,
         top_n: int = 5,
-        model_name: str = "Qwen/Qwen3-Reranker-0.6B",
-        device: str | None = None,
+        model_name: str = "Qwen/Qwen3-Reranker-0.6B"
     ) -> None:
         super().__init__(top_n=top_n)
         self._model_name = model_name
@@ -56,7 +56,19 @@ class Qwen3Reranker(BaseReranker):
         from sentence_transformers import CrossEncoder  # type: ignore[import]
 
         logger.info("Loading reranker model '%s' …", model_name)
-        self._model = CrossEncoder(model_name, device=device)
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        automodel_args = {}
+        if "cuda" in device:
+            automodel_args = {
+                "torch_dtype": torch.bfloat16,
+                "device_map": "auto"
+            }
+
+        self._model = CrossEncoder(
+            model_name, 
+            device=device, 
+            automodel_args=automodel_args
+        )
         logger.info("Reranker model loaded.")
 
     # ------------------------------------------------------------------
