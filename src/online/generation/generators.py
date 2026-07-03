@@ -96,3 +96,13 @@ class HuggingfaceGenerator(BaseGenerator):
             results.append(decoded_output)
             
         return results
+
+
+class PassthroughGenerator(BaseGenerator):
+    @property
+    def name(self) -> str:
+        return "passthrough"
+
+    def generate(self, query: str, context):
+        context_str = "\n".join([f"Source {i+1}:\n{result.chunk.text}" for i, result in enumerate(context)])
+        return context_str 
