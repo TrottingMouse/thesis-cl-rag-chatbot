@@ -1,5 +1,5 @@
 from src.online.generation import HuggingfaceGenerator
-from src.offline.chunking.fixed_size import FixedParagraphChunker, FixedCharacterChunker
+from src.offline.chunking.fixed_size import FixedParagraphChunker, FixedCharacterChunker, DynamicTokenChunker
 from src.offline.chunking.llm import LumberChunker
 from src.offline.chunking.semantic import MaxMinChunker
 from src.offline.preprocessing.llm_processors import DirectLLMProcessor, PaperLLMProcessor
@@ -23,6 +23,7 @@ COMPONENT_REGISTRY = {
     "FixedCharacterChunker": FixedCharacterChunker,
     "LumberChunker": LumberChunker,
     "MaxMinChunker": MaxMinChunker,
+    "DynamicTokenChunker": DynamicTokenChunker,
     
     # Index Builders
     "FaissIndexBuilder": FaissIndexBuilder,
