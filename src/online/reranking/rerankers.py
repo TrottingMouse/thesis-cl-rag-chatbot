@@ -54,22 +54,27 @@ class Qwen3Reranker(BaseReranker):
         # Lazy import so that the rest of the codebase can be imported
         # even when sentence-transformers is not installed.
         from sentence_transformers import CrossEncoder  # type: ignore[import]
+        import torch
 
         logger.info("Loading reranker model '%s' …", model_name)
-        device = "cuda" if torch.cuda.is_available() else "cpu"
-        automodel_args = {}
-        if "cuda" in device:
-            automodel_args = {
-                "torch_dtype": torch.bfloat16,
-                "device_map": "auto"
+        
+        model_kwargs = {}
+        if torch.cuda.is_available():
+            model_kwargs = {
+                "torch_dtype": torch.bfloat16,  # Significantly faster and memory-efficient
+                "device_map": "auto",           # Hands scheduling directly to HF Accelerate
+                "attn_implementation": "sdpa"   # Standard PyTorch scaled dot-product attention
             }
+            device = None  # Ignored by sentence-transformers when device_map is present
+        else:
+            device = "cpu"
 
         self._model = CrossEncoder(
             model_name, 
             device=device, 
-            automodel_args=automodel_args
+            model_kwargs=model_kwargs
         )
-        logger.info("Reranker model loaded.")
+        logger.info("Reranker model loaded on device: %s", self._model.device)
 
     # ------------------------------------------------------------------
     # BaseReranker interface
