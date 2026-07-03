@@ -1,3 +1,8 @@
+import torch
+if not hasattr(torch, "float8_e8m0fnu"):
+    setattr(torch, "float8_e8m0fnu", torch.float32)
+    
+from factory import build_pipelines_from_config
 from src.evaluation import Evaluator
 import logging
 import json
