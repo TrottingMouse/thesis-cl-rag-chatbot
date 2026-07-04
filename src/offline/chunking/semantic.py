@@ -231,7 +231,7 @@ class MaxMinChunker(BaseChunker):
 
         # 2. Embed all sentences at once (batch for efficiency)
         embeddings: np.ndarray = self._encoder.encode(
-            sentences, show_progress_bar=False, convert_to_numpy=True
+            sentences, show_progress_bar=False, convert_to_numpy=True, task="text-matching"
         )
 
         # 3. Group sentences into paragraphs via MaxMin algorithm
