@@ -138,8 +138,8 @@ class MaxMinChunker(BaseChunker):
     init_constant:
         Multiplier for the first comparison in a fresh cluster.
     spacy_model:
-        spaCy model used for sentence segmentation.  Defaults to ``'xx'``
-        (lightweight multilingual blank model with a rule-based sentencizer).
+        spaCy model used for sentence segmentation.  Defaults to ``'de_core_news_sm'``
+        (German small model).
     """
 
     def __init__(
@@ -148,7 +148,6 @@ class MaxMinChunker(BaseChunker):
         fixed_threshold: float = 0.6,
         c: float = 0.9,
         init_constant: float = 1.5,
-        spacy_model: str = "xx",
     ) -> None:
         self.embedding_model_name = embedding_model_name
         self.fixed_threshold = fixed_threshold
@@ -162,11 +161,11 @@ class MaxMinChunker(BaseChunker):
         # Load spaCy for sentence splitting
         try:
             self._nlp = spacy.load(
-                spacy_model,
+                "de_core_news_sm",
                 exclude=["ner", "tagger", "lemmatizer", "attribute_ruler", "tok2vec"],
             )
         except OSError:
-            self._nlp = spacy.blank(spacy_model)
+            self._nlp = spacy.blank("de_core_news_sm")
 
         if not self._nlp.has_pipe("sentencizer") and not self._nlp.has_pipe("parser"):
             self._nlp.add_pipe("sentencizer")

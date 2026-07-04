@@ -116,10 +116,8 @@ class DynamicTokenChunker(BaseChunker):
         self.overlap = overlap
 
         # Hardcoded to use the lightweight multilingual blank model
-        try:
-            self.nlp = spacy.load("xx", exclude=["ner", "tagger", "lemmatizer", "attribute_ruler", "tok2vec"])
-        except OSError:
-            self.nlp = spacy.blank("xx")
+        self.nlp = spacy.load("de_core_news_sm", exclude=["ner", "tagger", "lemmatizer", "attribute_ruler", "tok2vec"])
+
         
         if not self.nlp.has_pipe("sentencizer"):
             self.nlp.add_pipe("sentencizer")
@@ -254,7 +252,7 @@ class FixedSentenceChunker(BaseChunker):
     Supports overlapping chunks to preserve context across boundaries.
     """
 
-    def __init__(self, chunk_size: int = 5, overlap: int = 2, spacy_model: str = "xx"):
+    def __init__(self, chunk_size: int = 5, overlap: int = 2, spacy_model: str = "de_core_news_sm"):
         """
         Parameters
         ----------
@@ -264,8 +262,7 @@ class FixedSentenceChunker(BaseChunker):
             The number of sentences to overlap between consecutive chunks.
             Must be strictly less than chunk_size.
         spacy_model:
-            The spaCy model to use. Defaults to 'xx' (multilingual blank model)
-            which is lightweight and uses a rule-based sentencizer.
+            The spaCy model to use. Defaults to 'de_core_news_sm' (German small model).
         """
         if chunk_size <= 0:
             raise ValueError("chunk_size must be strictly positive.")
