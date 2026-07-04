@@ -56,11 +56,15 @@ class FaissIndexBuilder(BaseIndexBuilder):
         self.storage_path.mkdir(parents=True, exist_ok=True)
         
         # Extract text from chunks
-        prefix = "Document: " if "jina" in self.model_name else ""
-        texts = [prefix + chunk.text for chunk in chunks]
+        texts = [chunk.text for chunk in chunks]
         
         # Generate embeddings
-        embeddings = self.model.encode(texts, convert_to_numpy=True, show_progress_bar=True, task='retrieval')
+        embeddings = self.model.encode(
+            texts, 
+            convert_to_numpy=True,
+            show_progress_bar=True, 
+            task='retrieval', 
+            prompt_name="document")
         
         # Initialize FAISS index
         dimension = embeddings.shape[1]

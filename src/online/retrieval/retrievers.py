@@ -66,12 +66,14 @@ class FaissRetriever(BaseRetriever):
         if not queries:
             return []
 
+        query_type = augmented_query.query_type
+
         if len(queries) == 1:
-            return self._search_single(queries[0])
+            return self._search_single(queries[0], query_type)
 
         # Multiple query variants → per-query ranked lists → RRF fusion
         per_query_results: list[list[RetrievalResult]] = [
-            self._search_single(q) for q in queries
+            self._search_single(q, query_type) for q in queries
         ]
         return self._reciprocal_rank_fusion(per_query_results)
 
@@ -79,7 +81,7 @@ class FaissRetriever(BaseRetriever):
     # Internal helpers
     # ------------------------------------------------------------------
 
-    def _search_single(self, query: str) -> list[RetrievalResult]:
+    def _search_single(self, query: str, query_type: str) -> list[RetrievalResult]:
         """
         Embed *query*, search the FAISS index, and return up to ``top_k``
         ``RetrievalResult`` objects ordered by descending cosine similarity.
@@ -90,9 +92,10 @@ class FaissRetriever(BaseRetriever):
 
         # Encode and normalise to unit length (matching build-time normalisation)
         query_vector: np.ndarray = model.encode(
-            ["Query: " + query],
+            [query],
             convert_to_numpy=True,
-            task='retrieval'
+            task='retrieval',
+            prompt_name=query_type
         ).astype(np.float32)
         faiss.normalize_L2(query_vector)
 
@@ -155,7 +158,7 @@ class FaissRetriever(BaseRetriever):
         query_owners: list[int] = []
         for aq_idx, aq in enumerate(augmented_queries):
             for pq in aq.processed_queries:
-                flat_queries.append("Query: " + pq)
+                flat_queries.append(pq)
                 query_owners.append(aq_idx)
 
         if not flat_queries:
@@ -166,6 +169,7 @@ class FaissRetriever(BaseRetriever):
             flat_queries,
             convert_to_numpy=True,
             task="retrieval",
+            prompt_name=augmented_queries[0].query_type
         ).astype(np.float32)
         faiss.normalize_L2(all_vectors)
 

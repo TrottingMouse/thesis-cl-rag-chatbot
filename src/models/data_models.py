@@ -92,8 +92,8 @@ class AugmentedQuery:
     processor_name: str = ""
     """Name of the :class:`BaseQueryProcessor` that produced this object."""
 
-    metadata: dict[str, Any] = field(default_factory=dict)
-    """Arbitrary extra information (embeddings, decomposition tree, …)."""
+    query_type: str = "query"
+    """Depends on the format which the QueryProcessor provides. Either query or document."""
 
 
 @dataclass
