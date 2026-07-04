@@ -16,6 +16,7 @@ import logging
 
 import numpy as np
 import spacy
+import torch
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -156,7 +157,10 @@ class MaxMinChunker(BaseChunker):
 
         # Load sentence encoder
         logger.info("MaxMinChunker: loading embedding model '%s'.", embedding_model_name)
-        self._encoder = SentenceTransformer(embedding_model_name)
+
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        trust_remote_code = "jina" in embedding_model_name
+        self._encoder = SentenceTransformer(embedding_model_name, device=device, trust_remote_code=trust_remote_code)
 
         # Load spaCy for sentence splitting
         try:
