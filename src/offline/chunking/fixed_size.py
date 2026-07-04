@@ -115,9 +115,10 @@ class DynamicTokenChunker(BaseChunker):
         self.chunk_size = chunk_size
         self.overlap = overlap
 
-        # Hardcoded to use the lightweight multilingual blank model
-        self.nlp = spacy.load("de_core_news_sm", exclude=["ner", "tagger", "lemmatizer", "attribute_ruler", "tok2vec"])
-
+        try:
+            self.nlp = spacy.load("de_core_news_sm", exclude=["ner", "tagger", "lemmatizer", "attribute_ruler", "tok2vec"])
+        except OSError:
+            self.nlp = spacy.blank("de")
         
         if not self.nlp.has_pipe("sentencizer"):
             self.nlp.add_pipe("sentencizer")

@@ -165,7 +165,7 @@ class MaxMinChunker(BaseChunker):
                 exclude=["ner", "tagger", "lemmatizer", "attribute_ruler", "tok2vec"],
             )
         except OSError:
-            self._nlp = spacy.blank("de_core_news_sm")
+            self._nlp = spacy.blank("de")
 
         if not self._nlp.has_pipe("sentencizer") and not self._nlp.has_pipe("parser"):
             self._nlp.add_pipe("sentencizer")
