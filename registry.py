@@ -1,3 +1,6 @@
+from src.online.retrieval import PassthroughRetriever
+from src.offline.indexing import PassthroughIndexBuilder
+from src.offline.chunking import PassthroughChunker
 from src.online.generation import HuggingfaceGenerator
 from src.offline.chunking.fixed_size import FixedParagraphChunker, FixedCharacterChunker, DynamicTokenChunker
 from src.offline.chunking.llm import LumberChunker
@@ -24,13 +27,16 @@ COMPONENT_REGISTRY = {
     "LumberChunker": LumberChunker,
     "MaxMinChunker": MaxMinChunker,
     "DynamicTokenChunker": DynamicTokenChunker,
+    "PassthroughChunker": PassthroughChunker,
     
     # Index Builders
     "FaissIndexBuilder": FaissIndexBuilder,
+    "PassthroughIndexBuilder": PassthroughIndexBuilder,
     
     # Online Components
     "NoProcessingProcessor": NoProcessingProcessor,
     "FaissRetriever": FaissRetriever,
+    "PassthroughRetriever": PassthroughRetriever,
     "PassthroughReranker": PassthroughReranker,
     "Qwen3Reranker": Qwen3Reranker,
     "PassthroughGenerator": PassthroughGenerator,
