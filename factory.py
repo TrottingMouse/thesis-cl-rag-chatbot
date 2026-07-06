@@ -32,12 +32,16 @@ def build_pipelines_from_config(yaml_path: str):
     else:
         chunker = ChunkerClass()
     
-    #hier bei BM25 aufpassen weil kein model_name als parameter (Konstruktor überschrieben bei dense)
+    # Index builders that embed chunks require an embedding model; passthrough does not.
     IndexBuilderClass = get_class(offline_cfg["index_builder"])
-    index_builder = IndexBuilderClass(
-        storage_path=Path("storage/index"),
-        model_name=offline_config.embedding_model
-    )
+    if offline_cfg["index_builder"] == "PassthroughIndexBuilder":
+        index_builder = IndexBuilderClass(storage_path=Path("storage/index"))
+    else:
+        #hier bei BM25 aufpassen weil kein model_name als parameter (Konstruktor überschrieben bei dense)
+        index_builder = IndexBuilderClass(
+            storage_path=Path("storage/index"),
+            model_name=offline_config.embedding_model
+        )
     
     offline_pipeline = OfflinePipeline(preprocessors, chunker, index_builder)
 
@@ -47,7 +51,10 @@ def build_pipelines_from_config(yaml_path: str):
     query_processor = get_class(online_cfg["query_processor"])()
     
     RetrieverClass = get_class(online_cfg["retriever"])
-    retriever = RetrieverClass(index_builder, top_k=online_config.top_k) # Uses overridden top_k
+    if online_cfg["retriever"] == "PassthroughRetriever":
+        retriever = RetrieverClass(index_builder)
+    else:
+        retriever = RetrieverClass(index_builder, top_k=online_config.top_k) # Uses overridden top_k
     
     RerankerClass = get_class(online_cfg["reranker"])
     reranker = RerankerClass(top_n=online_config.top_n) # Uses overridden top_n
