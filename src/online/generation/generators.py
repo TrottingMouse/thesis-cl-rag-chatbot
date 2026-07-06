@@ -82,7 +82,7 @@ class HuggingfaceGenerator(BaseGenerator):
         with torch.no_grad():
             outputs = self.model.generate(
                 **inputs,
-                max_new_tokens=256,   
+                max_new_tokens=512,   
                 do_sample=False       
             )
         
