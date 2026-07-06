@@ -2,6 +2,8 @@ from src.online.generation import BaseGenerator
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 
+SYSTEM_PROMPT = "Du bist ein hilfreicher Assistent. Beantworte die Frage basierend auf dem gegebenen Kontext. Halte dich kurz und gib nur die Informationen, nach denen gefragt wurde. Wenn die Antwort nicht im Kontext zu finden ist, antworte: 'Dazu enthalten die bereitgestellten Dokumente keine Informationen.'"
+
 class HuggingfaceGenerator(BaseGenerator):
     def __init__(self, model_name: str):
         # 1. Properly detect and isolate the GPU device
@@ -28,7 +30,7 @@ class HuggingfaceGenerator(BaseGenerator):
         messages = [
             {
                 "role": "system",
-                "content": "Du bist ein hilfreicher Assistent. Beantworte die Frage basierend auf dem gegebenen Kontext. Wenn die Antwort nicht im Kontext zu finden ist, antworte: 'Dazu enthalten die bereitgestellten Dokumente keine Informationen.'"
+                "content": SYSTEM_PROMPT
             },
             {
                 "role": "user",
@@ -60,7 +62,7 @@ class HuggingfaceGenerator(BaseGenerator):
             messages = [
                 {
                     "role": "system",
-                    "content": "Du bist ein hilfreicher Assistent. Beantworte die Frage basierend auf dem gegebenen Kontext. Wenn die Antwort nicht im Kontext zu finden ist, antworte: 'Dazu enthalten die bereitgestellten Dokumente keine Informationen.'"
+                    "content": SYSTEM_PROMPT
                 },
                 {
                     "role": "user",
