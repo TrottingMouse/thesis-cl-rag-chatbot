@@ -12,6 +12,7 @@ Exports:
     WholeTableParagraphChunker – keeps whole tables as single chunks
     LumberChunker           – LLM-based semantic chunker (LumberChunker paper)
     MaxMinChunker           – embedding-based semantic chunker (MaxMin algorithm)
+    PassthroughChunker      – keeps each document as a single chunk (baseline)
 """
 
 from .base import BaseChunker
@@ -19,6 +20,7 @@ from .fixed_size import FixedCharacterChunker, FixedSentenceChunker, FixedParagr
 from .tables import WholeTableParagraphChunker
 from .llm import LumberChunker
 from .semantic import MaxMinChunker
+from .passthrough import PassthroughChunker
 
 __all__ = [
     "BaseChunker",
@@ -28,4 +30,5 @@ __all__ = [
     "WholeTableParagraphChunker",
     "LumberChunker",
     "MaxMinChunker",
+    "PassthroughChunker",
 ]
