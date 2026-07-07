@@ -7,7 +7,6 @@ embedding and indexing.
 Exports:
     BaseChunker             – abstract interface all chunkers must implement
     FixedCharacterChunker   – splits text into fixed-size character windows
-    FixedSentenceChunker    – splits text into fixed-size sentence windows
     FixedParagraphChunker   – splits text into fixed-size paragraph windows
     WholeTableParagraphChunker – keeps whole tables as single chunks
     LumberChunker           – LLM-based semantic chunker (LumberChunker paper)
@@ -16,7 +15,7 @@ Exports:
 """
 
 from .base import BaseChunker
-from .fixed_size import FixedCharacterChunker, FixedSentenceChunker, FixedParagraphChunker
+from .fixed_size import FixedCharacterChunker, FixedParagraphChunker
 from .tables import WholeTableParagraphChunker
 from .llm import LumberChunker
 from .semantic import MaxMinChunker
@@ -25,7 +24,6 @@ from .passthrough import PassthroughChunker
 __all__ = [
     "BaseChunker",
     "FixedCharacterChunker",
-    "FixedSentenceChunker",
     "FixedParagraphChunker",
     "WholeTableParagraphChunker",
     "LumberChunker",
