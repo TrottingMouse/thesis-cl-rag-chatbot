@@ -13,7 +13,6 @@ class PaperLLMProcessor(BasePreprocessor):
 
     def __init__(self):
         super().__init__()
-        self.client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
     @property
     def name(self) -> str:
@@ -80,6 +79,8 @@ Beschreibung:
         """Submit all table prompts as one Gemini Batch job and return ordered descriptions."""
         from google.genai.types import JobState
 
+        client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
+
         inline_requests = [
             {
                 "contents": [
@@ -93,7 +94,7 @@ Beschreibung:
         ]
 
         print(f"Submitting batch job with {len(inline_requests)} request(s)...")
-        job = self.client.batches.create(
+        job = client.batches.create(
             model=self.MODEL,
             src=inline_requests,
             config={"display_name": "paper-llm-processor-tables"},
@@ -111,7 +112,7 @@ Beschreibung:
         while job.state not in terminal_states:
             print(f"  Job state: {job.state}  — waiting {self.POLL_INTERVAL}s...")
             time.sleep(self.POLL_INTERVAL)
-            job = self.client.batches.get(name=job.name)
+            job = client.batches.get(name=job.name)
 
         print(f"Batch job finished with state: {job.state}")
 
@@ -272,7 +273,6 @@ class DirectLLMProcessor(BasePreprocessor):
     """
     def __init__(self):
         super().__init__()
-        self.client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
     @property
     def name(self) -> str:
@@ -308,9 +308,11 @@ class DirectLLMProcessor(BasePreprocessor):
         max_retries = 5
         base_delay = 2.0  # Starts with a 2-second delay
 
+        client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
+
         for attempt in range(max_retries):
             try:
-                interaction = self.client.interactions.create(
+                interaction = client.interactions.create(
                     model=_MODEL,
                     input=prompt_contents,
                     service_tier='flex'
