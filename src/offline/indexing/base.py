@@ -63,19 +63,3 @@ class BaseIndexBuilder(ABC):
             All chunks to be indexed.  The builder is responsible for
             embedding them (if needed) and persisting the result.
         """
-
-    # @abstractmethod
-    # def load(self) -> None:
-    #     """
-    #     Load a previously built index from :attr:`storage_path` into memory.
-
-    #     Called at the start of the online pipeline before any queries arrive.
-    #     Raises :exc:`FileNotFoundError` if the index has not been built yet.
-    #     """
-
-    # @abstractmethod
-    # def is_built(self) -> bool:
-    #     """
-    #     Return ``True`` if a persisted index exists at :attr:`storage_path`
-    #     and can be loaded without rebuilding.
-    #     """
