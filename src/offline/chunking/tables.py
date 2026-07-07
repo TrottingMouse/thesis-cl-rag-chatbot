@@ -29,9 +29,6 @@ class WholeTableParagraphChunker(BaseChunker):
         """
         chunks = []
         paragraphs = re.split(r'\n', document.text)
-        for paragraph in paragraphs:
-            print(paragraph)
-            print("--------------------------------")
         paragraphs = [p.strip() for p in paragraphs if p.strip()]
         previous_table = False
         previous_module = False
