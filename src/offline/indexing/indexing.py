@@ -86,24 +86,24 @@ class FaissIndexBuilder(BaseIndexBuilder):
         with open(chunks_path, "wb") as f:
             pickle.dump(self.chunks, f)
 
-    def load(self) -> None:
-        """
-        Load a previously built index and chunks from disk into memory.
-        """
-        if not self.is_built():
-            raise FileNotFoundError(f"FAISS index not found at {self.storage_path}")
+    # def load(self) -> None:
+    #     """
+    #     Load a previously built index and chunks from disk into memory.
+    #     """
+    #     if not self.is_built():
+    #         raise FileNotFoundError(f"FAISS index not found at {self.storage_path}")
 
-        index_path = self.storage_path / "index.faiss"
-        self.index = faiss.read_index(str(index_path))
+    #     index_path = self.storage_path / "index.faiss"
+    #     self.index = faiss.read_index(str(index_path))
 
-        chunks_path = self.storage_path / "chunks.pkl"
-        with open(chunks_path, "rb") as f:# Uses the overridden value!
-            self.chunks = pickle.load(f)
+    #     chunks_path = self.storage_path / "chunks.pkl"
+    #     with open(chunks_path, "rb") as f:# Uses the overridden value!
+    #         self.chunks = pickle.load(f)
 
-    def is_built(self) -> bool:
-        """
-        Return True if both the faiss index and chunks file exist.
-        """
-        index_path = self.storage_path / "index.faiss"
-        chunks_path = self.storage_path / "chunks.pkl"
-        return index_path.exists() and chunks_path.exists()
+    # def is_built(self) -> bool:
+    #     """
+    #     Return True if both the faiss index and chunks file exist.
+    #     """
+    #     index_path = self.storage_path / "index.faiss"
+    #     chunks_path = self.storage_path / "chunks.pkl"
+    #     return index_path.exists() and chunks_path.exists()

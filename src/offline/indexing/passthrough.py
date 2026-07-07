@@ -65,25 +65,25 @@ class PassthroughIndexBuilder(BaseIndexBuilder):
         with open(chunks_path, "wb") as f:
             pickle.dump(self.chunks, f)
 
-    def load(self) -> None:
-        """
-        Load previously persisted chunks from disk into memory.
+    # def load(self) -> None:
+    #     """
+    #     Load previously persisted chunks from disk into memory.
 
-        Raises
-        ------
-        FileNotFoundError
-            If :meth:`build` has not been called yet.
-        """
-        if not self.is_built():
-            raise FileNotFoundError(
-                f"Passthrough index not found at {self.storage_path}. "
-                "Run the offline pipeline first."
-            )
+    #     Raises
+    #     ------
+    #     FileNotFoundError
+    #         If :meth:`build` has not been called yet.
+    #     """
+    #     if not self.is_built():
+    #         raise FileNotFoundError(
+    #             f"Passthrough index not found at {self.storage_path}. "
+    #             "Run the offline pipeline first."
+    #         )
 
-        chunks_path = self.storage_path / self._CHUNKS_FILE
-        with open(chunks_path, "rb") as f:
-            self.chunks = pickle.load(f)
+    #     chunks_path = self.storage_path / self._CHUNKS_FILE
+    #     with open(chunks_path, "rb") as f:
+    #         self.chunks = pickle.load(f)
 
-    def is_built(self) -> bool:
-        """Return ``True`` if the chunks file exists on disk."""
-        return (self.storage_path / self._CHUNKS_FILE).exists()
+    # def is_built(self) -> bool:
+    #     """Return ``True`` if the chunks file exists on disk."""
+    #     return (self.storage_path / self._CHUNKS_FILE).exists()
