@@ -33,10 +33,10 @@ def main():
 
     for i, pipeline_result in enumerate(positive_online_results):
         positive_qa_pairs[i]["response"] = pipeline_result.generation_result
-        positive_qa_pairs[i]["retrieved_contexts"] = [retrieval_result.chunk.text for retrieval_result in pipeline_result.reranked_results]
+        positive_qa_pairs[i]["retrieved_contexts"] = [chunk.text for chunk in pipeline_result.reranked_results]
     for i, pipeline_result in enumerate(negative_online_results):
         negative_qa_pairs[i]["response"] = pipeline_result.generation_result
-        negative_qa_pairs[i]["retrieved_contexts"] = [retrieval_result.chunk.text for retrieval_result in pipeline_result.reranked_results]
+        negative_qa_pairs[i]["retrieved_contexts"] = [chunk.text for chunk in pipeline_result.reranked_results]
     
     positive_save_path = "storage/results/positive/" + pipeline_name + ".json"
     negative_save_path = "storage/results/negative/" + pipeline_name + ".json"

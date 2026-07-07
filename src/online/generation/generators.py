@@ -26,7 +26,7 @@ class HuggingfaceGenerator(BaseGenerator):
         return "huggingface"
 
     def generate(self, query: str, context) -> str:
-        context_str = "\n".join([f"Source {i+1}:\n{result.chunk.text}" for i, result in enumerate(context)])
+        context_str = "\n".join([f"Source {i+1}:\n{chunk.text}" for i, chunk in enumerate(context)])
         messages = [
             {
                 "role": "system",
@@ -53,7 +53,7 @@ class HuggingfaceGenerator(BaseGenerator):
     
     def generate_batch(self, queries: list[str], contexts: list[list]) -> list[str]:
         context_strings = [
-            "\n".join([f"Source {i+1}:\n{result.chunk.text}" for i, result in enumerate(context)]) 
+            "\n".join([f"Source {i+1}:\n{chunk.text}" for i, chunk in enumerate(context)]) 
             for context in contexts
         ]
         
@@ -106,5 +106,5 @@ class PassthroughGenerator(BaseGenerator):
         return "passthrough"
 
     def generate(self, query: str, context):
-        context_str = "\n".join([f"Source {i+1}:\n{result.chunk.text}" for i, result in enumerate(context)])
-        return context_str 
+        context_str = "\n".join([f"Source {i+1}:\n{chunk.text}" for i, chunk in enumerate(context)])
+        return context_str

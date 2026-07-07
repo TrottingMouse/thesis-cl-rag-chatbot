@@ -6,6 +6,7 @@ import re
 class WholeTableParagraphChunker(BaseChunker):
     """
     Chunks tables from markdown files as-is without splitting them.
+    Text is split into paragraphs.
     """
 
     def __init__(self):

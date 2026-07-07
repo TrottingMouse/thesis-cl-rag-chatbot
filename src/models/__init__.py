@@ -6,10 +6,9 @@ Pydantic / dataclass models used by both the offline and online pipelines.
 Exports:
     Document        – raw ingested document (text + metadata)
     Chunk           – text chunk produced by a chunker
-    RetrievalResult – ranked retrieval hit (chunk + score)
-    AugmentedQuery  – query enriched with retrieved context, ready for generation
+    AugmentedQuery  – query after processing/augmentation
 """
 
-from .data_models import Document, Chunk, RetrievalResult, AugmentedQuery
+from .data_models import Document, Chunk, AugmentedQuery
 
-__all__ = ["Document", "Chunk", "RetrievalResult", "AugmentedQuery"]
+__all__ = ["Document", "Chunk", "AugmentedQuery"]

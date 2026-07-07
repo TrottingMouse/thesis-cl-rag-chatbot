@@ -14,7 +14,7 @@ from __future__ import annotations
 import logging
 import torch
 
-from src.models import AugmentedQuery, RetrievalResult
+from src.models import AugmentedQuery, Chunk
 from src.online.reranking import BaseReranker
 
 logger = logging.getLogger(__name__)
@@ -46,7 +46,7 @@ class Qwen3Reranker(BaseReranker):
     def __init__(
         self,
         top_n: int = 5,
-        model_name: str = "Qwen/Qwen3-Reranker-0.6B"
+        model_name: str = "BAAI/bge-reranker-large"
     ) -> None:
         super().__init__(top_n=top_n)
         self._model_name = model_name
@@ -87,11 +87,11 @@ class Qwen3Reranker(BaseReranker):
     def rerank(
         self,
         augmented_query: AugmentedQuery,
-        candidates: list[RetrievalResult],
-    ) -> list[RetrievalResult]:
+        candidates: list[Chunk],
+    ) -> list[Chunk]:
         """
-        Score every (query, chunk) pair with the Qwen3 cross-encoder and
-        return the top-n results sorted by descending relevance.
+        Score every (query, chunk) pair with the cross-encoder and
+        return the top-n chunks sorted by descending relevance.
 
         Parameters
         ----------
@@ -103,17 +103,14 @@ class Qwen3Reranker(BaseReranker):
 
         Returns
         -------
-        list[RetrievalResult]
-            Up to ``self.top_n`` results, sorted by rerank score
-            (highest first).  Each result's ``rank`` field is set
-            (1-indexed) and a ``rerank_score`` key is added to
-            ``metadata``.
+        list[Chunk]
+            Up to ``self.top_n`` chunks, sorted by rerank score (highest first).
         """
         if not candidates:
             return []
 
         query = augmented_query.original_query
-        passages = [r.chunk.text for r in candidates]
+        passages = [chunk.text for chunk in candidates]
 
         logger.debug(
             "Reranking %d candidate(s) with '%s' …",
@@ -130,14 +127,7 @@ class Qwen3Reranker(BaseReranker):
             convert_to_tensor=False,
         )
 
-        reranked: list[RetrievalResult] = []
-        for rank_pos, entry in enumerate(rankings, start=1):
-            result = candidates[entry["corpus_id"]]
-            result.score = float(entry["score"])
-            result.rank = rank_pos
-            result.metadata["rerank_score"] = result.score
-            result.metadata["reranker"] = self._model_name
-            reranked.append(result)
+        reranked: list[Chunk] = [candidates[entry["corpus_id"]] for entry in rankings]
 
         logger.debug("Reranking done – returning %d result(s).", len(reranked))
         return reranked
@@ -145,8 +135,8 @@ class Qwen3Reranker(BaseReranker):
     def rerank_batch(
         self,
         augmented_queries: list[AugmentedQuery],
-        candidates_batch: list[list[RetrievalResult]],
-    ) -> list[list[RetrievalResult]]:
+        candidates_batch: list[list[Chunk]],
+    ) -> list[list[Chunk]]:
         """
         Rerank candidates for a batch of queries in a single model forward pass.
 
@@ -164,7 +154,7 @@ class Qwen3Reranker(BaseReranker):
 
         Returns
         -------
-        list[list[RetrievalResult]]
+        list[list[Chunk]]
             One reranked result list per input query, in the same order.
         """
         if not augmented_queries:
@@ -177,8 +167,8 @@ class Qwen3Reranker(BaseReranker):
         for aq, candidates in zip(augmented_queries, candidates_batch):
             start = len(flat_pairs)
             query = aq.original_query
-            for result in candidates:
-                flat_pairs.append((query, result.chunk.text))
+            for chunk in candidates:
+                flat_pairs.append((query, chunk.text))
             slices.append((start, len(flat_pairs)))
 
         if not flat_pairs:
@@ -195,22 +185,14 @@ class Qwen3Reranker(BaseReranker):
         all_scores: list[float] = self._model.predict(flat_pairs, convert_to_numpy=True).tolist()
 
         # Redistribute scores back to per-query results
-        batch_reranked: list[list[RetrievalResult]] = []
+        batch_reranked: list[list[Chunk]] = []
         for (start, end), candidates in zip(slices, candidates_batch):
             query_scores = all_scores[start:end]
             # Sort indices by descending score and take top_n
             ranked_indices = sorted(
                 range(len(query_scores)), key=lambda i: query_scores[i], reverse=True
             )[: self.top_n]
-            reranked: list[RetrievalResult] = []
-            for rank_pos, idx in enumerate(ranked_indices, start=1):
-                result = candidates[idx]
-                result.score = query_scores[idx]
-                result.rank = rank_pos
-                result.metadata["rerank_score"] = result.score
-                result.metadata["reranker"] = self._model_name
-                reranked.append(result)
-            batch_reranked.append(reranked)
+            batch_reranked.append([candidates[idx] for idx in ranked_indices])
 
         logger.debug("Batch reranking done.")
         return batch_reranked
@@ -231,16 +213,13 @@ class PassthroughReranker(BaseReranker):
     def rerank(
         self,
         augmented_query: AugmentedQuery,
-        candidates: list[RetrievalResult],
-    ) -> list[RetrievalResult]:
-        top = candidates[: self.top_n]
-        for rank_pos, result in enumerate(top, start=1):
-            result.rank = rank_pos
-        return top
+        candidates: list[Chunk],
+    ) -> list[Chunk]:
+        return candidates[: self.top_n]
 
     def rerank_batch(
         self,
         augmented_queries: list[AugmentedQuery],
-        candidates_batch: list[list[RetrievalResult]],
-    ) -> list[list[RetrievalResult]]:
+        candidates_batch: list[list[Chunk]],
+    ) -> list[list[Chunk]]:
         return [self.rerank(aq, candidates) for aq, candidates in zip(augmented_queries, candidates_batch)]

@@ -1,7 +1,8 @@
 import torch
+# For version compatibility of older torch and newer transformers versions
 if not hasattr(torch, "float8_e8m0fnu"):
     setattr(torch, "float8_e8m0fnu", torch.float32)
-    
+
 from factory import build_pipelines_from_config
 from src.evaluation import Evaluator
 import logging
@@ -33,7 +34,7 @@ def main():
 
     for i, pipeline_result in enumerate(positive_online_results):
         positive_qa_pairs[i]["response"] = pipeline_result.generation_result
-        positive_qa_pairs[i]["retrieved_contexts"] = [retrieval_result.chunk.text for retrieval_result in pipeline_result.reranked_results]
+        positive_qa_pairs[i]["retrieved_contexts"] = [chunk.text for chunk in pipeline_result.reranked_results]
     
     positive_save_path = "storage/results/" + data_config["online_config"]["generation_model"] + ".json"
     os.makedirs(os.path.dirname(positive_save_path), exist_ok=True)

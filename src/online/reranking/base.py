@@ -3,7 +3,7 @@ Abstract base class for rerankers (Online Pipeline – Step 3).
 
 A reranker receives the candidate list from the retriever and the original
 (or augmented) query, and returns a reordered, possibly pruned list of
-:class:`~src.models.RetrievalResult` objects.
+:class:`~src.models.Chunk` objects.
 
 Possible concrete implementations
 ----------------------------------
@@ -23,7 +23,7 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 
-from src.models import AugmentedQuery, RetrievalResult
+from src.models import AugmentedQuery, Chunk
 
 
 class BaseReranker(ABC):
@@ -56,8 +56,8 @@ class BaseReranker(ABC):
     def rerank(
         self,
         augmented_query: AugmentedQuery,
-        candidates: list[RetrievalResult],
-    ) -> list[RetrievalResult]:
+        candidates: list[Chunk],
+    ) -> list[Chunk]:
         """
         Rerank the retriever's candidate list.
 
@@ -67,21 +67,20 @@ class BaseReranker(ABC):
             The processed query (use ``augmented_query.original_query`` for
             pointwise / listwise reranking).
         candidates:
-            Ordered list of candidates from the retriever
+            Ordered list of candidate chunks from the retriever
             (``candidates[0]`` is the retriever's best hit).
 
         Returns
         -------
-        list[RetrievalResult]
-            Up to ``self.top_n`` results, reordered by the reranker's
-            scoring.  Each result's ``rank`` field must be set (1-indexed).
+        list[Chunk]
+            Up to ``self.top_n`` chunks, reordered by the reranker's scoring.
         """
 
     def rerank_batch(
         self,
         augmented_queries: list[AugmentedQuery],
-        candidates_batch: list[list[RetrievalResult]],
-    ) -> list[list[RetrievalResult]]:
+        candidates_batch: list[list[Chunk]],
+    ) -> list[list[Chunk]]:
         """
         Rerank candidates for a batch of queries.
 
@@ -100,7 +99,7 @@ class BaseReranker(ABC):
 
         Returns
         -------
-        list[list[RetrievalResult]]
+        list[list[Chunk]]
             One reranked result list per input query, in the same order.
         """
         return [

@@ -24,7 +24,7 @@ from __future__ import annotations
 import logging
 from dataclasses import dataclass
 
-from src.models import AugmentedQuery, RetrievalResult
+from src.models import AugmentedQuery, Chunk
 from src.online.generation import BaseGenerator
 from src.online.query import BaseQueryProcessor
 from src.online.retrieval import BaseRetriever
@@ -40,11 +40,11 @@ class OnlinePipelineResult:
     augmented_query: AugmentedQuery
     """Query after processing/augmentation."""
 
-    retrieval_candidates: list[RetrievalResult]
+    retrieval_candidates: list[Chunk]
     """Raw retriever output before reranking."""
 
-    reranked_results: list[RetrievalResult]
-    """Final results after reranking, ordered by rank (rank 1 = best)."""
+    reranked_results: list[Chunk]
+    """Final chunks after reranking, ordered by rank (rank 1 = best)."""
 
     generation_result: str
     """Answer generated from the reranked context by the generator."""
@@ -92,7 +92,7 @@ class OnlinePipeline:
         -------
         OnlinePipelineResult
             Contains the augmented query, raw retrieval candidates,
-            the final reranked results, and the generated answer string.
+            the final reranked chunks, and the generated answer string.
         """
         logger.info(
             "Online pipeline query | processor=%s | retriever=%s | reranker=%s | generator=%s",
@@ -112,12 +112,12 @@ class OnlinePipeline:
 
         # Stage 2 – Retrieval
         logger.info("Stage 2/4: Retrieving top-%d candidates…", self.retriever.top_k)
-        candidates: list[RetrievalResult] = self.retriever.retrieve(augmented_query)
+        candidates: list[Chunk] = self.retriever.retrieve(augmented_query)
         logger.info("Stage 2/4: Done – %d candidate(s) retrieved.", len(candidates))
 
         # Stage 3 – Reranking
         logger.info("Stage 3/4: Reranking to top-%d…", self.reranker.top_n)
-        reranked: list[RetrievalResult] = self.reranker.rerank(augmented_query, candidates)
+        reranked: list[Chunk] = self.reranker.rerank(augmented_query, candidates)
         logger.info("Stage 3/4: Done – %d result(s) returned.", len(reranked))
 
         # Stage 4 – Generation
@@ -144,7 +144,7 @@ class OnlinePipeline:
         Returns
         -------
         list[OnlinePipelineResult]
-            Contains the augmented query, raw retrieval candidates, the final reranked results, and the generated answer string for each query.
+            Contains the augmented query, raw retrieval candidates, the final reranked chunks, and the generated answer string for each query.
         """
         results = []
         for raw_query in raw_queries:
@@ -170,7 +170,7 @@ class OnlinePipeline:
         list[OnlinePipelineResult]
             One result per input query, in the same order.  Each result
             contains the augmented query, raw retrieval candidates, the
-            final reranked results, and the generated answer string.
+            final reranked chunks, and the generated answer string.
         """
         if not raw_queries:
             return []
@@ -192,12 +192,12 @@ class OnlinePipeline:
 
         # Stage 2 – Retrieval (batch)
         logger.info("Stage 2/4: Batch-retrieving top-%d candidates for %d query(ies)…", self.retriever.top_k, n)
-        candidates_batch: list[list[RetrievalResult]] = self.retriever.retrieve_batch(augmented_queries)
+        candidates_batch: list[list[Chunk]] = self.retriever.retrieve_batch(augmented_queries)
         logger.info("Stage 2/4: Done.")
 
         # Stage 3 – Reranking (batch)
         logger.info("Stage 3/4: Batch-reranking to top-%d for %d query(ies)…", self.reranker.top_n, n)
-        reranked_batch: list[list[RetrievalResult]] = self.reranker.rerank_batch(augmented_queries, candidates_batch)
+        reranked_batch: list[list[Chunk]] = self.reranker.rerank_batch(augmented_queries, candidates_batch)
         logger.info("Stage 3/4: Done.")
 
         # Stage 4 – Generation (batch)

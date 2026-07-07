@@ -94,30 +94,3 @@ class AugmentedQuery:
 
     query_type: str = "query"
     """Depends on the format which the QueryProcessor provides. Either query or document."""
-
-
-@dataclass
-class RetrievalResult:
-    """
-    A single candidate chunk returned by a retriever.
-
-    Before reranking this holds the retrieval score; after reranking a
-    reranker may overwrite :attr:`score` or add a ``rerank_score`` entry
-    to :attr:`metadata`.
-    """
-
-    chunk: Chunk
-    """The retrieved chunk."""
-
-    score: float
-    """Retrieval score (higher is more relevant; exact semantics depend on
-    the retriever, e.g. cosine similarity or BM25 score)."""
-
-    retriever_name: str = ""
-    """Name of the :class:`BaseRetriever` that produced this result."""
-
-    rank: int | None = None
-    """Rank assigned after reranking (1 = most relevant)."""
-
-    metadata: dict[str, Any] = field(default_factory=dict)
-    """Arbitrary extra information (retrieved embedding, BM25 term scores, …)."""
