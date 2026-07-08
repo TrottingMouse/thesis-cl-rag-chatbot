@@ -21,3 +21,10 @@ minirag_config:
   query_mode: "mini"      # "mini" (graph-guided) | "light" (hybrid) | "naive" (pure vector)
   embedding_dim: 768      # hidden_size of jina-embeddings (jina_embeddings_v5)
   chunk_token_size: 1200  # approximate token budget per chunk
+  entity_types:
+    - "module"
+    - "course"
+    - "examination"
+    - "topic"
+    - "requirement"
+    - "organization"

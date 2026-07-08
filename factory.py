@@ -29,6 +29,7 @@ def build_pipelines_from_config(yaml_path: str = "config.yaml"):
             embedding_dim=minirag_cfg.get("embedding_dim", 768),
             chunk_token_size=minirag_cfg.get("chunk_token_size", 1200),
             preprocessor_names=offline_cfg.get("preprocessors", []),
+            entity_types=minirag_cfg.get("entity_types", None),
         )
         pipeline_name = "MiniRAG_" + minirag_cfg.get("query_mode", "mini")
         # Return the same adapter object for both offline and online phases;
