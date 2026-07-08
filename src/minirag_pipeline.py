@@ -168,7 +168,6 @@ class MiniRAGPipeline:
         embedding_dim: int = 768,
         chunk_token_size: int = 1200,
         preprocessor_names: list[str] | None = None,
-        entity_types: list[str] | None = None,
     ) -> None:
         self.embedding_model_name = embedding_model_name
         self.generation_model_name = generation_model_name
@@ -177,7 +176,6 @@ class MiniRAGPipeline:
         self.embedding_dim = embedding_dim
         self.chunk_token_size = chunk_token_size
         self.preprocessor_names = preprocessor_names or []
-        self.entity_types = entity_types
 
         self._rag = None  # lazy-initialised on first use
 
@@ -188,13 +186,6 @@ class MiniRAGPipeline:
     def _get_rag(self):
         """Return the MiniRAG instance, initialising it on first call."""
         if self._rag is None:
-            import minirag.prompt
-            entity_types = self.entity_types
-            if entity_types is None:
-                entity_types = ["module", "course", "examination", "topic", "requirement", "organization"]
-            minirag.prompt.PROMPTS["DEFAULT_ENTITY_TYPES"] = entity_types
-            logger.info("Setting MiniRAG DEFAULT_ENTITY_TYPES to: %s", entity_types)
-
             logger.info(
                 "Initialising MiniRAG | working_dir=%s | embed=%s | gen=%s",
                 self.working_dir,
