@@ -8,13 +8,13 @@ documents:
   - "documents/MHB.pdf"
 
 offline_config:
-  embedding_model: "storage/models/jina-embeddings"
+  embedding_model: "jinaai/jina-embeddings-v5-text-nano"
   preprocessors:
     - "GeminiMarkdownProcessor"
     - "DirectLLMProcessor"
 
 online_config:
-  generation_model: "Qwen/Qwen3.5-0.8B"
+  generation_model: "Qwen/Qwen3.5-2B"
 
 minirag_config:
   working_dir: "storage/minirag_index"
