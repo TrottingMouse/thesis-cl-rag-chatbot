@@ -1,5 +1,4 @@
 from src.evaluation import Evaluator
-import argparse
 import logging
 import json
 import os
@@ -11,13 +10,8 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 load_dotenv()
 
 def main():
-    parser = argparse.ArgumentParser(description="RAG Pipeline Runner")
-    parser.add_argument("--config", type=str, default="config.yaml",
-                        help="Path to the YAML config file (default: config.yaml)")
-    args = parser.parse_args()
-
     # 1. Build everything from the config file
-    offline_pipeline, online_pipeline, config, pipeline_name = build_pipelines_from_config(args.config)
+    offline_pipeline, online_pipeline, config, pipeline_name = build_pipelines_from_config("config.yaml")
 
     # 2. Run Offline Pipeline
     document_paths = config["documents"]

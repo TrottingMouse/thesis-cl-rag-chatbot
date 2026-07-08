@@ -1,4 +1,3 @@
-from src.minirag_pipeline import MiniRAGPipeline
 from src.offline.chunking import WholeTableParagraphChunker
 from src.online.retrieval import PassthroughRetriever
 from src.offline.indexing import PassthroughIndexBuilder
@@ -44,9 +43,6 @@ COMPONENT_REGISTRY = {
     "Qwen3Reranker": Qwen3Reranker,
     "PassthroughGenerator": PassthroughGenerator,
     "HuggingfaceGenerator": HuggingfaceGenerator,
-
-    # MiniRAG adapter (whole-pipeline, not a single component)
-    "MiniRAGPipeline": MiniRAGPipeline,
 }
 
 def get_class(name: str):
