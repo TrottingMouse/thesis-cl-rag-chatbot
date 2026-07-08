@@ -1,0 +1,30 @@
+
+# ──────────────────────────────────────────────────────────────────────────────
+# MiniRAG integration
+#
+# MiniRAG lives in a sibling directory (../MiniRAG) and is NOT on PyPI,
+# so it must be installed as an editable local package BEFORE the deps below.
+#
+# Full setup (run from thesis-cl-rag-chatbot/ with the venv activated):
+#
+#   1. Activate the project venv:
+#        source .venv/bin/activate
+#
+#   2. Install MiniRAG itself in editable mode so that any changes to its
+#      source are reflected immediately without re-installing:
+#        pip install -e ../MiniRAG
+#
+#   3. Install these runtime dependencies that MiniRAG requires
+#      (pip install -r requirements.txt will handle this automatically):
+#
+# ──────────────────────────────────────────────────────────────────────────────
+json_repair
+tiktoken
+aiofiles
+graspologic
+networkx
+nltk
+xxhash
+pipmaster
+tenacity
+rouge
