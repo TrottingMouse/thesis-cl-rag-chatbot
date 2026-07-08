@@ -205,7 +205,7 @@ def chunking_grid_search():
                 # Phase 7: Evaluate
                 # ----------------------------------------------------------
                 evaluator = Evaluator(str(qa_save))
-                eval_df = evaluator.evaluate_retrieval()
+                eval_df = evaluator.evaluate()
 
                 #logger.info("Evaluation:\n%s", eval_df.to_string())
 

@@ -1,6 +1,5 @@
 
 
-1. header injection und metadaten tabelle
 2. minirag paper ausprobieren
 3. query preprocessing
 4. gridsearch
@@ -8,11 +7,10 @@
 wenn am Ende noch Zeit:
 converter von pdf für PaperLLMProcessor verbessern/cleaner einbauen (siehe Lumberchunker chat auf gemini.google)
 bm25/hybrid retrieval
+anderer llm-based
 
 
 Architektur:
-3. RetrievalResult abschaffen und stattdessen Chunk retrieven?
-4. indexbuilder.load() und isbuilt() löschen?
 5. pipelineconfig aufräumen
 
 
@@ -22,4 +20,9 @@ lumberchunker auf server testen
 pipeline batching!
 1. so dass api key nicht gebraucht wenn docs da?
 2. sentencechunking löschen
+3. RetrievalResult abschaffen und stattdessen Chunk retrieven?
+1. header injection und metadaten tabelle
+4. indexbuilder.load() und isbuilt() löschen?
+
+
 

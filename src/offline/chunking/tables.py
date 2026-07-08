@@ -5,8 +5,9 @@ import re
 
 class WholeTableParagraphChunker(BaseChunker):
     """
-    Chunks tables from markdown files as-is without splitting them.
+    Chunks tables and MHB modules from markdown files as-is without splitting them.
     Text is split into paragraphs.
+    Tables from PO get a prefix of abbreviations prepended.
     """
 
     def __init__(self):
