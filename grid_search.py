@@ -63,15 +63,16 @@ def _derive_retrieval_params(avg_chunk_size: float) -> tuple[int, int]:
     top_n = floor(1000 / avg_chunk_size)  (min 1)
     top_k = 3 * top_n
     """
-    top_n = max(1, math.floor(1500.0 / avg_chunk_size))
+    top_n = max(1, math.floor(2000.0 / avg_chunk_size))
     top_k = 3 * top_n
     return top_k, top_n
 
 
-def _make_run_name(preprocessor_names: list[str], chunker_name: str, chunk_size: int, overlap: int) -> str:
+def _make_run_name(preprocessor_names: list[str], chunker_name: str, **params) -> str:
     """Build a short, filesystem-safe name for this grid run."""
     prep_part = "_".join(p[:6] for p in preprocessor_names)
-    return f"{prep_part}_{chunker_name[:10]}_{chunk_size}_{overlap}"
+    param_part = "_".join(str(v) for v in params.values())
+    return f"{prep_part}_{chunker_name[:10]}_{param_part}"
 
 
 # ---------------------------------------------------------------------------
@@ -106,126 +107,163 @@ def chunking_grid_search():
 
     summary_rows: list[dict] = []
 
+    preprocessors = [get_class(name)() for name in preprocessor_names]
+
     # 2. Iterate over every chunker configuration
     for chunker_cfg in chunkers:
         chunker_name: str = chunker_cfg["name"]
-        chunk_sizes: list[int] = chunker_cfg["chunk_sizes"]
-        overlaps: list[int] = chunker_cfg["overlaps"]
+        options: dict = chunker_cfg["options"]
 
-        logger.info(
-            "=== Grid search for chunker '%s' | chunk_sizes=%s | overlaps=%s ===",
-            chunker_name,
-            chunk_sizes,
-            overlaps,
-        )
+        is_maxmin = chunker_name == "MaxMinChunker"
 
-        for chunk_size in chunk_sizes:
-            for overlap in overlaps:
-                if overlap >= chunk_size:
-                    continue
+        if is_maxmin:
+            c_values: list[float] = options["c"]
+            fixed_threshold_values: list[float] = options["fixed_threshold"]
+            embedding_model_name: str = options.get(
+                "embedding_model_name", offline_config.embedding_model
+            )
+            param_combinations = [
+                {"c": c_val, "fixed_threshold": ft_val}
+                for c_val in c_values
+                for ft_val in fixed_threshold_values
+            ]
+            logger.info(
+                "=== Grid search for chunker '%s' | c=%s | fixed_threshold=%s ===",
+                chunker_name,
+                c_values,
+                fixed_threshold_values,
+            )
+        else:
+            chunk_sizes: list[int] = options["chunk_sizes"]
+            overlaps: list[int] = options["overlaps"]
+            param_combinations = [
+                {"chunk_size": cs, "overlap": ov}
+                for cs in chunk_sizes
+                for ov in overlaps
+                if ov < cs
+            ]
+            logger.info(
+                "=== Grid search for chunker '%s' | chunk_sizes=%s | overlaps=%s ===",
+                chunker_name,
+                chunk_sizes,
+                overlaps,
+            )
 
-                run_name = _make_run_name(preprocessor_names, chunker_name, chunk_size, overlap)
-                logger.info("--- Run: %s ---", run_name)
+        for params in param_combinations:
+            run_name = _make_run_name(preprocessor_names, chunker_name, **params)
+            logger.info("--- Run: %s ---", run_name)
 
-                # Unique index path per run to avoid cross-run contamination
-                index_path = Path("storage/grid_search_index") / run_name
+            # Unique index path per run to avoid cross-run contamination
+            index_path = Path("storage/grid_search_index") / run_name
 
-                # ----------------------------------------------------------
-                # Phase 1: Build preprocessors and chunker
-                # ----------------------------------------------------------
-                preprocessors = [get_class(name)() for name in preprocessor_names]
-
-                ChunkerClass = get_class(chunker_name)
-                chunker = ChunkerClass(chunk_size=chunk_size, overlap=overlap)
-
-                IndexBuilderClass = get_class(offline_cfg["index_builder"])
-                index_builder = IndexBuilderClass(
-                    storage_path=index_path,
-                    model_name=offline_config.embedding_model,
+            # ----------------------------------------------------------
+            # Phase 1: Build preprocessors and chunker
+            # ----------------------------------------------------------
+            ChunkerClass = get_class(chunker_name)
+            if is_maxmin:
+                chunker = ChunkerClass(
+                    embedding_model_name=embedding_model_name,
+                    c=params["c"],
+                    fixed_threshold=params["fixed_threshold"],
+                )
+            else:
+                chunker = ChunkerClass(
+                    chunk_size=params["chunk_size"],
+                    overlap=params["overlap"],
                 )
 
-                offline_pipeline = OfflinePipeline(preprocessors, chunker, index_builder)
+            IndexBuilderClass = get_class(offline_cfg["index_builder"])
+            index_builder = IndexBuilderClass(
+                storage_path=index_path,
+                model_name=offline_config.embedding_model,
+            )
 
-                # ----------------------------------------------------------
-                # Phase 2: Run offline pipeline (preprocess + chunk + index)
-                # ----------------------------------------------------------
-                offline_result = offline_pipeline.run(document_paths)
-                chunks = offline_result.chunks
+            offline_pipeline = OfflinePipeline(preprocessors, chunker, index_builder)
 
-                # ----------------------------------------------------------
-                # Phase 3: Derive dynamic retrieval parameters from chunk sizes
-                # ----------------------------------------------------------
-                avg_chunk_size = _compute_avg_chunk_size(chunks)
-                top_k, top_n = _derive_retrieval_params(avg_chunk_size)
+            # ----------------------------------------------------------
+            # Phase 2: Run offline pipeline (preprocess + chunk + index)
+            # ----------------------------------------------------------
+            offline_result = offline_pipeline.run(document_paths)
+            chunks = offline_result.chunks
 
-                logger.info(
-                    "avg_chunk_size=%.1f chars | top_n=%d | top_k=%d",
-                    avg_chunk_size, top_n, top_k,
-                )
+            # ----------------------------------------------------------
+            # Phase 3: Derive dynamic retrieval parameters from chunk sizes
+            # ----------------------------------------------------------
+            avg_chunk_size = _compute_avg_chunk_size(chunks)
+            top_k, top_n = _derive_retrieval_params(avg_chunk_size)
 
-                # ----------------------------------------------------------
-                # Phase 4: Build online pipeline, reusing the already-loaded
-                # index_builder instance from the offline pipeline.
-                # (index_builder.index and .chunks are populated in memory.)
-                # ----------------------------------------------------------
-                query_processor = get_class(online_cfg["query_processor"])()
+            logger.info(
+                "avg_chunk_size=%.1f chars | top_n=%d | top_k=%d",
+                avg_chunk_size, top_n, top_k,
+            )
 
-                RetrieverClass = get_class(online_cfg["retriever"])
-                retriever = RetrieverClass(index_builder, top_k=top_k)
+            # ----------------------------------------------------------
+            # Phase 4: Build online pipeline, reusing the already-loaded
+            # index_builder instance from the offline pipeline.
+            # (index_builder.index and .chunks are populated in memory.)
+            # ----------------------------------------------------------
+            query_processor = get_class(online_cfg["query_processor"])()
 
-                RerankerClass = get_class(online_cfg["reranker"])
-                reranker = RerankerClass(top_n=top_n)
+            RetrieverClass = get_class(online_cfg["retriever"])
+            retriever = RetrieverClass(index_builder, top_k=top_k)
 
-                generator = get_class(online_cfg["generator"])()
+            RerankerClass = get_class(online_cfg["reranker"])
+            reranker = RerankerClass(top_n=top_n)
 
-                online_pipeline = OnlinePipeline(query_processor, retriever, reranker, generator)
+            generator = get_class(online_cfg["generator"])()
 
-                # ----------------------------------------------------------
-                # Phase 5: Run online queries
-                # ----------------------------------------------------------
-                qa_online_results = online_pipeline.multiple_queries(queries)
+            online_pipeline = OnlinePipeline(query_processor, retriever, reranker, generator)
 
-                # Attach results to QA pairs (deep copy to avoid mutating the template)
-                qa_pairs = copy.deepcopy(qa_pairs_template)
+            # ----------------------------------------------------------
+            # Phase 5: Run online queries
+            # ----------------------------------------------------------
+            qa_online_results = online_pipeline.multiple_queries(queries)
 
-                for i, pipeline_result in enumerate(qa_online_results):
-                    qa_pairs[i]["response"] = pipeline_result.generation_result
-                    qa_pairs[i]["retrieved_contexts"] = [
-                        r.chunk.text for r in pipeline_result.reranked_results
-                    ]
+            # Attach results to QA pairs (deep copy to avoid mutating the template)
+            qa_pairs = copy.deepcopy(qa_pairs_template)
 
-                # ----------------------------------------------------------
-                # Phase 6: Save raw results
-                # ----------------------------------------------------------
-                qa_save = results_dir / f"{run_name}.json"
-                with open(qa_save, "w") as f:
-                    json.dump(qa_pairs, f, indent=4)
+            for i, pipeline_result in enumerate(qa_online_results):
+                qa_pairs[i]["response"] = pipeline_result.generation_result
+                qa_pairs[i]["retrieved_contexts"] = [
+                    r.chunk.text for r in pipeline_result.reranked_results
+                ]
 
-                # ----------------------------------------------------------
-                # Phase 7: Evaluate
-                # ----------------------------------------------------------
-                evaluator = Evaluator(str(qa_save))
-                eval_df = evaluator.evaluate()
+            # ----------------------------------------------------------
+            # Phase 6: Save raw results
+            # ----------------------------------------------------------
+            qa_save = results_dir / f"{run_name}.json"
+            with open(qa_save, "w") as f:
+                json.dump(qa_pairs, f, indent=4)
 
-                #logger.info("Evaluation:\n%s", eval_df.to_string())
+            # ----------------------------------------------------------
+            # Phase 7: Evaluate
+            # ----------------------------------------------------------
+            evaluator = Evaluator(str(qa_save))
+            eval_df = evaluator.evaluate()
 
-                # Aggregate numeric metrics (mean across QA pairs)
-                metrics = eval_df.mean(numeric_only=True).to_dict()
+            #logger.info("Evaluation:\n%s", eval_df.to_string())
 
-                row = {
-                    "run_name": run_name,
-                    "preprocessors": "+".join(preprocessor_names),
-                    "chunker": chunker_name,
-                    "chunk_size": chunk_size,
-                    "overlap": overlap,
-                    "num_chunks": len(chunks),
-                    "avg_chunk_size_chars": round(avg_chunk_size, 1),
-                    "top_k": top_k,
-                    "top_n": top_n,
-                    **{f"{k}": v for k, v in metrics.items()},
-                }
-                summary_rows.append(row)
-                logger.info("Run '%s' complete.", run_name)
+            # Aggregate numeric metrics (mean across QA pairs)
+            metrics = eval_df.mean(numeric_only=True).to_dict()
+
+            row = {
+                "run_name": run_name,
+                "preprocessors": "+".join(preprocessor_names),
+                "chunker": chunker_name,
+                # MaxMinChunker-specific columns (empty for other chunkers)
+                "c": params.get("c", ""),
+                "fixed_threshold": params.get("fixed_threshold", ""),
+                # Standard chunker columns (empty for MaxMinChunker)
+                "chunk_size": params.get("chunk_size", ""),
+                "overlap": params.get("overlap", ""),
+                "num_chunks": len(chunks),
+                "avg_chunk_size_chars": round(avg_chunk_size, 1),
+                "top_k": top_k,
+                "top_n": top_n,
+                **{f"{k}": v for k, v in metrics.items()},
+            }
+            summary_rows.append(row)
+            logger.info("Run '%s' complete.", run_name)
 
     # 3. Write summary CSV
     if summary_rows:

@@ -3,9 +3,22 @@ preprocessing:
 
 chunking:
   - name: FixedParagraphChunker
-    chunk_sizes: [1, 2, 3]
-    overlaps: [0, 1]
+    options:
+      chunk_sizes: [1, 2, 3]
+      overlaps: [0, 1]
 
   - name: FixedCharacterChunker
-    chunk_sizes: [200, 300, 500]
-    overlaps: [0, 50]
+    options:
+      chunk_sizes: [200, 300, 500]
+      overlaps: [0, 50]
+
+  # - name: DynamicTokenChunker
+  #   options:
+  #     chunk_sizes: [100, 200, 300]
+  #     overlaps: [0, 50]
+
+  # MaxMinChunker uses different parameters (no chunk_size/overlap):
+  # - name: MaxMinChunker
+  #   options:
+  #     c: [0.7, 0.8, 0.9]
+  #     fixed_threshold: [0.4, 0.6, 0.8]

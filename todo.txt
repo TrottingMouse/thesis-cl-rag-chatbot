@@ -1,13 +1,16 @@
 
 
-2. minirag paper ausprobieren
 3. query preprocessing
 4. gridsearch
+Durchläufe mit allen prepro/chunk/querypre
+Ergebnisgrafiken
 
 wenn am Ende noch Zeit:
 converter von pdf für PaperLLMProcessor verbessern/cleaner einbauen (siehe Lumberchunker chat auf gemini.google)
 bm25/hybrid retrieval
 anderer llm-based
+prompt templates: Evaluating Prompt Engineering Techniques for RAG in Small Language Models: A Multi-Hop QA Approach
+
 
 
 Architektur:
@@ -23,6 +26,8 @@ pipeline batching!
 3. RetrievalResult abschaffen und stattdessen Chunk retrieven?
 1. header injection und metadaten tabelle
 4. indexbuilder.load() und isbuilt() löschen?
+2. minirag paper ausprobieren
 
 
 
+nano storage/results/positive/MiniRAG_mini.json
