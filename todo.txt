@@ -14,7 +14,6 @@ prompt templates: Evaluating Prompt Engineering Techniques for RAG in Small Lang
 
 
 Architektur:
-5. pipelineconfig aufräumen
 
 
 DONE:
@@ -27,6 +26,7 @@ pipeline batching!
 1. header injection und metadaten tabelle
 4. indexbuilder.load() und isbuilt() löschen?
 2. minirag paper ausprobieren
+5. pipelineconfig aufräumen
 
 
 

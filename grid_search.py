@@ -86,7 +86,7 @@ def chunking_grid_search():
 
     preprocessor_names: list[str] = grid_cfg["preprocessing"]
     chunkers: list[dict] = grid_cfg["chunking"]
-    document_paths: list[str] = base_cfg["data"]["documents"]
+    document_paths: list[str] = base_cfg["documents"]
 
     # Shared pipeline settings from base config
     offline_kwargs = base_cfg.get("offline_config", {})
