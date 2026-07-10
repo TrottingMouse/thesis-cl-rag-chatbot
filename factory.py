@@ -21,20 +21,20 @@ def build_pipelines_from_config(yaml_path: str):
     online_config = OnlineConfig(**online_kwargs)
 
     # 2. Build Offline Pipeline
-    offline_cfg = config["offline_pipeline"]
+    offline_components = config["offline_pipeline"]
     
-    preprocessors = [get_class(name)() for name in offline_cfg["preprocessors"]]
+    preprocessors = [get_class(name)() for name in offline_components["preprocessors"]]
 
     # Chunkers that require an embedding model receive it from offline_config.
-    ChunkerClass = get_class(offline_cfg["chunker"])
-    if offline_cfg["chunker"] == "MaxMinChunker":
+    ChunkerClass = get_class(offline_components["chunker"])
+    if offline_components["chunker"] == "MaxMinChunker":
         chunker = ChunkerClass(embedding_model_name=offline_config.embedding_model)
     else:
         chunker = ChunkerClass()
     
     # Index builders that embed chunks require an embedding model; passthrough does not.
-    IndexBuilderClass = get_class(offline_cfg["index_builder"])
-    if offline_cfg["index_builder"] == "PassthroughIndexBuilder":
+    IndexBuilderClass = get_class(offline_components["index_builder"])
+    if offline_components["index_builder"] == "PassthroughIndexBuilder":
         index_builder = IndexBuilderClass(storage_path=Path("storage/index"))
     else:
         #hier bei BM25 aufpassen weil kein model_name als parameter (Konstruktor überschrieben bei dense)
@@ -46,22 +46,22 @@ def build_pipelines_from_config(yaml_path: str):
     offline_pipeline = OfflinePipeline(preprocessors, chunker, index_builder)
 
     # 3. Build Online Pipeline
-    online_cfg = config["online_pipeline"]
+    online_components = config["online_pipeline"]
     
-    query_processor = get_class(online_cfg["query_processor"])()
+    query_processor = get_class(online_components["query_processor"])()
     
-    RetrieverClass = get_class(online_cfg["retriever"])
-    if online_cfg["retriever"] == "PassthroughRetriever":
+    RetrieverClass = get_class(online_components["retriever"])
+    if online_components["retriever"] == "PassthroughRetriever":
         retriever = RetrieverClass(index_builder)
     else:
         retriever = RetrieverClass(index_builder, top_k=online_config.top_k) # Uses overridden top_k
     
-    RerankerClass = get_class(online_cfg["reranker"])
+    RerankerClass = get_class(online_components["reranker"])
     reranker = RerankerClass(top_n=online_config.top_n) # Uses overridden top_n
 
     # Only init with model if generator 
-    GeneratorClass = get_class(online_cfg["generator"])
-    if online_cfg["generator"] == "HuggingfaceGenerator":
+    GeneratorClass = get_class(online_components["generator"])
+    if online_components["generator"] == "HuggingfaceGenerator":
         generator = GeneratorClass(model_name=online_config.generation_model)
     else:
         generator = GeneratorClass()
@@ -70,13 +70,13 @@ def build_pipelines_from_config(yaml_path: str):
 
     # 4. Build a unique pipeline name from the first 6 letters of each component
     component_names = (
-        offline_cfg["preprocessors"]          # list of preprocessor names
-        + [offline_cfg["chunker"]]
-        + [offline_cfg["index_builder"]]
-        + [online_cfg["query_processor"]]
-        + [online_cfg["retriever"]]
-        + [online_cfg["reranker"]]
-        + [online_cfg["generator"]]
+        offline_components["preprocessors"]          # list of preprocessor names
+        + [offline_components["chunker"]]
+        + [offline_components["index_builder"]]
+        + [online_components["query_processor"]]
+        + [online_components["retriever"]]
+        + [online_components["reranker"]]
+        + [online_components["generator"]]
     )
     pipeline_name = "_".join(name[:6] for name in component_names)
 

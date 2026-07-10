@@ -16,21 +16,14 @@ from pathlib import Path
 class OfflineConfig:
     """Tunable parameters for the offline pipeline."""
 
-    # Paths
-    documents_dir: Path = Path("documents")
-    """Directory containing the source PDF files."""
-
-    storage_dir: Path = Path("storage")
-    """Root directory for persisted indexes and processed documents."""
-
-    # Chunking defaults (concrete chunkers may expose additional fields)
+    # Chunking defaults (concrete chunkers may expose additional/other fields)
     chunk_size: int = 500
     """Target chunk size in tokens/characters (interpretation depends on chunker)."""
 
     chunk_overlap: int = 50
     """Overlap between consecutive chunks to preserve context across boundaries."""
 
-    embedding_model: str = "storage/models/jina-embeddings"
+    embedding_model: str = "jinaai/jina-embeddings-v5-text-nano"
     """The embedding model to use for the pipeline."""
 
 
@@ -44,10 +37,10 @@ class OnlineConfig:
     top_n: int = 5
     """Number of results returned after reranking (must be ≤ top_k)."""
 
-    embedding_model: str = "storage/models/jina-embeddings"
+    embedding_model: str = "jinaai/jina-embeddings-v5-text-nano"
     """The embedding model to use for the pipeline."""
 
-    generation_model: str = "Qwen/Qwen3.5-0.8B"
+    generation_model: str = "Qwen/Qwen3.5-2B"
     """The generator model to use for the pipeline."""
 
 
@@ -65,6 +58,3 @@ class PipelineConfig:
 
     online: OnlineConfig = field(default_factory=OnlineConfig)
     """Configuration for the online pipeline."""
-
-    experiment_name: str = "default"
-    """Human-readable label for the current experiment run."""
