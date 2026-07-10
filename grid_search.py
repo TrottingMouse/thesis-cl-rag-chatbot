@@ -210,7 +210,7 @@ def chunking_grid_search():
             RerankerClass = get_class(online_cfg["reranker"])
             reranker = RerankerClass(top_n=top_n)
 
-            generator = get_class(online_cfg["generator"])()
+            generator = get_class(online_cfg["generator"])(base_cfg["online_config"]["generation_model"])
 
             online_pipeline = OnlinePipeline(query_processor, retriever, reranker, generator)
 
