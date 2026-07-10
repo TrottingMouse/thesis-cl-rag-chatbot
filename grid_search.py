@@ -19,7 +19,6 @@ import copy
 import json
 import logging
 import math
-import os
 import csv
 from pathlib import Path
 
@@ -90,7 +89,9 @@ def chunking_grid_search():
 
     # Shared pipeline settings from base config
     offline_kwargs = base_cfg.get("offline_config", {})
+    online_kwargs = base_cfg.get("online_config", {})
     offline_config = OfflineConfig(**offline_kwargs)
+    online_config = OnlineConfig(**online_kwargs)
     offline_cfg = base_cfg["offline_pipeline"]
     online_cfg = base_cfg["online_pipeline"]
 
@@ -210,7 +211,11 @@ def chunking_grid_search():
             RerankerClass = get_class(online_cfg["reranker"])
             reranker = RerankerClass(top_n=top_n)
 
-            generator = get_class(online_cfg["generator"])(base_cfg["online_config"]["generation_model"])
+            GeneratorClass = get_class(online_cfg["generator"])
+            if online_cfg["generator"] == "HuggingfaceGenerator":
+                generator = GeneratorClass(model_name=online_config.generation_model)
+            else:
+                generator = GeneratorClass()
 
             online_pipeline = OnlinePipeline(query_processor, retriever, reranker, generator)
 
@@ -225,7 +230,7 @@ def chunking_grid_search():
             for i, pipeline_result in enumerate(qa_online_results):
                 qa_pairs[i]["response"] = pipeline_result.generation_result
                 qa_pairs[i]["retrieved_contexts"] = [
-                    r.chunk.text for r in pipeline_result.reranked_results
+                    chunk.text for chunk in pipeline_result.reranked_results
                 ]
 
             # ----------------------------------------------------------
