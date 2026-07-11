@@ -4,6 +4,7 @@ documents:
 
 offline_config:
   embedding_model: "storage/models/jina-embeddings"
+  chunking_params: {}   # e.g. {chunk_size: 400, overlap: 50} for FixedParagraphChunker
 
 online_config:
   top_k: 15

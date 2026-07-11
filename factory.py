@@ -25,12 +25,9 @@ def build_pipelines_from_config(yaml_path: str):
     
     preprocessors = [get_class(name)() for name in offline_components["preprocessors"]]
 
-    # Chunkers that require an embedding model receive it from offline_config.
+    # Forward all chunker-specific parameters from the config dict.
     ChunkerClass = get_class(offline_components["chunker"])
-    if offline_components["chunker"] == "MaxMinChunker":
-        chunker = ChunkerClass(embedding_model_name=offline_config.embedding_model)
-    else:
-        chunker = ChunkerClass()
+    chunker = ChunkerClass(**offline_config.chunking_params)
     
     # Index builders that embed chunks require an embedding model; passthrough does not.
     IndexBuilderClass = get_class(offline_components["index_builder"])

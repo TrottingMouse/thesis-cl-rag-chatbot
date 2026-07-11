@@ -10,18 +10,18 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Any
 
 
 @dataclass
 class OfflineConfig:
     """Tunable parameters for the offline pipeline."""
 
-    # Chunking defaults (concrete chunkers may expose additional/other fields)
-    chunk_size: int = 500
-    """Target chunk size in tokens/characters (interpretation depends on chunker)."""
-
-    chunk_overlap: int = 50
-    """Overlap between consecutive chunks to preserve context across boundaries."""
+    chunking_params: dict[str, Any] = field(default_factory=dict)
+    """Keyword arguments forwarded verbatim to the active chunker's constructor.
+    Keeping this as an open dict makes OfflineConfig agnostic to the specific
+    chunker being used (e.g. chunk_size/overlap for fixed chunkers, c/fixed_threshold
+    for MaxMinChunker, etc.)."""
 
     embedding_model: str = "jinaai/jina-embeddings-v5-text-nano"
     """The embedding model to use for the pipeline."""
