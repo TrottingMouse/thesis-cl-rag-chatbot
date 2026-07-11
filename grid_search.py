@@ -4,9 +4,10 @@ Grid search for optimal chunking parameters.
 For every chunker listed in grid_search_config.yaml, this script:
   1. Uses ALL preprocessors from grid_search_config.yaml (applied in order).
   2. Iterates over every (chunk_size, overlap) combination defined in the config.
-  3. After chunking, computes the average chunk length (characters) across all chunks.
+  3. After chunking, computes the average chunk length **in tokens** (using the
+     generator model's tokenizer) across all chunks.
   4. Derives retrieval parameters dynamically:
-       top_n = floor(1000 / avg_chunk_size)   (minimum 1)
+       top_n = floor(2000 / avg_chunk_size_tokens)   (minimum 1)
        top_k = 3 * top_n
   5. Runs the full offline + online pipeline.
   6. Evaluates with minimal set.
@@ -21,9 +22,11 @@ import logging
 import math
 import csv
 from pathlib import Path
+from typing import List, Any
 
 import yaml
 from dotenv import load_dotenv
+from transformers import AutoTokenizer
 
 from factory import load_yaml_config
 from registry import get_class
@@ -48,21 +51,25 @@ load_dotenv()
 # Helpers
 # ---------------------------------------------------------------------------
 
-def _compute_avg_chunk_size(chunks) -> float:
-    """Return the average character length of a list of Chunk objects."""
+def _compute_avg_chunk_size(chunks: List[Any], tokenizer: AutoTokenizer) -> float:
+    """Return the average token length of a list of Chunk objects using the generator tokenizer."""
     if not chunks:
         return 1.0
-    return sum(len(c.text) for c in chunks) / len(chunks)
+
+    # Using encode() lets us accurately count the tokens for each chunk text
+    total_tokens = sum(len(tokenizer.encode(c.text, add_special_tokens=False)) for c in chunks)
+
+    return total_tokens / len(chunks)
 
 
-def _derive_retrieval_params(avg_chunk_size: float) -> tuple[int, int]:
+def _derive_retrieval_params(avg_chunk_size_tokens: float) -> tuple[int, int]:
     """
-    Derive top_n and top_k from the average chunk size.
+    Derive top_n and top_k from the average chunk size in tokens.
 
-    top_n = floor(1000 / avg_chunk_size)  (min 1)
+    top_n = floor(2000 / avg_chunk_size_tokens)  (min 1)
     top_k = 3 * top_n
     """
-    top_n = max(1, math.floor(2000.0 / avg_chunk_size))
+    top_n = max(1, math.floor(2000.0 / avg_chunk_size_tokens))
     top_k = 3 * top_n
     return top_k, top_n
 
@@ -94,6 +101,10 @@ def chunking_grid_search():
     online_config = OnlineConfig(**online_kwargs)
     offline_cfg = base_cfg["offline_pipeline"]
     online_cfg = base_cfg["online_pipeline"]
+
+    # Load the generator tokenizer once — chunk sizes are measured in its token space
+    logger.info("Loading tokenizer for '%s' ...", online_config.generation_model)
+    tokenizer = AutoTokenizer.from_pretrained(online_config.generation_model)
 
     # QA evaluation files
     qa_eval_file = "storage/evaluation/qa_pairs_grid.json"
@@ -190,12 +201,12 @@ def chunking_grid_search():
             # ----------------------------------------------------------
             # Phase 3: Derive dynamic retrieval parameters from chunk sizes
             # ----------------------------------------------------------
-            avg_chunk_size = _compute_avg_chunk_size(chunks)
-            top_k, top_n = _derive_retrieval_params(avg_chunk_size)
+            avg_chunk_size_tokens = _compute_avg_chunk_size(chunks, tokenizer)
+            top_k, top_n = _derive_retrieval_params(avg_chunk_size_tokens)
 
             logger.info(
-                "avg_chunk_size=%.1f chars | top_n=%d | top_k=%d",
-                avg_chunk_size, top_n, top_k,
+                "avg_chunk_size=%.1f tokens | top_n=%d | top_k=%d",
+                avg_chunk_size_tokens, top_n, top_k,
             )
 
             # ----------------------------------------------------------
@@ -262,7 +273,7 @@ def chunking_grid_search():
                 "chunk_size": params.get("chunk_size", ""),
                 "overlap": params.get("overlap", ""),
                 "num_chunks": len(chunks),
-                "avg_chunk_size_chars": round(avg_chunk_size, 1),
+                "avg_chunk_size_tokens": round(avg_chunk_size_tokens, 1),
                 "top_k": top_k,
                 "top_n": top_n,
                 **{f"{k}": v for k, v in metrics.items()},
