@@ -3,13 +3,13 @@ import torch
 if not hasattr(torch, "float8_e8m0fnu"):
     setattr(torch, "float8_e8m0fnu", torch.float32)
 
-from factory import build_pipelines_from_config
+from src.factory import build_pipelines_from_config
 from src.evaluation import Evaluator
 import logging
 import json
 import os
 from dotenv import load_dotenv
-from factory import build_pipelines_from_config
+from src.factory import build_pipelines_from_config
 
 # Setup
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -17,7 +17,7 @@ load_dotenv()
 
 def main():
     # 1. Build everything from the config file
-    offline_pipeline, online_pipeline, data_config, pipeline_name = build_pipelines_from_config("config.yaml")
+    offline_pipeline, online_pipeline, data_config, pipeline_name = build_pipelines_from_config("config/config.yaml")
 
     # 2. Run Offline Pipeline
     document_paths = data_config["documents"]

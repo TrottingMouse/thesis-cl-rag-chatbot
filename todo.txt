@@ -1,5 +1,5 @@
 
-
+Also the n and k for paragraph chunking should follow a different logic than for the rest: top_n should be 2 for 1-paragraph-long chunks and 1 for everything else
 3. query preprocessing
 4. gridsearch
 Durchläufe mit allen prepro/chunk/querypre

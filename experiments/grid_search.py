@@ -87,8 +87,8 @@ def _make_run_name(preprocessor_names: list[str], chunker_name: str, **params) -
 
 def chunking_grid_search():
     # 1. Load configs
-    grid_cfg = load_yaml_config("grid_search_config.yaml")
-    base_cfg = load_yaml_config("config.yaml")
+    grid_cfg = load_yaml_config("config/grid_search_config.yaml")
+    base_cfg = load_yaml_config("config/config.yaml")
 
     preprocessor_names: list[str] = grid_cfg["preprocessing"]
     chunkers: list[dict] = grid_cfg["chunking"]
@@ -148,11 +148,13 @@ def chunking_grid_search():
         else:
             chunk_sizes: list[int] = options["chunk_sizes"]
             overlaps: list[int] = options["overlaps"]
+            max_total: int | None = options.get("max_paragraphs_per_chunk")
             param_combinations = [
                 {"chunk_size": cs, "overlap": ov}
                 for cs in chunk_sizes
                 for ov in overlaps
                 if ov < cs
+                and (max_total is None or cs + ov <= max_total)
             ]
             logger.info(
                 "=== Grid search for chunker '%s' | chunk_sizes=%s | overlaps=%s ===",

@@ -1,6 +1,6 @@
 import yaml
 from pathlib import Path
-from registry import get_class
+from src.registry import get_class
 from src.config import OfflineConfig, OnlineConfig
 from src.offline.pipeline import OfflinePipeline
 from src.online.pipeline import OnlinePipeline
