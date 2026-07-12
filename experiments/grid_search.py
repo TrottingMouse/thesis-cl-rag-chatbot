@@ -28,8 +28,8 @@ import yaml
 from dotenv import load_dotenv
 from transformers import AutoTokenizer
 
-from factory import load_yaml_config
-from registry import get_class
+from src.factory import load_yaml_config
+from src.registry import get_class
 from src.config import OfflineConfig, OnlineConfig
 from src.offline.pipeline import OfflinePipeline
 from src.online.pipeline import OnlinePipeline
