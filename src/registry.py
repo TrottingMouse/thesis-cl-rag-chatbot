@@ -7,7 +7,7 @@ from src.offline.chunking.fixed_size import FixedParagraphChunker, FixedCharacte
 from src.offline.chunking.llm import LumberChunker
 from src.offline.chunking.semantic import MaxMinChunker
 from src.offline.preprocessing.llm_processors import DirectLLMProcessor, PaperLLMProcessor
-from src.offline.preprocessing.preprocessors import GeminiMarkdownProcessor, RawTextProcessor
+from src.offline.preprocessing.preprocessors import GeminiMarkdownProcessor, DoclingMarkdownProcessor, RawTextProcessor
 from src.offline.indexing.indexing import FaissIndexBuilder
 from src.online.reranking.rerankers import Qwen3Reranker
 from src.online.reranking import PassthroughReranker
@@ -18,6 +18,7 @@ from src.online.retrieval.retrievers import FaissRetriever
 COMPONENT_REGISTRY = {
     # Preprocessors
     "RawTextProcessor": RawTextProcessor,
+    "DoclingMarkdownProcessor": DoclingMarkdownProcessor,
     "GeminiMarkdownProcessor": GeminiMarkdownProcessor,
     "DirectLLMProcessor": DirectLLMProcessor,
     "PaperLLMProcessor": PaperLLMProcessor,

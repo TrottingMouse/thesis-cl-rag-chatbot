@@ -4,14 +4,15 @@ documents:
 
 offline_config:
   embedding_model: "storage/models/jina-embeddings"
-  chunking_params: {}
+  chunking_params:
+    chunk_size: 1
+    overlap: 0
 
 online_config:
-  top_k: 15
-  top_n: 5
+  top_k: 9
+  top_n: 3
   generation_model: "Qwen/Qwen3.5-0.8B"
 
-# --- Pipeline Components ---
 offline_pipeline:
   preprocessors:
     - "GeminiMarkdownProcessor"

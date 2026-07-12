@@ -20,7 +20,6 @@ import copy
 import json
 import logging
 import math
-import csv
 from pathlib import Path
 from typing import List, Any
 
@@ -28,11 +27,14 @@ import yaml
 from dotenv import load_dotenv
 from transformers import AutoTokenizer
 
-from src.factory import load_yaml_config
-from src.registry import get_class
+from src.factory import (
+    load_yaml_config,
+    build_offline_pipeline,
+    build_online_pipeline,
+    run_queries,
+    write_summary_csv,
+)
 from src.config import OfflineConfig, OnlineConfig
-from src.offline.pipeline import OfflinePipeline
-from src.online.pipeline import OnlinePipeline
 from src.evaluation import Evaluator
 
 # ---------------------------------------------------------------------------
@@ -55,10 +57,7 @@ def _compute_avg_chunk_size(chunks: List[Any], tokenizer: AutoTokenizer) -> floa
     """Return the average token length of a list of Chunk objects using the generator tokenizer."""
     if not chunks:
         return 1.0
-
-    # Using encode() lets us accurately count the tokens for each chunk text
     total_tokens = sum(len(tokenizer.encode(c.text, add_special_tokens=False)) for c in chunks)
-
     return total_tokens / len(chunks)
 
 
@@ -94,13 +93,10 @@ def chunking_grid_search():
     chunkers: list[dict] = grid_cfg["chunking"]
     document_paths: list[str] = base_cfg["documents"]
 
-    # Shared pipeline settings from base config
-    offline_kwargs = base_cfg.get("offline_config", {})
-    online_kwargs = base_cfg.get("online_config", {})
-    offline_config = OfflineConfig(**offline_kwargs)
-    online_config = OnlineConfig(**online_kwargs)
-    offline_cfg = base_cfg["offline_pipeline"]
-    online_cfg = base_cfg["online_pipeline"]
+    offline_config = OfflineConfig(**base_cfg.get("offline_config", {}))
+    online_config = OnlineConfig(**base_cfg.get("online_config", {}))
+    online_pipeline_cfg: dict = base_cfg["online_pipeline"]
+    offline_pipeline_cfg: dict = base_cfg["offline_pipeline"]
 
     # Load the generator tokenizer once — chunk sizes are measured in its token space
     logger.info("Loading tokenizer for '%s' ...", online_config.generation_model)
@@ -110,7 +106,6 @@ def chunking_grid_search():
     qa_eval_file = "storage/evaluation/qa_pairs_grid.json"
     with open(qa_eval_file) as f:
         qa_pairs_template = json.load(f)
-
     queries = [item["user_input"] for item in qa_pairs_template]
 
     # Output directory for grid search results
@@ -118,8 +113,6 @@ def chunking_grid_search():
     results_dir.mkdir(parents=True, exist_ok=True)
 
     summary_rows: list[dict] = []
-
-    preprocessors = [get_class(name)() for name in preprocessor_names]
 
     # 2. Iterate over every chunker configuration
     for chunker_cfg in chunkers:
@@ -167,101 +160,53 @@ def chunking_grid_search():
             run_name = _make_run_name(preprocessor_names, chunker_name, **params)
             logger.info("--- Run: %s ---", run_name)
 
-            # Unique index path per run to avoid cross-run contamination
             index_path = Path("storage/grid_search_index") / run_name
 
-            # ----------------------------------------------------------
-            # Phase 1: Build preprocessors and chunker
-            # ----------------------------------------------------------
-            ChunkerClass = get_class(chunker_name)
-            if is_maxmin:
-                chunker = ChunkerClass(
-                    embedding_model_name=embedding_model_name,
-                    c=params["c"],
-                    fixed_threshold=params["fixed_threshold"],
-                )
-            else:
-                chunker = ChunkerClass(
-                    chunk_size=params["chunk_size"],
-                    overlap=params["overlap"],
-                )
-
-            IndexBuilderClass = get_class(offline_cfg["index_builder"])
-            index_builder = IndexBuilderClass(
-                storage_path=index_path,
-                model_name=offline_config.embedding_model,
+            # Build and run offline pipeline
+            chunker_kwargs = (
+                {
+                    "embedding_model_name": embedding_model_name,
+                    **params,
+                }
+                if is_maxmin
+                else params
             )
-
-            offline_pipeline = OfflinePipeline(preprocessors, chunker, index_builder)
-
-            # ----------------------------------------------------------
-            # Phase 2: Run offline pipeline (preprocess + chunk + index)
-            # ----------------------------------------------------------
+            offline_pipeline = build_offline_pipeline(
+                preprocessor_names=preprocessor_names,
+                chunker_name=chunker_name,
+                index_builder_name=offline_pipeline_cfg["index_builder"],
+                storage_path=index_path,
+                embedding_model=offline_config.embedding_model,
+                **chunker_kwargs,
+            )
             offline_result = offline_pipeline.run(document_paths)
             chunks = offline_result.chunks
 
-            # ----------------------------------------------------------
-            # Phase 3: Derive dynamic retrieval parameters from chunk sizes
-            # ----------------------------------------------------------
+            # Derive dynamic retrieval parameters
             avg_chunk_size_tokens = _compute_avg_chunk_size(chunks, tokenizer)
             top_k, top_n = _derive_retrieval_params(avg_chunk_size_tokens)
-
             logger.info(
                 "avg_chunk_size=%.1f tokens | top_n=%d | top_k=%d",
                 avg_chunk_size_tokens, top_n, top_k,
             )
 
-            # ----------------------------------------------------------
-            # Phase 4: Build online pipeline, reusing the already-loaded
-            # index_builder instance from the offline pipeline.
-            # (index_builder.index and .chunks are populated in memory.)
-            # ----------------------------------------------------------
-            query_processor = get_class(online_cfg["query_processor"])()
+            # Build online pipeline, run queries, save raw results
+            online_pipeline = build_online_pipeline(
+                cfg=online_pipeline_cfg,
+                index_builder=offline_pipeline.index_builder,
+                top_k=top_k,
+                top_n=top_n,
+                generation_model=online_config.generation_model,
+            )
+            qa_pairs = run_queries(online_pipeline, queries, qa_pairs_template)
 
-            RetrieverClass = get_class(online_cfg["retriever"])
-            retriever = RetrieverClass(index_builder, top_k=top_k)
-
-            RerankerClass = get_class(online_cfg["reranker"])
-            reranker = RerankerClass(top_n=top_n)
-
-            GeneratorClass = get_class(online_cfg["generator"])
-            if online_cfg["generator"] == "HuggingfaceGenerator":
-                generator = GeneratorClass(model_name=online_config.generation_model)
-            else:
-                generator = GeneratorClass()
-
-            online_pipeline = OnlinePipeline(query_processor, retriever, reranker, generator)
-
-            # ----------------------------------------------------------
-            # Phase 5: Run online queries
-            # ----------------------------------------------------------
-            qa_online_results = online_pipeline.multiple_queries(queries)
-
-            # Attach results to QA pairs (deep copy to avoid mutating the template)
-            qa_pairs = copy.deepcopy(qa_pairs_template)
-
-            for i, pipeline_result in enumerate(qa_online_results):
-                qa_pairs[i]["response"] = pipeline_result.generation_result
-                qa_pairs[i]["retrieved_contexts"] = [
-                    chunk.text for chunk in pipeline_result.reranked_results
-                ]
-
-            # ----------------------------------------------------------
-            # Phase 6: Save raw results
-            # ----------------------------------------------------------
             qa_save = results_dir / f"{run_name}.json"
             with open(qa_save, "w") as f:
                 json.dump(qa_pairs, f, indent=4)
 
-            # ----------------------------------------------------------
-            # Phase 7: Evaluate
-            # ----------------------------------------------------------
+            # Evaluate
             evaluator = Evaluator(str(qa_save))
             eval_df = evaluator.evaluate()
-
-            #logger.info("Evaluation:\n%s", eval_df.to_string())
-
-            # Aggregate numeric metrics (mean across QA pairs)
             metrics = eval_df.mean(numeric_only=True).to_dict()
 
             row = {
@@ -286,19 +231,7 @@ def chunking_grid_search():
     # 3. Write summary CSV
     if summary_rows:
         summary_path = results_dir / "grid_search_summary.csv"
-        # Collect all fieldnames across all rows (different metrics may appear)
-        all_fields: list[str] = []
-        seen: set[str] = set()
-        for row in summary_rows:
-            for k in row:
-                if k not in seen:
-                    all_fields.append(k)
-                    seen.add(k)
-
-        with open(summary_path, "w", newline="") as f:
-            writer = csv.DictWriter(f, fieldnames=all_fields, extrasaction="ignore")
-            writer.writeheader()
-            writer.writerows(summary_rows)
+        write_summary_csv(summary_path, summary_rows)
         logger.info("Grid search complete. Summary written to '%s'.", summary_path)
     else:
         logger.warning("No runs were completed. Check your grid_search_config.yaml.")
