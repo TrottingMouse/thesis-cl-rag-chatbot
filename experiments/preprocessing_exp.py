@@ -2,9 +2,10 @@
 This script evaluates the performance of two choices for preprocessing.
 1. DoclingMarkdownPreprocessor vs GeminiMarkdownPreprocessor
 2. DirectLLMPreprocessor vs PaperLLMPreprocessor
-For 2., the best performing preprocessor from 1. is used. The metric here is answer accuracy.
-It uses the ParagraphChunker with chunk size 1 and overlap 0. Top_k is 9 and top_n is 3.
-The dataset used is qa_pairs_grid.json.
+For 2., DirectLLMProcessor is chained after the Phase 1 winner (takes markdown as input).
+PaperLLMProcessor runs standalone directly on the raw PDFs.
+The metric is answer accuracy. It uses the ParagraphChunker with chunk size 1 and overlap 0.
+Top_k is 9 and top_n is 3. The dataset used is qa_pairs_grid.json.
 """
 
 from __future__ import annotations
@@ -189,15 +190,14 @@ def preprocessing_experiment():
     )
 
     # ======================================================================
-    # PHASE 2 – Compare LLM post-processors
-    #   Best markdown preprocessor from Phase 1 is prepended to both runs.
-    #   Run C: <best_phase1> + DirectLLMProcessor
-    #   Run D: <best_phase1> + PaperLLMProcessor
+    # PHASE 2 – Compare LLM processors
+    #   Run C: <best_phase1> + DirectLLMProcessor  (chained — takes markdown)
+    #   Run D: PaperLLMProcessor alone              (standalone — takes raw PDFs)
     # ======================================================================
     logger.info("=" * 70)
     logger.info(
-        "PHASE 2: DirectLLMProcessor vs PaperLLMProcessor (base: %s)",
-        best_phase1_preprocessors,
+        "PHASE 2: %s+DirectLLMProcessor vs PaperLLMProcessor (standalone)",
+        best_phase1_name,
     )
     logger.info("=" * 70)
 
@@ -207,8 +207,8 @@ def preprocessing_experiment():
             best_phase1_preprocessors + ["DirectLLMProcessor"],
         ),
         (
-            f"{best_phase1_name}_paper_llm",
-            best_phase1_preprocessors + ["PaperLLMProcessor"],
+            "paper_llm",
+            ["PaperLLMProcessor"],
         ),
     ]
 
