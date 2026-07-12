@@ -32,21 +32,27 @@ class DoclingMarkdownProcessor(BasePreprocessor):
     """
     A preprocessor that uses Docling to convert raw documents (e.g. PDFs)
     into Markdown.
+
+    The underlying Docling ``DocumentConverter`` (which loads heavyweight
+    TableFormer AI models) is initialised **lazily**: it is only created on
+    the first call to :meth:`process_document`.  Because the base-class
+    :meth:`~base.BasePreprocessor.preprocess` only calls
+    :meth:`process_document` on a cache miss, instantiating this preprocessor
+    when all documents are already cached does not pay any model-loading cost.
     """
 
     def __init__(self):
         super().__init__()
-        # Initialize the Docling converter
+        self._converter = None  # lazy – initialised on first cache miss
+
+    def _build_converter(self):
+        """Construct and return a configured Docling DocumentConverter."""
         pipeline_options = PdfPipelineOptions(do_table_structure=True)
-
-        # 1. Force the high-accuracy model variant
+        # Force the high-accuracy TableFormer variant
         pipeline_options.table_structure_options.mode = TableFormerMode.ACCURATE
-
-        # 2. Tell it to rely on its visual prediction rather than messy PDF text cells
-        pipeline_options.table_structure_options.do_cell_matching = False 
-
-        # Pass options into your converter
-        self.converter = DocumentConverter(
+        # Rely on visual prediction rather than messy PDF text cells
+        pipeline_options.table_structure_options.do_cell_matching = False
+        return DocumentConverter(
             format_options={
                 "pdf": PdfFormatOption(pipeline_options=pipeline_options)
             }
@@ -57,8 +63,11 @@ class DoclingMarkdownProcessor(BasePreprocessor):
         return "markdown_docling"
 
     def process_document(self, source_path: str) -> str:
-        result = self.converter.convert(source_path)
+        if self._converter is None:
+            self._converter = self._build_converter()
+        result = self._converter.convert(source_path)
         return result.document.export_to_markdown()
+
 
 
 class RawTextProcessor(BasePreprocessor):
