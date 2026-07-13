@@ -276,27 +276,24 @@ class DirectLLMProcessor(BasePreprocessor):
 
     @property
     def name(self) -> str:
-        return "direct_llm_new"
+        return "direct_llm"
 
     def _build_prompt(self, text: str) -> str:
         return f"""
-            Wandle das folgende Dokument in eine Liste von kurzen, glasklaren und isolierten Fakten-Sätzen um.
-            Diese Sätze werden für eine RAG-Pipeline genutzt. JEDER Satz muss eigenständig ohne Kontext verständlich sein.
+            Wandle das folgende Markdown-Dokument in klaren, informationsdichten Fließtext um, der für eine semantische Suchmaschine (RAG-Pipeline) optimiert ist.
 
-            Befolge diese Regeln strikt:
-            1. Atomare Sätze: Formuliere keine verschachtelten Absätze. Erstelle stattdessen für jede Information einen eigenen Aussagesatz.
-            2. Kontext-Injektion: Verwende KEINE Pronomen (er, sie, es, das Modul, dieser Kurs). Ersetze sie in JEDEM Satz durch den konkreten Namen.
-            - Schlecht: "Es wird im Wintersemester angeboten."
-            - Gut: "Das Basismodul Python-Programmierung wird im Wintersemester angeboten."
-            3. Tabellenauflösung: Brich Tabellen zeilenweise in platte Fakten auf:
-            - "Für das Basismodul Python-Programmierung werden 12 ECTS-Leistungspunkte vergeben."
-            - "Das Basismodul Python-Programmierung hat eine Dauer von 2 Semestern."
-            - "Die Prüfungsform im Basismodul Python-Programmierung ist eine Projektarbeit."
+            Befolge dabei strikt diese Regeln:
+            1. Informationserhalt: Übernimm ausnahmslos jede Information, jede Zahl und jedes Detail.
+            2. Hohe Entitätsdichte (WICHTIG): Vermeide Pronomen (er, sie, es, diese) über Absatzgrenzen hinweg. Wiederhole stattdessen immer wieder die konkreten Eigennamen, Produktnamen oder Fachbegriffe, damit jeder Absatz auch isoliert verständlich bleibt.
+            3. Tabellen & Listen: Wandle Tabellen und Aufzählungen in zusammenhängende Textabsätze um. Formuliere die Beziehungen zwischen Spalten/Zeilen in ganzen Sätzen aus.
+            4. Überschriften als Kontext: Nutze Überschriften, um den darauffolgenden Absatz mit einem klaren Kontext-Satz zu beginnen (z. B. statt nur "Spezifikationen:" -> "Die technischen Spezifikationen des Geräts X umfassen...").
+            5. Formatierung: Entferne alle Markdown-Zeichen (*, #, -, |). Behalte klare Absatzumbrüche bei, um logische Trennungen beizubehalten.
 
             Input Text:
             ---
             {text}
             ---
+            
         """
 
     def process_document(self, source_path: str) -> str:
@@ -321,32 +318,22 @@ class DirectLLMProcessor(BasePreprocessor):
                 )
                 return interaction.output_text
                                 
-            except (errors.ServerError, errors.APIError, Exception) as e:
-                # 1. Safely extract the status code if it's a standard SDK error object
+            except (errors.ServerError, errors.APIError) as e:
+                # Safely extract the status code (503 for ServerError, 429 for APIError)
                 status_code = getattr(e, 'code', None)
                 
-                # Convert the full exception to a lowercase string for reliable phrase matching
-                error_str = str(e).lower()
-                
-                # 2. Check if this is a transient overload/capacity issue
-                # Matches: HTTP 500, 503, 429, or text warnings about high demand/stalls
-                is_transient = (
-                    status_code in [500, 503, 429] or
-                    any(code in error_str for code in ["500", "503", "429"]) or
-                    "experiencing high demand" in error_str or
-                    "temporary" in error_str
-                )
-                
-                if is_transient:
+                # Check if the error is a temporary bottleneck we can wait out
+                if status_code in [503, 429] or "503" in str(e):
                     if attempt < max_retries - 1:
                         # Exponential backoff: 2s, 4s, 8s, 16s + 1-3 seconds of random jitter
                         sleep_time = (base_delay * (2 ** attempt)) + random.uniform(1.0, 3.0)
-                        print(f"[API Warning] Backend bottleneck hit. Retrying in {sleep_time:.1f}s... (Attempt {attempt + 1}/{max_retries})")
+                        print(f"[API {status_code}] Backend stalled. Retrying in {sleep_time:.1f}s... (Attempt {attempt + 1}/{max_retries})")
                         time.sleep(sleep_time)
                     else:
-                        raise RuntimeError(f"Failed to process document after {max_retries} attempts due to API overloads. Last error: {e}")
+                        raise RuntimeError(f"Failed to process document after {max_retries} attempts due to API limits. Last error: {e}")
                 else:
-                    # Keep hard-failing immediately on invalid inputs, missing keys, or permission blocks
+                    # If it's a 400 Bad Request (e.g., token limit exceeded, bad JSON), 
+                    # retrying won't fix it. Raise the error immediately.
                     raise e
 
 
