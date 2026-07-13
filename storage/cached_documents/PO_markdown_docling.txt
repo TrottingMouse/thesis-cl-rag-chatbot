@@ -1,0 +1,137 @@
+| Integrierter Studiengang  Computerlinguistik    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Studienumfang                                   | 180 ECTS-Leistungspunkte (LP)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Notwendige  Vorkenntnisse                       | Kenntnisse des Englischen (Niveau B1, vergleichbar mit erfolgreichem  vierjährigem Schulunterricht an einer weiterführenden Schule)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Propädeutikum im  Profilbildungsbereich         | keine Angabe                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Anzahl der Modul- prüfungen                     | 9, zuzüglich Bachelorarbeit                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Art und Inhalt der  Module und der              | Module  Basismodul - Mathematische und logische Grundlagen (8 SWS, 1 MP, 12 LP)  Basismodul - Grundlagen der Computerlinguistik und formale  Grammatikbeschreibung (8 SWS, 1 MP, 12 LP)  Basismodul - Python-Programmierung (8 SWS, 1 MP, 12 LP)  Basiswissen Linguistik - Morphologie und Syntax (6 SWS, 1 MP, 9 LP)  Basiswissen Linguistik - Semantik und Pragmatik (6 SWS, 1 MP, 9 LP)  Basismodul - Statistische Methoden in der Computerlinguistik (6 SWS, 6 LP)  Aufbaumodul - Maschinelles Lernen (8 SWS, 1 MP, 12 LP)  Aufbaumodul - Mathematische Linguistik (4 SWS, 6 LP)  Aufbaumodul - Parsing (4 SWS, 6 LP)  Aufbaumodul - Logische Programmierung (4 SWS, 6 LP)  Aufbaumodul - Objektorientierte Programmierung (8 SWS, 1 MP, 12 LP)  Praktikum und Orientierung (2 SWS, 12 LP)  Vertiefungsmodul - interdisziplinär (8 SWS, 1 MP, 12 LP)  Vertiefungsmodul - Computerlinguistik 1 (8 SWS, 12 LP)  Vertiefungsmodul - Computerlinguistik 2 (4 SWS, 1 MP, 9 LP)  Abschlussarbeit und Forschungskolloquium (2 SWS, 15 LP) |
+| Voraussetzungen für -  Prüfungen                | keine Angabe                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Besonderheiten                                  | Die zweite Wiederholung einer Modulprüfung darf als mündliche Prüfung  erfolgen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Gewichtung der  Prüfungen für die  Gesamtnote   | Bachelorarbeit: dreifach  Alle Modulprüfungen: einfach                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Prüfungssprache   nach § 6 (4)                  | keine Angabe                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Auslandsaufenthalt                              | Optional (Mobilitätsfenster: 5. Semester)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Exkursion                                       | keine Angabe                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Praktikum                                       | Nach dem vierten oder fünften Semester wird entweder ein mindestens 6- wöchiges Berufsfeldpraktikum oder eine Projektarbeit absolviert, jeweils mit  einschlägig computerlinguistischem Inhalt.  Das Praktikum soll einen Einblick in die Berufspraxis vermitteln sowie den  späteren Übergang in die Berufswelt erleichtern.   Die Wahl des Praktikumsplatzes erfolgt im Einvernehmen mit dem/der                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+
+Praktikumsbeauftragten der Abteilung für Computerlinguistik. Der/die Praktikumsbeauftragte ist bei der Vermittlung von Praktikumsplätzen behilflich und bietet eine fachliche Praktikumsberatung und -begleitung an. Über das Praktikum ist ein kurzer Bericht (ca. 3-5 Seiten) zu verfassen und ein Zeugnis der Praktikumsstelle einzureichen.
+
+## Exemplarischer Studienverlaufsplan Bachelor Computerlinguistik
+
+Bei dieser Darstellung handelt es sich um einen exemplarischen Studienverlaufsplan, der nicht verpflichtend ist. Dieser Plan strebt eine möglichst gleichmäßige Arbeitsverteilung in Form von ECTSLeistungspunkten pro Semester beziehungsweise Studienjahr an.
+
+Das bedeutet, dass hier eine Möglichkeit unter vielen dargestellt ist, wie Studierende ihr Studium strukturieren können. Es ist möglich, dass die Studienberatung dieses Faches aufgrund von didaktischen Überlegungen individuell zu anderen Studienverläufen rät.
+
+Bitte informieren Sie sich bei der Studienberatung, in welcher Reihenfolge Sie welche Pflichtmodule und Wahlpflichtmodule studieren können.
+
+## Abkürzungen im Studienverlaufsplan:
+
+Modulprüfung = MP Studienleistung =SL ECTS-Leistungspunkte = LP Semesterwochenstunden = SWS Profilbildungsbereich = PBB Prüfungsnummer = Pnr.
+
+## 1. Semester Bachelor Computerlinguistik
+
+Summe: 4 Module, 2 MP, 8 Veranstaltungen, 22 SWS, 30 LP, davon 1 LP im PBB
+
+| Basismodul - Mathematische und logische  Grundlagen                                     | 1 MP      | 2 SL      | 12 LP    | 8 SWS    |
+|-----------------------------------------------------------------------------------------|-----------|-----------|----------|----------|
+| Einführung in die computationelle Logik (Seminar  mit Übung)                            |           | Pnr. 2101 | 4 LP     | 4 SWS    |
+| Mathematische Grundlagen (Seminar)                                                      |           | Pnr. 2102 | 4 LP     | 4 SWS    |
+| Modulprüfung (Portfolio)                                                                | Pnr. 2110 |           | 4 LP     |          |
+| Basismodul - Grundlagen der Computerlinguistik  und formale Grammatikbeschreibung [1/2] |           | 2 SL      | 4 LP     | 4 SWS    |
+| Einführung in die Computerlinguistik (Seminar)                                          |           | Pnr. 2201 | 2 LP     | 2 SWS    |
+| Einführung in die Computerlinguistik (Übung)                                            |           | Pnr. 2202 | 2 LP     | 2 SWS    |
+| Basismodul - Python-Programmierung [1/2]                                                |           | 2 SL      | 4 LP     | 4 SWS    |
+| Einführung in die Programmierung mit Python  (Seminar)                                  |           | Pnr. 2301 | 2 LP     | 2 SWS    |
+| Einführung in die Programmierung mit Python  (Übung)                                    |           | Pnr. 2302 | 2 LP     | 2 SWS    |
+| Basiswissen Linguistik - Morphologie und Syntax                                         | 1 MP      | 2 SL      | 9 LP     | 6 SWS    |
+| Vorlesung                                                                               |           | Pnr. 1301 | 2 LP     | 4 SWS    |
+| Tutorium                                                                                |           | Pnr. 1302 | 2 LP     | 2 SWS    |
+| Modulprüfung (Klausur)                                                                  | Pnr. 1310 |           | 3 LP     |          |
+| Profilbilungsbereich                                                                    |           |           | 1 LP     |          |
+
+## 2. Semester Bachelor Computerlinguistik
+
+Summe: 4 Module, 3 MP, 7 Veranstaltungen, 18 SWS, 30 LP, davon 1 LP im PBB
+
+| Basismodul - Grundlagen der Computerlinguistik  und formale Grammatikbeschreibung [2/2]    | 1 MP      | 2 SL      | 8 LP    | 4 SWS    |
+|--------------------------------------------------------------------------------------------|-----------|-----------|---------|----------|
+| Grammatikformalismen (Seminar)                                                             |           | Pnr. 2203 | 2 LP    | 2 SWS    |
+| Grammatikformalismen (Übung)                                                               |           | Pnr. 2204 | 2 LP    | 2 SWS    |
+| Modulprüfung (Klausur)                                                                     | Pnr. 2210 |           | 4 LP    |          |
+| Basismodul - Python-Programmierung [2/2]                                                   | 1 MP      | 2 SL      | 8 LP    | 4 SWS    |
+| Fortgeschrittene Python-Programmierung mit NLP- Anwendungen (Seminar)                      |           | Pnr. 2303 | 2 LP    | 2 SWS    |
+| Fortgeschrittene Python-Programmierung mit NLP- Anwendungen (Übung)                        |           | Pnr. 2304 | 2 LP    | 2 SWS    |
+| Modulprüfung (Klausur)                                                                     | Pnr. 2310 |           | 4 LP    |          |
+| Basiswissen Linguistik - Semantik und Pragmatik                                            | 1 MP      | 2 SL      | 9 LP    | 6 SWS    |
+| Vorlesung                                                                                  |           | Pnr. 1401 | 4 LP    | 4 SWS    |
+| Tutorium                                                                                   |           | Pnr. 1402 | 2 LP    | 2 SWS    |
+| Modulprüfung (Klausur)                                                                     | Pnr. 1410 |           | 3 LP    |          |
+| Basismodul - Statistische Methoden in der  Computerlinguistik [1/2]                        | 0 MP      | 1 SL      | 4 LP    | 4 SWS    |
+| Wahrscheinlichkeitstheorie und Statistik (Seminar  und Übung)                              |           | Pnr. 2401 | 4 LP    | 4 SWS    |
+| Profilbildungsbereich                                                                      |           |           | 1 LP    |          |
+
+## 3. Semester Bachelor Computerlinguistik
+
+Summe: 4 Module, 1 MP, 7 Veranstaltungen, 18 SWS, 30 LP, davon 6 LP im PBB
+
+| Basismodul - Statistische Methoden in der  Computerlinguistik [2/2]    |           | 1 SL      | 2 SWS    |
+|------------------------------------------------------------------------|-----------|-----------|----------|
+| Linguistische Ressourcen (Seminar)                                     |           |           | 2 SWS    |
+| Aufbaumodul - Maschinelles Lernen [1/2]                                |           | 1 SL      | 4 SWS    |
+| Grundlagen des maschinellen Lernens (Seminar und  Übung)               |           | Pnr. 4101 | 4 SWS    |
+| Aufbaumodul - Mathematische Linguistik                                 |           | 2 SL      | 4 SWS    |
+| Automatentheorie & Formale Sprachen (Seminar)                          |           | Pnr. 4201 | 2 SWS    |
+| Automatentheorie & Formale Sprachen (Übung)                            |           | Pnr. 4202 | 2 SWS    |
+| Aufbaumodul - Objektorientierte Programmierung                         | 1 MP      |           | 8 SWS    |
+| Programmierung (Vorlesung)                                             |           | Pnr. 4501 | 4 SWS    |
+| Programmierung (Übung)                                                 |           | Pnr. 4502 | 2 SWS    |
+| Praktische Übung zur Vorlesung                                         |           | Pnr. 4503 | 2 SWS    |
+| Modulprüfung (Klausur)                                                 | Pnr. 4510 |           | 4 LP     |
+| Profilbildungsbereich                                                  |           |           | 6 LP     |
+
+## 4. Semester Bachelor Computerlinguistik
+
+Summe: 5 Module, 1 MP, 7 Veranstaltungen, 18 SWS, 30 LP, davon 3 LP im PBB
+
+| Aufbaumodul - Maschinelles Lernen [2/2]    | 1 MP      | 1 SL      | 8 LP    | 4 SWS    |
+|--------------------------------------------|-----------|-----------|---------|----------|
+| Deep Learning (Seminar)                    |           | Pnr. 4102 | 4 LP    | 4 SWS    |
+| Modulprüfung                               | Pnr. 4110 |           | 4 LP    |          |
+| Aufbaumodul - Parsing                      |           | 2 SL      | 6 LP    | 4 SWS    |
+| Parsing (Seminar)                          |           | Pnr. 4301 | 3 LP    | 2 SWS    |
+| Parsing (Übung)                            |           | Pnr. 4302 | 3 LP    | 2 SWS    |
+| Aufbaumodul - Logische Programmierung      |           | 2 SL      | 6 LP    | 4 SWS    |
+| Einführung in Prolog (Seminar)             |           | Pnr. 4401 | 3 LP    | 2 SWS    |
+| Prolog (Übung)                             |           | Pnr. 4402 | 3 LP    | 2 SWS    |
+| Vertiefungsmodul - Interdisziplinär [1/2]  |           | 1 SL      | 4 LP    | 4SWS     |
+| Seminar nach Wahl                          |           | Pnr. 5101 | 4 LP    | 4 SWS    |
+| Praktikum & Orientierung [1/2]             |           | 1 SL      | 3 LP    | 2 SWS    |
+| Orientierungsseminar (Seminar)             |           | Pnr. 3001 | 3 LP    | 2 SWS    |
+| Profilbildungsbereich                      |           |           | 3 LP    |          |
+
+## 5. Semester Bachelor Computerlinguistik
+
+Summe: 3 Module, 1 MP, 3 Veranstaltungen, 12 SWS, 30 LP, davon 1 LP im PBB
+
+| Praktikum & Orientierung [2/2]                  |           | 1 SL      | 9 LP    |       |
+|-------------------------------------------------|-----------|-----------|---------|-------|
+| Praktikum (in der Regel 6 Wochen Vollzeit)      |           | Pnr. 3010 | 9 LP    |       |
+| Vertiefungsmodul   - Interdisziplinär [2/2]     | 1 MP      | 1 SL      | 8 LP    | 4 SWS |
+| Seminar nach Wahl                               |           | Pnr. 5103 | 4 LP    | 4 SWS |
+| Modulprüfung                                    | Pnr. 5110 |           | 4 LP    |       |
+| Vertiefungsmodul - Computerlinguistik 1         |           | 2 SL      | 12 LP   | 8 SWS |
+| Seminar nach Wahl im Bereich Computerlinguistik |           | Pnr. 5201 | 6 LP    | 4 SWS |
+| Seminar nach Wahl im Bereich Computerlinguistik |           | Pnr. 5202 | 6 LP    | 4 SWS |
+| Profilbildungsbereich                           |           |           | 1 LP    |       |
+
+## 6. Semester Bachelor Computerlinguistik
+
+Summe: 3 Module, 1 MP, Bachelorarbeit, 2 Veranstaltungen, 8 SWS, 30 LP, davon 1 LP im PBB
+
+| Vertiefungsmodul - Computerlinguistik 2         | 1 MP      | 1 SL      | 9 LP    | 4 SWS    |
+|-------------------------------------------------|-----------|-----------|---------|----------|
+| Seminar nach Wahl im Bereich Computerlinguistik |           | Pnr. 5301 | 5 LP    | 4 SWS    |
+| Modulprüfung                                    | Pnr. 5310 |           | 4 LP    |          |
+| Abschlussarbeit und Forschungskolloquium        |           | 1 SL      | 15 LP   | 4 SWS    |
+| Forschungskolloquium oder Seminar               |           | Pnr. 5901 | 3 LP    | 2 SWS    |
+| Bachelorarbeit                                  | Pnr. 6000 |           | 12 LP   |          |
+| Profilbildungsbereich                           |           |           | 6 LP    |          |
