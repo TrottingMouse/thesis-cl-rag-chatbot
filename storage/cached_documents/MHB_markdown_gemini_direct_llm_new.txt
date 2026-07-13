@@ -1,0 +1,430 @@
+Hier ist das Dokument in eine Liste von kurzen, klaren und isolierten Fakten-Sätzen umgewandelt, die für eine RAG-Pipeline geeignet sind:
+
+*   Der integrative Bachelorstudiengang Computerlinguistik vermittelt eine breite computerlinguistische Ausbildung.
+*   Studierende erwerben im ersten Jahr Wissen über sprachliche Komplexität und Methoden der symbolischen Sprachverarbeitung.
+*   Studierende erwerben im ersten Jahr Wissen über Methoden des maschinellen Lernens und der künstlichen Intelligenz.
+*   Studierende erwerben im ersten Jahr Programmierkenntnisse auf hohem Niveau.
+*   Das dritte Studienjahr baut Wissen aus und wendet es in einem Praktikum und der Abschlussarbeit an.
+*   Absolventen sind auf Tätigkeiten in Bereichen wie elektronische Informationsverarbeitung vorbereitet.
+*   Absolventen sind auf Tätigkeiten im Sprachressourcenmanagement vorbereitet.
+*   Absolventen sind auf Tätigkeiten in der maschinellen Sprachverarbeitung vorbereitet.
+*   Absolventen sind auf Tätigkeiten in der Sprachtechnologie vorbereitet.
+*   Studierende erwerben in Aufbau- und Vertiefungsmodulen die Fähigkeit, relevante Informationen zu sammeln, zu bewerten und zu interpretieren.
+*   Studierende können wissenschaftlich fundierte Urteile ableiten.
+*   Studierende können gesellschaftsrelevante Aspekte von Sprachtechnologien bewerten.
+*   Studierende können sich selbstständig in neue Themengebiete einarbeiten und neue Fähigkeiten lernen.
+*   Studierende können sich mit Informatikern, Sprachwissenschaftlern und Laien austauschen.
+*   Das Studium fördert die Fähigkeit, über Fachgrenzen hinweg zu vermitteln.
+*   Das Studium gestaltet multidisziplinäre Zusammenarbeit.
+*   Das Studium bereitet auf einen anschließenden Masterstudiengang vor.
+*   Die ersten zwei Semester des Studiums widmen sich dem Erwerb von Basiswissen.
+*   Semester 3 und 4 dienen dem Aufbau weiterer Fachkompetenzen.
+*   Die letzten beiden Semester dienen der Spezialisierung und dem Studienabschluss.
+*   Phase 1 beinhaltet die Vermittlung mathematischer und logischer Konzepte für die Computerlinguistik.
+*   Phase 1 beinhaltet eine Einführung in die Computerlinguistik, die zentrale Fragestellungen und Methoden abdeckt.
+*   Phase 1 beinhaltet den Erwerb von Kenntnissen über Formalismen und Methoden der Grammatikmodellierung.
+*   Phase 1 beinhaltet eine Einführung in die Statistik.
+*   Phase 1 beinhaltet Einführungen in die sprachwissenschaftlichen Bereiche Morphologie/Syntax und Semantik/Pragmatik.
+*   Phase 1 beinhaltet einen Einstieg in computerlinguistische Programmierung mit Python.
+*   Phase 1 vermittelt Grundlagen und aktuelle Methoden der Sprachtechnologie in der Python-Programmierung.
+*   Phase 2 vermittelt Kenntnisse in maschinellem Lernen und Deep Learning.
+*   Phase 2 baut auf Wissen über computerlinguistische Fragestellungen und Repräsentationen auf.
+*   Phase 2 setzt solide Kenntnisse der Programmiersprache Python voraus.
+*   Phase 2 vermittelt Einblicke in linguistische Ressourcen.
+*   Phase 2 vermittelt weitere Paradigmen von Programmiersprachen: objektorientiertes Programmieren.
+*   Phase 2 vermittelt logische oder funktionale Programmierung im Kontext der computationellen Semantik.
+*   Phase 2 vertieft syntaktische Verarbeitung und Automatentheorie und formale Sprachen für computerlinguistische Problemstellungen.
+*   Phase 2 beinhaltet eine Orientierung für mögliche Spezialisierungen.
+*   Phase 3 dient dem weiteren Ausbau von Fachkompetenzen.
+*   Phase 3 ermöglicht Spezialisierung durch Wahl von APs, Praktikum und Abschlussarbeit.
+*   In Phase 3 werden computerlinguistische Vertiefungsmodule angeboten.
+*   Die Studierenden können aus thematischen Seminaren in den Vertiefungsmodulen wählen.
+*   Im Vertiefungsmodul 2 muss eine MP (Module-Prüfung) angelegt werden.
+*   Mögliche Themen in den Vertiefungsmodulen sind Vektorsemantik, große Sprachmodelle, Transformer-Architekturen, Advanced Constituency Parsing, Dependency Parsing, Finite-State Morphology, Semantic Role Labeling, Discourse Representation Theory, Fuzzy Logic.
+*   Das interdisziplinäre Vertiefungsmodul ermöglicht die Belegung von Veranstaltungen aus Linguistik und Informatik.
+*   Im interdisziplinären Vertiefungsmodul muss mindestens eine Veranstaltung aus der Informatik belegt werden.
+*   Im letzten Studienjahr sind ein Praktikum zur Berufsorientierung und die Bachelorarbeit vorgesehen.
+*   Die Bachelorarbeit wird in der Regel im letzten Semester durchgeführt.
+*   Parallel zur Bachelorarbeit wird das Forschungskolloquium der Computerlinguistik besucht.
+*   Das 5. Semester kann als Mobilitätssemester gewählt werden.
+*   Kurse aus anderen Universitäten können in den Vertiefungsmodulen anerkannt werden.
+*   Das Basismodul - Mathematische und logische Grundlagen hat die Modul-Nummer 2100.
+*   Das Basismodul - Mathematische und logische Grundlagen hat 12 ECTS-Leistungspunkte.
+*   Der Workload für das Basismodul - Mathematische und logische Grundlagen beträgt 360 Stunden.
+*   Das Basismodul - Mathematische und logische Grundlagen dauert 1 Semester.
+*   Lehrveranstaltungen im Basismodul - Mathematische und logische Grundlagen sind Einführung in die computationelle Logik (Seminar & Übung) und Mathematische Grundlagen (Seminar).
+*   Das Basismodul - Mathematische und logische Grundlagen wird jedes Wintersemester angeboten.
+*   Die geplante Gruppengröße im Basismodul - Mathematische und logische Grundlagen beträgt ca. 60 Studierende pro Lehrveranstaltung.
+*   Die Kontaktzeit für die Einführung in die computationelle Logik beträgt 4 SWS/60 Stunden.
+*   Die Kontaktzeit für Mathematische Grundlagen beträgt 4 SWS/60 Stunden.
+*   Das Selbststudium für die Einführung in die computationelle Logik beträgt 60 Stunden.
+*   Das Selbststudium für Mathematische Grundlagen beträgt 60 Stunden.
+*   Die ECTS-Leistungspunkte für die Modulprüfung im Basismodul - Mathematische und logische Grundlagen betragen 4 ECTS-Leistungspunkte.
+*   Inhalte des Basismoduls - Mathematische und logische Grundlagen umfassen Aufbereitung und Vertiefung mathematischer Schulkenntnisse.
+*   Inhalte des Basismoduls - Mathematische und logische Grundlagen umfassen formale Methoden wie Mengenlehre, Vektorrechnung, Beweisführung.
+*   Inhalte des Basismoduls - Mathematische und logische Grundlagen umfassen die Bedeutung der Logik.
+*   Inhalte des Basismoduls - Mathematische und logische Grundlagen umfassen formale Sprache im Vergleich zur menschlichen Sprache.
+*   Inhalte des Basismoduls - Mathematische und logische Grundlagen umfassen Aussagenlogik und Prädikatenlogik.
+*   Inhalte des Basismoduls - Mathematische und logische Grundlagen umfassen Modelle, Wahrheitswerte und formale Beweise.
+*   Lernziele des Basismoduls - Mathematische und logische Grundlagen beinhalten das Beherrschen wesentlicher logischer und mathematischer Verfahren.
+*   Lernziele des Basismoduls - Mathematische und logische Grundlagen beinhalten das Verständnis grundlegender logischer und mathematischer Methoden.
+*   Lernziele des Basismoduls - Mathematische und logische Grundlagen beinhalten das formale Rüstzeug zum Verständnis formaler Linguistik und Computerlinguistik.
+*   Teilnahmevoraussetzungen für das Basismodul - Mathematische und logische Grundlagen sind formal und inhaltlich keine.
+*   Die Prüfungsform im Basismodul - Mathematische und logische Grundlagen ist ein Portfolio.
+*   Voraussetzungen für die Zulassung zur Modulprüfung im Basismodul - Mathematische und logische Grundlagen sind keine.
+*   Voraussetzungen für die Vergabe von ECTS-Leistungspunkten im Basismodul - Mathematische und logische Grundlagen sind erbrachte Studienleistungen und bestandene Modulprüfung.
+*   Das Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung hat die Modul-Nummer 2200.
+*   Das Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung hat 12 ECTS-Leistungspunkte.
+*   Der Workload für das Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung beträgt 360 Stunden.
+*   Das Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung dauert 2 Semester.
+*   Lehrveranstaltungen im Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung sind Einführung in die Computerlinguistik (Seminar & Übung) und Grammatikformalismen (Seminar & Übung).
+*   Das Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung mit Einführung in die Computerlinguistik wird jedes Wintersemester angeboten.
+*   Das Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung mit Grammatikformalismen wird jedes Sommersemester angeboten.
+*   Die geplante Gruppengröße im Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung beträgt ca. 60 Studierende pro Lehrveranstaltung.
+*   Die Kontaktzeit für Einführung in die Computerlinguistik (Seminar) beträgt 2 SWS / 30 Stunden.
+*   Die Kontaktzeit für Einführung in die Computerlinguistik (Übung) beträgt 2 SWS / 30 Stunden.
+*   Die Kontaktzeit für Grammatikformalismen (Seminar) beträgt 2 SWS / 30 Stunden.
+*   Die Kontaktzeit für Grammatikformalismen (Übung) beträgt 2 SWS / 30 Stunden.
+*   Das Selbststudium für Einführung in die Computerlinguistik (Seminar) beträgt 30 Stunden.
+*   Das Selbststudium für Einführung in die Computerlinguistik (Übung) beträgt 30 Stunden.
+*   Das Selbststudium für Grammatikformalismen (Seminar) beträgt 30 Stunden.
+*   Das Selbststudium für Grammatikformalismen (Übung) beträgt 30 Stunden.
+*   Die ECTS-Leistungspunkte für die Modulprüfung im Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung betragen 4 ECTS-Leistungspunkte.
+*   Inhalte des Basismoduls - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung umfassen einen Überblick über Ziele, Methoden und theoretische Ansätze der Computerlinguistik.
+*   Inhalte des Basismoduls - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung umfassen Beispiele aus relevanten Anwendungsgebieten.
+*   Inhalte des Basismoduls - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung behandeln symbolische Repräsentationen und datengetriebene Methoden.
+*   Inhalte des Basismoduls - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung führen in Methoden und Probleme der syntaktischen Modellierung mit Formalismen wie HPSG, TAG, CCG ein.
+*   Lernziele des Basismoduls - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung beinhalten Wissen über Ziele der Computerlinguistik.
+*   Lernziele des Basismoduls - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung beinhalten Vertrautheit mit grundlegenden formalen und probabilistischen Methoden der Computerlinguistik.
+*   Lernziele des Basismoduls - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung beinhalten Kenntnisse über gängige computerlinguistische Formalismen zur Implementierung von Grammatiken.
+*   Teilnahmevoraussetzungen für das Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung sind formal und inhaltlich keine.
+*   Die Prüfungsform im Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung ist eine Klausur.
+*   Voraussetzungen für die Zulassung zur Modulprüfung im Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung sind keine.
+*   Voraussetzungen für die Vergabe von ECTS-Leistungspunkten im Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung sind erbrachte Studienleistungen in den Lehrveranstaltungen und bestandene Modulprüfung.
+*   Das Basismodul - Python-Programmierung hat die Modul-Nummer 2300.
+*   Das Basismodul - Python-Programmierung hat 12 ECTS-Leistungspunkte.
+*   Der Workload für das Basismodul - Python-Programmierung beträgt 360 Stunden.
+*   Das Basismodul - Python-Programmierung dauert 2 Semester.
+*   Lehrveranstaltungen im Basismodul - Python-Programmierung sind Einführung in die Programmierung mit Python (Seminar & Übung) und Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar & Übung).
+*   Das Basismodul - Python-Programmierung mit Einführung in die Programmierung mit Python wird jedes Wintersemester angeboten.
+*   Das Basismodul - Python-Programmierung mit Fortgeschrittene Python-Programmierung mit NLP-Anwendungen wird jedes Sommersemester angeboten.
+*   Die geplante Gruppengröße im Basismodul - Python-Programmierung beträgt ca. 60 Studierende pro Lehrveranstaltung.
+*   Die Kontaktzeit für Einführung in die Programmierung mit Python (Seminar) beträgt 2 SWS / 30 Stunden.
+*   Die Kontaktzeit für Einführung in die Programmierung mit Python (Übung) beträgt 2 SWS / 30 Stunden.
+*   Die Kontaktzeit für Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar) beträgt 2 SWS / 30 Stunden.
+*   Die Kontaktzeit für Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Übung) beträgt 2 SWS / 30 Stunden.
+*   Das Selbststudium für Einführung in die Programmierung mit Python (Seminar) beträgt 30 Stunden.
+*   Das Selbststudium für Einführung in die Programmierung mit Python (Übung) beträgt 30 Stunden.
+*   Das Selbststudium für Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar) beträgt 30 Stunden.
+*   Das Selbststudium für Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Übung) beträgt 30 Stunden.
+*   Die ECTS-Leistungspunkte für die Modulprüfung im Basismodul - Python-Programmierung betragen 4 ECTS-Leistungspunkte.
+*   Der Workload für die Modulprüfung im Basismodul - Python-Programmierung beträgt 120 Stunden.
+*   Inhalte des Basismoduls - Python-Programmierung im Wintersemester umfassen Grundlagen der Python-Programmierung, Datentypen, Programmkonstrukte, elementare Textverarbeitung.
+*   Inhalte des Basismoduls - Python-Programmierung im Sommersemester umfassen objektorientierte und funktionale Programmierung mit Python, Einsatz von Programm-Bibliotheken in Data Science und NLP, Grundzüge der Software-Entwicklung.
+*   Lernziele des Basismoduls - Python-Programmierung beinhalten grundlegende Fähigkeiten in der Programmierung mit Python.
+*   Lernziele des Basismoduls - Python-Programmierung beinhalten Kenntnisse über fortgeschrittene Konzepte der Python-Programmierung (objektorientiert, funktional).
+*   Lernziele des Basismoduls - Python-Programmierung beinhalten Grundkenntnisse des Einsatzes von Python in Data Science und NLP.
+*   Lernziele des Basismoduls - Python-Programmierung beinhalten die Fähigkeit, ein kleines Software-Projekt durchzuführen und zu präsentieren.
+*   Teilnahmevoraussetzungen für das Basismodul - Python-Programmierung sind formal und inhaltlich keine.
+*   Die Prüfungsform im Basismodul - Python-Programmierung ist eine Projektarbeit.
+*   Voraussetzungen für die Zulassung zur Modulprüfung im Basismodul - Python-Programmierung sind keine.
+*   Voraussetzungen für die Vergabe von ECTS-Leistungspunkten im Basismodul - Python-Programmierung sind erbrachte Studienleistungen und bestandene Modulprüfung.
+*   Das Modul Basiswissen Linguistik - Morphologie und Syntax hat die Modul-Nummer 1300.
+*   Das Modul Basiswissen Linguistik - Morphologie und Syntax hat 9 ECTS-Leistungspunkte.
+*   Der Workload für das Modul Basiswissen Linguistik - Morphologie und Syntax beträgt 270 Stunden.
+*   Das Modul Basiswissen Linguistik - Morphologie und Syntax dauert 1 Semester.
+*   Lehrveranstaltungen im Modul Basiswissen Linguistik - Morphologie und Syntax sind Morphologie und Syntax (Vorlesung) und Tutorium zu Morphologie und Syntax (Tutorium).
+*   Das Modul Basiswissen Linguistik - Morphologie und Syntax wird jedes Wintersemester angeboten.
+*   Die geplante Gruppengröße für die Vorlesung Morphologie und Syntax beträgt ca. 150 Studierende.
+*   Die geplante Gruppengröße für das Tutorium zu Morphologie und Syntax beträgt ca. 30 Studierende pro Gruppe.
+*   Die Kontaktzeit für Morphologie und Syntax (Vorlesung) beträgt 4 SWS/60 Stunden.
+*   Die Kontaktzeit für Tutorium zu Morphologie und Syntax (Tutorium) beträgt 2 SWS/30 Stunden.
+*   Das Selbststudium für das Modul Basiswissen Linguistik - Morphologie und Syntax beträgt 90 Stunden.
+*   Die ECTS-Leistungspunkte für die Modulprüfung im Modul Basiswissen Linguistik - Morphologie und Syntax betragen 3 ECTS-Leistungspunkte.
+*   Inhalte des Moduls Basiswissen Linguistik - Morphologie und Syntax umfassen syntaktische und morphologische Strukturen.
+*   Inhalte des Moduls Basiswissen Linguistik - Morphologie und Syntax fokussieren auf verbreitete Muster im Sprachvergleich.
+*   Inhalte des Moduls Basiswissen Linguistik - Morphologie und Syntax behandeln die Verbreitung sprachübergreifender Trends.
+*   Das Tutorium im Modul Basiswissen Linguistik - Morphologie und Syntax übt vorgestellte Inhalte ein.
+*   Das Tutorium im Modul Basiswissen Linguistik - Morphologie und Syntax bietet Unterstützung bei Hausaufgaben und Klausurvorbereitung.
+*   Lernziele des Moduls Basiswissen Linguistik - Morphologie und Syntax beinhalten grundlegende Kenntnisse in Morphologie und Syntax.
+*   Lernziele des Moduls Basiswissen Linguistik - Morphologie und Syntax beinhalten die Analyse morphologischer und syntaktischer Strukturen.
+*   Lernziele des Moduls Basiswissen Linguistik - Morphologie und Syntax beinhalten die Klassifikation von Wortklassen, Satzgliedern, syntaktischen Funktionen, Morphemtypen und morphologischen Prozessen.
+*   Lernziele des Moduls Basiswissen Linguistik - Morphologie und Syntax beinhalten das Kennenlernen grundlegender Fragestellungen der Morphosyntax und Erklärungsansätze.
+*   Teilnahmevoraussetzungen für das Modul Basiswissen Linguistik - Morphologie und Syntax sind formal und inhaltlich keine.
+*   Die Prüfungsform im Modul Basiswissen Linguistik - Morphologie und Syntax ist eine Klausur.
+*   Voraussetzungen für die Zulassung zur Modulprüfung im Modul Basiswissen Linguistik - Morphologie und Syntax sind keine.
+*   Voraussetzungen für die Vergabe von ECTS-Leistungspunkten im Modul Basiswissen Linguistik - Morphologie und Syntax sind erbrachte Studienleistungen in allen Lehrveranstaltungen und bestandene Modulprüfung.
+*   Das Modul Basiswissen Linguistik - Semantik und Pragmatik hat die Modul-Nummer 1400.
+*   Das Modul Basiswissen Linguistik - Semantik und Pragmatik hat 9 ECTS-Leistungspunkte.
+*   Der Workload für das Modul Basiswissen Linguistik - Semantik und Pragmatik beträgt 270 Stunden.
+*   Das Modul Basiswissen Linguistik - Semantik und Pragmatik dauert 1 Semester.
+*   Lehrveranstaltungen im Modul Basiswissen Linguistik - Semantik und Pragmatik sind Semantik und Pragmatik (Vorlesung) und Tutorium zu Semantik und Pragmatik (Tutorium).
+*   Das Modul Basiswissen Linguistik - Semantik und Pragmatik wird jedes Sommersemester angeboten.
+*   Die geplante Gruppengröße für die Vorlesung Semantik und Pragmatik beträgt ca. 150 Studierende.
+*   Die geplante Gruppengröße für das Tutorium zu Semantik und Pragmatik beträgt ca. 30 Studierende pro Gruppe.
+*   Die Kontaktzeit für Semantik und Pragmatik (Vorlesung) beträgt 4 SWS/60 Stunden.
+*   Die Kontaktzeit für Tutorium zu Semantik und Pragmatik (Tutorium) beträgt 2 SWS/30 Stunden.
+*   Das Selbststudium für das Modul Basiswissen Linguistik - Semantik und Pragmatik beträgt 90 Stunden.
+*   Die ECTS-Leistungspunkte für die Modulprüfung im Modul Basiswissen Linguistik - Semantik und Pragmatik betragen 3 ECTS-Leistungspunkte.
+*   Inhalte des Moduls Basiswissen Linguistik - Semantik und Pragmatik (Semantik) umfassen Grundlagen der Wortsemantik und Satzsemantik.
+*   Inhalte des Moduls Basiswissen Linguistik - Semantik und Pragmatik (Semantik) umfassen den Bedeutungsbegriff, deskriptive, soziale und expressive Bedeutung.
+*   Inhalte des Moduls Basiswissen Linguistik - Semantik und Pragmatik (Semantik) umfassen semantische Relationen wie Ambiguität, Vagheit, Polysemie, Synonymie.
+*   Inhalte des Moduls Basiswissen Linguistik - Semantik und Pragmatik (Semantik) umfassen Prädikation und Wahrheitsbedingungssemantik.
+*   Inhalte des Moduls Basiswissen Linguistik - Semantik und Pragmatik (Pragmatik) umfassen Sprechakttheorie, Theorie der konversationellen Implikaturen.
+*   Inhalte des Moduls Basiswissen Linguistik - Semantik und Pragmatik (Pragmatik) umfassen Presuppositions, Models of Contextual Information, Anaphora.
+*   Lernziele des Moduls Basiswissen Linguistik - Semantik und Pragmatik beinhalten das Nennen und Anwenden grundlegender Fachbegriffe aus Semantik und Pragmatik.
+*   Lernziele des Moduls Basiswissen Linguistik - Semantik und Pragmatik beinhalten den Vergleich unterschiedlicher Analysemethoden.
+*   Lernziele des Moduls Basiswissen Linguistik - Semantik und Pragmatik beinhalten das Verstehen menschlicher Sprache als Kommunikationsmittel.
+*   Lernziele des Moduls Basiswissen Linguistik - Semantik und Pragmatik beinhalten das Analysieren des Einsatzes menschlicher Sprache.
+*   Lernziele des Moduls Basiswissen Linguistik - Semantik und Pragmatik beinhalten das Strukturieren von Erkenntnissen und deren präzise Darstellung.
+*   Lernziele des Moduls Basiswissen Linguistik - Semantik und Pragmatik beinhalten das strukturierte Vorgehen bei wöchentlichen Hausaufgaben.
+*   Teilnahmevoraussetzungen für das Modul Basiswissen Linguistik - Semantik und Pragmatik sind formal und inhaltlich keine.
+*   Die Prüfungsform im Modul Basiswissen Linguistik - Semantik und Pragmatik ist eine Klausur.
+*   Voraussetzungen für die Zulassung zur Modulprüfung im Modul Basiswissen Linguistik - Semantik und Pragmatik sind keine.
+*   Voraussetzungen für die Vergabe von ECTS-Leistungspunkten im Modul Basiswissen Linguistik - Semantik und Pragmatik sind erbrachte Studienleistungen in allen Lehrveranstaltungen und bestandene Modulprüfung.
+*   Das Basismodul - Statistische Methoden in der Computerlinguistik hat die Modul-Nummer 2400.
+*   Das Basismodul - Statistische Methoden in der Computerlinguistik hat 6 ECTS-Leistungspunkte.
+*   Der Workload für das Basismodul - Statistische Methoden in der Computerlinguistik beträgt 180 Stunden.
+*   Das Basismodul - Statistische Methoden in der Computerlinguistik dauert 2 Semester.
+*   Lehrveranstaltungen im Basismodul - Statistische Methoden in der Computerlinguistik sind Wahrscheinlichkeitstheorie und Statistik (Seminar und Übung) und Linguistische Ressourcen (Seminar).
+*   Das Basismodul - Statistische Methoden in der Computerlinguistik mit Wahrscheinlichkeitstheorie und Statistik wird jedes Wintersemester angeboten.
+*   Das Basismodul - Statistische Methoden in der Computerlinguistik mit Linguistische Ressourcen wird jedes Sommersemester angeboten.
+*   Die geplante Gruppengröße im Basismodul - Statistische Methoden in der Computerlinguistik beträgt ca. 60 Studierende pro Lehrveranstaltung.
+*   Die Kontaktzeit für Wahrscheinlichkeitstheorie und Statistik beträgt 4 SWS/60 Stunden.
+*   Die Kontaktzeit für Linguistische Ressourcen beträgt 2 SWS/30 Stunden.
+*   Das Selbststudium für Wahrscheinlichkeitstheorie und Statistik beträgt 60 Stunden.
+*   Das Selbststudium für Linguistische Ressourcen beträgt 30 Stunden.
+*   Die ECTS-Leistungspunkte für die Modulprüfung im Basismodul - Statistische Methoden in der Computerlinguistik sind keine.
+*   Inhalte des Basismoduls - Statistische Methoden in der Computerlinguistik umfassen grundlegende Kenntnisse in Wahrscheinlichkeitstheorie und statistischen Methoden der Computerlinguistik.
+*   Inhalte des Basismoduls - Statistische Methoden in der Computerlinguistik umfassen deren Anwendung mittels Korpora und Datensätzen.
+*   Inhalte des Basismoduls - Statistische Methoden in der Computerlinguistik umfassen Statistik und statistische Programmierung (z.B. R).
+*   Inhalte des Basismoduls - Statistische Methoden in der Computerlinguistik umfassen den Aufbau und die Pflege linguistischer Ressourcen (Korpora, Datenbanken).
+*   Lernziele des Basismoduls - Statistische Methoden in der Computerlinguistik beinhalten Kenntnisse der Grundlagen der Wahrscheinlichkeitstheorie und Grundbegriffe der Statistik.
+*   Lernziele des Basismoduls - Statistische Methoden in der Computerlinguistik beinhalten die Fähigkeit, statistische Analysen zu konzipieren und implementieren.
+*   Lernziele des Basismoduls - Statistische Methoden in der Computerlinguistik beinhalten die Fähigkeit, Korpora zu erstellen und für Experimente und Analysen durchzuführen.
+*   Teilnahmevoraussetzungen für das Basismodul - Statistische Methoden in der Computerlinguistik sind formal keine, inhaltlich das Basismodul Mathematische und logische Grundlagen.
+*   Die Prüfungsformen im Basismodul - Statistische Methoden in der Computerlinguistik sind keine.
+*   Voraussetzungen für die Zulassung zur Modulprüfung im Basismodul - Statistische Methoden in der Computerlinguistik sind keine.
+*   Voraussetzungen für die Vergabe von ECTS-Leistungspunkten im Basismodul - Statistische Methoden in der Computerlinguistik sind erbrachte Studienleistungen oder Hausaufgaben in allen Lehrveranstaltungen.
+*   Das Aufbaumodul - Maschinelles Lernen hat die Modul-Nummer 4100.
+*   Das Aufbaumodul - Maschinelles Lernen hat 12 ECTS-Leistungspunkte.
+*   Der Workload für das Aufbaumodul - Maschinelles Lernen beträgt 360 Stunden.
+*   Das Aufbaumodul - Maschinelles Lernen dauert 2 Semester.
+*   Lehrveranstaltungen im Aufbaumodul - Maschinelles Lernen sind Grundlagen des maschinellen Lernens (Seminar und Übung) und Deep Learning (Seminar).
+*   Das Aufbaumodul - Maschinelles Lernen mit Grundlagen des maschinellen Lernens wird jedes Wintersemester angeboten.
+*   Das Aufbaumodul - Maschinelles Lernen mit Deep Learning wird jedes Sommersemester angeboten.
+*   Die geplante Gruppengröße im Aufbaumodul - Maschinelles Lernen beträgt ca. 60 Studierende pro Lehrveranstaltung.
+*   Die Kontaktzeit für Grundlagen des maschinellen Lernens beträgt 4 SWS/60 Stunden.
+*   Die Kontaktzeit für Deep Learning beträgt 4 SWS/60 Stunden.
+*   Das Selbststudium für Grundlagen des maschinellen Lernens beträgt 60 Stunden.
+*   Das Selbststudium für Deep Learning beträgt 60 Stunden.
+*   Die ECTS-Leistungspunkte für die Modulprüfung im Aufbaumodul - Maschinelles Lernen betragen 4 ECTS-Leistungspunkte.
+*   Inhalte des Aufbaumoduls - Maschinelles Lernen umfassen moderne maschinelle Lernmethoden, die auf Vektorrepräsentationen basieren.
+*   Inhalte des Aufbaumoduls - Maschinelles Lernen umfassen theoretische Besprechung und Implementierung linearer Methoden (lineare/logistische Regression, Support Vector Machines).
+*   Inhalte des Aufbaumoduls - Maschinelles Lernen umfassen Erklärung und Implementierung von neuronalen Netzen und deren Anwendung im Natural Language Processing (NLP).
+*   Lernziele des Aufbaumoduls - Maschinelles Lernen beinhalten die Fähigkeit, lineare Modelle und neuronale Netze zur Lösung von NLP-Aufgaben zu implementieren.
+*   Lernziele des Aufbaumoduls - Maschinelles Lernen beinhalten Vertrautheit mit Methoden der Modellevaluation und Problemen wie Overfitting und Replizierbarkeit.
+*   Teilnahmevoraussetzungen für das Aufbaumodul - Maschinelles Lernen sind formal keine, inhaltlich das Basismodul - Statistische Methoden in der Computerlinguistik.
+*   Die Prüfungsformen im Aufbaumodul - Maschinelles Lernen sind Hausarbeit (mit Programmierprojekt) oder Studienarbeit (mit Programmierprojekt).
+*   Voraussetzungen für die Zulassung zur Modulprüfung im Aufbaumodul - Maschinelles Lernen sind keine.
+*   Voraussetzungen für die Vergabe von ECTS-Leistungspunkten im Aufbaumodul - Maschinelles Lernen sind erbrachte Studienleistungen in allen Lehrveranstaltungen und bestandene Modulprüfung.
+*   Das Aufbaumodul - Mathematische Linguistik hat die Modul-Nummer 4200.
+*   Das Aufbaumodul - Mathematische Linguistik hat 6 ECTS-Leistungspunkte.
+*   Der Workload für das Aufbaumodul - Mathematische Linguistik beträgt 180 Stunden.
+*   Das Aufbaumodul - Mathematische Linguistik dauert 1 Semester.
+*   Lehrveranstaltungen im Aufbaumodul - Mathematische Linguistik sind Automatentheorie & Formale Sprachen (Seminar) und Übung zu Automatentheorie & Formale Sprachen (Übung).
+*   Das Aufbaumodul - Mathematische Linguistik wird jedes Wintersemester angeboten.
+*   Die geplante Gruppengröße im Aufbaumodul - Mathematische Linguistik beträgt ca. 60 Studierende pro Lehrveranstaltung.
+*   Die Kontaktzeit für Automatentheorie & Formale Sprachen (Seminar) beträgt 2 SWS / 30 Stunden.
+*   Die Kontaktzeit für Übung zu Automatentheorie & Formale Sprachen (Übung) beträgt 2 SWS / 30 Stunden.
+*   Das Selbststudium für Automatentheorie & Formale Sprachen (Seminar) beträgt 60 Stunden.
+*   Das Selbststudium für Übung zu Automatentheorie & Formale Sprachen (Übung) beträgt 60 Stunden.
+*   Die ECTS-Leistungspunkte für die Modulprüfung im Aufbaumodul - Mathematische Linguistik sind keine.
+*   Inhalte des Aufbaumoduls - Mathematische Linguistik umfassen Sprachklassen basierend auf der Chomsky-Hierarchie (Automaten, Grammatiken).
+*   Inhalte des Aufbaumoduls - Mathematische Linguistik umfassen Sprachen und Relationen, rationale Relationen und Finite-State-Methoden.
+*   Inhalte des Aufbaumoduls - Mathematische Linguistik umfassen Komplexitätstheorie und Lernbarkeitstheorie.
+*   Inhalte des Aufbaumoduls - Mathematische Linguistik umfassen Abschlusseigenschaften und Entscheidungsprobleme wichtiger Sprachklassen.
+*   Lernziele des Aufbaumoduls - Mathematische Linguistik beinhalten Vertrautheit mit mathematischen und informatischen Grundlagen der Linguistik und Computerlinguistik.
+*   Lernziele des Aufbaumoduls - Mathematische Linguistik beinhalten Verständnis von Beweisverfahren.
+*   Lernziele des Aufbaumoduls - Mathematische Linguistik beinhalten die Fähigkeit, Sprachen, Grammatiken und Automaten aufeinander zu beziehen und passende Entsprechungen zu konstruieren.
+*   Teilnahmevoraussetzungen für das Aufbaumodul - Mathematische Linguistik sind formal keine, inhaltlich Basismodul - Mathematische und logische Grundlagen und Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung.
+*   Die Prüfungsformen im Aufbaumodul - Mathematische Linguistik sind keine.
+*   Voraussetzungen für die Zulassung zur Modulprüfung im Aufbaumodul - Mathematische Linguistik sind keine.
+*   Voraussetzungen für die Vergabe von ECTS-Leistungspunkten im Aufbaumodul - Mathematische Linguistik sind erbrachte Studienleistungen in allen Lehrveranstaltungen.
+*   Das Aufbaumodul - Parsing hat die Modul-Nummer 4300.
+*   Das Aufbaumodul - Parsing hat 6 ECTS-Leistungspunkte.
+*   Der Workload für das Aufbaumodul - Parsing beträgt 180 Stunden.
+*   Das Aufbaumodul - Parsing dauert 1 Semester.
+*   Lehrveranstaltungen im Aufbaumodul - Parsing sind Parsing (Seminar) und Übung zu Parsing (Übung).
+*   Das Aufbaumodul - Parsing wird jedes Sommersemester angeboten.
+*   Die geplante Gruppengröße im Aufbaumodul - Parsing beträgt ca. 60 Studierende pro Lehrveranstaltung.
+*   Die Kontaktzeit für Parsing (Seminar) beträgt 2 SWS / 30 Stunden.
+*   Die Kontaktzeit für Übung zu Parsing (Übung) beträgt 2 SWS / 30 Stunden.
+*   Das Selbststudium für Parsing (Seminar) beträgt 60 Stunden.
+*   Das Selbststudium für Übung zu Parsing (Übung) beträgt 60 Stunden.
+*   Die ECTS-Leistungspunkte für die Modulprüfung im Aufbaumodul - Parsing sind keine.
+*   Inhalte des Aufbaumoduls - Parsing umfassen die automatische syntaktische Analyse von Text.
+*   Inhalte des Aufbaumoduls - Parsing umfassen gängige Formate für die Repräsentation von Syntax (Konstituenten- oder Dependenzstrukturen).
+*   Inhalte des Aufbaumoduls - Parsing führen Algorithmen und Techniken für das automatische Erstellen von Syntaxstrukturen ein.
+*   Inhalte des Aufbaumoduls - Parsing behandeln sowohl symbolische als auch datengetriebene Ansätze.
+*   Inhalte des Aufbaumoduls - Parsing berücksichtigen Konstituenten- und Dependenzstrukturen.
+*   Lernziele des Aufbaumoduls - Parsing beinhalten Kenntnisse gängiger Parsingalgorithmen im Bereich des grammatikbasierten Parsings.
+*   Lernziele des Aufbaumoduls - Parsing beinhalten Kenntnisse gängiger Techniken des datengetriebenen Konstituentenparsings.
+*   Lernziele des Aufbaumoduls - Parsing beinhalten Kenntnisse verschiedener Ansätze des Dependenparsing.
+*   Lernziele des Aufbaumoduls - Parsing beinhalten die Fähigkeit, Beschreibungen von Parsern einzuordnen und zu verstehen.
+*   Teilnahmevoraussetzungen für das Aufbaumodul - Parsing sind formal keine, inhaltlich Basismodul - Mathematische und logische Grundlagen, Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung, Basiswissen Linguistik - Morphologie und Syntax.
+*   Die Prüfungsformen im Aufbaumodul - Parsing sind keine.
+*   Voraussetzungen für die Zulassung zur Modulprüfung im Aufbaumodul - Parsing sind keine.
+*   Voraussetzungen für die Vergabe von ECTS-Leistungspunkten im Aufbaumodul - Parsing sind erbrachte Studienleistungen in allen Lehrveranstaltungen.
+*   Das Aufbaumodul - Logische Programmierung hat die Modul-Nummer 4400.
+*   Das Aufbaumodul - Logische Programmierung hat 6 ECTS-Leistungspunkte.
+*   Der Workload für das Aufbaumodul - Logische Programmierung beträgt 180 Stunden.
+*   Das Aufbaumodul - Logische Programmierung dauert 1 Semester.
+*   Lehrveranstaltungen im Aufbaumodul - Logische Programmierung sind Einführung in Prolog (Seminar) und Übung Prolog (Übung).
+*   Das Aufbaumodul - Logische Programmierung wird jedes Sommersemester angeboten.
+*   Die geplante Gruppengröße im Aufbaumodul - Logische Programmierung beträgt ca. 60 Studierende pro Lehrveranstaltung.
+*   Die Kontaktzeit für Einführung in Prolog (Seminar) beträgt 2 SWS / 30 Stunden.
+*   Die Kontaktzeit für Übung Prolog (Übung) beträgt 2 SWS / 30 Stunden.
+*   Das Selbststudium für Einführung in Prolog (Seminar) beträgt 60 Stunden.
+*   Das Selbststudium für Übung Prolog (Übung) beträgt 60 Stunden.
+*   Die ECTS-Leistungspunkte für die Modulprüfung im Aufbaumodul - Logische Programmierung sind keine.
+*   Inhalte des Aufbaumoduls - Logische Programmierung umfassen das logische Programmierparadigma anhand der Sprache Prolog.
+*   Inhalte des Aufbaumoduls - Logische Programmierung umfassen Themen wie Beweisverfahren, Rekursion, Listenverarbeitung, kontextfreie Grammatiken.
+*   Lernziele des Aufbaumoduls - Logische Programmierung beinhalten das Lösen von Problemen mit dem deklarativen Programmierparadigma in Prolog.
+*   Lernziele des Aufbaumoduls - Logische Programmierung beinhalten die Vertiefung von Kenntnissen in Logik, Semantik und formalen Sprachen.
+*   Teilnahmevoraussetzungen für das Aufbaumodul - Logische Programmierung sind formal keine, inhaltlich das Basismodul - Mathematische und logische Grundlagen.
+*   Die Prüfungsformen im Aufbaumodul - Logische Programmierung sind keine.
+*   Voraussetzungen für die Zulassung zur Modulprüfung im Aufbaumodul - Logische Programmierung sind keine.
+*   Voraussetzungen für die Vergabe von ECTS-Leistungspunkten im Aufbaumodul - Logische Programmierung sind erbrachte Studienleistungen in den Lehrveranstaltungen (a) und (b).
+*   Das Aufbaumodul - Objektorientierte Programmierung hat die Modul-Nummer 4500.
+*   Das Aufbaumodul - Objektorientierte Programmierung hat 12 ECTS-Leistungspunkte.
+*   Der Workload für das Aufbaumodul - Objektorientierte Programmierung beträgt 360 Stunden.
+*   Das Aufbaumodul - Objektorientierte Programmierung dauert 1 Semester.
+*   Lehrveranstaltungen im Aufbaumodul - Objektorientierte Programmierung sind Programmierung (Vorlesung), Übung zur Vorlesung (Übung) und Praktische Übung zur Vorlesung (Praktische Übung).
+*   Das Aufbaumodul - Objektorientierte Programmierung wird jedes Wintersemester angeboten.
+*   Die geplante Gruppengröße für die Vorlesung Programmierung beträgt unbegrenzt.
+*   Die geplante Gruppengröße für die Übung zur Vorlesung beträgt ca. 30 Studierende.
+*   Die geplante Gruppengröße für die Praktische Übung zur Vorlesung beträgt ca. 30 Studierende.
+*   Die Kontaktzeit für Programmierung (Vorlesung) beträgt 4 SWS/60 Stunden.
+*   Die Kontaktzeit für Übung zur Vorlesung (Übung) beträgt 2 SWS/30 Stunden.
+*   Die Kontaktzeit für Praktische Übung zur Vorlesung (Praktische Übung) beträgt 2 SWS / 30 Stunden.
+*   Das Selbststudium für Programmierung (Vorlesung) beträgt 60 Stunden.
+*   Das Selbststudium für Übung zur Vorlesung (Übung) beträgt 30 Stunden.
+*   Das Selbststudium für Praktische Übung zur Vorlesung (Praktische Übung) beträgt 30 Stunden.
+*   Die ECTS-Leistungspunkte für die Modulprüfung im Aufbaumodul - Objektorientierte Programmierung betragen 4 ECTS-Leistungspunkte.
+*   Inhalte des Aufbaumoduls - Objektorientierte Programmierung vermitteln grundlegende Programmierkenntnisse in einer objektorientierten Programmiersprache.
+*   Inhalte des Aufbaumoduls - Objektorientierte Programmierung behandeln einführend Aspekte von Algorithmen und Datenstrukturen.
+*   Inhalte des Aufbaumoduls - Objektorientierte Programmierung umfassen Grundlegende Begriffe der Informatik; Primitive Datentypen und Variablen; Kontrollstrukturen.
+*   Inhalte des Aufbaumoduls - Objektorientierte Programmierung umfassen Eigene Datentypen (Klassen) und Arrays; Programmstrukturen im Speicher (Heap, Stack).
+*   Inhalte des Aufbaumoduls - Objektorientierte Programmierung umfassen Konzepte der Objektorientierung (Polymorphie, Schnittstellen).
+*   Inhalte des Aufbaumoduls - Objektorientierte Programmierung umfassen Rekursion; Fehlerbehandlung.
+*   Inhalte des Aufbaumoduls - Objektorientierte Programmierung umfassen Dynamische Datenstrukturen (Listen, Binärbäume, Hashing).
+*   Inhalte des Aufbaumoduls - Objektorientierte Programmierung umfassen Suchen und Sortieren (binäre Suche, BubbleSort, QuickSort).
+*   Inhalte des Aufbaumoduls - Objektorientierte Programmierung umfassen Datenströme (Standard-Eingabe und -Ausgabe, einfache 2D-Grafik, Dateien).
+*   Lernziele des Aufbaumoduls - Objektorientierte Programmierung beinhalten das Nennen und Erläutern von Begriffen der Informatik und Programmierung.
+*   Lernziele des Aufbaumoduls - Objektorientierte Programmierung beinhalten das Verstehen, Beschreiben und Erstellen einfacher Algorithmen.
+*   Lernziele des Aufbaumoduls - Objektorientierte Programmierung beinhalten das Konzipieren und Anwenden eigener Datentypen.
+*   Lernziele des Aufbaumoduls - Objektorientierte Programmierung beinhalten die Entwicklung einfacher objektorientierter Programme mit Polymorphie, Vererbung und Schnittstellen.
+*   Lernziele des Aufbaumoduls - Objektorientierte Programmierung beinhalten die Anwendung der behandelten dynamischen Datenstrukturen.
+*   Teilnahmevoraussetzungen für das Aufbaumodul - Objektorientierte Programmierung sind formal keine, inhaltlich Basismodul - Mathematische und logische Grundlagen, Basismodul - Python-Programmierung.
+*   Die Prüfungsform im Aufbaumodul - Objektorientierte Programmierung ist eine Klausur.
+*   Voraussetzungen für die Zulassung zur Modulprüfung im Aufbaumodul - Objektorientierte Programmierung sind keine.
+*   Voraussetzungen für die Vergabe von ECTS-Leistungspunkten im Aufbaumodul - Objektorientierte Programmierung sind erbrachte Studienleistungen in den Lehrveranstaltungen (b) und (c) und bestandene Modulprüfung.
+*   Das Modul Praktikum & Orientierung hat die Modul-Nummer 3000.
+*   Das Modul Praktikum & Orientierung hat 12 ECTS-Leistungspunkte.
+*   Der Workload für das Modul Praktikum & Orientierung beträgt 360 Stunden.
+*   Das Modul Praktikum & Orientierung dauert 2 Semester.
+*   Lehrveranstaltungen im Modul Praktikum & Orientierung sind Orientierungsseminar (Seminar) und Praktikum (in der Regel 6 Wochen in Vollzeit).
+*   Das Orientierungsseminar im Modul Praktikum & Orientierung wird jedes Sommersemester angeboten.
+*   Das Praktikum im Modul Praktikum & Orientierung wird jedes Semester angeboten.
+*   Die geplante Gruppengröße für das Orientierungsseminar beträgt ca. 60 Studierende.
+*   Die Kontaktzeit für das Orientierungsseminar beträgt 2 SWS / 30 Stunden.
+*   Das Selbststudium für das Orientierungsseminar beträgt 60 Stunden.
+*   Das Selbststudium für das Praktikum beträgt 270 Stunden.
+*   Die ECTS-Leistungspunkte für die Modulprüfung im Modul Praktikum & Orientierung sind keine.
+*   Inhalte des Orientierungsseminars im Modul Praktikum & Orientierung umfassen Orientierung für die zweite Studienphase bezüglich Studienorganisation, Abschlussarbeit, Berufsperspektiven und Anschlussstudiengänge.
+*   Inhalte des Praktikums im Modul Praktikum & Orientierung sind die berufsorientierte Anwendung der im Studium vermittelten Qualifikationen.
+*   Lernziele des Moduls Praktikum & Orientierung beinhalten die Entwicklung von Entwicklungszielen für die Zukunft.
+*   Lernziele des Moduls Praktikum & Orientierung beinhalten die Erlangung von Orientierung für den weiteren Studienaufbau und beruflichen Werdegang.
+*   Lernziele des Moduls Praktikum & Orientierung beinhalten die realistischere Beurteilung beruflicher Wünsche und Möglichkeiten.
+*   Lernziele des Moduls Praktikum & Orientierung beinhalten den Erwerb erweiterter Methodenkenntnis aus der beruflichen Praxis.
+*   Lernziele des Moduls Praktikum & Orientierung beinhalten das Gewinnen von Selbstvertrauen durch Praxiserprobung.
+*   Lernziele des Moduls Praktikum & Orientierung beinhalten die Vertiefung der Kenntnisse zum wissenschaftlichen Arbeiten.
+*   Lernziele des Moduls Praktikum & Orientierung beinhalten das Formulieren eigener Forschungsfragen, deren Eingrenzung und Planung notwendiger Schritte.
+*   Teilnahmevoraussetzungen für das Modul Praktikum & Orientierung sind formal 4. Fachsemester oder höher, inhaltlich Basismodul - Mathematische und logische Grundlagen, Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung, Basismodul - Python-Programmierung.
+*   Die Prüfungsformen im Modul Praktikum & Orientierung sind keine.
+*   Voraussetzungen für die Zulassung zur Modulprüfung im Modul Praktikum & Orientierung sind keine.
+*   Voraussetzungen für die Vergabe von ECTS-Leistungspunkten im Modul Praktikum & Orientierung sind erbrachte Studienleistungen in (a) und ein nachgewiesenes 6-wöchiges Praktikum.
+*   Das Vertiefungsmodul - Interdisziplinär hat die Modul-Nummer 5100.
+*   Das Vertiefungsmodul - Interdisziplinär hat 12 ECTS-Leistungspunkte.
+*   Der Workload für das Vertiefungsmodul - Interdisziplinär beträgt 360 Stunden.
+*   Das Vertiefungsmodul - Interdisziplinär dauert 2 Semester.
+*   Lehrveranstaltungen im Vertiefungsmodul - Interdisziplinär sind zwei Vorlesungen oder Seminare aus Linguistik oder Informatik.
+*   Mögliche Themen in der Linguistik für das Vertiefungsmodul - Interdisziplinär sind Phonetik und Phonologie, Psycho- und Neurolinguistik, historische Linguistik.
+*   Es müssen Veranstaltungen im Umfang von mindestens 4 SWS in der Informatik für das Vertiefungsmodul - Interdisziplinär belegt werden.
+*   Es darf keine Doppelung von Inhalten der Computerlinguistik-Module bei der Belegung für das Vertiefungsmodul - Interdisziplinär entstehen.
+*   Relevante mögliche Themen in der Informatik für das Vertiefungsmodul - Interdisziplinär sind Professionelle Softwareentwicklung, Datenbanksysteme, Nichtkooperative Spieltheorie, Komplexitätstheorie, Numerische Optimierung, Dialogsysteme, Überblick Künstliche Intelligenz.
+*   Das Vertiefungsmodul - Interdisziplinär wird jedes Semester angeboten.
+*   Die Kontaktzeit und das Selbststudium für das Vertiefungsmodul - Interdisziplinär richten sich nach den gewählten Veranstaltungen.
+*   Die ECTS-Leistungspunkte für die Modulprüfung im Vertiefungsmodul - Interdisziplinär richten sich nach den gewählten Veranstaltungen.
+*   Lernziele des Vertiefungsmoduls - Interdisziplinär beinhalten vertiefte Kenntnisse in Spezialgebieten von Linguistik/Computerlinguistik/Informatik.
+*   Die Prüfungsformen im Vertiefungsmodul - Interdisziplinär sind mündliche Prüfung, Klausur, Hausarbeit, Studienarbeit oder Projektarbeit.
+*   Voraussetzungen für die Vergabe von ECTS-Leistungspunkten im Vertiefungsmodul - Interdisziplinär sind bestandene Modulprüfung und aktive/erfolgreiche Mitwirkung in Lehrveranstaltungen.
+*   Das Vertiefungsmodul - Computerlinguistik 1 hat die Modul-Nummer 5200.
+*   Das Vertiefungsmodul - Computerlinguistik 1 hat 12 ECTS-Leistungspunkte.
+*   Der Workload für das Vertiefungsmodul - Computerlinguistik 1 beträgt 360 Stunden.
+*   Das Vertiefungsmodul - Computerlinguistik 1 dauert 1 Semester.
+*   Lehrveranstaltungen im Vertiefungsmodul - Computerlinguistik 1 sind Seminar Computerlinguistik (Seminar).
+*   Das Vertiefungsmodul - Computerlinguistik 1 wird jedes Wintersemester angeboten.
+*   Die geplante Gruppengröße im Vertiefungsmodul - Computerlinguistik 1 beträgt ca. 30 Studierende pro Seminar.
+*   Die Kontaktzeit für ein Seminar im Vertiefungsmodul - Computerlinguistik 1 beträgt 4 SWS/30 Stunden.
+*   Das Selbststudium im Vertiefungsmodul - Computerlinguistik 1 im 5. Fachsemester beträgt 240 Stunden.
+*   Die ECTS-Leistungspunkte für die Modulprüfung im Vertiefungsmodul - Computerlinguistik 1 sind keine.
+*   Mögliche Inhalte im Vertiefungsmodul - Computerlinguistik 1 sind nichtklassische Logiken (modale, fuzzy, substrukturelle Logiken).
+*   Mögliche Inhalte im Vertiefungsmodul - Computerlinguistik 1 sind besondere Grammatikformalismen (Kategorialgrammatik).
+*   Mögliche Inhalte im Vertiefungsmodul - Computerlinguistik 1 sind Vertiefungsseminare im Bereich maschinelles Lernen und Deep Learning.
+*   Die Zulassung von nicht im Vorlesungsverzeichnis zugeordneten Veranstaltungen zu diesem Modul entscheiden die Modulverantwortlichen.
+*   Lernziele des Vertiefungsmoduls - Computerlinguistik 1 beinhalten vertiefte Kenntnisse in Spezialgebieten der Computerlinguistik.
+*   Teilnahmevoraussetzungen für das Vertiefungsmodul - Computerlinguistik 1 sind formal Basismodul - Mathematische und logische Grundlagen, Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung, Aufbaumodul - Maschinelles Lernen, inhaltlich je nach Thema.
+*   Die Prüfungsformen im Vertiefungsmodul - Computerlinguistik 1 sind keine.
+*   Voraussetzungen für die Zulassung zur Modulprüfung im Vertiefungsmodul - Computerlinguistik 1 sind keine.
+*   Voraussetzungen für die Vergabe von ECTS-Leistungspunkten im Vertiefungsmodul - Computerlinguistik 1 sind aktive und erfolgreiche Mitwirkung im Forschungsseminar.
+*   Das Vertiefungsmodul - Computerlinguistik 2 hat die Modul-Nummer 5300.
+*   Das Vertiefungsmodul - Computerlinguistik 2 hat 9 ECTS-Leistungspunkte.
+*   Der Workload für das Vertiefungsmodul - Computerlinguistik 2 beträgt 270 Stunden.
+*   Das Vertiefungsmodul - Computerlinguistik 2 dauert 1 Semester.
+*   Lehrveranstaltungen im Vertiefungsmodul - Computerlinguistik 2 sind thematisches Seminar in der Computerlinguistik (Seminar).
+*   Das Vertiefungsmodul - Computerlinguistik 2 wird jedes Sommersemester angeboten.
+*   Die geplante Gruppengröße im Vertiefungsmodul - Computerlinguistik 2 beträgt ca. 30 Studierende.
+*   Die Kontaktzeit für ein Seminar im Vertiefungsmodul - Computerlinguistik 2 beträgt 4 SWS/60 Stunden.
+*   Das Selbststudium im Vertiefungsmodul - Computerlinguistik 2 beträgt 90 Stunden.
+*   Die ECTS-Leistungspunkte für die Modulprüfung im Vertiefungsmodul - Computerlinguistik 2 betragen 4 ECTS-Leistungspunkte.
+*   Mögliche Inhalte im Vertiefungsmodul - Computerlinguistik 2 sind nichtklassische Logiken (modale, fuzzy, substrukturelle Logiken).
+*   Mögliche Inhalte im Vertiefungsmodul - Computerlinguistik 2 sind besondere Grammatikformalismen (Kategorialgrammatik).
+*   Mögliche Inhalte im Vertiefungsmodul - Computerlinguistik 2 sind Vertiefungsseminare im Bereich maschinelles Lernen und Deep Learning.
+*   Lernziele des Vertiefungsmoduls - Computerlinguistik 2 beinhalten vertiefte Kenntnisse in Spezialgebieten der Computerlinguistik.
+*   Teilnahmevoraussetzungen für das Vertiefungsmodul - Computerlinguistik 2 sind formal Basismodul - Mathematische und logische Grundlagen, Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung, Aufbaumodul - Maschinelles Lernen, inhaltlich je nach Thema.
+*   Die Prüfungsformen im Vertiefungsmodul - Computerlinguistik 2 sind mündliche Prüfung, Klausur, Hausarbeit, Studienarbeit oder Projektarbeit.
+*   Voraussetzungen für die Zulassung zur Modulprüfung im Vertiefungsmodul - Computerlinguistik 2 sind keine.
+*   Voraussetzungen für die Vergabe von ECTS-Leistungspunkten im Vertiefungsmodul - Computerlinguistik 2 sind aktive und erfolgreiche Mitwirkung im Forschungsseminar und bestandene Modulprüfung.
+*   Das Modul Abschlussarbeit und Forschungskolloquium hat die Modul-Nummer 5900.
+*   Das Modul Abschlussarbeit und Forschungskolloquium hat 15 ECTS-Leistungspunkte.
+*   Der Workload für das Modul Abschlussarbeit und Forschungskolloquium beträgt 450 Stunden.
+*   Das Modul Abschlussarbeit und Forschungskolloquium dauert 1 Semester.
+*   Lehrveranstaltungen im Modul Abschlussarbeit und Forschungskolloquium sind Forschungskolloquium Computerlinguistik (Kolloquium) und Seminar (Seminar).
+*   Das Forschungskolloquium Computerlinguistik im Modul Abschlussarbeit und Forschungskolloquium wird jedes Sommersemester angeboten.
+*   Das Seminar im Modul Abschlussarbeit und Forschungskolloquium wird jedes Sommersemester angeboten.
+*   Die geplante Gruppengröße im Modul Abschlussarbeit und Forschungskolloquium beträgt ca. 30 Studierende pro Lehrveranstaltung.
+*   Die Kontaktzeit für das Forschungskolloquium Computerlinguistik beträgt 2 SWS/30 Stunden.
+*   Die Kontaktzeit für das Seminar beträgt 2 SWS/30 Stunden.
+*   Das Selbststudium im Modul Abschlussarbeit und Forschungskolloquium im 6. Fachsemester beträgt 60 Stunden.
+*   Die ECTS-Leistungspunkte für die Modulprüfung im Modul Abschlussarbeit und Forschungskolloquium betragen 12 ECTS-Leistungspunkte.
+*   Inhalte des Forschungskolloquiums im Modul Abschlussarbeit und Forschungskolloquium sind Vorträge von Gästen über aktuelle Forschungsarbeiten.
+*   Inhalte des Forschungskolloquiums im Modul Abschlussarbeit und Forschungskolloquium beinhalten die Besprechung von Artikeln zu den Vorträgen.
+*   Das Thema der Bachelorarbeit im Modul Abschlussarbeit und Forschungskolloquium kann frei gewählt werden, muss aber im Bereich Computerlinguistik liegen.
+*   Lernziele des Moduls Abschlussarbeit und Forschungskolloquium beinhalten das Kennenlernen aktueller Forschungsarbeit der Computerlinguistik.
+*   Lernziele des Moduls Abschlussarbeit und Forschungskolloquium beinhalten das selbständige wissenschaftliche Arbeiten.
+*   Teilnahmevoraussetzungen für das Modul Abschlussarbeit und Forschungskolloquium sind formal alle Basis- und Aufbaumodule.
+*   Die Prüfungsform im Modul Abschlussarbeit und Forschungskolloquium ist eine Bachelorarbeit.
+*   Voraussetzungen für die Zulassung zur Prüfung im Modul Abschlussarbeit und Forschungskolloquium sind keine.
+*   Voraussetzungen für die Vergabe von ECTS-Leistungspunkten im Modul Abschlussarbeit und Forschungskolloquium sind aktive und erfolgreiche Mitwirkung im Forschungsseminar und bestandene Bachelorarbeit.
