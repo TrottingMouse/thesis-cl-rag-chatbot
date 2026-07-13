@@ -303,7 +303,6 @@ class DirectLLMProcessor(BasePreprocessor):
         with open(source_path, 'r') as f:
             text = f.read()
             
-        print(text)
         
         # Build the prompt once outside the loop to save processing time
         prompt_contents = self._build_prompt(text)
@@ -322,22 +321,32 @@ class DirectLLMProcessor(BasePreprocessor):
                 )
                 return interaction.output_text
                                 
-            except (errors.ServerError, errors.APIError) as e:
-                # Safely extract the status code (503 for ServerError, 429 for APIError)
+            except (errors.ServerError, errors.APIError, Exception) as e:
+                # 1. Safely extract the status code if it's a standard SDK error object
                 status_code = getattr(e, 'code', None)
                 
-                # Check if the error is a temporary bottleneck we can wait out
-                if status_code in [503, 429] or "503" in str(e):
+                # Convert the full exception to a lowercase string for reliable phrase matching
+                error_str = str(e).lower()
+                
+                # 2. Check if this is a transient overload/capacity issue
+                # Matches: HTTP 500, 503, 429, or text warnings about high demand/stalls
+                is_transient = (
+                    status_code in [500, 503, 429] or
+                    any(code in error_str for code in ["500", "503", "429"]) or
+                    "experiencing high demand" in error_str or
+                    "temporary" in error_str
+                )
+                
+                if is_transient:
                     if attempt < max_retries - 1:
                         # Exponential backoff: 2s, 4s, 8s, 16s + 1-3 seconds of random jitter
                         sleep_time = (base_delay * (2 ** attempt)) + random.uniform(1.0, 3.0)
-                        print(f"[API {status_code}] Backend stalled. Retrying in {sleep_time:.1f}s... (Attempt {attempt + 1}/{max_retries})")
+                        print(f"[API Warning] Backend bottleneck hit. Retrying in {sleep_time:.1f}s... (Attempt {attempt + 1}/{max_retries})")
                         time.sleep(sleep_time)
                     else:
-                        raise RuntimeError(f"Failed to process document after {max_retries} attempts due to API limits. Last error: {e}")
+                        raise RuntimeError(f"Failed to process document after {max_retries} attempts due to API overloads. Last error: {e}")
                 else:
-                    # If it's a 400 Bad Request (e.g., token limit exceeded, bad JSON), 
-                    # retrying won't fix it. Raise the error immediately.
+                    # Keep hard-failing immediately on invalid inputs, missing keys, or permission blocks
                     raise e
 
 
