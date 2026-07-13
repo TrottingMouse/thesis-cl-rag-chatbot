@@ -276,24 +276,27 @@ class DirectLLMProcessor(BasePreprocessor):
 
     @property
     def name(self) -> str:
-        return "direct_llm"
+        return "direct_llm_new"
 
     def _build_prompt(self, text: str) -> str:
         return f"""
-            Wandle das folgende Markdown-Dokument in klaren, informationsdichten Fließtext um, der für eine semantische Suchmaschine (RAG-Pipeline) optimiert ist.
+            Wandle das folgende Dokument in eine Liste von kurzen, glasklaren und isolierten Fakten-Sätzen um.
+            Diese Sätze werden für eine RAG-Pipeline genutzt. JEDER Satz muss eigenständig ohne Kontext verständlich sein.
 
-            Befolge dabei strikt diese Regeln:
-            1. Informationserhalt: Übernimm ausnahmslos jede Information, jede Zahl und jedes Detail.
-            2. Hohe Entitätsdichte (WICHTIG): Vermeide Pronomen (er, sie, es, diese) über Absatzgrenzen hinweg. Wiederhole stattdessen immer wieder die konkreten Eigennamen, Produktnamen oder Fachbegriffe, damit jeder Absatz auch isoliert verständlich bleibt.
-            3. Tabellen & Listen: Wandle Tabellen und Aufzählungen in zusammenhängende Textabsätze um. Formuliere die Beziehungen zwischen Spalten/Zeilen in ganzen Sätzen aus.
-            4. Überschriften als Kontext: Nutze Überschriften, um den darauffolgenden Absatz mit einem klaren Kontext-Satz zu beginnen (z. B. statt nur "Spezifikationen:" -> "Die technischen Spezifikationen des Geräts X umfassen...").
-            5. Formatierung: Entferne alle Markdown-Zeichen (*, #, -, |). Behalte klare Absatzumbrüche bei, um logische Trennungen beizubehalten.
+            Befolge diese Regeln strikt:
+            1. Atomare Sätze: Formuliere keine verschachtelten Absätze. Erstelle stattdessen für jede Information einen eigenen Aussagesatz.
+            2. Kontext-Injektion: Verwende KEINE Pronomen (er, sie, es, das Modul, dieser Kurs). Ersetze sie in JEDEM Satz durch den konkreten Namen.
+            - Schlecht: "Es wird im Wintersemester angeboten."
+            - Gut: "Das Basismodul Python-Programmierung wird im Wintersemester angeboten."
+            3. Tabellenauflösung: Brich Tabellen zeilenweise in platte Fakten auf:
+            - "Für das Basismodul Python-Programmierung werden 12 ECTS-Leistungspunkte vergeben."
+            - "Das Basismodul Python-Programmierung hat eine Dauer von 2 Semestern."
+            - "Die Prüfungsform im Basismodul Python-Programmierung ist eine Projektarbeit."
 
             Input Text:
             ---
             {text}
             ---
-            
         """
 
     def process_document(self, source_path: str) -> str:
