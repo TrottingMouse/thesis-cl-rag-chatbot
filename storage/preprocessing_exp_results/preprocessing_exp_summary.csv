@@ -1,0 +1,5 @@
+run_name,preprocessors,chunk_size,overlap,top_k,top_n,num_chunks,context_recall,faithfulness,answer_relevancy,answer_correctness,phase
+docling_only,DoclingMarkdownProcessor,1,0,9,3,784,0.4583333333333333,0.25,0.5953667093734355,0.21802078614249557,1
+gemini_only,GeminiMarkdownProcessor,1,0,9,3,39,0.6875,0.38392857142857145,0.6495423840824365,0.31463526445338563,1
+gemini_only_direct_llm,GeminiMarkdownProcessor+DirectLLMProcessor,1,0,9,3,35,0.7847222222222222,0.4166666666666667,0.3516262785087503,0.21711565552081272,2
+paper_llm,PaperLLMProcessor,1,0,9,3,86,0.4583333333333333,0.3650793650793651,0.6909956504576468,0.3065528613172582,2
