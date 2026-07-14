@@ -1,6 +1,5 @@
 
 Also the n and k for paragraph chunking should follow a different logic than for the rest: top_n should be 2 for 1-paragraph-long chunks and 1 for everything else
-query preprocessing testen
 Durchläufe mit allen prepro/chunk/querypre
 4. gridsearch
 Ergebnisgrafiken
@@ -28,6 +27,7 @@ pipeline batching!
 4. indexbuilder.load() und isbuilt() löschen?
 2. minirag paper ausprobieren
 5. pipelineconfig aufräumen
+query preprocessing testen
 
 
 

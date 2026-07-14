@@ -1,14 +1,29 @@
 """
 Query processor experiment.
 
-For every query processor (NoProcessingProcessor, HyDEQueryProcessor,
-CoTQueryProcessor), this script:
-  1. Loads the queries from qa_pairs_grid.json.
-  2. Runs each query through the processor's .process() method.
-  3. Saves the results (original query + processed/expanded queries) to
-     storage/query_exp_results/expanded_queries.json for manual inspection.
+Compares three query processors
+  - NoProcessingProcessor
+  - HyDEQueryProcessor
+  - CoTQueryProcessor
+across two preprocessing configurations:
+  A. GeminiMarkdownProcessor only
+  B. GeminiMarkdownProcessor + DirectLLMProcessor
 
-No evaluation is performed at this stage.
+All other pipeline components are hardcoded:
+  - Chunker:    FixedParagraphChunker  (CHUNK_SIZE=1, OVERLAP=0)
+  - Index:      FaissIndexBuilder
+  - Retriever:  FaissRetriever         (TOP_K=9)
+  - Reranker:   PassthroughReranker    (TOP_N=3)
+  - Generator:  HuggingfaceGenerator
+  - Models:     embedding_model and generation_model from config/config.yaml
+
+For each of the 6 runs the script:
+  1. Reuses the offline index built for that preprocessing config.
+  2. Runs all queries from qa_pairs_grid.json.
+  3. Persists raw QA pairs to storage/query_exp_results/<run_name>.json.
+  4. Evaluates with RAGAS and collects the mean metrics.
+
+A summary CSV is written to storage/query_exp_results/query_exp_summary.csv.
 """
 
 from __future__ import annotations
@@ -17,15 +32,17 @@ import json
 import logging
 from pathlib import Path
 
-import yaml
 from dotenv import load_dotenv
 
-from src.factory import load_yaml_config
-from src.online.query.processors import (
-    NoProcessingProcessor,
-    HyDEQueryProcessor,
-    CoTQueryProcessor,
+from src.factory import (
+    load_yaml_config,
+    build_offline_pipeline,
+    build_online_pipeline,
+    run_queries,
+    write_summary_csv,
 )
+from src.config import OfflineConfig, OnlineConfig
+from src.evaluation import Evaluator
 
 # ---------------------------------------------------------------------------
 # Setup
@@ -39,66 +56,192 @@ logger = logging.getLogger(__name__)
 load_dotenv()
 
 # ---------------------------------------------------------------------------
-# Constants
+# Hardcoded experiment parameters
 # ---------------------------------------------------------------------------
 
 QA_EVAL_FILE = "storage/evaluation/qa_pairs_grid.json"
-RESULTS_DIR = Path("storage/query_exp_results")
+RESULTS_DIR  = Path("storage/query_exp_results")
+INDEX_BASE   = Path("storage/query_exp_index")
+
+# Offline components (hardcoded)
+CHUNKER_NAME       = "FixedParagraphChunker"
+INDEX_BUILDER_NAME = "FaissIndexBuilder"
+CHUNK_SIZE         = 1
+OVERLAP            = 0
+
+# Online components (hardcoded, except model names which come from config)
+RETRIEVER_NAME = "FaissRetriever"
+RERANKER_NAME  = "PassthroughReranker"
+GENERATOR_NAME = "HuggingfaceGenerator"
+TOP_K          = 9
+TOP_N          = 3
+
+# Preprocessing configurations: (label, ordered list of preprocessor registry names)
+PREPROCESSING_CONFIGS: list[tuple[str, list[str]]] = [
+    ("gemini",            ["GeminiMarkdownProcessor"]),
+    ("gemini_direct_llm", ["GeminiMarkdownProcessor", "DirectLLMProcessor"]),
+]
+
+# Query processors to compare: (label, registry name)
+PROCESSOR_CONFIGS: list[tuple[str, str]] = [
+    ("no_processing", "NoProcessingProcessor"),
+    ("hyde",          "HyDEQueryProcessor"),
+    ("cot",           "CoTQueryProcessor"),
+]
+
+
+# ---------------------------------------------------------------------------
+# Helper: run one online pipeline for a given query processor
+# ---------------------------------------------------------------------------
+
+def run_pipeline(
+    query_processor_name: str,
+    run_name: str,
+    preprocessing_label: str,
+    offline_pipeline,           # already built & populated offline pipeline
+    generation_model: str,
+    queries: list[str],
+    qa_pairs_template: list[dict],
+) -> dict:
+    """
+    Build and execute one online pipeline for the given query processor.
+
+    The offline pipeline (and its populated index builder) is shared across
+    the three query-processor runs for the same preprocessing config.
+
+    Returns a dict with evaluation metrics and bookkeeping columns.
+    """
+    logger.info("=== Run: %s ===", run_name)
+
+    online_pipeline_cfg = {
+        "query_processor": query_processor_name,
+        "retriever":       RETRIEVER_NAME,
+        "reranker":        RERANKER_NAME,
+        "generator":       GENERATOR_NAME,
+    }
+
+    online_pipeline = build_online_pipeline(
+        cfg=online_pipeline_cfg,
+        index_builder=offline_pipeline.index_builder,
+        top_k=TOP_K,
+        top_n=TOP_N,
+        generation_model=generation_model,
+    )
+
+    qa_pairs = run_queries(online_pipeline, queries, qa_pairs_template)
+
+    # Persist raw results
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    qa_save = RESULTS_DIR / f"{run_name}.json"
+    with open(qa_save, "w", encoding="utf-8") as f:
+        json.dump(qa_pairs, f, indent=4, ensure_ascii=False)
+    logger.info("Raw QA results saved to '%s'.", qa_save)
+
+    # Evaluate
+    evaluator = Evaluator(str(qa_save))
+    eval_df = evaluator.evaluate()
+    metrics = eval_df.mean(numeric_only=True).to_dict()
+
+    row = {
+        "run_name":        run_name,
+        "preprocessing":   preprocessing_label,
+        "query_processor": query_processor_name,
+        "chunk_size":      CHUNK_SIZE,
+        "overlap":         OVERLAP,
+        "top_k":           TOP_K,
+        "top_n":           TOP_N,
+        **metrics,
+    }
+
+    logger.info("Run '%s' complete. Metrics: %s", run_name, metrics)
+    return row
+
 
 # ---------------------------------------------------------------------------
 # Main experiment
 # ---------------------------------------------------------------------------
 
-
-def query_expansion_experiment() -> None:
-    # Load base config to get the generation model name
+def query_experiment() -> None:
+    # Load only the model names from config; all component names are hardcoded
     base_cfg = load_yaml_config("config/config.yaml")
-    generation_model: str = base_cfg["online_config"]["generation_model"]
-    logger.info("Using generation model: %s", generation_model)
+    document_paths: list[str] = base_cfg["documents"]
 
-    # Load QA pairs
+    offline_config = OfflineConfig(**base_cfg.get("offline_config", {}))
+    online_config  = OnlineConfig(**base_cfg.get("online_config", {}))
+
+    embedding_model:   str = offline_config.embedding_model
+    generation_model:  str = online_config.generation_model
+
+    logger.info("Embedding model:   %s", embedding_model)
+    logger.info("Generation model:  %s", generation_model)
+
+    # Load QA evaluation dataset
     with open(QA_EVAL_FILE) as f:
         qa_pairs_template = json.load(f)
     queries: list[str] = [item["user_input"] for item in qa_pairs_template]
     logger.info("Loaded %d queries from '%s'.", len(queries), QA_EVAL_FILE)
 
-    # Instantiate all processors
-    processors = [
-        NoProcessingProcessor(),
-        HyDEQueryProcessor(model_name=generation_model),
-        CoTQueryProcessor(model_name=generation_model),
-    ]
+    summary_rows: list[dict] = []
 
-    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    # ======================================================================
+    # Outer loop: preprocessing configurations
+    # Each config gets its own offline index built once.
+    # ======================================================================
+    for preprocessing_label, preprocessor_names in PREPROCESSING_CONFIGS:
+        logger.info("=" * 70)
+        logger.info(
+            "PREPROCESSING CONFIG: %s  (preprocessors=%s)",
+            preprocessing_label,
+            preprocessor_names,
+        )
+        logger.info("=" * 70)
 
-    # Run each processor over all queries and collect results
-    all_results: dict[str, list[dict]] = {}
+        # Build the offline pipeline once per preprocessing config
+        offline_pipeline = build_offline_pipeline(
+            preprocessor_names=preprocessor_names,
+            chunker_name=CHUNKER_NAME,
+            index_builder_name=INDEX_BUILDER_NAME,
+            storage_path=INDEX_BASE / preprocessing_label,
+            embedding_model=embedding_model,
+            chunk_size=CHUNK_SIZE,
+            overlap=OVERLAP,
+        )
+        offline_result = offline_pipeline.run(document_paths)
+        logger.info(
+            "Offline index built for '%s'. %d chunk(s) produced.",
+            preprocessing_label,
+            len(offline_result.chunks),
+        )
 
-    for processor in processors:
-        logger.info("=== Running processor: %s ===", processor.name)
-        processor_results: list[dict] = []
+        # Inner loop: query processors — all share the index built above
+        logger.info(
+            "Comparing query processors: %s",
+            [name for _, name in PROCESSOR_CONFIGS],
+        )
 
-        for query in queries:
-            logger.info("  Processing: %r", query)
-            augmented = processor.process(query)
-            processor_results.append(
-                {
-                    "original_query": augmented.original_query,
-                    "processed_queries": augmented.processed_queries,
-                    "query_type": augmented.query_type,
-                }
+        for processor_label, query_processor_name in PROCESSOR_CONFIGS:
+            run_name = f"{preprocessing_label}__{processor_label}"
+            row = run_pipeline(
+                query_processor_name=query_processor_name,
+                run_name=run_name,
+                preprocessing_label=preprocessing_label,
+                offline_pipeline=offline_pipeline,
+                generation_model=generation_model,
+                queries=queries,
+                qa_pairs_template=qa_pairs_template,
             )
+            summary_rows.append(row)
 
-        all_results[processor.name] = processor_results
-        logger.info("  Done. %d queries processed.", len(processor_results))
-
-    # Save combined results
-    output_path = RESULTS_DIR / "expanded_queries.json"
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(all_results, f, indent=4, ensure_ascii=False)
-
-    logger.info("Results saved to '%s'.", output_path)
+    # ------------------------------------------------------------------
+    # Write summary CSV
+    # ------------------------------------------------------------------
+    if summary_rows:
+        summary_path = RESULTS_DIR / "query_exp_summary.csv"
+        write_summary_csv(summary_path, summary_rows)
+        logger.info("Experiment complete. Summary written to '%s'.", summary_path)
+    else:
+        logger.warning("No runs were completed.")
 
 
 if __name__ == "__main__":
-    query_expansion_experiment()
+    query_experiment()
