@@ -143,9 +143,15 @@ def build_online_pipeline(
     top_n:
         Number of results to keep after reranking.
     generation_model:
-        Name/path of the generation model (only used for ``HuggingfaceGenerator``).
+        Name/path of the generation model (used for ``HuggingfaceGenerator``
+        and ``HyDEQueryProcessor``).
     """
-    query_processor = get_class(cfg["query_processor"])()
+    QueryProcessorClass = get_class(cfg["query_processor"])
+    query_processor = (
+        QueryProcessorClass(model_name=generation_model)
+        if cfg["query_processor"] in {"HyDEQueryProcessor", "CoTQueryProcessor"}
+        else QueryProcessorClass()
+    )
 
     RetrieverClass = get_class(cfg["retriever"])
     retriever = (

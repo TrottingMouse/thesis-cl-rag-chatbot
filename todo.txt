@@ -1,11 +1,12 @@
 
 Also the n and k for paragraph chunking should follow a different logic than for the rest: top_n should be 2 for 1-paragraph-long chunks and 1 for everything else
-3. query preprocessing
-4. gridsearch
+query preprocessing testen
 Durchläufe mit allen prepro/chunk/querypre
+4. gridsearch
 Ergebnisgrafiken
 
 wenn am Ende noch Zeit:
+!!!neuer processor: von fließtext oder markdown in sätze aber jeder satz kriegt modulinfo/semesterinfo/paragraphinfo
 converter von pdf für PaperLLMProcessor verbessern/cleaner einbauen (siehe Lumberchunker chat auf gemini.google)
 bm25/hybrid retrieval
 anderer llm-based

@@ -12,7 +12,7 @@ from src.offline.indexing.indexing import FaissIndexBuilder
 from src.online.reranking.rerankers import Qwen3Reranker
 from src.online.reranking import PassthroughReranker
 from src.online.generation.generators import PassthroughGenerator
-from src.online.query.processors import NoProcessingProcessor
+from src.online.query.processors import NoProcessingProcessor, HyDEQueryProcessor, CoTQueryProcessor
 from src.online.retrieval.retrievers import FaissRetriever
 
 COMPONENT_REGISTRY = {
@@ -38,6 +38,8 @@ COMPONENT_REGISTRY = {
     
     # Online Components
     "NoProcessingProcessor": NoProcessingProcessor,
+    "HyDEQueryProcessor": HyDEQueryProcessor,
+    "CoTQueryProcessor": CoTQueryProcessor,
     "FaissRetriever": FaissRetriever,
     "PassthroughRetriever": PassthroughRetriever,
     "PassthroughReranker": PassthroughReranker,

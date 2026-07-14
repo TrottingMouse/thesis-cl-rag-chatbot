@@ -1,0 +1,8 @@
+gemini (far) better than docling in all metrics
+
+of the two to text: direct better in context recall and faithfulness,
+paper in answer relevancy and answer correctness.
+
+
+direct better in retrieving context, paper better at answering questions about context
+As answering quality can be influenced by chunking, use direct llm for further experiments.
