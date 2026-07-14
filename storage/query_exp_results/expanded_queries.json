@@ -1,0 +1,260 @@
+{
+    "no_processing": [
+        {
+            "original_query": "Welche Kurse sollte ich im ersten Semester belegen?",
+            "processed_queries": [
+                "Welche Kurse sollte ich im ersten Semester belegen?"
+            ],
+            "query_type": "query"
+        },
+        {
+            "original_query": "Kann ich mit dem Studium in Computerlinguistik auch im Sommersemester anfangen?",
+            "processed_queries": [
+                "Kann ich mit dem Studium in Computerlinguistik auch im Sommersemester anfangen?"
+            ],
+            "query_type": "query"
+        },
+        {
+            "original_query": "Muss ich fließend Englisch sprechen können um Computerlinguistik zu studieren?",
+            "processed_queries": [
+                "Muss ich fließend Englisch sprechen können um Computerlinguistik zu studieren?"
+            ],
+            "query_type": "query"
+        },
+        {
+            "original_query": "Muss ich für den Python-Kurs Vorkenntnisse haben?",
+            "processed_queries": [
+                "Muss ich für den Python-Kurs Vorkenntnisse haben?"
+            ],
+            "query_type": "query"
+        },
+        {
+            "original_query": "Gibt es eine Übung für Mathematische Grundlagen?",
+            "processed_queries": [
+                "Gibt es eine Übung für Mathematische Grundlagen?"
+            ],
+            "query_type": "query"
+        },
+        {
+            "original_query": "Muss ich in Python eine Klausur/Prüfung absolvieren?",
+            "processed_queries": [
+                "Muss ich in Python eine Klausur/Prüfung absolvieren?"
+            ],
+            "query_type": "query"
+        },
+        {
+            "original_query": "Wann soll ich das Praktikum machen?",
+            "processed_queries": [
+                "Wann soll ich das Praktikum machen?"
+            ],
+            "query_type": "query"
+        },
+        {
+            "original_query": "Wird im Studiengang KI behandelt?",
+            "processed_queries": [
+                "Wird im Studiengang KI behandelt?"
+            ],
+            "query_type": "query"
+        },
+        {
+            "original_query": "Muss ich Kurse aus der Linguistik für das interdisziplinäre Vertiefungsmodul belegen?",
+            "processed_queries": [
+                "Muss ich Kurse aus der Linguistik für das interdisziplinäre Vertiefungsmodul belegen?"
+            ],
+            "query_type": "query"
+        },
+        {
+            "original_query": "Wie stark zählt die Bachelorarbeit für meine Abschlussnote?",
+            "processed_queries": [
+                "Wie stark zählt die Bachelorarbeit für meine Abschlussnote?"
+            ],
+            "query_type": "query"
+        },
+        {
+            "original_query": "Muss ich alle Module bestanden haben, bevor ich meine Bachelorarbeit schreibe?",
+            "processed_queries": [
+                "Muss ich alle Module bestanden haben, bevor ich meine Bachelorarbeit schreibe?"
+            ],
+            "query_type": "query"
+        },
+        {
+            "original_query": "Gibt es eine Klausur in Wahrscheinlichkeitstheorie?",
+            "processed_queries": [
+                "Gibt es eine Klausur in Wahrscheinlichkeitstheorie?"
+            ],
+            "query_type": "query"
+        }
+    ],
+    "hyde": [
+        {
+            "original_query": "Welche Kurse sollte ich im ersten Semester belegen?",
+            "processed_queries": [
+                "Im ersten Semester sollten Sie sich auf Grundkursen wie Mathematik, Physik und Informatik konzentrieren, da diese für die spätere akademische Laufbahn unverzichtbar sind. Zudem ist es ratsam, an den ersten Studienwochen ein Praktikum oder ein Praktikum zu absolvieren, um praktische Erfahrungen zu sammeln."
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Kann ich mit dem Studium in Computerlinguistik auch im Sommersemester anfangen?",
+            "processed_queries": [
+                "Ja, Sie können mit dem Studium in der Computerlinguistik im Sommersemester beginnen, sofern Ihre Universität die Möglichkeit bietet und Sie die erforderlichen Voraussetzungen erfüllen."
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Muss ich fließend Englisch sprechen können um Computerlinguistik zu studieren?",
+            "processed_queries": [
+                "Um Computerlinguistik zu studieren, ist fließendes Englisch zwar nicht zwingend erforderlich, da viele moderne Lehrpläne auch Deutsch oder andere Sprachen anbieten, doch die meisten Studiengänge und internationale Forschungsinstitute auf Englisch arbeiten. Daher ist es ratsam, Englisch beherrschen zu können, um die meisten Kurse erfolgreich zu absolvieren und sich auf aktuelle wissenschaftliche Publikationen einzulassen."
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Muss ich für den Python-Kurs Vorkenntnisse haben?",
+            "processed_queries": [
+                "Nein, Sie benötigen für den Python-Kurs keine Vorkenntnisse. Der Kurs ist für Anfänger konzipiert und bietet eine solide Einführung in die Grundlagen des Programmierens."
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Gibt es eine Übung für Mathematische Grundlagen?",
+            "processed_queries": [
+                "Ja, es gibt zahlreiche Übungen zur Stärkung mathematischer Grundlagen, die sowohl für Schüler als auch für Erwachsene geeignet sind. Diese Übungen helfen dabei, Konzepte wie Addition, Subtraktion, Multiplikation und Division sowie geometrische Prinzipien vertieft zu verstehen und zu beherrschen. Durch regelmäßiges Üben wird das Verständnis für komplexe Probleme verbessert und die Fähigkeit zur logischen Abstraktion gefördert."
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Muss ich in Python eine Klausur/Prüfung absolvieren?",
+            "processed_queries": [
+                "Ja, Sie müssen in Python eine Klausur oder Prüfung absolvieren, um die Programmiersprache offiziell zu lernen und Ihr Wissen zu festigen. Ohne diese Prüfung erhalten Sie keine offizielle Zertifizierung oder anerkannte Kompetenz."
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Wann soll ich das Praktikum machen?",
+            "processed_queries": [
+                "Das Praktikum sollte in der Regel während des ersten Semesters absolviert werden, da dies die ideale Zeit ist, um die theoretischen Grundlagen zu vertiefen und gleichzeitig die Anforderungen der Berufsausbildung zu erfüllen."
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Wird im Studiengang KI behandelt?",
+            "processed_queries": [
+                "Ja, der Studiengang KI behandelt die Grundlagen der Künstlichen Intelligenz, einschließlich Algorithmen, Machine Learning und Datenanalyse."
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Muss ich Kurse aus der Linguistik für das interdisziplinäre Vertiefungsmodul belegen?",
+            "processed_queries": [
+                "Nein, Sie müssen Kurse aus der Linguistik nicht für das interdisziplinäre Vertiefungsmodul belegen. Das Modul ist speziell auf die Anwendung linguistischer Methoden in anderen Disziplinen ausgerichtet und ersetzt keine vorherige Linguistik-Ausbildung."
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Wie stark zählt die Bachelorarbeit für meine Abschlussnote?",
+            "processed_queries": [
+                "Die Bachelorarbeit ist ein zentraler Bestandteil des Studiengangs und bildet oft den Kern der Abschlussnote. Ihre Bewertung hängt stark von der Qualität der wissenschaftlichen Arbeit, der Einhaltung der Vorgaben und der individuellen Leistung des Studierenden ab."
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Muss ich alle Module bestanden haben, bevor ich meine Bachelorarbeit schreibe?",
+            "processed_queries": [
+                "Ja, in der Regel müssen Sie alle erforderlichen Module bestanden haben, bevor Sie Ihre Bachelorarbeit schreiben können. Die Abschlussprüfung erfolgt meist nach dem erfolgreichen Abschluss des gesamten Studiengangs."
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Gibt es eine Klausur in Wahrscheinlichkeitstheorie?",
+            "processed_queries": [
+                "Nein, es gibt keine Klausur in Wahrscheinlichkeitstheorie, da diese Disziplin primär theoretische Grundlagen und mathematische Modelle behandelt. Stattdessen werden Studierende in diesem Bereich meist durch theoretische Übungen, Seminare oder praktische Projekte mit realen Daten geschult."
+            ],
+            "query_type": "document"
+        }
+    ],
+    "cot": [
+        {
+            "original_query": "Welche Kurse sollte ich im ersten Semester belegen?",
+            "processed_queries": [
+                "Welche Kurse sollte ich im ersten Semester belegen? Welche Kurse sollte ich im ersten Semester belegen? Welche Kurse sollte ich im ersten Semester belegen? Welche Kurse sollte ich im ersten Semester belegen? Welche Kurse sollte ich im ersten Semester belegen? ### Rationale\n\nDie Wahl der Kurse im ersten Semester hängt stark von Ihrem aktuellen Bildungsniveau, Ihrem Berufszweck und Ihren persönlichen Lerninteressen ab. Da ich Ihre spezifischen Daten (wie Ihre aktuelle Ausbildung, Ihre Zielberufe oder Ihre Vorlieben) nicht habe, kann ich keine einzelne, universell beste Empfehlung geben. Stattdessen ist der beste Ansatz, die Kurse in drei Kategorien zu unterteilen:\n\n1.  **Grundlagen (Fundamentale):** Diese Kurse sind unverzichtbar, um das deutsche Bildungssystem zu verstehen und die notwendigen Voraussetzungen für den weiteren Erfolg zu schaffen.\n2.  **Berufliche Spezialisierung:** Dies sind Kurse, die direkt mit Ihrem zukünftigen Beruf oder Ihrer Karriere zusammenhängen.\n3.  **Soft Skills & Allgemeinbildung:** Diese Kurse fördern die persönliche Entwicklung, kritisches Denken und die Fähigkeit, neue Informationen zu verarbeiten.\n\nHier ist eine detaillierte Aufschlüsselung der wichtigsten Kursbereiche:\n\n#### 1. Grundlegende Kurse (Die \"Must-Haves\")\nDiese Kurse sind für fast alle Studierenden im ersten Semester verpflichtend oder stark empfohlen, da sie das Verständnis des deutschen Systems und der Sprache verbessern:\n*   **Deutsch:** Da Sie auf Deutsch lernen, ist dies der wichtigste Kurs. Er sollte nicht nur Grammatik und Vokabeln abdecken, sondern auch die Fähigkeit zur kritischen Analyse von Texten und Medien.\n*   **All"
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Kann ich mit dem Studium in Computerlinguistik auch im Sommersemester anfangen?",
+            "processed_queries": [
+                "Kann ich mit dem Studium in Computerlinguistik auch im Sommersemester anfangen? Kann ich mit dem Studium in Computerlinguistik auch im Sommersemester anfangen? Kann ich mit dem Studium in Computerlinguistik auch im Sommersemester anfangen? Kann ich mit dem Studium in Computerlinguistik auch im Sommersemester anfangen? Kann ich mit dem Studium in Computerlinguistik auch im Sommersemester anfangen? ### Rationale\n\nDie Frage nach dem Startzeitpunkt des Studiums in der **Computerlinguistik** hängt stark von der spezifischen Studiengangsstruktur, der gewählten Universität und den verfügbaren Lehrveranstaltungen ab. Hier sind die wichtigsten Faktoren, die eine Antwort bestimmen:\n\n1.  **Studienmodell (Bachelor vs. Master):**\n    *   **Bachelorstudiengänge:** In Deutschland und vielen anderen Ländern ist ein Bachelorstudium in der Regel ein **4-jähriges Vollzeitstudium**. Es gibt keine Möglichkeit, ein Bachelorstudium im Sommersemester zu beginnen, da das Semesterjahr (Semester 1 bis 4) als Ganzes geplant ist. Der erste Semesterbeginn ist fest im Kalender der Universität festgelegt.\n    *   **Masterstudiengänge:** Ein Masterstudium dauert in der Regel **2 Jahre** (60 ECTS). Hier ist es möglich, das Studium im Sommersemester zu starten. Viele Universitäten bieten Masterstudiengänge an, die im Sommersemester beginnen, um die Studierenden zu ermöglichen, während des Sommers (oft im Sommersemester oder im Herbstsemester) theoretische Grundlagen zu vertiefen, bevor sie im Wintersemester (oder Herbstsemester) in die Praxis oder an die Forschung gehen.\n\n2.  **Verfügbare Lehrveranstaltungen:**\n    *   Selbst wenn ein Masterstudiengang im Sommersemester beginnt, müssen die ersten Semesterveranstaltungen (Semester 1 und 2)"
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Muss ich fließend Englisch sprechen können um Computerlinguistik zu studieren?",
+            "processed_queries": [
+                "Muss ich fließend Englisch sprechen können um Computerlinguistik zu studieren? Muss ich fließend Englisch sprechen können um Computerlinguistik zu studieren? Muss ich fließend Englisch sprechen können um Computerlinguistik zu studieren? Muss ich fließend Englisch sprechen können um Computerlinguistik zu studieren? Muss ich fließend Englisch sprechen können um Computerlinguistik zu studieren? ### Rationale\n\nDie Frage nach der Sprachvoraussetzung für ein Studium der Computerlinguistik ist komplex, da die Disziplin an der Schnittstelle von Linguistik, Informatik und Psychologie liegt. Während es keine absolute Regel gibt, die besagt, dass man *nur* fließend Englisch sprechen muss, gibt es klare Anforderungen an die **Sprachkenntnisse** im Rahmen des Studiums.\n\n1.  **Studieninhalte und Kommunikation**: Die meisten Computerlinguistik-Studiengänge (z. B. an der TU München, der Universität zu Köln oder der University of Edinburgh) sind auf Englisch unterrichtet. Das bedeutet, dass die Kommunikation mit Lehrern, Vorträgen und der wissenschaftlichen Literatur auf Englisch erfolgt. Daher ist fließende Englischkenntnisse (A2/B1 Niveau) eine **grundlegende Voraussetzung**, um das Studium erfolgreich zu absolvieren.\n2.  **Forschung und Publikationen**: Die Forschung in diesem Feld ist primär englischsprachig. Um selbstständig zu forschen oder Publikationen zu veröffentlichen, ist Englisch essenziell.\n3.  **Die Rolle des Englischen**: Es ist wichtig zu unterscheiden, zwischen *Sprachverständnis* und *Sprachproduktion*. Viele Computerlinguisten sind muttersprachler oder sprechen sehr gut Englisch, aber sie müssen nicht unbedingt \"fließend\" im Sinne von perfekter Grammatik oder komplexer Syntax sein. Oft reicht ein"
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Muss ich für den Python-Kurs Vorkenntnisse haben?",
+            "processed_queries": [
+                "Muss ich für den Python-Kurs Vorkenntnisse haben? Muss ich für den Python-Kurs Vorkenntnisse haben? Muss ich für den Python-Kurs Vorkenntnisse haben? Muss ich für den Python-Kurs Vorkenntnisse haben? Muss ich für den Python-Kurs Vorkenntnisse haben? ### Rationale\n\nDie Frage nach Vorkenntnissen für einen Python-Kurs hängt stark davon ab, welche Art von Kurs es ist und welche Zielgruppe er anstrebt:\n\n1.  **Technische Grundlagen vs. Anwendung:**\n    *   Für **Beginner** (die den Python-Interpreter, Variablen, Schleifen und Funktionen verstehen) sind keine technischen Vorkenntnisse erforderlich. Der Fokus liegt auf der Logik und dem Aufbau von Projekten.\n    *   Für **Fortgeschrittene** (die bereits Erfahrung mit anderen Programmiersprachen wie C++, Java oder JavaScript haben) sind die Kenntnisse in Datenstrukturen, Algorithmen und der Arbeit mit komplexen Systemen oft hilfreich, um den Kurs effizienter zu gestalten.\n\n2.  **Art des Kursformats:**\n    *   **Online-Workshops / Bootcamps:** Diese sind meist modular aufgebaut und bieten oft eine \"Learn-by-doing\"-Methode. Hier sind Vorkenntnisse nicht zwingend notwendig, solange man die Grundlagen der Syntax und der Logik versteht.\n    *   **Formelle Kurse / University-Programme:** Diese sind oft strukturiert und theoretisch fundierter. Hier werden oft spezifische Vorkenntnisse (z. B. in Mathematik oder Logik) vorausgesetzt, um die Tiefe der Inhalte zu gewährleisten.\n\n3.  **Zielsetzung:**\n    *   Wenn das Ziel"
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Gibt es eine Übung für Mathematische Grundlagen?",
+            "processed_queries": [
+                "Gibt es eine Übung für Mathematische Grundlagen? Gibt es eine Übung für Mathematische Grundlagen? Gibt es eine Übung für Mathematische Grundlagen? Gibt es eine Übung für Mathematische Grundlagen? Gibt es eine Übung für Mathematische Grundlagen? ### Rationale\n\n1.  **Language Analysis**: The query is in German (\"Gibt es eine Übung für Mathematische Grundlagen?\"), which translates to \"Is there an exercise for Mathematical Foundations?\"\n2.  **Context Identification**: The term \"Mathematische Grundlagen\" (Mathematical Foundations) is a standard academic subject in German universities, typically referring to courses like \"Mathematische Grundlagen der Informatik\" (Mathematical Foundations of Computer Science) or \"Mathematische Grundlagen der Mathematik\" (Mathematical Foundations of Mathematics).\n3.  **Availability Check**: In the context of German universities, this is not a standalone \"exercise\" (Übung) in the sense of a homework assignment for a general math class. Instead, it is a **core course** (Grundkurs) or a specialized module (e.g., in Computer Science or Philosophy of Math) that serves as the prerequisite for advanced topics.\n4.  **Conclusion**: Since this is a foundational course rather than a specific exercise, the answer must clarify that the subject itself constitutes the \"work\" or \"study\" required, and that specific exercises depend on the university's curriculum.\n\n### Answer\n\n**Ja**, es gibt eine solche Übung (im Sinne eines Grundkurses), aber es ist wichtig, den Kontext zu beachten:\n\nIn der deutschen Hochschulbildung ist **\"Mathematische Grundlagen\"** (oft als *Mathematische Grundlagen der Informatik* oder *"
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Muss ich in Python eine Klausur/Prüfung absolvieren?",
+            "processed_queries": [
+                "Muss ich in Python eine Klausur/Prüfung absolvieren? Muss ich in Python eine Klausur/Prüfung absolvieren? Muss ich in Python eine Klausur/Prüfung absolvieren? Muss ich in Python eine Klausur/Prüfung absolvieren? Muss ich in Python eine Klausur/Prüfung absolvieren? ### Rationale\n\nDie Frage „Muss ich in Python eine Klausur/Prüfung absolvieren?\" hängt stark von der spezifischen Lernsituation, dem Ziel und dem Kontext ab. Es gibt keine universelle Antwort, die für alle Python-Lernenden gilt, da es verschiedene Wege gibt, wie man in die Python-Programmierung einsteigt.\n\n1.  **Formale Bildungseinrichtungen (Akademisch):**\n    In vielen deutschen Hochschulen, Universitäten oder Fachhochschulen ist das Erlernen von Python ein fester Bestandteil des Studiums. In diesem Fall **muss** man eine Klausur oder eine Prüfung absolvieren, um den Abschluss zu erhalten. Die Prüfung dient dazu, die theoretischen Grundlagen (Syntax, Datenstrukturen, Funktionen, Objektorientierung) zu überprüfen. Ohne diese Prüfung ist der akademische Abschluss nicht möglich.\n\n2.  **Freie Bildung und Selbststudium:**\n    Für Menschen, die sich nicht an eine Universität wenden, gibt es jedoch viele alternative Wege:\n    *   **Online-Kurse:** Plattformen wie Coursera, edX, Udemy oder spezifische Python-Veranstaltungen bieten oft eine Kombination aus theoretischen Vorlesungen und praktischen Übungen. Hier gibt es zwar Prüfungen, aber sie sind oft Teil eines größeren Lernmoduls und nicht zwingend für den Abschluss eines gesamten Studiums notwendig.\n    *   **Praktische Projekte:** Viele moderne Ansätze bet"
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Wann soll ich das Praktikum machen?",
+            "processed_queries": [
+                "Wann soll ich das Praktikum machen? Wann soll ich das Praktikum machen? Wann soll ich das Praktikum machen? Wann soll ich das Praktikum machen? Wann soll ich das Praktikum machen? ### Rationale\nThe timing of a practical internship (Praktikum) is not a fixed date but rather a strategic decision that depends on several critical factors, including your current academic stage, career goals, and the specific requirements of the company.\n\n1.  **Academic Stage**: In many educational systems (such as Germany, Austria, or Switzerland), the practical period is often scheduled after the final semester of studies or during a specific \"practical year\" (Praktikumsjahr). If you are still in your final year, the internship is usually mandatory and scheduled to coincide with your graduation.\n2.  **Career Goals**: If you are aiming for a job in the industry immediately after graduation, you should aim to complete the internship as soon as possible to gain real-world experience. Conversely, if you are looking to switch careers or specialize in a different field, you might want to delay the internship until you have more time to prepare or until you have secured a specific role.\n3.  **Company Requirements**: Some companies have specific deadlines for hiring interns or require a certain number of weeks of experience before they can offer a full-time position. You must check the job description or contact the HR department to see if there are any specific dates mentioned.\n4.  **Personal Circumstances**: Your availability, financial situation, and the availability of family members can also influence when you are ready to start.\n\n### Answer\nThere is no single universal date for when you"
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Wird im Studiengang KI behandelt?",
+            "processed_queries": [
+                "Wird im Studiengang KI behandelt? Wird im Studiengang KI behandelt? Wird im Studiengang KI behandelt? Wird im Studiengang KI behandelt? Wird im Studiengang KI behandelt? ### Rationale\nThe query \"Wird im Studiengang KI behandelt?\" translates to \"Is the study program KI treated?\" (i.e., \"Is KI included in the study program?\").\n\nTo answer this, I must first identify what \"KI\" stands for in this context. In German academic and professional contexts, **KI** universally refers to **Künstliche Intelligenz** (Artificial Intelligence).\n\nThe question asks whether Artificial Intelligence is a subject or a component of a specific study program. However, the query is grammatically incomplete; it lacks a specific name for the study program (e.g., \"In der *Informatik*?\" or \"In der *Medizin*?\").\n\nWithout knowing the specific university or the specific major, it is impossible to determine if a particular program includes AI. Therefore, the answer depends entirely on the missing context.\n\n### Answer\n**It is impossible to answer this question without knowing the specific name of the study program.**\n\nThe abbreviation **KI** stands for **Künstliche Intelligenz** (Artificial Intelligence). The question asks if Artificial Intelligence is included in a specific course of study, but the name of that program is missing from your query.\n\n*   **If the program is in Computer Science (Informatik):** Yes, Artificial Intelligence is a core subject.\n*   **If the program is in Medicine (Medizin):** Yes, AI is often a specialized topic within medical informatics or"
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Muss ich Kurse aus der Linguistik für das interdisziplinäre Vertiefungsmodul belegen?",
+            "processed_queries": [
+                "Muss ich Kurse aus der Linguistik für das interdisziplinäre Vertiefungsmodul belegen? Muss ich Kurse aus der Linguistik für das interdisziplinäre Vertiefungsmodul belegen? Muss ich Kurse aus der Linguistik für das interdisziplinäre Vertiefungsmodul belegen? Muss ich Kurse aus der Linguistik für das interdisziplinäre Vertiefungsmodul belegen? Muss ich Kurse aus der Linguistik für das interdisziplinäre Vertiefungsmodul belegen? ### Rationale\n\nDie Frage bezieht sich auf die Anforderungen für das „interdisziplinäre Vertiefungsmodul\" in einem spezifischen akademischen Kontext, vermutlich im Rahmen eines Masterstudiums oder einer Promotion in den Geistes- oder Sozialwissenschaften.\n\n1.  **Analyse des Begriffs „interdisziplinäres Vertiefungsmodul\":**\n    Solche Module sind in der Regel nicht standardisiert in allen Universitäten identisch. Ihre Inhalte hängen stark von der spezifischen Fakultät, der Universität und dem aktuellen Lehrplan des Instituts ab. Das Modul dient meist dazu, Studierende zu befähigen, Methoden und Theorien aus verschiedenen Disziplinen (z. B. Linguistik, Psychologie, Soziologie, Philosophie) zu integrieren, um komplexe Probleme zu analysieren.\n\n2.  **Die Rolle der Linguistik:**\n    Linguistik ist eine der ältesten und einflussreichsten Disziplinen in der Wissenschaft. Viele moderne interdisziplinäre Projekte (z. B. in der Kognitionswissenschaft, der Sprachwissenschaft oder der Medienforschung) setzen auf linguistische Grundkenntnisse.\n    *   Wenn das Modul explizit „Linguistik\" als Teil des Vertiefungsmoduls auflistet, bedeutet dies, dass die Studierenden *müssen* Kurse aus diesem Bereich besuchen.\n    *   Wenn das Modul jedoch nur allgemein „interdisziplinär\" heißt,"
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Wie stark zählt die Bachelorarbeit für meine Abschlussnote?",
+            "processed_queries": [
+                "Wie stark zählt die Bachelorarbeit für meine Abschlussnote? Wie stark zählt die Bachelorarbeit für meine Abschlussnote? Wie stark zählt die Bachelorarbeit für meine Abschlussnote? Wie stark zählt die Bachelorarbeit für meine Abschlussnote? Wie stark zählt die Bachelorarbeit für meine Abschlussnote? ### Rationale\n\nIn the German higher education system, the weight of a Bachelor's thesis (Bachelorarbeit) varies significantly depending on the specific university, the faculty, and the program structure. Unlike a Master's thesis, which is often a substantial research project worth a large portion of the final grade, the Bachelor's thesis is typically a smaller, more condensed work designed to demonstrate foundational knowledge and research skills.\n\nThe grading scale is generally based on a 100-point system (or sometimes 150 points, where 100 is the average). The thesis usually accounts for **10% to 20%** of the total grade. In some cases, particularly for specific disciplines like Law or Medicine, it may be weighted higher (up to 25%), while in others, it might be as low as 5%. Additionally, the thesis is often graded separately from the final semester grade (which might include exams, projects, or practical work), meaning a poor performance on the thesis does not automatically drag down the overall semester grade if the other components are strong.\n\n### Answer\n\nThe Bachelor's thesis generally counts for **10% to 20%** of your final grade.\n\n*   **Typical Weight:** Most universities assign it a weight of **10%**.\n*   **Range:** It can range from **5% to 25%**, depending on the specific program requirements.\n*   **Separate Grading:** It"
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Muss ich alle Module bestanden haben, bevor ich meine Bachelorarbeit schreibe?",
+            "processed_queries": [
+                "Muss ich alle Module bestanden haben, bevor ich meine Bachelorarbeit schreibe? Muss ich alle Module bestanden haben, bevor ich meine Bachelorarbeit schreibe? Muss ich alle Module bestanden haben, bevor ich meine Bachelorarbeit schreibe? Muss ich alle Module bestanden haben, bevor ich meine Bachelorarbeit schreibe? Muss ich alle Module bestanden haben, bevor ich meine Bachelorarbeit schreibe? ### Rationale\n\nIn the German higher education system, the requirement to pass all modules before writing a Bachelor's thesis (Bachelorarbeit) is **not a universal rule**. Instead, it depends entirely on the specific **University of Applied Sciences (Fachhochschule)** or **University of Applied Arts (Hochschule für angewandte Künste)** you are attending, as well as the specific **Bachelor's program** (Bachelor of Arts, Bachelor of Science, or Bachelor of Engineering) you are enrolled in.\n\nHere is how the process generally works across different types of institutions:\n\n1.  **University of Applied Sciences (Fachhochschule):**\n    *   **General Rule:** Most Fachhochschulen require students to complete a certain number of credit hours (usually 120–180) and pass a specific number of modules (often 60–80) before they can write their thesis.\n    *   **Exceptions:** Some programs allow students to write a thesis earlier if they have already completed a significant portion of their coursework and have a strong portfolio or project, though this is less common.\n    *   **Prerequisites:** There are often mandatory prerequisite modules (Voraussetzungsmodulen) that *must* be passed before the thesis can be submitted.\n\n2.  **University of Applied Arts (Hochschule für angewandte Künste):**\n    *   **General Rule:** These institutions typically require students to pass"
+            ],
+            "query_type": "document"
+        },
+        {
+            "original_query": "Gibt es eine Klausur in Wahrscheinlichkeitstheorie?",
+            "processed_queries": [
+                "Gibt es eine Klausur in Wahrscheinlichkeitstheorie? Gibt es eine Klausur in Wahrscheinlichkeitstheorie? Gibt es eine Klausur in Wahrscheinlichkeitstheorie? Gibt es eine Klausur in Wahrscheinlichkeitstheorie? Gibt es eine Klausur in Wahrscheinlichkeitstheorie? ### Rationale\n\nIn the German academic system, the term \"Klausur\" (examination) typically refers to a closed-book, timed assessment where students must demonstrate their knowledge through written work. However, the structure of examinations in probability theory has evolved significantly over the years, particularly following the introduction of the *Lehrplan* (curriculum plan) in 2006 and subsequent updates.\n\nHistorically, probability theory was often taught as a separate subject with its own specific examination format. However, in the current standard curriculum (Lehrplan), probability theory is frequently integrated into the broader subject of **Mathematics** (Mathematik) or **Statistics** (Statistik).\n\nWhen probability theory is taught as part of the Mathematics subject:\n1.  **Integration**: It is not usually a standalone subject with a separate \"Klausur\" in the traditional sense. Instead, it is covered within the Mathematics subject.\n2.  **Exam Format**: The examinations for Mathematics in German universities are generally **unwritten** (unbeschriftet). This means students are not given a specific exam paper with questions to answer; rather, they are given a set of problems to solve during a seminar or lecture.\n3.  **Assessment**: The assessment is based on the quality of the solutions provided during these problem-solving sessions. There is no single \"Klausur\" document where students write down answers to a list of questions.\n\nWhile some universities or"
+            ],
+            "query_type": "document"
+        }
+    ]
+}
