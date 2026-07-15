@@ -205,7 +205,20 @@ def _replace_course_letters(text: str, course_map: dict[str, str]) -> str:
         return f"({course_map.get(letter, letter)})"
 
     letters_pattern = "|".join(re.escape(k) for k in sorted(course_map))
-    return re.sub(rf'\(({letters_pattern})\)', _repl, text)
+
+    # Pass 1: replace parenthesised "(a)" / "(b)" forms
+    text = re.sub(rf'\(({letters_pattern})\)', _repl, text)
+
+    # Pass 2: replace bare "a: " / "b: " segment-prefix forms that appear
+    # either right after the bold field prefix "**FieldName:** " or after
+    # a pipe separator " | ".
+    def _repl_bare(m: re.Match) -> str:
+        sep = m.group(1)    # "** " or " | "
+        letter = m.group(2)
+        return f"{sep}{course_map.get(letter, letter)}: "
+
+    text = re.sub(rf'(\*\* |\| )({letters_pattern}): ', _repl_bare, text)
+    return text
 
 
 # ---------------------------------------------------------------------------
@@ -415,7 +428,7 @@ if __name__ == "__main__":
 
     # target = sys.argv[1] if len(sys.argv) > 1 else "PO"
 
-    target = "PO"
+    target = "MHB"
 
     if target == "MHB":
         path = "storage/cached_documents/MHB_markdown_gemini.txt"
