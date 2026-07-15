@@ -9,6 +9,7 @@ Exports:
     FixedCharacterChunker   – splits text into fixed-size character windows
     FixedParagraphChunker   – splits text into fixed-size paragraph windows
     WholeTableParagraphChunker – keeps whole tables as single chunks
+    SplitTableParagraphChunker – splits PO tables at bold rows / MHB at field level
     LumberChunker           – LLM-based semantic chunker (LumberChunker paper)
     MaxMinChunker           – embedding-based semantic chunker (MaxMin algorithm)
     PassthroughChunker      – keeps each document as a single chunk (baseline)
@@ -16,7 +17,7 @@ Exports:
 
 from .base import BaseChunker
 from .fixed_size import FixedCharacterChunker, FixedParagraphChunker
-from .tables import WholeTableParagraphChunker
+from .tables import WholeTableParagraphChunker, SplitTableParagraphChunker
 from .llm import LumberChunker
 from .semantic import MaxMinChunker
 from .passthrough import PassthroughChunker
@@ -26,6 +27,7 @@ __all__ = [
     "FixedCharacterChunker",
     "FixedParagraphChunker",
     "WholeTableParagraphChunker",
+    "SplitTableParagraphChunker",
     "LumberChunker",
     "MaxMinChunker",
     "PassthroughChunker",

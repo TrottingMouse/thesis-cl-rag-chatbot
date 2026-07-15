@@ -1,4 +1,4 @@
-from src.offline.chunking import WholeTableParagraphChunker
+from src.offline.chunking import WholeTableParagraphChunker, SplitTableParagraphChunker
 from src.online.retrieval import PassthroughRetriever
 from src.offline.indexing import PassthroughIndexBuilder
 from src.offline.chunking import PassthroughChunker
@@ -31,6 +31,7 @@ COMPONENT_REGISTRY = {
     "DynamicTokenChunker": DynamicTokenChunker,
     "PassthroughChunker": PassthroughChunker,
     "WholeTableParagraphChunker": WholeTableParagraphChunker,
+    "SplitTableParagraphChunker": SplitTableParagraphChunker,
     
     # Index Builders
     "FaissIndexBuilder": FaissIndexBuilder,
