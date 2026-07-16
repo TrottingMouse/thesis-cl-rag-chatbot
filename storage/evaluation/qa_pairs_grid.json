@@ -34,7 +34,7 @@
   {
     "user_input": "Gibt es eine Klausur in Wahrscheinlichkeitstheorie?",
     "reference": "Nein, im \"Basismodul - Statistische Methoden in der Computerlinguistik\", zu dem die Wahrscheinlichkeitstheorie gehört, gibt es gar keine Modulprüfung und somit auch keine Klausur. Es müssen lediglich Studienleistungen erbracht werden."
-  }
+  },
   {
     "user_input": "Wie lang dauert eine Klausur?",
     "reference": "Die Dauer einer Klausurarbeit beträgt in der Regel 90 Minuten."
