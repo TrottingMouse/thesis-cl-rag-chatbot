@@ -1,3 +1,5 @@
+neue qa-pairs, grid search auf 15 hoch, neues repräsentieren, mehr direkte Antwort
+funktionieren prepro und chunker für neues Dokument?
 
 Also the n and k for paragraph chunking should follow a different logic than for the rest: top_n should be 2 for 1-paragraph-long chunks and 1 for everything else
 Durchläufe mit allen prepro/chunk/querypre

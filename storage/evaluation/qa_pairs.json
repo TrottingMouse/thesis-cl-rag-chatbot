@@ -194,5 +194,101 @@
   {
     "user_input": "Wird im Studiengang KI behandelt?",
     "reference": "Ja, das Thema Künstliche Intelligenz (KI) ist ein zentraler und fest verankerter Bestandteil des Studiengangs. Im Pflichtbereich (Deep Learning): Im Aufbaumodul \"Maschinelles Lernen\" lernen die Studierenden den Umgang mit künstlichen neuronalen Netzen (Deep Learning) kennen und implementieren diese zur Lösung von Aufgaben im Natural Language Processing (NLP). Als Wahlthema in der Informatik: Im \"Vertiefungsmodul - Interdisziplinär\" kann aus dem Bereich der Informatik explizit die Veranstaltung \"Überblick Künstliche Intelligenz\" belegt werden. Spezialisierung im 3. Studienjahr: In den Vertiefungsmodulen der Computerlinguistik werden hochaktuelle KI-Architekturen in Seminaren gelehrt, darunter ausdrücklich \"große Sprachmodelle\" (Large Language Models) und \"Transformer-Architekturen\"."
+  },
+  {
+    "user_input": "Wie viele Semesterwochenstunden (SWS) umfasst das Modul Basiswissen Linguistik - Morphologie und Syntax?",
+    "reference": "Das Modul Basiswissen Linguistik - Morphologie und Syntax umfasst insgesamt 6 Semesterwochenstunden (SWS)."
+  },
+  {
+    "user_input": "In welchem Semester ist das Modul Vertiefungsmodul - Computerlinguistik 1 vorgesehen?",
+    "reference": "Dieses Vertiefungsmodul ist laut dem exemplarischen Studienverlaufsplan für das 5. Fachsemester vorgesehen."
+  },
+  {
+    "user_input": "Wie viele ECTS-Leistungspunkte gibt es für das Orientierungsseminar?",
+    "reference": "Für den erfolgreichen Abschluss des Orientierungsseminars erhält man 3 ECTS-Leistungspunkte."
+  },
+  {
+    "user_input": "Wann findet die Modulprüfung für die Python-Programmierung statt?",
+    "reference": "Die Modulprüfung für die Python-Programmierung findet im 2. Fachsemester beziehungsweise im Sommersemester statt."
+  },
+  {
+    "user_input": "Wie hoch ist der durchschnittliche Arbeitsaufwand (Workload) pro Semester im Bachelorstudiengang?",
+    "reference": "Der Bachelorstudiengang ist so konzipiert, dass er mit einem durchschnittlichen Arbeitsaufwand (Workload) von 900 Stunden pro Semester abgeschlossen werden kann."
+  },
+  {
+    "user_input": "Wie viele ECTS-Leistungspunkte (LP) bringt die Bachelorarbeit?",
+    "reference": "Die Bachelorarbeit wird mit 12 ECTS-Leistungspunkten gewertet."
+  },
+  {
+    "user_input": "Kann ich eine bestandene Prüfung noch einmal wiederholen, um meine Note zu verbessern?",
+    "reference": "Nein, eine bestandene Prüfung kann nicht wiederholt werden."
+  },
+  {
+    "user_input": "Wie oft darf ich eine nicht bestandene Modulprüfung wiederholen?",
+    "reference": "Eine nicht bestandene Modulprüfung kann insgesamt zweimal wiederholt werden."
+  },
+  {
+    "user_input": "Wie oft darf die Bachelorarbeit wiederholt werden, wenn sie nicht bestanden wurde?",
+    "reference": "Eine mit weniger als \"ausreichend\" bewertete Bachelorarbeit kann genau einmal wiederholt werden."
+  },
+  {
+    "user_input": "Welche Note erhalte ich, wenn ich bei einer Prüfung bei einem Täuschungsversuch erwischt werde?",
+    "reference": "Versuchen Kandidatinnen oder Kandidaten, das Ergebnis durch Täuschung zu beeinflussen, gilt die betreffende Prüfungsleistung als mit \"nicht ausreichend\" (5,0) bewertet."
+  },
+  {
+    "user_input": "Was passiert, wenn ich in einer Präsenzprüfung generative Künstliche Intelligenz benutze?",
+    "reference": "Der Einsatz generativer Künstlicher Intelligenz im Rahmen von Präsenzprüfungen ist unzulässig. Dies gilt als Täuschungsversuch."
+  },
+  {
+    "user_input": "Wie lang ist die Bearbeitungszeit für die Bachelorarbeit?",
+    "reference": "Die Bearbeitungszeit für die Bachelorarbeit beträgt maximal drei Monate."
+  },
+  {
+    "user_input": "Darf ich das Thema meiner Bachelorarbeit nach der Anmeldung noch einmal ändern?",
+    "reference": "Das Thema der Bachelorarbeit kann bis vier Wochen nach der Ausgabe des Themas zurückgegeben werden. Von dieser Möglichkeit darf jedoch nur einmal Gebrauch gemacht werden."
+  },
+  {
+    "user_input": "Wie lang dauert eine Klausur?",
+    "reference": "Die Dauer einer Klausurarbeit beträgt in der Regel 90 Minuten."
+  },
+  {
+    "user_input": "Bis wann kann ich mich von einer Klausur ohne Angabe von Gründen abmelden?",
+    "reference": "Von einer Modulprüfung in Form einer Klausur oder einer mündlichen Prüfung kann sich die Kandidatin oder der Kandidat bis spätestens eine Woche vor dem jeweiligen Prüfungstermin abmelden."
+  },
+  {
+    "user_input": "Wer begutachtet und bewertet die Bachelorarbeit?",
+    "reference": "Die Bachelorarbeit wird von zwei Prüferinnen oder Prüfern unabhängig voneinander begutachtet und bewertet. Erstgutachterin oder Erstgutachter ist dabei in der Regel die Betreuerin oder der Betreuer der Arbeit."
+  },
+  {
+    "user_input": "In welcher Sprache muss die Bachelorarbeit geschrieben werden?",
+    "reference": "Die Bachelorarbeit kann wahlweise in deutscher oder englischer Sprache abgefasst werden. Es gibt jedoch Ausnahmen: Im Studiengang Germanistik muss sie in deutscher, in Anglistik und Amerikanistik in englischer Sprache verfasst werden."
+  },
+  {
+    "user_input": "Wie viele Wörter oder Seiten muss die Bachelorarbeit umfassen?",
+    "reference": "Der Umfang der Bachelorarbeit muss 9.000 bis 15.000 Wörter betragen, was circa 30 bis 50 Seiten entspricht."
+  },
+  {
+    "user_input": "Wer ist für die Anerkennung von Studienleistungen einer anderen Hochschule zuständig?",
+    "reference": "Zuständig für die Anrechnungen von Studien- und Prüfungsleistungen ist der Prüfungsausschuss."
+  },
+  {
+    "user_input": "Gibt es eine generelle Anwesenheitspflicht für Vorlesungen?",
+    "reference": "Nein, bei Vorlesungen kann keine Anwesenheitspflicht festgelegt werden."
+  },
+  {
+    "user_input": "Wann gilt die Anwesenheitspflicht in einer Lehrveranstaltung als offiziell erfüllt?",
+    "reference": "Die Anwesenheitspflicht ist erfüllt, wenn ein Studierender oder eine Studierende 80% der Veranstaltungszeit beigewohnt hat."
+  },
+  {
+    "user_input": "Was ist ein Portfolio als Prüfungsform?",
+    "reference": "Ein Portfolio ist eine über die Modulveranstaltungen hinweg systematisch angelegte Zusammenstellung verschiedener studentischer Arbeitsergebnisse. Es umfasst mindestens zwei unterschiedliche, in sich abgeschlossene Objekte wie beispielsweise Reviews, Essays, Präsentationen oder Videobeiträge."
+  },
+  {
+    "user_input": "Welche Voraussetzungen gelten für Beisitzer bei mündlichen Prüfungen?",
+    "reference": "Beisitzerinnen oder Beisitzer von mündlichen Abschlussprüfungen müssen ihre Sachkenntnis dadurch nachweisen, dass sie eine entsprechende oder vergleichbare Prüfung bestanden haben."
+  },
+  {
+    "user_input": "Wie viel Zeit haben die Lehrenden, um die Bewertung einer Klausur bekanntzugeben?",
+    "reference": "Die Bewertung einer Klausur ist der Kandidatin oder dem Kandidaten nach spätestens acht Wochen bekannt zu machen."
   }
 ]

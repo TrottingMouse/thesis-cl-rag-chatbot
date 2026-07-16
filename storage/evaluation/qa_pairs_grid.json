@@ -4,7 +4,7 @@
     "reference": "Laut dem exemplarischen Studienverlaufsplan solltest du im ersten Semester folgende Kurse belegen: Mathematische Grundlagen, Einführung in die computationelle Logik, Einführung in die Computerlinguistik, Einführung in die Programmierung mit Python, Morphologie und Syntax."
   },
   {
-    "user_input": "Kann ich mit dem Studium in Computerlinguistik auch im Sommersemester anfangen?",
+    "user_input": "Kann ich auch im Sommersemester anfangen?",
     "reference": "Nein, das Studium ist für einen Beginn im Wintersemester ausgelegt."
   },
   {
@@ -20,31 +20,43 @@
     "reference": "Nein, für den Kurs \"Mathematische Grundlagen\" gibt es keine begleitende Übung. Es handelt sich dabei ausschließlich um ein Seminar."
   },
   {
-    "user_input": "Muss ich in Python eine Klausur/Prüfung absolvieren?",
-    "reference": "Ja, du musst im Modul \"Python-Programmierung\" eine Prüfung in Form einer Projektarbeit ablegen. Diese Modulprüfung ist jedoch erst im zweiten Fachsemester (Sommersemester) vorgesehen. Im ersten Semester musst du dafür lediglich Studienleistungen erbringen."
-  },
-  {
     "user_input": "Wann soll ich das Praktikum machen?",
     "reference": "Es wird empfohlen, das Berufsfeldpraktikum nach dem vierten oder fünften Semester zu absolvieren."
   },
   {
-    "user_input": "Wird im Studiengang KI behandelt?",
-    "reference": "Ja, das Thema Künstliche Intelligenz (KI) ist ein zentraler und fest verankerter Bestandteil des Studiengangs. Im Pflichtbereich (Deep Learning): Im Aufbaumodul \"Maschinelles Lernen\" lernen die Studierenden den Umgang mit künstlichen neuronalen Netzen (Deep Learning) kennen und implementieren diese zur Lösung von Aufgaben im Natural Language Processing (NLP). Als Wahlthema in der Informatik: Im \"Vertiefungsmodul - Interdisziplinär\" kann aus dem Bereich der Informatik explizit die Veranstaltung \"Überblick Künstliche Intelligenz\" belegt werden. Spezialisierung im 3. Studienjahr: In den Vertiefungsmodulen der Computerlinguistik werden hochaktuelle KI-Architekturen in Seminaren gelehrt, darunter ausdrücklich \"große Sprachmodelle\" (Large Language Models) und \"Transformer-Architekturen\"."
+    "user_input": "Gibt es eine generelle Anwesenheitspflicht für Vorlesungen?",
+    "reference": "Nein, bei Vorlesungen kann keine Anwesenheitspflicht festgelegt werden."
   },
   {
-    "user_input": "Muss ich Kurse aus der Linguistik für das interdisziplinäre Vertiefungsmodul belegen?",
-    "reference": "Nein, Linguistik-Kurse sind keine Pflicht. Das Modul sieht vor, dass du zwei Vorlesungen oder Seminare aus der Linguistik oder der Informatik wählst, wobei lediglich der Informatik-Anteil von 4 SWS vorgeschrieben ist."
+    "user_input": "Wann gilt die Anwesenheitspflicht in einer Lehrveranstaltung als erfüllt?",
+    "reference": "Die Anwesenheitspflicht ist erfüllt, wenn ein Studierender oder eine Studierende 80% der Veranstaltungszeit beigewohnt hat."
+  },
+  {
+    "user_input": "Gibt es eine Klausur in Wahrscheinlichkeitstheorie?",
+    "reference": "Nein, im \"Basismodul - Statistische Methoden in der Computerlinguistik\", zu dem die Wahrscheinlichkeitstheorie gehört, gibt es gar keine Modulprüfung und somit auch keine Klausur. Es müssen lediglich Studienleistungen erbracht werden."
+  }
+  {
+    "user_input": "Wie lang dauert eine Klausur?",
+    "reference": "Die Dauer einer Klausurarbeit beträgt in der Regel 90 Minuten."
+  },
+  {
+    "user_input": "Wie oft darf ich eine nicht bestandene Modulprüfung wiederholen?",
+    "reference": "Eine nicht bestandene Modulprüfung kann insgesamt zweimal wiederholt werden."
   },
   {
     "user_input": "Wie stark zählt die Bachelorarbeit für meine Abschlussnote?",
     "reference": "Die Note der Bachelorarbeit wird bei der Ermittlung der Gesamtnote dreifach gewichtet. Im Vergleich dazu gehen alle anderen Modulprüfungen nur einfach in die Gesamtnote ein."
   },
   {
-    "user_input": "Muss ich alle Module bestanden haben, bevor ich meine Bachelorarbeit schreibe?",
-    "reference": "Nein, du musst nicht zwingend das gesamte Studium vorher abgeschlossen haben. Die einzige formale Teilnahmevoraussetzung für das Modul \"Abschlussarbeit und Forschungskolloquium\" ist der erfolgreiche Abschluss aller Basis- und Aufbaumodule."
+    "user_input": "Was passiert, wenn ich in einer Präsenzprüfung generative Künstliche Intelligenz benutze?",
+    "reference": "Der Einsatz generativer Künstlicher Intelligenz im Rahmen von Präsenzprüfungen ist unzulässig. Dies gilt als Täuschungsversuch."
   },
   {
-    "user_input": "Gibt es eine Klausur in Wahrscheinlichkeitstheorie?",
-    "reference": "Nein, im \"Basismodul - Statistische Methoden in der Computerlinguistik\", zu dem die Wahrscheinlichkeitstheorie gehört, gibt es gar keine Modulprüfung und somit auch keine Klausur. Es müssen lediglich Studienleistungen erbracht werden."
+    "user_input": "Muss ich Kurse aus der Linguistik für das interdisziplinäre Vertiefungsmodul belegen?",
+    "reference": "Nein, Linguistik-Kurse sind keine Pflicht. Das Modul sieht vor, dass du zwei Vorlesungen oder Seminare aus der Linguistik oder der Informatik wählst, wobei lediglich der Informatik-Anteil von 4 SWS vorgeschrieben ist."
+  },
+  {
+    "user_input": "Wie lang ist die offizielle Bearbeitungszeit für die Bachelorarbeit?",
+    "reference": "Die Bearbeitungszeit für die Bachelorarbeit beträgt maximal drei Monate."
   }
 ]
