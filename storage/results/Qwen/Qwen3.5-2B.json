@@ -2,25 +2,25 @@
     {
         "user_input": "Welche Kurse sollte ich im ersten Semester belegen?",
         "reference": "Laut dem exemplarischen Studienverlaufsplan solltest du im ersten Semester folgende Kurse belegen: Mathematische Grundlagen, Einf\u00fchrung in die computationelle Logik, Einf\u00fchrung in die Computerlinguistik, Einf\u00fchrung in die Programmierung mit Python, Morphologie und Syntax.",
-        "response": "Im ersten Semester sollten Sie folgende Kurse belegen:\n\n*   **Basismodul - Mathematische und logische Grundlagen** (Einf\u00fchrung in die computationelle Logik)\n*   **Mathematische Grundlagen**\n*   **Basiswissen Linguistik - Morphologie und Syntax**",
+        "response": "Im ersten Semester sollten Sie folgende Kurse belegen:\n\n*   **Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung** (Einf\u00fchrung in die Computerlinguistik und formale Grammatikbeschreibung)\n*   **Mathematische und logische Grundlagen** (Einf\u00fchrung in die computationelle Logik und Mathematische Grundlagen)\n*   **Basiswissen Linguistik - Morphologie und Syntax** (Morphologie und Syntax)",
         "retrieved_contexts": [
-            "Bitte informieren Sie sich bei der Studienberatung, in welcher Reihenfolge Sie welche Pflichtmodule und Wahlpflichtmodule studieren k\u00f6nnen.",
             "Desweiteren sieht der Studienplan f\u00fcr das erste Jahr einen Einstieg in computerlinguistische Programmierung mit Python vor, die neben Grundlagen auch aktuelle Methoden der Sprachtechnologie vermittelt.",
+            "Im Bachelorstudiengang Germanistik muss sie in deutscher, im Bachelorstudiengang Anglistik und Amerikanistik in englischer Sprache abgefasst werden.",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung [1/2]** | | **2 Studienleistung** | **4 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Einf\u00fchrung in die Computerlinguistik (Seminar) | | Pr\u00fcfungsnummer 2201 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Einf\u00fchrung in die Computerlinguistik (\u00dcbung) | | Pr\u00fcfungsnummer 2202 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |",
             "### Modul: Basismodul - Mathematische und logische Grundlagen\n**Empfohlenes Studiensemester:** Einf\u00fchrung in die computationelle Logik (Seminar & \u00dcbung): 1. Fachsemester (Wintersemester) | Mathematische Grundlagen (Seminar): 1. Fachsemester (Wintersemester) | Pr\u00fcfung im 1. Fachsemester (Wintersemester)<br>",
-            "### Modul: Basiswissen Linguistik - Morphologie und Syntax\n**Empfohlenes Studiensemester:** Morphologie und Syntax (Vorlesung): 1. Fachsemester (Wintersemester) | Tutorium zu Morphologie und Syntax (Tutorium): 1. Fachsemester (Wintersemester) | Pr\u00fcfung im 1. Fachsemester (Wintersemester)<br>",
-            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Mathematische und logische Grundlagen** | **1 Modulpr\u00fcfung** | **2 Studienleistung** | **12 ECTS-Leistungspunkte** | **8 Semesterwochenstunden** |\n| Einf\u00fchrung in die computationelle Logik (Seminar mit \u00dcbung) | | Pr\u00fcfungsnummer 2101 | 4 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Mathematische Grundlagen (Seminar) | | Pr\u00fcfungsnummer 2102 | 4 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Modulpr\u00fcfung (Portfolio) | Pr\u00fcfungsnummer 2110 | | 4 ECTS-Leistungspunkte | |"
+            "### Modul: Basiswissen Linguistik - Morphologie und Syntax\n**Empfohlenes Studiensemester:** Morphologie und Syntax (Vorlesung): 1. Fachsemester (Wintersemester) | Tutorium zu Morphologie und Syntax (Tutorium): 1. Fachsemester (Wintersemester) | Pr\u00fcfung im 1. Fachsemester (Wintersemester)<br>"
         ]
     },
     {
         "user_input": "Kann ich auch im Sommersemester anfangen?",
         "reference": "Nein, das Studium ist f\u00fcr einen Beginn im Wintersemester ausgelegt.",
-        "response": "Ja, du kannst auch im Sommersemester anfangen.",
+        "response": "Nein, das Modul \u201eBasiswissen Linguistik - Semantik und Pragmatik\" kann nicht im Sommersemester beginnen, da es nur im 2. Fachsemester (Sommersemester) empfohlen wird.",
         "retrieved_contexts": [
+            "Die Themen werden im laufenden Semester vergeben.",
             "### Modul: Aufbaumodul - Maschinelles Lernen\n**Empfohlenes Studiensemester:** Grundlagen des maschinellen Lernens (Seminar und \u00dcbung): 3. Fachsemester (Wintersemester) | Deep Learning (Seminar): 4. Fachsemester (Sommersemester) | Pr\u00fcfung im 4. Fachsemester (Sommersemester)<br>",
             "Ein Studienjahr besteht aus zwei Semestern.",
             "### Modul: Basiswissen Linguistik - Semantik und Pragmatik\n**Empfohlenes Studiensemester:** Semantik und Pragmatik (Vorlesung): 2. Fachsemester (Sommersemester) | Tutorium zu Semantik und Pragmatik (Tutorium): 2. Fachsemester (Sommersemester) | Pr\u00fcfung im 2. Fachsemester (Sommersemester)<br>",
-            "Er gibt den Studierenden Gelegenheit, das Studium nach ihren pers\u00f6nlichen Neigungen und F\u00e4higkeiten zu gestalten und den Arbeitsaufwand flexibel auf die Studiensemester zu verteilen.",
-            "### Modul: Praktikum & Orientierung\n**H\u00e4ufigkeit des Angebots:** Orientierungsseminar (Seminar): Jedes Sommersemester | Praktikum (in der Regel 6 Wochen in Vollzeit): Jedes Semester<br>"
+            "Er gibt den Studierenden Gelegenheit, das Studium nach ihren pers\u00f6nlichen Neigungen und F\u00e4higkeiten zu gestalten und den Arbeitsaufwand flexibel auf die Studiensemester zu verteilen."
         ]
     },
     {
@@ -30,9 +30,9 @@
         "retrieved_contexts": [
             "\u2022 Computerlinguistik,",
             "Der integrative Bachelorstudiengang Computerlinguistik leistet eine breite computerlinguistische Ausbildung.",
-            "### Modul: Vertiefungsmodul - Computerlinguistik 1\n**Englischer Titel:** Specialization module - computational linguistics 1<br>",
-            "### Modul: Vertiefungsmodul - Computerlinguistik 1\n**Empfohlenes Studiensemester:** Seminar Computerlinguistik (Seminar): 5. Fachsemester (Wintersemester) | Seminar Computerlinguistik (Seminar): 5. Fachsemester (Wintersemester)<br>",
-            "| **Integrierter Studiengang** | Computerlinguistik |"
+            "| **Integrierter Studiengang** | Computerlinguistik |",
+            "### Modul: Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung\n**Empfohlenes Studiensemester:** Einf\u00fchrung in die Computerlinguistik (Seminar): 1. Fachsemester (Wintersemester) | Einf\u00fchrung in die Computerlinguistik (\u00dcbung): 1. Fachsemester (Wintersemester) | Grammatikformalismen (Seminar): 2. Fachsemester (Sommersemester) | Grammatikformalismen (\u00dcbung): 2. Fachsemester (Sommersemester) | Pr\u00fcfung im 2. Fachsemester (Sommersemester)<br>",
+            "### Modul: Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung\n**Voraussetzungen f\u00fcr die Zulassung zur Modulpr\u00fcfung:** -keine-<br>"
         ]
     },
     {
@@ -41,9 +41,9 @@
         "response": "Nein, es werden keine Vorkenntnisse f\u00fcr den Python-Kurs gefordert.",
         "retrieved_contexts": [
             "Desweiteren sieht der Studienplan f\u00fcr das erste Jahr einen Einstieg in computerlinguistische Programmierung mit Python vor, die neben Grundlagen auch aktuelle Methoden der Sprachtechnologie vermittelt.",
+            "Im Rahmen dieses Moduls muss mindestens eine Veranstaltung aus der Informatik belegt werden.",
             "### Modul: Basismodul - Python-Programmierung\n**Angestrebte Lernergebnisse und Studieninhalte:** Die Studierenden erwerben grundlegende F\u00e4higkeiten in der Programmierung mit der Programmiersprache Python sowie Kenntnisse \u00fcber fortgeschrittene Konzepte der Python-Programmierung (objektorientierte und funktionale Programmierung). Au\u00dferdem werden Grundkenntnisse des Einsatzes von Python in den Bereichen Data Science und NLP (Natural Language Processing) erworben, sowie die F\u00e4higkeit ein kleines Software-Projekt durchzuf\u00fchren und zu pr\u00e4sentieren.<br>",
             "### Modul: Praktikum & Orientierung\n**Teilnahmevoraussetzungen:** Formal: 4. Fachsemester oder h\u00f6her | Inhaltlich: Basismodul - Mathematische und logische Grundlagen, Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung, Basismodul - Python-Programmierung<br>",
-            "### Modul: Basismodul - Python-Programmierung\n**Dauer:** 2 Semester<br>",
             "### Modul: Basismodul - Python-Programmierung\n**Belegung:** Seminar (Einf\u00fchrung in die Programmierung mit Python (Seminar)) mit \u00dcbung (Einf\u00fchrung in die Programmierung mit Python (\u00dcbung)) und Seminar (Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar)) mit \u00dcbung (Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (\u00dcbung))<br>"
         ]
     },
@@ -91,20 +91,20 @@
             "Die Anwesenheitspflicht ist erf\u00fcllt, wenn ein/e Studierende/r 80% der Veranstaltungszeit beigewohnt hat.",
             "Studienleistungen im Sinne dieser Pr\u00fcfungsordnung werden durch die aktive Teilnahme an Lehrveranstaltungen erbracht.",
             "Eine Pflicht zur Anwesenheit in Lehrveranstaltungen kann in allen Modulen oder Modulteilen vorgeschrieben werden, in denen die regelm\u00e4\u00dfige Anwesenheit und die aktive Teilnahme f\u00fcr das Erreichen des Lernziels erforderlich ist.",
-            "F\u00fcr andere Lehrveranstaltungen gilt eine Anwesenheitspflicht nur dann, wenn sie im jeweiligen f\u00e4cherspezifischen Anhang explizit festgelegt ist.",
-            "\u2022 alle notwendigen Studienleistungen vorliegen,"
+            "Die Verbindlichkeit gilt unabh\u00e4ngig davon, ob die Pr\u00fcfung bestanden oder nicht bestanden wurde oder ob sie im weiteren Studienverlauf angerechnet wird.",
+            "Die Verbindlichkeit gilt unabh\u00e4ngig davon, ob die Leistung bestanden oder nicht bestanden wurde oder ob sie im weiteren Studienverlauf angerechnet wird."
         ]
     },
     {
         "user_input": "Gibt es eine Klausur in Wahrscheinlichkeitstheorie?",
         "reference": "Nein, im \"Basismodul - Statistische Methoden in der Computerlinguistik\", zu dem die Wahrscheinlichkeitstheorie geh\u00f6rt, gibt es gar keine Modulpr\u00fcfung und somit auch keine Klausur. Es m\u00fcssen lediglich Studienleistungen erbracht werden.",
-        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Nein, es gibt keine Klausur in Wahrscheinlichkeitstheorie.",
         "retrieved_contexts": [
-            "Klausuren k\u00f6nnen Aufgaben enthalten, bei denen mehrere Antworten zur Wahl stehen (Antwort-Wahl beziehungsweise Multiple-Choice-Aufgaben).",
             "Im Studium m\u00fcssen die Studierenden nach den Bestimmungen dieser Pr\u00fcfungsordnung Pflicht- und Wahlpflichtveranstaltungen einschlie\u00dflich des Profilbildungsbereiches belegen.",
-            "Studienleistungen sind unbenotet und k\u00f6nnen als Pr\u00fcfungsvoraussetzung bestimmt werden.",
-            "Studienleistungen im Sinne dieser Pr\u00fcfungsordnung werden durch die aktive Teilnahme an Lehrveranstaltungen erbracht.",
-            "Die in Veranstaltungen, in denen Pr\u00fcfungen vorgesehen sind, lehrenden Personen sind Pr\u00fcferinnen und Pr\u00fcfer gem\u00e4\u00df \u00a7 65 Absatz 1 HG, ohne dass es der ausdr\u00fccklichen Bestellung bedarf."
+            "Klausuren k\u00f6nnen Aufgaben enthalten, bei denen mehrere Antworten zur Wahl stehen (Antwort-Wahl beziehungsweise Multiple-Choice-Aufgaben).",
+            "Die Bachelorpr\u00fcfung ist eine kumulative Pr\u00fcfung und wird studienbegleitend abgelegt.",
+            "Die Bewertung einer Klausur wird durch die Dozentinnen und Dozenten vorgenommen.",
+            "Pr\u00fcfung im Sinne von \u00a7 2 der Weitergeltungsordnung sind eine Klausurarbeit von zwei Zeitstunden und eine m\u00fcndliche Pr\u00fcfung von 20 bis 30 Minuten Dauer, in denen die Kandidatin oder der Kandidat ihre oder seine fachlichen und methodischen Voraussetzungen f\u00fcr ein Bachelorstudium nachweist."
         ]
     },
     {
@@ -112,11 +112,11 @@
         "reference": "Die Dauer einer Klausurarbeit betr\u00e4gt in der Regel 90 Minuten.",
         "response": "Die Dauer einer Klausur betr\u00e4gt in der Regel 90 Minuten.",
         "retrieved_contexts": [
-            "Die Dauer eines schriftlichen Tests betr\u00e4gt in der Regel 60 Minuten.",
             "Die Dauer einer Gruppenpr\u00fcfung betr\u00e4gt pro Kandidatin oder Kandidat mindestens 15 und h\u00f6chstens 20 Minuten.",
+            "Die Dauer eines schriftlichen Tests betr\u00e4gt in der Regel 60 Minuten.",
+            "Die Amtszeit der studentischen Mitglieder betr\u00e4gt ein Jahr, die der \u00fcbrigen vier Jahre.",
             "(3) Die Dauer einer Klausurarbeit betr\u00e4gt in der Regel 90 Minuten.",
-            "(1) Die Dauer einer m\u00fcndlichen Pr\u00fcfung betr\u00e4gt mindestens 15 und h\u00f6chstens 30 Minuten.",
-            "Die Dauer der m\u00fcndlichen Pr\u00e4sentation betr\u00e4gt mindestens 15 Minuten und h\u00f6chstens 45 Minuten."
+            "Sie kann vom zust\u00e4ndigen Pr\u00fcfungsausschuss um bis zu einen Monat verl\u00e4ngert werden, wenn die Aufgabenstellung dies zwingend erfordert."
         ]
     },
     {
@@ -152,19 +152,19 @@
             "Der Einsatz generativer K\u00fcnstlicher Intelligenz im Rahmen von Pr\u00e4senzpr\u00fcfungen ist unzul\u00e4ssig.",
             "Wer als Kandidatin oder Kandidat den ordnungsgem\u00e4\u00dfen Ablauf der Pr\u00fcfung st\u00f6rt, kann von den jeweiligen Pr\u00fcfenden oder Aufsichtf\u00fchrenden nach Abmahnung von der Fortsetzung der Pr\u00fcfungsleistung ausgeschlossen werden; in diesem Fall gilt die betreffende Pr\u00fcfungsleistung als mit \"nicht ausreichend\" (5,0) bewertet.",
             "Wer von der weiteren Erbringung einer Pr\u00fcfungsleistung ausgeschlossen wird, kann verlangen, dass diese Entscheidung vom Pr\u00fcfungsausschuss \u00fcberpr\u00fcft wird.",
-            "Sofern sie nicht im \u00f6ffentlichen Dienst stehen, sind sie durch die Vorsitzende oder den Vorsitzenden des Pr\u00fcfungsausschusses zur Verschwiegenheit zu verpflichten."
+            "Hat die Kandidatin oder der Kandidat die Zulassung vors\u00e4tzlich zu Unrecht erwirkt, entscheidet der Pr\u00fcfungsausschuss unter Beachtung des Verwaltungsverfahrensgesetzes f\u00fcr das Land Nordrhein-Westfalen \u00fcber die Rechtsfolgen."
         ]
     },
     {
         "user_input": "Muss ich Kurse aus der Linguistik f\u00fcr das interdisziplin\u00e4re Vertiefungsmodul belegen?",
         "reference": "Nein, Linguistik-Kurse sind keine Pflicht. Das Modul sieht vor, dass du zwei Vorlesungen oder Seminare aus der Linguistik oder der Informatik w\u00e4hlst, wobei lediglich der Informatik-Anteil von 4 SWS vorgeschrieben ist.",
-        "response": "Nein, Kurse aus der Linguistik m\u00fcssen nicht belegt werden. Das interdisziplin\u00e4re Vertiefungsmodul erlaubt es Ihnen, Veranstaltungen aus Linguistik und Informatik zu belegen, die nicht notwendig dezidiert computerlinguistisch sind.",
+        "response": "Ja, Sie m\u00fcssen Kurse aus der Linguistik f\u00fcr das interdisziplin\u00e4re Vertiefungsmodul belegen.",
         "retrieved_contexts": [
             "### Modul: Vertiefungsmodul - Interdisziplin\u00e4r\n**Inhalte:** M\u00f6gliche Inhalte sind Themen der Linguistik und Informatik. Relevante m\u00f6gliche Themen in der Linguistik sind z.B.: Phonetik und Phonologie, Psycho- und Neurolinguistik, historische Linguistik. Es m\u00fcssen Veranstaltungen im Umfang von mindestens 4 SWS in der Informatik belegt werden. Dabei darf keine Doppelung von Inhalten der Module aus der Computerlinguistik entstehen. F\u00fcr die Computerlinguistik relevante m\u00f6gliche Themen in der Informatik sind z.B.: Professionelle Softwareentwicklung, Datenbanksysteme, Nichtkooperative Spieltheorie, Komplexit\u00e4tstheorie, Numerische Optimierung, Dialogsysteme, \u00dcberblick K\u00fcnstliche Intelligenz.<br>",
             "Daneben gibt es das interdisziplin\u00e4re Vertiefungsmodul, in dem den Studierenden erm\u00f6glicht wird, neben Veranstaltungen aus der Computerlinguistik auch Veranstaltungen aus Linguistik und Informatik zu belegen, die nicht notwendig dezidiert computerlinguistisch sind.",
-            "### Modul: Vertiefungsmodul - Computerlinguistik 1\n**Belegung:** Seminar (Seminar Computerlinguistik (Seminar)) und Seminar (Seminar Computerlinguistik (Seminar))<br>",
             "### Modul: Vertiefungsmodul - Interdisziplin\u00e4r\n**Lehrveranstaltungen und Lehrformen:** Zwei Vorlesungen oder Seminare aus Linguistik oder Informatik | Vorlesung Linguistik: 5101, 5105 | Vorlesung Informatik: 5102, 5106 | Seminar Linguistik: 5103, 5107 | Seminar Informatik: 5104, 5108<br>",
-            "| **Art und Inhalt der Module und der Pr\u00fcfungen** | **Module:**<br>- Basismodul - Mathematische und logische Grundlagen (8 Semesterwochenstunden, 1 Modulpr\u00fcfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung (8 Semesterwochenstunden, 1 Modulpr\u00fcfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Python-Programmierung (8 Semesterwochenstunden, 1 Modulpr\u00fcfung, 12 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Morphologie und Syntax (6 Semesterwochenstunden, 1 Modulpr\u00fcfung, 9 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Semantik und Pragmatik (6 Semesterwochenstunden, 1 Modulpr\u00fcfung, 9 ECTS-Leistungspunkte)<br>- Basismodul - Statistische Methoden in der Computerlinguistik (6 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Maschinelles Lernen (8 Semesterwochenstunden, 1 Modulpr\u00fcfung, 12 ECTS-Leistungspunkte)<br>- Aufbaumodul - Mathematische Linguistik (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Parsing (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Logische Programmierung (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Objektorientierte Programmierung (8 Semesterwochenstunden, 1 Modulpr\u00fcfung, 12 ECTS-Leistungspunkte)<br>- Praktikum und Orientierung (2 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - interdisziplin\u00e4r (8 Semesterwochenstunden, 1 Modulpr\u00fcfung, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 1 (8 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 2 (4 Semesterwochenstunden, 1 Modulpr\u00fcfung, 9 ECTS-Leistungspunkte)<br>- Abschlussarbeit und Forschungskolloquium (2 Semesterwochenstunden, 15 ECTS-Leistungspunkte)<br>- Profilbildungsbereich (18 ECTS-Leistungspunkte) |"
+            "| **Art und Inhalt der Module und der Pr\u00fcfungen** | **Module:**<br>- Basismodul - Mathematische und logische Grundlagen (8 Semesterwochenstunden, 1 Modulpr\u00fcfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung (8 Semesterwochenstunden, 1 Modulpr\u00fcfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Python-Programmierung (8 Semesterwochenstunden, 1 Modulpr\u00fcfung, 12 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Morphologie und Syntax (6 Semesterwochenstunden, 1 Modulpr\u00fcfung, 9 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Semantik und Pragmatik (6 Semesterwochenstunden, 1 Modulpr\u00fcfung, 9 ECTS-Leistungspunkte)<br>- Basismodul - Statistische Methoden in der Computerlinguistik (6 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Maschinelles Lernen (8 Semesterwochenstunden, 1 Modulpr\u00fcfung, 12 ECTS-Leistungspunkte)<br>- Aufbaumodul - Mathematische Linguistik (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Parsing (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Logische Programmierung (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Objektorientierte Programmierung (8 Semesterwochenstunden, 1 Modulpr\u00fcfung, 12 ECTS-Leistungspunkte)<br>- Praktikum und Orientierung (2 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - interdisziplin\u00e4r (8 Semesterwochenstunden, 1 Modulpr\u00fcfung, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 1 (8 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 2 (4 Semesterwochenstunden, 1 Modulpr\u00fcfung, 9 ECTS-Leistungspunkte)<br>- Abschlussarbeit und Forschungskolloquium (2 Semesterwochenstunden, 15 ECTS-Leistungspunkte)<br>- Profilbildungsbereich (18 ECTS-Leistungspunkte) |",
+            "### Modul: Vertiefungsmodul - Interdisziplin\u00e4r\n**Angestrebte Lernergebnisse und Studieninhalte:** Vertiefte Kenntnisse in Spezialgebieten von Linguistik/Computerlinguistik/Informatik<br>"
         ]
     },
     {
