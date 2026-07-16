@@ -4,7 +4,7 @@
     "reference": "Laut dem exemplarischen Studienverlaufsplan solltest du im ersten Semester folgende Kurse belegen: Mathematische Grundlagen, Einführung in die computationelle Logik, Einführung in die Computerlinguistik, Einführung in die Programmierung mit Python, Morphologie und Syntax."
   },
   {
-    "user_input": "Gibt es eine Übung für Mathematische Grundlagen?",
+    "user_input": "Gibt es eine Übung für den Kurs Mathematische Grundlagen?",
     "reference": "Nein, für den Kurs \"Mathematische Grundlagen\" gibt es keine begleitende Übung. Es handelt sich dabei ausschließlich um ein Seminar."
   },
   {
