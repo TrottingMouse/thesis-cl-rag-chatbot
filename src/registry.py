@@ -9,7 +9,7 @@ from src.offline.chunking.semantic import MaxMinChunker
 from src.offline.preprocessing.llm_processors import DirectLLMProcessor, PaperLLMProcessor
 from src.offline.preprocessing.preprocessors import GeminiMarkdownProcessor, DoclingMarkdownProcessor, RawTextProcessor
 from src.offline.indexing.indexing import FaissIndexBuilder
-from src.online.reranking.rerankers import Qwen3Reranker
+from src.online.reranking.rerankers import JinaReranker
 from src.online.reranking import PassthroughReranker
 from src.online.generation.generators import PassthroughGenerator
 from src.online.query.processors import NoProcessingProcessor, HyDEQueryProcessor, CoTQueryProcessor
@@ -44,7 +44,7 @@ COMPONENT_REGISTRY = {
     "FaissRetriever": FaissRetriever,
     "PassthroughRetriever": PassthroughRetriever,
     "PassthroughReranker": PassthroughReranker,
-    "Qwen3Reranker": Qwen3Reranker,
+    "JinaReranker": JinaReranker,
     "PassthroughGenerator": PassthroughGenerator,
     "HuggingfaceGenerator": HuggingfaceGenerator,
 }

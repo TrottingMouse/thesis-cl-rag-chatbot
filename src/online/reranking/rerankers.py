@@ -3,8 +3,9 @@ Concrete reranker implementations (Online Pipeline – Step 3).
 
 Currently implemented
 ---------------------
-* :class:`Qwen3Reranker` – uses ``Qwen/Qwen3-Reranker-0.6B`` via
-  ``sentence-transformers`` ``CrossEncoder``.
+* :class:`JinaReranker` – uses ``jinaai/jina-reranker-v3`` via
+  ``transformers`` ``AutoModel`` with the model's built-in ``.rerank()``
+  method.
 * :class:`PassthroughReranker` – returns the retriever's ranking unchanged
   (baseline / ablation, no model required).
 """
@@ -12,7 +13,6 @@ Currently implemented
 from __future__ import annotations
 
 import logging
-import torch
 
 from src.models import AugmentedQuery, Chunk
 from src.online.reranking import BaseReranker
@@ -20,16 +20,15 @@ from src.online.reranking import BaseReranker
 logger = logging.getLogger(__name__)
 
 
-class Qwen3Reranker(BaseReranker):
+class JinaReranker(BaseReranker):
     """
-    Reranker backed by ``Qwen/Qwen3-Reranker-0.6B`` via
-    ``sentence-transformers`` ``CrossEncoder``.
+    Reranker backed by ``jinaai/jina-reranker-v3`` via ``transformers``
+    ``AutoModel``.
 
-    Requires ``sentence-transformers >= 5.4.0``.
-
-    The model is a causal LM that scores (query, passage) pairs by
-    comparing the logits of the ``yes`` / ``no`` tokens, so higher
-    scores mean higher relevance.
+    Requires ``transformers`` and ``trust_remote_code=True`` (the model ships
+    custom modelling code).  The model uses a *last-but-not-late interaction*
+    architecture: query and all documents are processed in a single causal
+    self-attention pass, making it both accurate and efficient.
 
     Parameters
     ----------
@@ -38,43 +37,29 @@ class Qwen3Reranker(BaseReranker):
     model_name:
         HuggingFace model ID.  Override only when testing with a
         different checkpoint.
-    device:
-        PyTorch device string (e.g. ``'cpu'``, ``'cuda'``, ``'mps'``).
-        ``None`` lets ``sentence-transformers`` auto-detect.
     """
 
     def __init__(
         self,
         top_n: int = 5,
-        model_name: str = "BAAI/bge-reranker-large"
+        model_name: str = "jinaai/jina-reranker-v3",
     ) -> None:
         super().__init__(top_n=top_n)
         self._model_name = model_name
 
         # Lazy import so that the rest of the codebase can be imported
-        # even when sentence-transformers is not installed.
-        from sentence_transformers import CrossEncoder  # type: ignore[import]
-        import torch
+        # even when transformers is not installed.
+        from transformers import AutoModel  # type: ignore[import]
 
         logger.info("Loading reranker model '%s' …", model_name)
-        
-        model_kwargs = {}
-        if torch.cuda.is_available():
-            model_kwargs = {
-                "torch_dtype": torch.bfloat16,  # Significantly faster and memory-efficient
-                "device_map": "auto",           # Hands scheduling directly to HF Accelerate
-                "attn_implementation": "sdpa"   # Standard PyTorch scaled dot-product attention
-            }
-            device = None  # Ignored by sentence-transformers when device_map is present
-        else:
-            device = "cpu"
 
-        self._model = CrossEncoder(
-            model_name, 
-            device=device, 
-            model_kwargs=model_kwargs
+        self._model = AutoModel.from_pretrained(
+            model_name,
+            dtype="auto",
+            trust_remote_code=True,
         )
-        logger.info("Reranker model loaded on device: %s", self._model.device)
+        self._model.eval()
+        logger.info("Reranker model '%s' loaded.", model_name)
 
     # ------------------------------------------------------------------
     # BaseReranker interface
@@ -82,7 +67,7 @@ class Qwen3Reranker(BaseReranker):
 
     @property
     def name(self) -> str:
-        return f"qwen3_reranker({self._model_name})"
+        return f"jina_reranker({self._model_name})"
 
     def rerank(
         self,
@@ -90,14 +75,14 @@ class Qwen3Reranker(BaseReranker):
         candidates: list[Chunk],
     ) -> list[Chunk]:
         """
-        Score every (query, chunk) pair with the cross-encoder and
+        Score every (query, chunk) pair with the jina-reranker-v3 model and
         return the top-n chunks sorted by descending relevance.
 
         Parameters
         ----------
         augmented_query:
             The processed query; ``original_query`` is used as the
-            question text passed to the cross-encoder.
+            question text passed to the reranker.
         candidates:
             Candidate chunks from the retriever.
 
@@ -118,16 +103,15 @@ class Qwen3Reranker(BaseReranker):
             self._model_name,
         )
 
-        # sentence-transformers CrossEncoder.rank returns a list of dicts:
-        # [{"corpus_id": int, "score": float}, …] sorted by descending score.
-        rankings = self._model.rank(
+        # model.rerank returns a list of dicts sorted by descending relevance:
+        # [{"index": int, "relevance_score": float, "document": str}, …]
+        rankings = self._model.rerank(
             query,
             passages,
-            top_k=min(self.top_n, len(candidates)),
-            convert_to_tensor=False,
+            top_n=min(self.top_n, len(candidates)),
         )
 
-        reranked: list[Chunk] = [candidates[entry["corpus_id"]] for entry in rankings]
+        reranked: list[Chunk] = [candidates[entry["index"]] for entry in rankings]
 
         logger.debug("Reranking done – returning %d result(s).", len(reranked))
         return reranked
@@ -138,12 +122,12 @@ class Qwen3Reranker(BaseReranker):
         candidates_batch: list[list[Chunk]],
     ) -> list[list[Chunk]]:
         """
-        Rerank candidates for a batch of queries in a single model forward pass.
+        Rerank candidates for a batch of queries.
 
-        All (query, passage) pairs from every query in the batch are flattened
-        into one list and scored by the cross-encoder in one call to
-        ``CrossEncoder.predict``.  The scores are then distributed back to the
-        original per-query candidate lists.
+        Each query is scored independently via ``model.rerank``.  The
+        jina-reranker-v3 model's listwise architecture already processes all
+        documents for a single query in one forward pass, so per-query calls
+        are efficient.
 
         Parameters
         ----------
@@ -160,39 +144,15 @@ class Qwen3Reranker(BaseReranker):
         if not augmented_queries:
             return []
 
-        # Flatten all (query, passage) pairs
-        flat_pairs: list[tuple[str, str]] = []
-        # Track slice boundaries so we can redistribute scores later
-        slices: list[tuple[int, int]] = []  # (start, end) into flat_pairs
-        for aq, candidates in zip(augmented_queries, candidates_batch):
-            start = len(flat_pairs)
-            query = aq.original_query
-            for chunk in candidates:
-                flat_pairs.append((query, chunk.text))
-            slices.append((start, len(flat_pairs)))
-
-        if not flat_pairs:
-            return [[] for _ in augmented_queries]
-
         logger.debug(
-            "Batch reranking %d pair(s) across %d query(ies) with '%s' …",
-            len(flat_pairs),
+            "Batch reranking %d query(ies) with '%s' …",
             len(augmented_queries),
             self._model_name,
         )
 
-        # Single batched predict call
-        all_scores: list[float] = self._model.predict(flat_pairs, convert_to_numpy=True).tolist()
-
-        # Redistribute scores back to per-query results
         batch_reranked: list[list[Chunk]] = []
-        for (start, end), candidates in zip(slices, candidates_batch):
-            query_scores = all_scores[start:end]
-            # Sort indices by descending score and take top_n
-            ranked_indices = sorted(
-                range(len(query_scores)), key=lambda i: query_scores[i], reverse=True
-            )[: self.top_n]
-            batch_reranked.append([candidates[idx] for idx in ranked_indices])
+        for aq, candidates in zip(augmented_queries, candidates_batch):
+            batch_reranked.append(self.rerank(aq, candidates))
 
         logger.debug("Batch reranking done.")
         return batch_reranked
