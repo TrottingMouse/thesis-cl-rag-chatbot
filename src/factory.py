@@ -39,11 +39,14 @@ import csv
 from pathlib import Path
 
 import yaml
+import logging
+import torch
 
 from src.registry import get_class
 from src.config import OfflineConfig, OnlineConfig
 from src.offline.pipeline import OfflinePipeline
 from src.online.pipeline import OnlinePipeline
+
 
 
 # ---------------------------------------------------------------------------
@@ -194,7 +197,11 @@ def run_queries(
         fields populated for each item.
     """
     if batching:
-        results = online_pipeline.batch_query(queries)
+        try:
+            results = online_pipeline.batch_query(queries)
+        except torch.OutOfMemoryError:
+            logging.warning("Batching failed: Out of memory. Using single-query mode.")
+            results = online_pipeline.multiple_queries(queries)
     else:
         results = online_pipeline.multiple_queries(queries)
     qa_pairs = copy.deepcopy(qa_pairs_template)
