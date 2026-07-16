@@ -13,6 +13,7 @@ Currently implemented
 from __future__ import annotations
 
 import logging
+import torch
 
 from src.models import AugmentedQuery, Chunk
 from src.online.reranking import BaseReranker
@@ -53,13 +54,22 @@ class JinaReranker(BaseReranker):
 
         logger.info("Loading reranker model '%s' …", model_name)
 
-        self._model = AutoModel.from_pretrained(
-            model_name,
-            dtype="auto",
-            trust_remote_code=True,
-        )
+        if torch.cuda.is_available():
+            self._model = AutoModel.from_pretrained(
+                model_name,
+                torch_dtype=torch.bfloat16,
+                device_map="cuda",
+                trust_remote_code=True,
+            )
+        else:
+            self._model = AutoModel.from_pretrained(
+                model_name,
+                dtype="auto",
+                trust_remote_code=True,
+            )
         self._model.eval()
-        logger.info("Reranker model '%s' loaded.", model_name)
+        device = next(self._model.parameters()).device
+        logger.info("Reranker model '%s' loaded on device: %s", model_name, device)
 
     # ------------------------------------------------------------------
     # BaseReranker interface
