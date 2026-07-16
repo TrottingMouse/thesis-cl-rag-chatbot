@@ -4,21 +4,19 @@ documents:
   - "documents/POges.pdf"
 
 offline_config:
-  embedding_model: "storage/models/jina-embeddings"
+  embedding_model: "jinaai/jina-embeddings-v5-text-nano"
   chunking_params:
-    chunk_size: 1
-    overlap: 0
+    {}
 
 online_config:
-  top_k: 9
-  top_n: 3
+  top_k: 20
+  top_n: 5
   generation_model: "Qwen/Qwen3.5-2B"
 
 offline_pipeline:
   preprocessors:
     - "GeminiMarkdownProcessor"
-    - "DirectLLMProcessor"
-  chunker: "FixedParagraphChunker"
+  chunker: "SplitTableParagraphChunker"
   index_builder: "FaissIndexBuilder"
 
 online_pipeline:
