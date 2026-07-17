@@ -49,6 +49,7 @@ CHUNK_SIZE = 1
 OVERLAP = 0
 TOP_K = 9
 TOP_N = 3
+RERANKING_THRESHOLD = 0.1
 QA_EVAL_FILE = "storage/evaluation/qa_pairs_grid.json"
 RESULTS_DIR = Path("storage/directprompt_results")
 INDEX_BASE = Path("storage/directprompt_index")
@@ -98,6 +99,7 @@ def directprompt_experiment():
         top_k=TOP_K,
         top_n=TOP_N,
         generation_model=online_config.generation_model,
+        reranking_score_threshold=RERANKING_THRESHOLD,
     )
     qa_pairs = run_queries(online_pipeline, queries, qa_pairs_template)
 
@@ -120,6 +122,7 @@ def directprompt_experiment():
         "overlap": OVERLAP,
         "top_k": TOP_K,
         "top_n": TOP_N,
+        "reranking_threshold": RERANKING_THRESHOLD,
         "num_chunks": len(chunks),
         **metrics,
     }

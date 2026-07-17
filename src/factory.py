@@ -130,6 +130,7 @@ def build_online_pipeline(
     top_k: int,
     top_n: int,
     generation_model: str,
+    reranking_score_threshold: float = 0.1,
 ) -> OnlinePipeline:
     """
     Assemble a fully-wired OnlinePipeline from a pipeline config section.
@@ -148,6 +149,10 @@ def build_online_pipeline(
     generation_model:
         Name/path of the generation model (used for ``HuggingfaceGenerator``
         and ``HyDEQueryProcessor``).
+    reranking_score_threshold:
+        Minimum reranking score a result must reach to be kept.  Forwarded to
+        :class:`~src.online.reranking.JinaReranker` only; other rerankers
+        ignore this parameter.
     """
     QueryProcessorClass = get_class(cfg["query_processor"])
     query_processor = (
@@ -163,7 +168,11 @@ def build_online_pipeline(
         else RetrieverClass(index_builder, top_k=top_k)
     )
 
-    reranker = get_class(cfg["reranker"])(top_n=top_n)
+    RerankerClass = get_class(cfg["reranker"])
+    if cfg["reranker"] == "JinaReranker":
+        reranker = RerankerClass(top_n=top_n, threshold=reranking_score_threshold)
+    else:
+        reranker = RerankerClass(top_n=top_n)
 
     GeneratorClass = get_class(cfg["generator"])
     generator = (
@@ -278,6 +287,7 @@ def build_pipelines_from_config(yaml_path: str):
         top_k=online_config.top_k,
         top_n=online_config.top_n,
         generation_model=online_config.generation_model,
+        reranking_score_threshold=online_config.reranking_score_threshold,
     )
 
     component_names = (

@@ -75,6 +75,7 @@ RERANKER_NAME  = "PassthroughReranker"
 GENERATOR_NAME = "HuggingfaceGenerator"
 TOP_K          = 9
 TOP_N          = 3
+RERANKING_THRESHOLD = 0.1
 
 # Preprocessing configurations: (label, ordered list of preprocessor registry names)
 PREPROCESSING_CONFIGS: list[tuple[str, list[str]]] = [
@@ -126,6 +127,7 @@ def run_pipeline(
         top_k=TOP_K,
         top_n=TOP_N,
         generation_model=generation_model,
+        reranking_score_threshold=RERANKING_THRESHOLD,
     )
 
     qa_pairs = run_queries(online_pipeline, queries, qa_pairs_template)
@@ -143,13 +145,14 @@ def run_pipeline(
     metrics = eval_df.mean(numeric_only=True).to_dict()
 
     row = {
-        "run_name":        run_name,
-        "preprocessing":   preprocessing_label,
-        "query_processor": query_processor_name,
-        "chunk_size":      CHUNK_SIZE,
-        "overlap":         OVERLAP,
-        "top_k":           TOP_K,
-        "top_n":           TOP_N,
+        "run_name":            run_name,
+        "preprocessing":       preprocessing_label,
+        "query_processor":     query_processor_name,
+        "chunk_size":          CHUNK_SIZE,
+        "overlap":             OVERLAP,
+        "top_k":               TOP_K,
+        "top_n":               TOP_N,
+        "reranking_threshold": RERANKING_THRESHOLD,
         **metrics,
     }
 

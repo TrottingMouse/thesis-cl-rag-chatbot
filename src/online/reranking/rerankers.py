@@ -34,7 +34,11 @@ class JinaReranker(BaseReranker):
     Parameters
     ----------
     top_n:
-        Number of results to keep after reranking.
+        Hard upper limit on results to return after reranking.
+    threshold:
+        Minimum ``reranking_score`` a result must reach to be included.
+        Results below this value are discarded even if they are within
+        ``top_n``.  Set to ``0.0`` to disable threshold filtering.
     model_name:
         HuggingFace model ID.  Override only when testing with a
         different checkpoint.
@@ -43,9 +47,11 @@ class JinaReranker(BaseReranker):
     def __init__(
         self,
         top_n: int = 5,
+        threshold: float = 0.1,
         model_name: str = "jinaai/jina-reranker-v3",
     ) -> None:
         super().__init__(top_n=top_n)
+        self.threshold = threshold
         self._model_name = model_name
 
         # Lazy import so that the rest of the codebase can be imported
@@ -114,22 +120,28 @@ class JinaReranker(BaseReranker):
             self._model_name,
         )
 
-        # model.rerank returns a list of dicts sorted by descending relevance:
-        # [{"index": int, "relevance_score": float, "document": str}, …]
+        # Score all candidates so the threshold can be applied across the full
+        # candidate pool – not just the first top_n hits.
         rankings = self._model.rerank(
             query,
             passages,
-            top_n=min(self.top_n, len(candidates)),
+            top_n=len(candidates),
         )
 
-        reranked: list[RetrievalResult] = [
-            RetrievalResult(
-                chunk=candidates[entry["index"]].chunk,
-                retrieval_score=candidates[entry["index"]].retrieval_score,
-                reranking_score=float(entry["relevance_score"]),
+        reranked: list[RetrievalResult] = []
+        for entry in rankings:
+            score = float(entry["relevance_score"])
+            if score < self.threshold:
+                break  # rankings are sorted descending; no later entry will pass
+            reranked.append(
+                RetrievalResult(
+                    chunk=candidates[entry["index"]].chunk,
+                    retrieval_score=candidates[entry["index"]].retrieval_score,
+                    reranking_score=score,
+                )
             )
-            for entry in rankings
-        ]
+            if len(reranked) == self.top_n:
+                break  # hard cap reached
 
         logger.debug("Reranking done – returning %d result(s).", len(reranked))
         return reranked

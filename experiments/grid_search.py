@@ -197,6 +197,7 @@ def chunking_grid_search():
                 top_k=top_k,
                 top_n=top_n,
                 generation_model=online_config.generation_model,
+                reranking_score_threshold=online_config.reranking_score_threshold,
             )
             qa_pairs = run_queries(online_pipeline, queries, qa_pairs_template)
 
@@ -223,6 +224,7 @@ def chunking_grid_search():
                 "avg_chunk_size_tokens": round(avg_chunk_size_tokens, 1),
                 "top_k": top_k,
                 "top_n": top_n,
+                "reranking_threshold": online_config.reranking_score_threshold,
                 **{f"{k}": v for k, v in metrics.items()},
             }
             summary_rows.append(row)

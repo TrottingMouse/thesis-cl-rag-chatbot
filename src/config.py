@@ -37,6 +37,11 @@ class OnlineConfig:
     top_n: int = 5
     """Number of results returned after reranking (must be ≤ top_k)."""
 
+    reranking_score_threshold: float = 0.1
+    """Minimum reranking score a result must achieve to be included in the
+    output of :class:`~src.online.reranking.JinaReranker`.
+    Results below this threshold are discarded even if they are within top_n."""
+
     embedding_model: str = "jinaai/jina-embeddings-v5-text-nano"
     """The embedding model to use for the pipeline."""
 

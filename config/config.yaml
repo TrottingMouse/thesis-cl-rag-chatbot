@@ -11,6 +11,7 @@ offline_config:
 online_config:
   top_k: 20
   top_n: 5
+  reranking_score_threshold: 0.1
   generation_model: "Qwen/Qwen3.5-2B"
 
 offline_pipeline:
