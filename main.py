@@ -18,7 +18,7 @@ def main():
     offline_result = offline_pipeline.run(document_paths)
 
     # 3. Run Online Pipeline
-    positive_eval_file = "storage/evaluation/qa_pairs.json"
+    positive_eval_file = "storage/evaluation/qa_pairs_grid.json"
     negative_eval_file = "storage/evaluation/negative_qa_pairs.json"
     with open(positive_eval_file) as f:
         positive_qa_pairs = json.load(f)
