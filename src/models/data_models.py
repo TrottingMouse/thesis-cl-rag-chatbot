@@ -94,3 +94,22 @@ class AugmentedQuery:
 
     query_type: str = "query"
     """Depends on the format which the QueryProcessor provides. Either query or document."""
+
+
+@dataclass
+class RetrievalResult:
+    """
+    A single retrieval result returned by the retriever (and optionally reranker).
+
+    Wraps a :class:`Chunk` together with the scores assigned during retrieval
+    and, if applicable, reranking.
+    """
+
+    chunk: Chunk
+    """The retrieved chunk."""
+
+    retrieval_score: float
+    """Similarity / relevance score assigned by the retriever (e.g. cosine similarity)."""
+
+    reranking_score: float | None = None
+    """Score assigned by a reranker.  ``None`` if no reranker was applied."""

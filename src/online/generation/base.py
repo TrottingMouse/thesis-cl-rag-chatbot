@@ -17,7 +17,7 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 
-from src.models import AugmentedQuery, Chunk
+from src.models import AugmentedQuery, Chunk, RetrievalResult
 
 
 class BaseGenerator(ABC):
@@ -41,7 +41,7 @@ class BaseGenerator(ABC):
     def generate(
         self,
         augmented_query: AugmentedQuery,
-        context: list[Chunk],
+        context: list[RetrievalResult],
     ) -> str:
         """
         Generate an answer given the query and retrieved context.
@@ -52,15 +52,15 @@ class BaseGenerator(ABC):
             The processed query.  Implementations typically use
             ``augmented_query.original_query`` as the question text.
         context:
-            Reranked chunks that form the context window.
-            ``context[0]`` is the most relevant chunk (rank 1).
+            Reranked results that form the context window.
+            ``context[0]`` is the most relevant result (rank 1).
 
         Returns
         -------
         str
             The generated answer text.
         """
-    def construct_prompt(self, query: str, context: list[Chunk]) -> str:
+    def construct_prompt(self, query: str, context: list[RetrievalResult]) -> str:
         """
         Constructs the prompt for the generator.
 
@@ -76,7 +76,7 @@ class BaseGenerator(ABC):
         str
             The constructed prompt.
         """
-        context_str = "\n".join([f"Source {i+1}:\n{chunk.text}" for i, chunk in enumerate(context)])
+        context_str = "\n".join([f"Source {i+1}:\n{result.chunk.text}" for i, result in enumerate(context)])
         return f"""
         Du bist ein hilfreicher Assistent. Beantworte die Frage basierend auf dem gegebenen Kontext.
         Wenn die Antwort nicht im Kontext zu finden ist, antworte: "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
@@ -90,7 +90,7 @@ class BaseGenerator(ABC):
     def generate_batch(
         self,
         augmented_queries: list[AugmentedQuery],
-        contexts: list[list[Chunk]],
+        contexts: list[list[RetrievalResult]],
     ) -> list[str]:
         """
         Generate answers for a batch of queries.

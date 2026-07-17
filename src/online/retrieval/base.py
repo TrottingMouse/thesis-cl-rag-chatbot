@@ -3,7 +3,7 @@ Abstract base class for retrievers (Online Pipeline – Step 2).
 
 A retriever takes an :class:`~src.models.AugmentedQuery` (which may contain
 multiple query variants) and returns a ranked list of
-:class:`~src.models.Chunk` objects from the pre-built index.
+:class:`~src.models.RetrievalResult` objects from the pre-built index.
 
 Possible concrete implementations
 ----------------------------------
@@ -17,7 +17,7 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 
-from src.models import AugmentedQuery, Chunk
+from src.models import AugmentedQuery, Chunk, RetrievalResult
 from src.offline.indexing import BaseIndexBuilder
 
 
@@ -57,7 +57,7 @@ class BaseRetriever(ABC):
         """
 
     @abstractmethod
-    def retrieve(self, augmented_query: AugmentedQuery) -> list[Chunk]:
+    def retrieve(self, augmented_query: AugmentedQuery) -> list[RetrievalResult]:
         """
         Retrieve the top-k candidate chunks for the given query.
 
@@ -72,14 +72,14 @@ class BaseRetriever(ABC):
 
         Returns
         -------
-        list[Chunk]
-            Up to ``self.top_k`` chunks, ordered by descending relevance
+        list[RetrievalResult]
+            Up to ``self.top_k`` results, ordered by descending relevance
             score.  Duplicates (same ``chunk_id``) must be removed.
         """
 
     def retrieve_batch(
         self, augmented_queries: list[AugmentedQuery]
-    ) -> list[list[Chunk]]:
+    ) -> list[list[RetrievalResult]]:
         """
         Retrieve candidates for a batch of augmented queries.
 
@@ -94,7 +94,7 @@ class BaseRetriever(ABC):
 
         Returns
         -------
-        list[list[Chunk]]
+        list[list[RetrievalResult]]
             One result list per input query, in the same order.
         """
         return [self.retrieve(aq) for aq in augmented_queries]

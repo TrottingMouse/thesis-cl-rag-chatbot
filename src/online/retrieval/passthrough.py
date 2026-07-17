@@ -7,7 +7,7 @@ preprocessed corpus as context, bypassing any similarity search or ranking.
 
 from __future__ import annotations
 
-from src.models import AugmentedQuery, Chunk
+from src.models import AugmentedQuery, Chunk, RetrievalResult
 from src.offline.indexing.passthrough import PassthroughIndexBuilder
 from src.online.retrieval.base import BaseRetriever
 
@@ -48,7 +48,7 @@ class PassthroughRetriever(BaseRetriever):
     def name(self) -> str:
         return "passthrough_retriever"
 
-    def retrieve(self, augmented_query: AugmentedQuery) -> list[Chunk]:
+    def retrieve(self, augmented_query: AugmentedQuery) -> list[RetrievalResult]:
         """
         Return all indexed chunks regardless of the query.
 
@@ -59,14 +59,17 @@ class PassthroughRetriever(BaseRetriever):
 
         Returns
         -------
-        list[Chunk]
-            All stored chunks in storage order.
+        list[RetrievalResult]
+            All stored chunks in storage order, each with ``retrieval_score=1.0``.
         """
-        return list(self.index_builder.chunks)
+        return [
+            RetrievalResult(chunk=chunk, retrieval_score=1.0)
+            for chunk in self.index_builder.chunks
+        ]
 
     def retrieve_batch(
         self, augmented_queries: list[AugmentedQuery]
-    ) -> list[list[Chunk]]:
+    ) -> list[list[RetrievalResult]]:
         """
         Return all chunks for every query in the batch.
 
@@ -77,8 +80,8 @@ class PassthroughRetriever(BaseRetriever):
 
         Returns
         -------
-        list[list[Chunk]]
-            The same full-corpus chunk list repeated once per query.
+        list[list[RetrievalResult]]
+            The same full-corpus result list repeated once per query.
         """
         results = self.retrieve(augmented_queries[0]) if augmented_queries else []
         return [results for _ in augmented_queries]

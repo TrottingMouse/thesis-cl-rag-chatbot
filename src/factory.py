@@ -208,7 +208,7 @@ def run_queries(
     for i, pipeline_result in enumerate(results):
         qa_pairs[i]["response"] = pipeline_result.generation_result
         qa_pairs[i]["retrieved_contexts"] = [
-            chunk.text for chunk in pipeline_result.reranked_results
+            result.chunk.text for result in pipeline_result.reranked_results
         ]
     return qa_pairs
 

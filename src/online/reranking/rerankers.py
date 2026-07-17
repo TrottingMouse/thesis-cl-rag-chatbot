@@ -15,7 +15,7 @@ from __future__ import annotations
 import logging
 import torch
 
-from src.models import AugmentedQuery, Chunk
+from src.models import AugmentedQuery, Chunk, RetrievalResult
 from src.online.reranking import BaseReranker
 
 logger = logging.getLogger(__name__)
@@ -82,11 +82,11 @@ class JinaReranker(BaseReranker):
     def rerank(
         self,
         augmented_query: AugmentedQuery,
-        candidates: list[Chunk],
-    ) -> list[Chunk]:
+        candidates: list[RetrievalResult],
+    ) -> list[RetrievalResult]:
         """
         Score every (query, chunk) pair with the jina-reranker-v3 model and
-        return the top-n chunks sorted by descending relevance.
+        return the top-n results sorted by descending relevance.
 
         Parameters
         ----------
@@ -94,18 +94,19 @@ class JinaReranker(BaseReranker):
             The processed query; ``original_query`` is used as the
             question text passed to the reranker.
         candidates:
-            Candidate chunks from the retriever.
+            Candidate results from the retriever.
 
         Returns
         -------
-        list[Chunk]
-            Up to ``self.top_n`` chunks, sorted by rerank score (highest first).
+        list[RetrievalResult]
+            Up to ``self.top_n`` results, sorted by rerank score (highest
+            first), with ``reranking_score`` populated.
         """
         if not candidates:
             return []
 
         query = augmented_query.original_query
-        passages = [chunk.text for chunk in candidates]
+        passages = [r.chunk.text for r in candidates]
 
         logger.debug(
             "Reranking %d candidate(s) with '%s' …",
@@ -121,7 +122,14 @@ class JinaReranker(BaseReranker):
             top_n=min(self.top_n, len(candidates)),
         )
 
-        reranked: list[Chunk] = [candidates[entry["index"]] for entry in rankings]
+        reranked: list[RetrievalResult] = [
+            RetrievalResult(
+                chunk=candidates[entry["index"]].chunk,
+                retrieval_score=candidates[entry["index"]].retrieval_score,
+                reranking_score=float(entry["relevance_score"]),
+            )
+            for entry in rankings
+        ]
 
         logger.debug("Reranking done – returning %d result(s).", len(reranked))
         return reranked
@@ -129,8 +137,8 @@ class JinaReranker(BaseReranker):
     def rerank_batch(
         self,
         augmented_queries: list[AugmentedQuery],
-        candidates_batch: list[list[Chunk]],
-    ) -> list[list[Chunk]]:
+        candidates_batch: list[list[RetrievalResult]],
+    ) -> list[list[RetrievalResult]]:
         """
         Rerank candidates for a batch of queries.
 
@@ -148,7 +156,7 @@ class JinaReranker(BaseReranker):
 
         Returns
         -------
-        list[list[Chunk]]
+        list[list[RetrievalResult]]
             One reranked result list per input query, in the same order.
         """
         if not augmented_queries:
@@ -160,7 +168,7 @@ class JinaReranker(BaseReranker):
             self._model_name,
         )
 
-        batch_reranked: list[list[Chunk]] = []
+        batch_reranked: list[list[RetrievalResult]] = []
         for aq, candidates in zip(augmented_queries, candidates_batch):
             batch_reranked.append(self.rerank(aq, candidates))
 
@@ -183,13 +191,21 @@ class PassthroughReranker(BaseReranker):
     def rerank(
         self,
         augmented_query: AugmentedQuery,
-        candidates: list[Chunk],
-    ) -> list[Chunk]:
-        return candidates[: self.top_n]
+        candidates: list[RetrievalResult],
+    ) -> list[RetrievalResult]:
+        # Propagate retrieval_score as reranking_score to signal no reranking
+        return [
+            RetrievalResult(
+                chunk=r.chunk,
+                retrieval_score=r.retrieval_score,
+                reranking_score=r.retrieval_score,
+            )
+            for r in candidates[: self.top_n]
+        ]
 
     def rerank_batch(
         self,
         augmented_queries: list[AugmentedQuery],
-        candidates_batch: list[list[Chunk]],
-    ) -> list[list[Chunk]]:
+        candidates_batch: list[list[RetrievalResult]],
+    ) -> list[list[RetrievalResult]]:
         return [self.rerank(aq, candidates) for aq, candidates in zip(augmented_queries, candidates_batch)]

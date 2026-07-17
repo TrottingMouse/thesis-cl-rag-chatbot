@@ -3,7 +3,7 @@ import faiss
 
 
 from src.online.retrieval import BaseRetriever
-from src.models import AugmentedQuery, Chunk
+from src.models import AugmentedQuery, Chunk, RetrievalResult
 from src.offline.indexing import FaissIndexBuilder
 
 
@@ -45,7 +45,7 @@ class FaissRetriever(BaseRetriever):
     # Public interface
     # ------------------------------------------------------------------
 
-    def retrieve(self, augmented_query: AugmentedQuery) -> list[Chunk]:
+    def retrieve(self, augmented_query: AugmentedQuery) -> list[RetrievalResult]:
         """
         Retrieve the top-k candidate chunks for the given (augmented) query.
 
@@ -58,8 +58,8 @@ class FaissRetriever(BaseRetriever):
 
         Returns
         -------
-        list[Chunk]
-            Up to ``self.top_k`` chunks ordered by descending relevance score.
+        list[RetrievalResult]
+            Up to ``self.top_k`` results ordered by descending relevance score.
             Duplicates (same ``chunk_id``) are removed.
         """
         queries = augmented_query.processed_queries
@@ -72,7 +72,7 @@ class FaissRetriever(BaseRetriever):
             return self._search_single(queries[0], query_type)
 
         # Multiple query variants → per-query ranked lists → RRF fusion
-        per_query_results: list[list[Chunk]] = [
+        per_query_results: list[list[RetrievalResult]] = [
             self._search_single(q, query_type) for q in queries
         ]
         return self._reciprocal_rank_fusion(per_query_results)
@@ -81,10 +81,10 @@ class FaissRetriever(BaseRetriever):
     # Internal helpers
     # ------------------------------------------------------------------
 
-    def _search_single(self, query: str, query_type: str) -> list[Chunk]:
+    def _search_single(self, query: str, query_type: str) -> list[RetrievalResult]:
         """
         Embed *query*, search the FAISS index, and return up to ``top_k``
-        ``Chunk`` objects ordered by descending cosine similarity.
+        ``RetrievalResult`` objects ordered by descending cosine similarity.
         """
         faiss_index: faiss.Index = self.index_builder.index
         chunks = self.index_builder.chunks
@@ -104,18 +104,18 @@ class FaissRetriever(BaseRetriever):
         scores = scores[0]
         indices = indices[0]
 
-        results: list[Chunk] = []
+        results: list[RetrievalResult] = []
         for score, idx in zip(scores, indices):
             if idx == -1:
                 # FAISS returns -1 when fewer than top_k vectors exist
                 continue
-            results.append(chunks[idx])
+            results.append(RetrievalResult(chunk=chunks[idx], retrieval_score=float(score)))
 
         return results
 
     def retrieve_batch(
         self, augmented_queries: list[AugmentedQuery]
-    ) -> list[list[Chunk]]:
+    ) -> list[list[RetrievalResult]]:
         """
         Retrieve top-k candidates for a batch of augmented queries.
 
@@ -131,9 +131,9 @@ class FaissRetriever(BaseRetriever):
 
         Returns
         -------
-        list[list[Chunk]]
+        list[list[RetrievalResult]]
             One result list per input query, in the same order.  Each list
-            contains up to ``self.top_k`` chunks, duplicates removed, ordered
+            contains up to ``self.top_k`` results, duplicates removed, ordered
             by descending relevance score (with RRF when multiple processed
             query variants exist for a single query).
         """
@@ -172,20 +172,20 @@ class FaissRetriever(BaseRetriever):
 
         # Group per-query ranked lists back by augmented-query index
         # per_query_ranked_lists[aq_idx] accumulates one list per variant
-        per_query_ranked_lists: list[list[list[Chunk]]] = [
+        per_query_ranked_lists: list[list[list[RetrievalResult]]] = [
             [] for _ in augmented_queries
         ]
         for flat_idx, (scores, indices) in enumerate(zip(all_scores, all_indices)):
             aq_idx = query_owners[flat_idx]
-            results: list[Chunk] = []
+            results: list[RetrievalResult] = []
             for score, idx in zip(scores, indices):
                 if idx == -1:
                     continue
-                results.append(chunks[idx])
+                results.append(RetrievalResult(chunk=chunks[idx], retrieval_score=float(score)))
             per_query_ranked_lists[aq_idx].append(results)
 
         # For each original augmented query, fuse or pass through
-        batch_results: list[list[Chunk]] = []
+        batch_results: list[list[RetrievalResult]] = []
         for aq_idx, ranked_lists in enumerate(per_query_ranked_lists):
             if not ranked_lists:
                 batch_results.append([])
@@ -197,8 +197,8 @@ class FaissRetriever(BaseRetriever):
         return batch_results
 
     def _reciprocal_rank_fusion(
-        self, ranked_lists: list[list[Chunk]]
-    ) -> list[Chunk]:
+        self, ranked_lists: list[list[RetrievalResult]]
+    ) -> list[RetrievalResult]:
         """
         Merge multiple ranked lists using Reciprocal Rank Fusion (RRF).
 
@@ -209,7 +209,8 @@ class FaissRetriever(BaseRetriever):
         list are simply not included in that list's contribution.
 
         The final list is sorted by descending RRF score and truncated to
-        ``top_k``.
+        ``top_k``.  The RRF score is stored as the ``retrieval_score`` of the
+        returned :class:`~src.models.RetrievalResult`.
 
         Parameters
         ----------
@@ -218,24 +219,27 @@ class FaissRetriever(BaseRetriever):
 
         Returns
         -------
-        list[Chunk]
-            Merged and deduplicated chunks, up to ``self.top_k``.
+        list[RetrievalResult]
+            Merged and deduplicated results, up to ``self.top_k``.
         """
         k = self._RRF_K
 
         # chunk_id → accumulated RRF score
         rrf_scores: dict[str, float] = {}
-        # chunk_id → Chunk object
-        best_chunk: dict[str, Chunk] = {}
+        # chunk_id → best RetrievalResult object (first occurrence wins for the chunk)
+        best_result: dict[str, RetrievalResult] = {}
 
         for ranked_list in ranked_lists:
-            for rank, chunk in enumerate(ranked_list, start=1):
-                cid = chunk.chunk_id
+            for rank, result in enumerate(ranked_list, start=1):
+                cid = result.chunk.chunk_id
                 rrf_scores[cid] = rrf_scores.get(cid, 0.0) + 1.0 / (k + rank)
-                if cid not in best_chunk:
-                    best_chunk[cid] = chunk
+                if cid not in best_result:
+                    best_result[cid] = result
 
         # Build final list sorted by descending RRF score
         sorted_ids = sorted(rrf_scores, key=lambda cid: rrf_scores[cid], reverse=True)
 
-        return [best_chunk[cid] for cid in sorted_ids[: self.top_k]]
+        return [
+            RetrievalResult(chunk=best_result[cid].chunk, retrieval_score=rrf_scores[cid])
+            for cid in sorted_ids[: self.top_k]
+        ]
