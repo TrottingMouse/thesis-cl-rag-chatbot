@@ -33,10 +33,12 @@ def main():
 
     for i, pipeline_result in enumerate(positive_online_results):
         positive_qa_pairs[i]["response"] = pipeline_result.generation_result
-        positive_qa_pairs[i]["retrieved_contexts"] = [chunk.text for chunk in pipeline_result.reranked_results]
+        positive_qa_pairs[i]["retrieved_contexts"] = [result.chunk.text for result in pipeline_result.reranked_results]
+        positive_qa_pairs[i]["reranking_scores"] = [result.reranking_score for result in pipeline_result.reranked_results]
     for i, pipeline_result in enumerate(negative_online_results):
         negative_qa_pairs[i]["response"] = pipeline_result.generation_result
-        negative_qa_pairs[i]["retrieved_contexts"] = [chunk.text for chunk in pipeline_result.reranked_results]
+        negative_qa_pairs[i]["retrieved_contexts"] = [result.chunk.text for result in pipeline_result.reranked_results]
+        negative_qa_pairs[i]["reranking_scores"] = [result.reranking_score for result in pipeline_result.reranked_results]
     
     positive_save_path = "storage/results/positive/" + pipeline_name + ".json"
     negative_save_path = "storage/results/negative/" + pipeline_name + ".json"
@@ -48,12 +50,12 @@ def main():
         json.dump(negative_qa_pairs, f, indent=4)
     logging.info(f"Offline pipeline completed. Results saved to {positive_save_path} and {negative_save_path}")
 
-    evaluator_positive = Evaluator(positive_save_path)
-    evaluation_df_positive = evaluator_positive.evaluate()
-    print(evaluation_df_positive)
-    evaluator_negative = Evaluator(negative_save_path)
-    evaluation_df_negative = evaluator_negative.evaluate_rejection()
-    print(evaluation_df_negative)
+    # evaluator_positive = Evaluator(positive_save_path)
+    # evaluation_df_positive = evaluator_positive.evaluate()
+    # print(evaluation_df_positive)
+    # evaluator_negative = Evaluator(negative_save_path)
+    # evaluation_df_negative = evaluator_negative.evaluate_rejection()
+    # print(evaluation_df_negative)
     
     
     
