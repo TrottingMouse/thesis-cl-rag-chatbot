@@ -299,6 +299,10 @@ class FixedParagraphChunker(BaseChunker):
 
         paragraphs = re.split(r'\n\s*\n', text)
         paragraphs = [p.strip() for p in paragraphs if p.strip()]
+        # split on single newline if no double newline structure
+        if len(paragraphs) < 10:
+            paragraphs = re.split(r'\n', text)
+            paragraphs = [p.strip() for p in paragraphs if p.strip()]
 
         chunks: list[Chunk] = []
         start_idx = 0

@@ -1,3 +1,4 @@
+change paragraphchunker so it counts double newlines first and depending on that uses double or single
 bring retrieval and reranking scores back
 Also the n and k for paragraph chunking should follow a different logic than for the rest: top_n should be 2 for 1-paragraph-long chunks and 1 for everything else
 Durchläufe mit allen prepro/chunk/querypre
@@ -5,7 +6,7 @@ Durchläufe mit allen prepro/chunk/querypre
 Ergebnisgrafiken
 
 wenn am Ende noch Zeit:
-!!!neuer processor: von fließtext oder markdown in sätze aber jeder satz kriegt modulinfo/semesterinfo/paragraphinfo
+catch OOM für main/factory besser einbinden
 converter von pdf für PaperLLMProcessor verbessern/cleaner einbauen (siehe Lumberchunker chat auf gemini.google)
 bm25/hybrid retrieval
 anderer llm-based
@@ -30,6 +31,8 @@ pipeline batching!
 query preprocessing testen
 neue qa-pairs, grid search auf 15 hoch, neues repräsentieren, mehr direkte Antwort
 funktionieren prepro und chunker für neues Dokument?
+!!!neuer processor: von fließtext oder markdown in sätze aber jeder satz kriegt modulinfo/semesterinfo/paragraphinfo
+
 
 
 
