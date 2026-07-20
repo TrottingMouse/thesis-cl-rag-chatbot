@@ -45,9 +45,9 @@ class Evaluator:
         ans_rel.strictness = 1
         
         metrics = [
-            ContextRecall(llm=self.ragas_llm),
-            Faithfulness(llm=self.ragas_llm),
-            ans_rel,
+#            ContextRecall(llm=self.ragas_llm),
+ #           Faithfulness(llm=self.ragas_llm),
+  #          ans_rel,
             AnswerCorrectness(llm=self.ragas_llm, embeddings=self.ragas_embeddings)
         ]
         
