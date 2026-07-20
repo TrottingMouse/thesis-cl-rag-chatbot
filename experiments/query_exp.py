@@ -114,11 +114,14 @@ def run_pipeline(
     """
     logger.info("=== Run: %s ===", run_name)
 
+    base_cfg = load_yaml_config("config/config.yaml")
+    online_pipeline_cfg_file: dict = base_cfg["online_pipeline"]
+
     online_pipeline_cfg = {
         "query_processor": query_processor_name,
-        "retriever":       RETRIEVER_NAME,
-        "reranker":        RERANKER_NAME,
-        "generator":       GENERATOR_NAME,
+        "retriever":       online_pipeline_cfg_file["retriever"],
+        "reranker":        online_pipeline_cfg_file["reranker"],
+        "generator":       online_pipeline_cfg_file["generator"],
     }
 
     online_pipeline = build_online_pipeline(
