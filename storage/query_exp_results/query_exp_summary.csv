@@ -1,0 +1,7 @@
+run_name,preprocessing,query_processor,chunk_size,overlap,top_k,top_n,reranking_threshold,context_recall,faithfulness,answer_relevancy,answer_correctness
+gemini__no_processing,gemini,NoProcessingProcessor,1,0,9,3,0.1,0.7444444444444444,0.7333333333333333,0.7434887860192058,0.49185060390922525
+gemini__hyde,gemini,HyDEQueryProcessor,1,0,9,3,0.1,0.7333333333333333,0.5444444444444444,0.617693271073716,0.4947032241525078
+gemini__cot,gemini,CoTQueryProcessor,1,0,9,3,0.1,0.7444444444444444,0.6407407407407408,0.7119858499478707,0.5601351935338136
+gemini_direct_llm__no_processing,gemini_direct_llm,NoProcessingProcessor,1,0,9,3,0.1,0.8333333333333334,0.6933333333333334,0.7162213507801596,0.5679011542979377
+gemini_direct_llm__hyde,gemini_direct_llm,HyDEQueryProcessor,1,0,9,3,0.1,0.8333333333333334,0.6366666666666667,0.8121218786681919,0.6606974601314675
+gemini_direct_llm__cot,gemini_direct_llm,CoTQueryProcessor,1,0,9,3,0.1,0.8333333333333334,0.6911111111111111,0.7828694609740784,0.6237407638134418
