@@ -118,3 +118,11 @@ storage/processed/
 storage/index/
 storage/models/
 .vscode/
+thesis-text/main.aux
+thesis-text/main.bcf
+thesis-text/main.blg
+thesis-text/main.bbl
+thesis-text/main.fdb_latexmk
+thesis-text/main.fls
+thesis-text/main.run.xml
+thesis-text/main.synctex.gz
