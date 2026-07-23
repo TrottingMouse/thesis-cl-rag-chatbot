@@ -1,3 +1,4 @@
+längere Fließtextchunks für SplitParagraphChunker?
 Also the n and k for paragraph chunking should follow a different logic than for the rest: top_n should be 2 for 1-paragraph-long chunks and 1 for everything else
 Durchläufe mit allen prepro/chunk/querypre
 4. gridsearch
@@ -5,9 +6,6 @@ Ergebnisgrafiken
 
 wenn am Ende noch Zeit:
 catch OOM für main/factory besser einbinden
-converter von pdf für PaperLLMProcessor verbessern/cleaner einbauen (siehe Lumberchunker chat auf gemini.google)
-bm25/hybrid retrieval
-anderer llm-based
 prompt templates: Evaluating Prompt Engineering Techniques for RAG in Small Language Models: A Multi-Hop QA Approach
 
 
