@@ -187,8 +187,8 @@ class CoTQueryProcessor(BaseQueryProcessor):
             {
                 "role": "user",
                 "content": (
-                    f"Answer the following query:\n{query}\n"
-                    "Give the rationale before answering."
+                    f"Beantworte die folgende Frage:\n{query}\n"
+                    "Erkläre deine Gedankengänge, bevor du antwortest."
                 ),
             }
         ]
