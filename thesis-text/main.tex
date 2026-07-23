@@ -156,5 +156,19 @@ LumberChunker:\\
 \end{lstlisting}
 \subsection{Query Expansion}
 \label{sec:query_expansion_prompts}
+HyDE:\\
+\begin{lstlisting}[breaklines=true, basicstyle=\ttfamily]
+    Du bist ein hilfreicher Assistent. 
+    Schreibe einen kurzen, sachlichen Textabschnitt (2-4 Sätze), 
+    der die folgende Frage beantwortet. 
+    Antworte ausschließlich mit dem Textabschnitt - ohne Einleitung, 
+    Überschrift oder sonstige Erklärungen.
+\end{lstlisting}
+Query2Doc:\\
+\begin{lstlisting}[breaklines=true, basicstyle=\ttfamily]
+    Beantworte die folgende Anfrage:
+    {query}
+    Gib die Begründung an, bevor du antwortest.
+\end{lstlisting}
 This is prompt.
 \end{document}
