@@ -6,7 +6,19 @@
 % --- Packages for Tables and Figures ---
 \usepackage{graphicx} % Required for \resizebox
 \usepackage{booktabs} % Required for professional table lines (\toprule, etc.)
-
+\usepackage{listings}
+\lstset{
+  inputencoding=utf8,
+  extendedchars=true,
+  literate=
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+    {ü}{{\"u}}1
+    {Ä}{{\"A}}1
+    {Ö}{{\"O}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+}
 \usepackage[
     backend=biber,
     style=authoryear,      % Fixed: Changed from 'unified' to standard 'authoryear' to prevent engine crash
@@ -45,7 +57,7 @@ Thus, there are several goals for this thesis. Firstly, a RAG pipeline is built.
 The RAG-chatbot is based on three administrative documents from the department of Computational Linguistics at the University of Düsseldorf: Prüfungsordnung (PO), Modulhandbuch (MH) and fachspezifische Prüfungsordnung (fPO). PO is relatively easy to handle, as it contains all the general information about studying and exams and is structured in paragraphs. MH has to be preprocessed, as all the modules for Computational Linguistics are shown in table-like structures with two columns. For fPO, preprocessing is absolutely crucial as there is a table for every semester containing subjects and their credit points, time required, exams and administrative numbers.
 \subsection{RAG pipeline}
 \subsubsection{Document preprocessing}
-As two of the documents contain tables, a direct conversion to raw, unformatted text is not sensible. \textcite{min2024exploring} identified four methods to handle tables for RAG. First, the table can be converted to Markdown. Second, it can be converted to simple sentences using automatic templates. Third, traditional (non-generative) language models can be finetuned for this task. Fourth, LLMs can be used to convert the tables to linearized text. In a comparison of the four strategies, LLM-based conversion performed best, followed by Markdown, which still gave good generation results. Thus, for the RAG pipeline, both Markdown and LLM-based conversion are used. For conversion to Markdown, Docling \parencite{Docling} and conversion by an LLM are tested. For conversion to text by an LLM, the technique from Min et al. and a self-written prompt are compared. In the paper, the table is first converted into a nested bracket structure and then converted to text by the LLM. The self-written prompt (see appendix~\ref{sec:prompts}) takes the documents in Markdown and converts them directly to text.\footnote{Parts of this section have been taken from the previous literature review}
+As two of the documents contain tables, a direct conversion to raw, unformatted text is not sensible. \textcite{min2024exploring} identified four methods to handle tables for RAG. First, the table can be converted to Markdown. Second, it can be converted to simple sentences using automatic templates. Third, traditional (non-generative) language models can be finetuned for this task. Fourth, LLMs can be used to convert the tables to linearized text. In a comparison of the four strategies, LLM-based conversion performed best, followed by Markdown, which still gave good generation results. Thus, for the RAG pipeline, both Markdown and LLM-based conversion are used. For conversion to Markdown, Docling \parencite{Docling} and conversion by an LLM are tested. For conversion to text by an LLM, the technique from Min et al. and a self-written prompt are compared. In the paper, the table is first converted into a nested bracket structure and then converted to text by the LLM. The conversion prompt from the paper is translated into German.The self-written prompt (see appendix~\ref{sec:preprocessing_prompts}) takes the documents in Markdown and converts them directly to text.\footnote{Parts of this section have been taken from the previous literature review}
 \subsubsection{Chunking}
 With early transformer models and the first RAG systems, chunking was only done in a fixed size of tokens, words or characters \parencite{dai2019transformer, lewis2020retrieval}. For this thesis, Fixed Character Chunking was implemented as a baseline chunker. With Dynamic Token Chunking and Fixed Paragraph Chunking, two other simple deterministic Chunkers were implemented. Dynamic Token Chunking sets a maximum number of tokens and cuts off at the last sentence ending before the limit. Fixed Character Chunking packs a fixed number of paragraphs into one chunk. Fixed Character Chunking and Fixed Paragraph Chunking are used in combination with both preprocessing techniques, while Dynamic Token Chunking is only used with linearized text, as it needs sentences for splitting and does not work with Markdown tables.\\
 A big problem of chunking in general, and especially fixed-size chunking, is the splitting of contexts (context problem). A word or a sentence in one chunk can reference parts of the previous chunk or even a more distant one. This information gets lost in the chunking process. The first solution to this problem, which was derived from the training of BERT \parencite{devlin2019bert}, was overlapping chunks. Overlap is a certain number of tokens or characters that two adjacent chunks share, giving the beginning and the end of a chunk more context.\\
@@ -55,9 +67,15 @@ The first one, Whole Table Paragraph Chunker, splits the structured Markdown doc
 The second one, Split Table Chunker, splits the tables and modules into smaller parts [INCLUDE GRAPHIC??] to make retrieval more precise and reduce the context for the LLM. Because context gets lost here, the headings are prepended and the abbreviations are replaced by the full words.\\
 With transformer-based LLMs getting more reliable, the models were used for more mechanical tasks like chunking. LumberChunker successfully implemented this approach. The document is split into paragraphs. Iteratively, all paragraphs up to a certain token length are fed to an LLM to decide where the content changes, which is where the current chunk is cut. The resulting chunks align closely with manually created chunks and thus perform quite well. For in-document retrieval, LumberChunker performed particularly well in a comparative study \parencite{zhou2026beyond}. Thus, LumberChunker was selected as one of the chunkers for the chunking experiments for linearized text.
 \subsubsection{Indexing and Retrieval}
-After chunking, the chunks are embedded using a sentence transformer model. The model used is jinaai/jina-embeddings-v5-nano, a cutting-edge embedding model with only 239M parameters \parencite{akram2026jina}. A particularly small model was chosen in order to keep resource usage limited, also for indexing and retrieval. FAISS \parencite{douze2024faiss} was used for vector storage.\\
+After chunking, the chunks are embedded using a sentence transformer model. The model used is jinaai/jina-embeddings-v5-nano, a cutting-edge embedding model with only 239M parameters \parencite{akram2026jina}. A particularly small model was chosen in order to keep resource usage limited, also for indexing and retrieval. FAISS was used for vector storage \parencite{douze2024faiss}.\\
 \subsubsection{Query expansion}
-
+Retrievers suffer from an elementary flaw: the query is structurally very different to the documents. For many models, this is solved during training, so a query is embedded differently than a document \parencite{akram2026jina}. This still does not completely solve the discrepancy. Query expansion techniques aim to bridge the structural gap by rewriting the query and retrieving against the expanded queries. Two of those techniques are tested and compared to the baseline with no query expansion. The SLM used for generating the RAG answer is also used for query expansion. The prompts for the two techniques are listed in appendix~\ref{sec:query_expansion_prompts}.\\
+HyDE (Hypothetical Document Embeddings) is one of the first and most used query expansion techniques \parencite{gao2023precise}. It uses an LLM to generate a hypothetical answer to the query without using any documents. Afterwards, it retrieves against this generated answer.\\
+\textcite{jagerman2023query} compared different query expansion techniques as zero-shot prompts (without examples in the prompt) and few-shot prompts (with some examples in the prompt). The main metric used was recall@1K, which is the proportion of all actual relevant items that the system successfully returns in its top 1,000 retrieved results. The prompt with the highest recall was Chain-of-Thought, a prompt that explicitly asks the LLM to give the rationale before answering. This is the second prompt tested for query expansion.
+\subsubsection{Reranking}
+Reranking improves retrieval by retrieving $k$ documents, reranking the retrieved results and only returning the top-$n$ documents \parencite{nogueira2019passage}. This means that $k > n$. The reranker is more computationally expensive than the retriever, as it uses cross-encoding instead of a simple vector similarity computation. Cross-encoding means processing the query and a retrieved document jointly through a transformer model. A classification token is returned to indicate the similarity between the query and the document. The reranker used here is jinaai/jina-reranker-v3.
+\subsubsection{Generation}
+Due to practical requirements for later deployment, a very small language model was chosen for generation. The model is Qwen/Qwen3.5-2B. Some experiments were done with Qwen/Qwen3.5-0.8B, but the output in German was too unreliable.
 \subsection{Experiments}
 \subsubsection{Document preprocessing}
 \subsubsection{Query expansion}
@@ -96,6 +114,47 @@ For chatbot deployment, the repository can be made more performant using lazy im
 
 \appendix
 \section{Prompts}
-\label{sec:prompts}
+\subsection{Preprocessing}
+\label{sec:preprocessing_prompts}
+GeminiMarkdownProcessor:\\
+\begin{lstlisting}[breaklines=true, basicstyle=\ttfamily]
+Convert this document to markdown. Pay attention to table structure and the separation of tables and modules.
+\end{lstlisting}
+DirectLLMProcessor:\\
+\begin{lstlisting}[breaklines=true, basicstyle=\ttfamily]
+Wandle das folgende Markdown-Dokument in klaren, informationsdichten Fließtext um, der für eine semantische Suchmaschine (RAG-Pipeline) optimiert ist.
+
+Befolge dabei strikt diese Regeln:
+1. Informationserhalt: Übernimm ausnahmslos jede Information, jede Zahl und jedes Detail.
+2. Hohe Entitätsdichte (WICHTIG): Vermeide Pronomen (er, sie, es, diese) über Absatzgrenzen hinweg. Wiederhole stattdessen immer wieder die konkreten Eigennamen, Produktnamen oder Fachbegriffe, damit jeder Absatz auch isoliert verständlich bleibt.
+3. Tabellen & Listen: Wandle Tabellen und Aufzählungen in zusammenhängende Textabsätze um. Formuliere die Beziehungen zwischen Spalten/Zeilen in ganzen Sätzen aus.
+4. Überschriften als Kontext: Nutze Überschriften, um den darauffolgenden Absatz mit einem klaren Kontext-Satz zu beginnen (z. B. statt nur "Spezifikationen:" -> "Die technischen Spezifikationen des Geräts X umfassen...").
+5. Formatierung: Entferne alle Markdown-Zeichen (*, #, -, |). Behalte klare Absatzumbrüche bei, um logische Trennungen beizubehalten.
+
+Input Text:
+---
+{text}
+---
+\end{lstlisting}
+\subsection{Chunking}
+\label{sec_chunking_promts}
+LumberChunker:\\
+\begin{lstlisting}[breaklines=true, basicstyle=\ttfamily]
+    Du wirst als Eingabe ein deutsches Dokument mit Paragraphen erhalten, die durch 'ID XXXX: <text>' identifiziert werden.
+
+    Aufgabe: Finde den ersten Paragraphen (nicht der erste), bei dem sich der Inhalt im Vergleich zu den vorherigen Paragraphen deutlich ändert.
+
+    Ausgabe: Gib die ID des Paragraphen mit dem Inhaltswechsel im Format zurück: 'Answer: ID XXXX'.
+
+    WICHTIGE REGELN:
+    1. Erkläre NICHT deine Gedankengänge.
+    2. Gib NUR die ID des Paragraphen mit dem Inhaltswechsel im Format zurück: 'Answer: ID XXXX'.
+    3. Vermeide sehr lange Gruppen von Paragraphen. Strebe ein gutes Gleichgewicht zwischen der Identifizierung von Inhaltswechseln und der Beibehaltung handhabbarer Gruppen an.
+
+    Dokument:
+    {window_text}
+\end{lstlisting}
+\subsection{Query Expansion}
+\label{sec:query_expansion_prompts}
 This is prompt.
 \end{document}
