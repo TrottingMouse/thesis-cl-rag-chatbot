@@ -24,19 +24,7 @@
         "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
     },
     {
-        "user_input": "Was muss ich tun, wenn ich am Tag einer Modulprüfung krank bin und ein Attest habe?",
-        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
-    },
-    {
         "user_input": "Welche Mindest-Systemanforderungen muss mein privater Laptop für den Python-Kurs erfüllen?",
-        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
-    },
-    {
-        "user_input": "Wer hat die Programmiersprache Python erfunden?",
-        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
-    },
-    {
-        "user_input": "Mit wie vielen Parametern wurde das Sprachmodell GPT-4 trainiert?",
         "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
     },
     {
@@ -44,15 +32,7 @@
         "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
     },
     {
-        "user_input": "Wie hoch ist das durchschnittliche Einstiegsgehalt von Computerlinguisten in Deutschland?",
-        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
-    },
-    {
         "user_input": "Welche Programmiersprache hat eine schnellere Ausführungszeit: Python oder C++?",
-        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
-    },
-    {
-        "user_input": "Was ist der genaue theoretische Unterschied zwischen Supervised Learning und Reinforcement Learning?",
         "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
     },
     {
@@ -69,10 +49,6 @@
     },
     {
         "user_input": "Wer hat die Fußball-Europameisterschaft der Herren im Jahr 2024 gewonnen?",
-        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
-    },
-    {
-        "user_input": "Bei welcher Temperatur und wie lange muss ein klassischer Marmorkuchen im Ofen backen?",
         "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen."
     },
     {
