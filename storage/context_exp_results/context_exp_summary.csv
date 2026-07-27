@@ -1,0 +1,13 @@
+run_name,preprocessing,chunker,num_chunks,avg_chunk_tokens,top_k,top_n,reranking_threshold,chunk_size,overlap,answer_correctness
+markdown__paragraph__thr00,markdown,paragraph,261,110.9,54,18,0.0,1,0,0.6209693642969064
+markdown__paragraph__thr005,markdown,paragraph,261,110.9,54,18,0.05,1,0,0.6596372549034548
+markdown__paragraph__thr01,markdown,paragraph,261,110.9,54,18,0.1,1,0,0.6302016459184424
+markdown__split_table__thr00,markdown,split_table,869,40.4,147,49,0.0,,,0.6180522484671891
+markdown__split_table__thr005,markdown,split_table,869,40.4,147,49,0.05,,,0.6002510058349887
+markdown__split_table__thr01,markdown,split_table,869,40.4,147,49,0.1,,,0.5675068519466089
+linearized__paragraph__thr00,linearized,paragraph,68,375.6,15,5,0.0,1,0,0.6184173162971568
+linearized__paragraph__thr005,linearized,paragraph,68,375.6,15,5,0.05,1,0,0.6069906937523564
+linearized__paragraph__thr01,linearized,paragraph,68,375.6,15,5,0.1,1,0,0.5760421599589247
+linearized__split_table__thr00,linearized,split_table,864,29.6,201,67,0.0,,,0.6350669168147878
+linearized__split_table__thr005,linearized,split_table,864,29.6,201,67,0.05,,,0.6619439051177868
+linearized__split_table__thr01,linearized,split_table,864,29.6,201,67,0.1,,,0.623030544205663
