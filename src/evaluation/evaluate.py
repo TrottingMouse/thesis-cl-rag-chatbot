@@ -61,6 +61,31 @@ class Evaluator:
 
         print(result)
         return result.to_pandas()
+
+    def evaluate_minimal(self):
+        """Lightweight evaluation: only AnswerCorrectness.
+
+        Use this in experiment scripts where running the full metric suite
+        would be prohibitively slow.  Returns the same DataFrame structure
+        as :meth:`evaluate` so the two methods are interchangeable.
+        """
+        eval_dataset = EvaluationDataset.from_list(self.data)
+
+        my_run_config = RunConfig(max_workers=2, timeout=1200, max_retries=10)
+
+        metrics = [
+            AnswerCorrectness(llm=self.ragas_llm, embeddings=self.ragas_embeddings)
+        ]
+
+        result = evaluate(
+            dataset=eval_dataset,
+            metrics=metrics,
+            raise_exceptions=False,
+            run_config=my_run_config,
+        )
+
+        print(result)
+        return result.to_pandas()
     
     def evaluate_rejection(self):
         eval_dataset = EvaluationDataset.from_list(self.data)
