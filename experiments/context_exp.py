@@ -70,7 +70,7 @@ load_dotenv()
 # Fixed experiment parameters
 # ---------------------------------------------------------------------------
 
-TOKEN_LIMIT = 2000          # target context-window budget in tokens
+TOKEN_LIMIT = 1500          # target context-window budget in tokens
 QA_EVAL_FILE = "storage/evaluation/qa_pairs_grid.json"
 RESULTS_DIR  = Path("storage/context_exp_results")
 INDEX_BASE   = Path("storage/context_exp_index")
