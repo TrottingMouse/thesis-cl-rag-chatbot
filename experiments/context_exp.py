@@ -81,7 +81,7 @@ PARA_OVERLAP    = 0
 
 # Similarity thresholds tested for Strategy B.
 # 0.0 is included as a baseline (equivalent to Strategy A with no filtering).
-THRESHOLDS = [0.0, 0.05, 0.1]
+THRESHOLDS = [0.0, 0.025, 0.05, 0.075, 0.1, 0.125]
 
 # Preprocessing configurations:
 #   "markdown"    → GeminiMarkdownProcessor only
