@@ -2,27 +2,22 @@
     {
         "user_input": "Welche Kurse sollte ich im ersten Semester belegen?",
         "reference": "Laut dem exemplarischen Studienverlaufsplan solltest du im ersten Semester folgende Kurse belegen: Mathematische Grundlagen, Einführung in die computationelle Logik, Einführung in die Computerlinguistik, Einführung in die Programmierung mit Python, Morphologie und Syntax.",
-        "response": "Im ersten Semester sollten folgende Kurse belegt werden:\n\n*   Mathematische und logische Grundlagen (Seminar) mit der Nummer 2101\n*   Mathematische Grundlagen (Seminar) mit der Nummer 2102\n*   Einführung in die Computerlinguistik (Seminar) mit der Nummer 2201\n*   Einführung in die Computerlinguistik (Übung) mit der Nummer 2202\n*   Grammatikformalismen (Seminar) mit der Nummer 2203\n*   Grammatikformalismen (Übung) mit der Nummer 2204\n*   Einführung in die Programmierung mit Python (Seminar) mit der Nummer 2301\n*   Einführung in die Programmierung mit Python (Übung) mit der Nummer 2302\n*   Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar) mit der Nummer 2303\n*   Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Übung) mit der Nummer 2304",
+        "response": "Im ersten Semester sollten folgende Kurse belegt werden:\n\n*   Mathematische und logische Grundlagen (Seminar) mit der Nummer 2102\n*   Mathematische und logische Grundlagen (Seminar) mit der Nummer 2101\n*   Grundlagen der Computerlinguistik und formale Grammatikbeschreibung (Seminar) mit der Nummer 2201\n*   Grundlagen der Computerlinguistik und formale Grammatikbeschreibung (Übung) mit der Nummer 2202\n*   Python-Programmierung (Seminar) mit der Nummer 2301\n*   Python-Programmierung (Übung) mit der Nummer 2302\n*   Einführung in die computationelle Logik (Seminar & Übung) mit der Nummer 2101\n*   Einführung in die computationelle Logik (Übung) mit der Nummer 2102\n*   Einführung in die Computerlinguistik (Seminar) mit der Nummer 2201\n*   Einführung in die Computerlinguistik (Übung) mit der Nummer 2202\n*   Grammatikformalismen (Seminar) mit der Nummer 22",
         "retrieved_contexts": [
             "Der Studienplan sieht für das erste Jahr zudem einen Einstieg in die computerlinguistische Programmierung mit Python vor, welche neben Grundlagen auch aktuelle Methoden der Sprachtechnologie lehrt.",
-            "2101), Mathematische Grundlagen (Seminar, 4 LP, 4 SWS, Pnr.",
             "Es beinhaltet die Lehrveranstaltungen Einführung in die computationelle Logik (Seminar & Übung) mit der Nummer 2101 und Mathematische Grundlagen (Seminar) mit der Nummer 2102.",
-            "Teilnahmevoraussetzungen für das Vertiefungsmodul - Computerlinguistik 1 sind formal das Basismodul - Mathematische und logische Grundlagen, das Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung, sowie das Aufbaumodul - Maschinelles Lernen.",
             "Fachsemester oder höher, und inhaltlich das Basismodul - Mathematische und logische Grundlagen, das Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung und das Basismodul - Python-Programmierung.",
             "Die Lehrveranstaltungen für dieses Basismodul sind Einführung in die Computerlinguistik (Seminar) mit der Nummer 2201, Einführung in die Computerlinguistik (Übung) mit der Nummer 2202, Grammatikformalismen (Seminar) mit der Nummer 2203 und Grammatikformalismen (Übung) mit der Nummer 2204.",
             "Phase 1 des Studiums der Computerlinguistik konzentriert sich auf den Erwerb von Basiswissen.",
-            "Als Kern- oder Ergänzungsfach können Anglistik und Amerikanistik, Germanistik.",
             "Im Aufbaubereich des Bachelor Computerlinguistik sind folgende Module vorgesehen: Maschinelles Lernen (8 SWS, 1 MP, 12 LP); Mathematische Linguistik (4 SWS, 6 LP); Parsing (4 SWS, 6 LP); Logische Programmierung (4 SWS, 6 LP); und Objektorientierte Programmierung (8 SWS, 1 MP, 12 LP).",
             "Die Lehrveranstaltungen für dieses Aufbaumodul sind Programmierung (Vorlesung) mit der Nummer 4501, Übung zur Vorlesung (Übung) mit der Nummer 4502 und Praktische Übung zur Vorlesung (Praktische Übung) mit der Nummer 4503.",
-            "Das Vertiefungsmodul - Computerlinguistik 1 hat 2 SL, 12 LP und 8 SWS, mit den Veranstaltungen Seminar nach Wahl im Bereich Computerlinguistik (6 LP, 4 SWS, Pnr.",
             "Die Lehrveranstaltungen dieses Basismoduls sind Einführung in die Programmierung mit Python (Seminar) mit der Nummer 2301, Einführung in die Programmierung mit Python (Übung) mit der Nummer 2302, Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar) mit der Nummer 2303 und Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Übung) mit der Nummer 2304.",
             "Die Art und Inhalte der Module und Prüfungen im Bachelor Computerlinguistik umfassen folgende Basismodule: Mathematische und logische Grundlagen mit 8 SWS, 1 MP und 12 LP; Grundlagen der Computerlinguistik und formale Grammatikbeschreibung mit 8 SWS, 1 MP und 12 LP; und Python-Programmierung mit 8 SWS, 1 MP und 12 LP.",
-            "Das Modul Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung (Modul-Nummer: 2200) erstreckt sich über 2 Semester, hat einen Umfang von 12 ECTS-Leistungspunkten und einen Workload von 360 Stunden.",
             "Die ersten beiden Semester widmen sich dem Erwerb von Basiswissen für die Computerlinguistik.",
-            "Das Modul Basiswissen Linguistik - Semantik und Pragmatik (Modul-Nummer: 1400) hat einen Umfang von 9 ECTS-Leistungspunkten und einen Workload von 270 Stunden.",
-            "Ebenfalls Teil des Curriculums sind Vertiefungsmodule: ein interdisziplinäres Vertiefungsmodul (8 SWS, 1 MP, 12 LP), Vertiefungsmodul Computerlinguistik 1 (8 SWS, 12 LP) und Vertiefungsmodul Computerlinguistik 2 (4 SWS, 1 MP, 9 LP).",
-            "Die Lehrveranstaltungen für Basiswissen Linguistik - Semantik und Pragmatik sind Semantik und Pragmatik (Vorlesung) mit der Nummer 1401 und Tutorium zu Semantik und Pragmatik (Tutorium) mit der Nummer 1402.",
+            "Das Modul Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung (Modul-Nummer: 2200) erstreckt sich über 2 Semester, hat einen Umfang von 12 ECTS-Leistungspunkten und einen Workload von 360 Stunden.",
             "Im Sommersemester werden objektorientierte und funktionale Programmierung mit Python, der Einsatz von Programm-Bibliotheken in den Bereichen Data Science und NLP (Natural Language Processing) sowie Grundzüge der Software-Entwicklung behandelt.",
+            "Die Lehrveranstaltungen für Basiswissen Linguistik - Semantik und Pragmatik sind Semantik und Pragmatik (Vorlesung) mit der Nummer 1401 und Tutorium zu Semantik und Pragmatik (Tutorium) mit der Nummer 1402.",
+            "Ebenfalls Teil des Curriculums sind Vertiefungsmodule: ein interdisziplinäres Vertiefungsmodul (8 SWS, 1 MP, 12 LP), Vertiefungsmodul Computerlinguistik 1 (8 SWS, 12 LP) und Vertiefungsmodul Computerlinguistik 2 (4 SWS, 1 MP, 9 LP).",
             "Das empfohlene Studiensemester für die erste Hälfte (a, b) ist das 1.",
             "Zu den integrierten Studiengängen gehören Computerlinguistik, Linguistik (integrativ), Philosophie (integrativ) und Sozialwissenschaften - Medien, Politik, Gesellschaft."
         ]
@@ -42,10 +37,9 @@
             "Dieses Basiswissensmodul wird jedes Sommersemester angeboten.",
             "Semester.",
             "Fachsemester (Sommersemester), mit einer Prüfung im 6.",
-            "Der Studienplan sieht für das erste Jahr zudem einen Einstieg in die computerlinguistische Programmierung mit Python vor, welche neben Grundlagen auch aktuelle Methoden der Sprachtechnologie lehrt.",
-            "In den beiden computerlinguistischen Vertiefungsmodulen werden regelmäßig unterschiedliche thematische Seminare angeboten, aus denen die Studierenden frei wählen können.",
+            "Fachsemester (Sommersemester).",
             "Dieses Vertiefungsmodul wird jedes Sommersemester angeboten.",
-            "Das empfohlene Studiensemester für dieses Modul ist das 6."
+            "In den beiden computerlinguistischen Vertiefungsmodulen werden regelmäßig unterschiedliche thematische Seminare angeboten, aus denen die Studierenden frei wählen können."
         ]
     },
     {
@@ -55,20 +49,18 @@
         "retrieved_contexts": [
             "Für die Zulassung zum Studium sind Kenntnisse des Englischen auf dem Niveau B1 erforderlich, was einem erfolgreichen vierjährigen Schulunterricht an einer weiterführenden Schule entspricht.",
             "Für die Teilnahme am Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung sind keine formalen oder inhaltlichen Teilnahmevoraussetzungen erforderlich.",
-            "Absolventen des Studiengangs Computerlinguistik sind somit optimal auf berufliche Tätigkeiten in Bereichen wie elektronische Informationsverarbeitung, Sprachressourcenmanagement, maschinelle Sprachverarbeitung und Sprachtechnologie vorbereitet.",
             "Sie erlangen das formale Rüstzeug, um die wichtigsten Methoden der formalen Linguistik und Computerlinguistik zu verstehen.",
-            "Es wird keine Programmiererfahrung vorausgesetzt.",
+            "Absolventen des Studiengangs Computerlinguistik sind somit optimal auf berufliche Tätigkeiten in Bereichen wie elektronische Informationsverarbeitung, Sprachressourcenmanagement, maschinelle Sprachverarbeitung und Sprachtechnologie vorbereitet.",
             "Zusätzlich erwerben die Studierenden in den Aufbau- und Vertiefungsmodulen die Fähigkeit, relevante Informationen im Bereich der Computerlinguistik zu sammeln, zu bewerten und zu interpretieren.",
             "Die Bachelorarbeit kann wahlweise in deutscher oder englischer Sprache abgefasst werden, in Germanistik muss sie in deutscher, in Anglistik und Amerikanistik in englischer Sprache erfolgen.",
             "Als Kern- oder Ergänzungsfach können Anglistik und Amerikanistik, Germanistik.",
+            "Sie erlangen die Fähigkeit, Sprachen, Grammatiken und Automaten aufeinander zu beziehen und passende Entsprechungen zu konstruieren.",
             "Die Absolventen des Studiengangs Computerlinguistik sind befähigt, sich eigenständig in neue Themengebiete einzuarbeiten und neue Fähigkeiten zu erlernen.",
             "Es wird empfohlen, sich bei der Studienberatung des Bachelor Computerlinguistik nach der Reihenfolge der Pflicht- und Wahlpflichtmodule zu erkundigen.",
-            "Sie erlangen die Fähigkeit, Sprachen, Grammatiken und Automaten aufeinander zu beziehen und passende Entsprechungen zu konstruieren.",
             "Dies baut auf dem Wissen über Fragestellungen und Repräsentationen der Computerlinguistik sowie auf soliden Kenntnissen der Programmiersprache Python auf.",
             "Parallel dazu gewinnen die Studierenden Einblick in linguistische Ressourcen.",
             "Der/die Praktikumsbeauftragte unterstützt bei der Vermittlung von Praktikumsplätzen und bietet fachliche Praktikumsberatung und -begleitung für das Praktikum im Bachelor Computerlinguistik an.",
-            "Die angestrebten Lernergebnisse und Studieninhalte des Basismoduls - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung vermitteln Wissen über Ziele der Computerlinguistik sowie Vertrautheit mit den grundlegenden formalen und probabilistischen Methoden der Computerlinguistik.",
-            "Die Prüfungen werden in der Regel in deutscher Sprache abgenommen, in Absprache auch in einer anderen Sprache; die Prüfungssprache in Fremdsprachenphilologien ist im fächerspezifischen Anhang geregelt."
+            "Die angestrebten Lernergebnisse und Studieninhalte des Basismoduls - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung vermitteln Wissen über Ziele der Computerlinguistik sowie Vertrautheit mit den grundlegenden formalen und probabilistischen Methoden der Computerlinguistik."
         ]
     },
     {
@@ -78,15 +70,10 @@
         "retrieved_contexts": [
             "Für die Teilnahme am Basismodul - Python-Programmierung sind keine formalen oder inhaltlichen Teilnahmevoraussetzungen erforderlich.",
             "Es wird keine Programmiererfahrung vorausgesetzt.",
-            "Die Voraussetzungen für die Vergabe von ECTS-Leistungspunkten für das Aufbaumodul - Logische Programmierung sind erbrachte Studienleistungen (SL) in den Lehrveranstaltungen (a) und (b).",
-            "Die Belegung für das Basismodul - Python-Programmierung erfordert die Teilnahme am Seminar (a) mit Übung (b) sowie am Seminar (c) mit Übung (d).",
             "Die angestrebten Lernergebnisse und Studieninhalte des Basismoduls - Python-Programmierung befähigen die Studierenden, grundlegende Fähigkeiten in der Programmierung mit der Programmiersprache Python zu erwerben sowie Kenntnisse über fortgeschrittene Konzepte der Python-Programmierung (objektorientierte und funktionale Programmierung).",
+            "Die Belegung für das Basismodul - Python-Programmierung erfordert die Teilnahme am Seminar (a) mit Übung (b) sowie am Seminar (c) mit Übung (d).",
             "Es gibt keine Voraussetzungen für die Zulassung zur Prüfung.",
             "Programmierkenntnisse auf hohem Niveau sind ebenfalls Teil der Ausbildung.",
-            "Die Voraussetzungen für die Vergabe von ECTS-Leistungspunkten für das Basismodul - Mathematische und logische Grundlagen sind erbrachte Studienleistungen (SL) in den Lehrveranstaltungen (a) und (b) sowie eine bestandene Modulprüfung.",
-            "Es gibt keine Voraussetzungen für die Zulassung zur Modulprüfung.",
-            "Es gibt keine Voraussetzungen für die Zulassung zur Modulprüfung.",
-            "Es gibt keine Voraussetzungen für die Zulassung zur Modulprüfung.",
             "Die Inhalte dieses Aufbaumoduls vermitteln grundlegende Programmierkenntnisse in einer objektorientierten Programmiersprache.",
             "Es gibt keine Voraussetzungen für die Zulassung zur Modulprüfung.",
             "Es gibt keine Voraussetzungen für die Zulassung zur Modulprüfung.",
@@ -94,7 +81,6 @@
             "Es gibt keine Voraussetzungen für die Zulassung zur Modulprüfung.",
             "Es gibt keine Voraussetzungen für die Zulassung zur Modulprüfung.",
             "Es gibt keine Voraussetzungen für die Zulassung zur Modulprüfung.",
-            "In einem der Seminare des Vertiefungsmoduls 2 muss eine MP angelegt werden.",
             "Es gibt keine Voraussetzungen für die Zulassung zur Modulprüfung.",
             "Es gibt keine Voraussetzungen für die Zulassung zur Modulprüfung.",
             "Es gibt keine Voraussetzungen für die Zulassung zur Modulprüfung."
@@ -108,7 +94,6 @@
             "Es beinhaltet die Lehrveranstaltungen Einführung in die computationelle Logik (Seminar & Übung) mit der Nummer 2101 und Mathematische Grundlagen (Seminar) mit der Nummer 2102.",
             "Die Belegung für das Basismodul - Mathematische und logische Grundlagen erfordert die Teilnahme an Seminar und Übung (a) sowie am Seminar (b).",
             "4301) und Parsing (Übung, 3 LP, 2 SWS, Pnr.",
-            "2203), Grammatikformalismen (Übung, 2 LP, 2 SWS, Pnr.",
             "Die Belegung für dieses Basismodul erfordert die Teilnahme an Seminar mit Übung (a) und Seminar (b).",
             "4201) und Automatentheorie & Formale Sprachen (Übung, 3 LP, 2 SWS, Pnr.",
             "Darin enthalten sind Einführung in die computationelle Logik (Seminar mit Übung, 4 LP, 4 SWS, Pnr.",
@@ -116,16 +101,12 @@
             "4401) und Prolog (Übung, 3 LP, 2 SWS, Pnr.",
             "4502), Praktische Übung zur Vorlesung (2 LP, 2 SWS, Pnr.",
             "Die Belegung für dieses Aufbaumodul erfordert die Teilnahme an Seminar (a) und Übung (b).",
-            "Das Tutorium b) dient der Übung der vorgestellten Inhalte und bietet Unterstützung bei Hausaufgaben und Klausurvorbereitung.",
-            "Die Inhalte des Basismoduls - Mathematische und logische Grundlagen umfassen die Aufbereitung und Vertiefung mathematischer Schulkenntnisse, um formale Methoden der Mathematik wie Mengenlehre, Vektorrechnung oder Beweisführung anwenden zu können.",
-            "Die Belegung für dieses Aufbaumodul erfordert die Teilnahme an Seminar mit Übung (a) und Seminar (b).",
-            "Die Prüfungsform des Basismoduls - Mathematische und logische Grundlagen ist ein Portfolio (Pnr.",
-            "Insbesondere werden die Themen Beweisverfahren, Rekursion, Listenverarbeitung und kontextfreie Grammatiken behandelt. (b) beinhaltet Übungen zu (a).",
             "Für dieses Aufbaumodul gibt es keine Prüfungsformen.",
-            "Die Belegung für dieses Aufbaumodul erfordert die Teilnahme an Seminar (a) mit Übung (b).",
-            "Die Kontaktzeit für die Übung (b) beträgt 2 SWS/30 Stunden / 1 ECTS-Leistungspunkt.",
-            "Durch das wöchentliche Einreichen von Hausaufgaben mit Abgabeterminen lernen sie, ihre eigenständige Arbeit entsprechend zu strukturieren.",
-            "Die Belegung für dieses Aufbaumodul erfordert die Teilnahme an Seminar (a) und Übung (b)."
+            "Die Inhalte des Basismoduls - Mathematische und logische Grundlagen umfassen die Aufbereitung und Vertiefung mathematischer Schulkenntnisse, um formale Methoden der Mathematik wie Mengenlehre, Vektorrechnung oder Beweisführung anwenden zu können.",
+            "Die Prüfungsform des Basismoduls - Mathematische und logische Grundlagen ist ein Portfolio (Pnr.",
+            "Das Tutorium b) dient der Übung der vorgestellten Inhalte und bietet Unterstützung bei Hausaufgaben und Klausurvorbereitung.",
+            "Die Belegung für dieses Aufbaumodul erfordert die Teilnahme an Seminar mit Übung (a) und Seminar (b).",
+            "Insbesondere werden die Themen Beweisverfahren, Rekursion, Listenverarbeitung und kontextfreie Grammatiken behandelt. (b) beinhaltet Übungen zu (a)."
         ]
     },
     {
@@ -135,21 +116,20 @@
         "retrieved_contexts": [
             "Nach dem vierten oder fünften Semester des Bachelor Computerlinguistik ist ein mindestens 6-wöchiges Berufsfeldpraktikum oder eine Projektarbeit mit einschlägig computerlinguistischem Inhalt zu absolvieren.",
             "Semester.",
-            "Dieses Basiswissensmodul wird jedes Wintersemester angeboten.",
             "Das obligatorische Berufsfeldpraktikum, beschrieben in § 9, ist in einigen Studiengängen zu absolvieren und kann von vier Wochen bis zu drei Monaten dauern, auch in Abschnitten.",
             "Dieses Modul wird jedes Sommersemester angeboten.",
-            "Der Studiengang Computerlinguistik ist ein integrierter Studiengang, der ausschließlich im Wintersemester beginnt.",
-            "Dieses Vertiefungsmodul wird jedes Semester angeboten."
+            "Der Studiengang Computerlinguistik ist ein integrierter Studiengang, der ausschließlich im Wintersemester beginnt."
         ]
     },
     {
         "user_input": "Gibt es eine generelle Anwesenheitspflicht für Vorlesungen?",
         "reference": "Nein, bei Vorlesungen kann keine Anwesenheitspflicht festgelegt werden.",
-        "response": "Bei Vorlesungen ist keine Anwesenheitspflicht festlegbar.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
         "retrieved_contexts": [
             "Bei Vorlesungen ist keine Anwesenheitspflicht festlegbar.",
             "Eine Anwesenheitspflicht in Lehrveranstaltungen kann gemäß § 8 in allen Modulen oder Modulteilen vorgeschrieben werden, bei denen regelmäßige Anwesenheit und aktive Teilnahme für das Erreichen des Lernziels erforderlich sind.",
             "Für andere Lehrveranstaltungen gilt eine Anwesenheitspflicht nur, wenn sie im fächerspezifischen Anhang explizit festgelegt ist.",
+            "Im Rahmen dieses interdisziplinären Vertiefungsmoduls ist mindestens eine Veranstaltung aus der Informatik zu belegen.",
             "Die Belegung für das Basismodul - Mathematische und logische Grundlagen erfordert die Teilnahme an Seminar und Übung (a) sowie am Seminar (b)."
         ]
     },
@@ -168,22 +148,18 @@
     {
         "user_input": "Gibt es eine Klausur in Wahrscheinlichkeitstheorie?",
         "reference": "Nein, im \"Basismodul - Statistische Methoden in der Computerlinguistik\", zu dem die Wahrscheinlichkeitstheorie gehört, gibt es gar keine Modulprüfung und somit auch keine Klausur. Es müssen lediglich Studienleistungen erbracht werden.",
-        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Für dieses Modul gibt es keine Prüfungsformen.",
         "retrieved_contexts": [
             "Für dieses Vertiefungsmodul gibt es keine Prüfungsformen.",
             "Für dieses Modul gibt es keine Prüfungsformen.",
             "5110) oder Klausur (Pnr.",
             "4503) und Modulprüfung (Klausur, 4 LP, Pnr.",
             "Schriftliche Modulprüfungen, wie in § 14 beschrieben, können als Klausuren oder dokumentierte Einzelberichte ausgestaltet sein.",
-            "Für dieses Aufbaumodul gibt es keine Prüfungsformen.",
-            "Für dieses Aufbaumodul gibt es keine Prüfungsformen.",
-            "Für dieses Aufbaumodul gibt es keine Prüfungsformen.",
             "2304) und Modulprüfung (Klausur, 4 LP, Pnr.",
-            "Klausuren können Multiple-Choice-Aufgaben enthalten.",
             "2204) und Modulprüfung (Klausur, 4 LP, Pnr.",
             "Modulprüfungen erfolgen als Klausur (auch elektronisch), mündliche Prüfung, Studienarbeit, Hausarbeit, Portfolio oder Projektarbeit mit individuell zurechenbarer Prüfungsleistung.",
-            "Fachsemester (Sommersemester), mit einer Prüfung im 2.",
-            "Die Prüfungsformen für dieses Vertiefungsmodul sind Mündliche Prüfung (Pnr."
+            "Klausuren können Multiple-Choice-Aufgaben enthalten.",
+            "Fachsemester (Sommersemester), mit einer Prüfung im 2."
         ]
     },
     {
@@ -194,8 +170,6 @@
             "Die Dauer einer Klausurarbeit beträgt in der Regel 90 Minuten, kann aber je nach Workload des Moduls auf bis zu 180 Minuten verlängert oder auf mindestens 45 Minuten verkürzt werden.",
             "Eine Studienarbeit besteht aus einer mündlichen Präsentation und schriftlichen Ausarbeitung einer Thematik; alternativ kann eine Klausur von 45 Minuten Dauer an die Stelle der schriftlichen Ausarbeitung treten.",
             "Die Dauer eines schriftlichen Tests beträgt in der Regel 60 Minuten.",
-            "Verzögert sich die Bearbeitung durch nicht zu vertretende Umstände, kann eine Nachfrist von bis zu 4 Wochen eingeräumt werden.",
-            "1302) und Modulprüfung (Klausur, 3 LP, Pnr.",
             "Diese Prüfung umfasst eine Klausurarbeit von zwei Zeitstunden und eine mündliche Prüfung von 20 bis 30 Minuten Dauer, die fachliche und methodische Voraussetzungen nachweisen."
         ]
     },
@@ -206,17 +180,12 @@
         "retrieved_contexts": [
             "Eine nicht bestandene Modulprüfung oder eine mit weniger als \"ausreichend\" bewertete Prüfungsleistung als Teil einer Gruppenarbeit kann zweimal wiederholt werden.",
             "Die Wiederholungsprüfung soll innerhalb eines Jahres nach Abschluss der nicht bestandenen Prüfung abgeschlossen sein.",
-            "Eine nachträgliche Umbuchung ist nicht möglich, und die Verbindlichkeit gilt unabhängig vom Bestehen, Nichtbestehen oder der späteren Anrechnung, wobei Ausnahmen im fächerspezifischen Anhang getroffen werden können.",
-            "Das endgültige Nichtbestehen der Bachelorprüfung wird bescheinigt.",
-            "Bei zwei Mal \"nicht ausreichend\" (5,0) ist die Endnote \"nicht ausreichend\" (5,0).",
             "Das Thema der Bachelorarbeit kann bis vier Wochen nach Ausgabe zurückgegeben werden, dies ist einmalig möglich.",
             "Wiederwahl ist zulässig.",
             "Eine mit weniger als \"ausreichend\" bewertete Bachelorarbeit oder ein individueller Teil einer Bachelorarbeit kann einmal wiederholt werden.",
-            "4102) und Modulprüfung (4 LP, Pnr.",
-            "Für dieses Aufbaumodul gibt es keine Prüfungsformen.",
             "Eine bestandene Prüfung kann nicht wiederholt werden.",
-            "Die Bachelorprüfung ist endgültig nicht bestanden, wenn die Bachelorarbeit nicht bestanden und nicht wiederholbar ist, eine verpflichtende Modulprüfung nicht bestanden und nicht wiederholbar ist, oder eine Modulprüfung in einem Wahlpflichtbereich nicht bestanden, nicht wiederholbar ist und die notwendige Bestehensgrenze nicht erreicht werden kann.",
-            "Eine Besonderheit des Studiengangs ist, dass die zweite Wiederholung einer Modulprüfung als mündliche Prüfung erfolgen darf."
+            "Eine Besonderheit des Studiengangs ist, dass die zweite Wiederholung einer Modulprüfung als mündliche Prüfung erfolgen darf.",
+            "Die Bachelorprüfung ist endgültig nicht bestanden, wenn die Bachelorarbeit nicht bestanden und nicht wiederholbar ist, eine verpflichtende Modulprüfung nicht bestanden und nicht wiederholbar ist, oder eine Modulprüfung in einem Wahlpflichtbereich nicht bestanden, nicht wiederholbar ist und die notwendige Bestehensgrenze nicht erreicht werden kann."
         ]
     },
     {
@@ -229,40 +198,35 @@
             "Die Gesamtnote der Bachelorprüfung bei Kern- und Ergänzungsfachstudiengängen errechnet sich zu 20 Prozent aus der Note der Bachelorarbeit, zu 50 Prozent aus dem gewichteten arithmetischen Mittel aller Modulnoten des Kernfachs und zu 30 Prozent aus dem gewichteten arithmetischen Mittel aller Modulnoten des Ergänzungsfachs.",
             "Die Gesamtnote der Bachelorprüfung bei integrierten Studiengängen errechnet sich als gewichtetes arithmetisches Mittel aus den Modulnoten und der Bachelorarbeit, wobei die Bachelorarbeit nach Maßgabe des fächerspezifischen Anhangs dreifach oder vierfach gewichtet wird.",
             "Die Endnote errechnet sich als Durchschnitt der beiden besseren Noten, wenn sie mindestens \"ausreichend\" (4,0) sind.",
-            "Modulnoten können nach Maßgabe des fächerspezifischen Anhangs doppelt oder dreifach gewichtet werden.",
-            "Die Note ergibt sich aus dem arithmetischen Mittel der Einzelbewertungen, wobei alle Dezimalstellen außer der ersten ohne Rundung gestrichen werden.",
             "Die Endnote wird wie folgt lautet: bis 1,5: sehr gut; von 1,6 bis 2,5: gut; von 2,6 bis 3,5: befriedigend; von 3,6 bis 4,0: ausreichend.",
+            "Die Note ergibt sich aus dem arithmetischen Mittel der Einzelbewertungen, wobei alle Dezimalstellen außer der ersten ohne Rundung gestrichen werden.",
             "Die Note errechnet sich als arithmetisches Mittel, wobei jede Teilleistung mindestens als bestanden gewertet sein muss; alle Dezimalstellen außer der ersten werden ohne Rundung gestrichen.",
-            "Wenn eine Note \"nicht ausreichend\" (5,0) und die andere mindestens \"ausreichend\" (4,0) ist oder die Noten mehr als 2,0 auseinander liegen, wird eine dritte Gutachterin oder ein dritter Gutachter bestellt.",
-            "Durch Erniedrigen oder Erhöhen der einzelnen Noten um 0,3 können Zwischenwerte gebildet werden, wobei die Noten 0,7; 4,3; 4,7 und 5,3 ausgeschlossen sind."
+            "Wenn eine Note \"nicht ausreichend\" (5,0) und die andere mindestens \"ausreichend\" (4,0) ist oder die Noten mehr als 2,0 auseinander liegen, wird eine dritte Gutachterin oder ein dritter Gutachter bestellt."
         ]
     },
     {
         "user_input": "Was passiert, wenn ich in einer Präsenzprüfung generative Künstliche Intelligenz benutze?",
         "reference": "Der Einsatz generativer Künstlicher Intelligenz im Rahmen von Präsenzprüfungen ist unzulässig. Dies gilt als Täuschungsversuch.",
-        "response": "Wenn generative Künstliche Intelligenz in einer Präsenzprüfung genutzt wird, ist dies unzulässig.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
         "retrieved_contexts": [
             "Der Einsatz generativer Künstlicher Intelligenz im Rahmen von Präsenzprüfungen ist unzulässig.",
             "Sofern generative Künstliche Intelligenz genutzt wurde, ist dies in einem entsprechenden Absatz methodisch zu reflektieren und zu dokumentieren.",
-            "Wer ausgeschlossen wird, kann die Überprüfung der Entscheidung durch den Prüfungsausschuss verlangen.",
-            "Bei Vorlesungen ist keine Anwesenheitspflicht festlegbar."
+            "Wer ausgeschlossen wird, kann die Überprüfung der Entscheidung durch den Prüfungsausschuss verlangen."
         ]
     },
     {
         "user_input": "Muss ich Kurse aus der Linguistik für das interdisziplinäre Vertiefungsmodul belegen?",
         "reference": "Nein, Linguistik-Kurse sind keine Pflicht. Das Modul sieht vor, dass du zwei Vorlesungen oder Seminare aus der Linguistik oder der Informatik wählst, wobei lediglich der Informatik-Anteil von 4 SWS vorgeschrieben ist.",
-        "response": "Nein, du musst Kurse aus der Linguistik für das interdisziplinäre Vertiefungsmodul nicht belegen. Das Modul erfordert mindestens eine Veranstaltung aus der Informatik und kann Veranstaltungen aus Linguistik belegen, die nicht notwendigerweise dezidiert computerlinguistisch sind.",
+        "response": "Nein, Sie müssen Kurse aus der Linguistik für das interdisziplinäre Vertiefungsmodul nicht belegen.",
         "retrieved_contexts": [
             "Zusätzlich gibt es das interdisziplinäre Vertiefungsmodul, das den Studierenden ermöglicht, neben Veranstaltungen aus der Computerlinguistik auch Veranstaltungen aus Linguistik und Informatik zu belegen, die nicht notwendigerweise dezidiert computerlinguistisch sind.",
             "Über die Zulassung von nicht im Vorlesungsverzeichnis zugeordneten Veranstaltungen zu diesem Vertiefungsmodul entscheiden die Modulverantwortlichen.",
             "Formale Teilnahmevoraussetzungen für das Vertiefungsmodul - Interdisziplinär sind keine.",
             "Die Belegung für dieses Vertiefungsmodul erfolgt nach Vorgabe der gewählten Veranstaltungen.",
             "Im Rahmen dieses interdisziplinären Vertiefungsmoduls ist mindestens eine Veranstaltung aus der Informatik zu belegen.",
-            "Die Voraussetzungen für die Vergabe von ECTS-Leistungspunkten für das Vertiefungsmodul - Interdisziplinär sind eine bestandene Modulprüfung und die aktive und erfolgreiche Mitwirkung in den Seminaren und theoretischen und praktischen Übungen.",
             "Die Lehrveranstaltungen für dieses Vertiefungsmodul sind zwei Vorlesungen oder Seminare aus Linguistik oder Informatik, wobei Vorlesungen Linguistik (5101, 5105), Vorlesungen Informatik (5102, 5106), Seminare Linguistik (5103, 5107) und Seminare Informatik (5104, 5108) zur Auswahl stehen.",
-            "Für dieses Vertiefungsmodul gibt es keine Prüfungsformen.",
+            "Die Voraussetzungen für die Vergabe von ECTS-Leistungspunkten für das Vertiefungsmodul - Interdisziplinär sind eine bestandene Modulprüfung und die aktive und erfolgreiche Mitwirkung in den Seminaren und theoretischen und praktischen Übungen.",
             "Die Belegung für dieses Vertiefungsmodul erfordert die Teilnahme an Seminar (a) und Seminar (b).",
-            "Mindestens eine Modulabschlussprüfung muss in Form einer Hausarbeit oder Studienarbeit und mindestens eine in Form einer mündlichen Prüfung abgelegt werden.",
             "Die angestrebten Lernergebnisse und Studieninhalte dieses Vertiefungsmoduls umfassen vertiefte Kenntnisse in Spezialgebieten von Linguistik, Computerlinguistik und Informatik.",
             "Die ECTS-Leistungspunkte für die Modulprüfung dieses Vertiefungsmoduls richten sich ebenfalls nach den gewählten Veranstaltungen.",
             "Die Belegung für dieses Modul erfordert die Teilnahme am Seminar (a).",
@@ -273,25 +237,23 @@
             "Es gibt keine ECTS-Leistungspunkte für die Modulprüfung dieses Vertiefungsmoduls.",
             "Sie erlangen das formale Rüstzeug, um die wichtigsten Methoden der formalen Linguistik und Computerlinguistik zu verstehen.",
             "Die Belegung für dieses Modul erfordert die Teilnahme am Forschungskolloquium (a) oder am Seminar (b).",
-            "Es müssen Veranstaltungen im Umfang von mindestens 4 SWS in der Informatik belegt werden, wobei keine Doppelung von Inhalten der Module aus der Computerlinguistik entstehen darf.",
             "Die Belegung für dieses Basiswissensmodul erfordert die Teilnahme an Vorlesung (a) und Tutorium (b).",
+            "Es müssen Veranstaltungen im Umfang von mindestens 4 SWS in der Informatik belegt werden, wobei keine Doppelung von Inhalten der Module aus der Computerlinguistik entstehen darf.",
             "Die Inhalte dieses Vertiefungsmoduls umfassen Themen der Linguistik und Informatik.",
             "Es gibt keine Angabe zu den Voraussetzungen für Prüfungen im Bachelor Computerlinguistik.",
+            "Die Belegung für dieses Aufbaumodul erfordert die Teilnahme an Seminar mit Übung (a) und Seminar (b).",
             "Das Modul Vertiefungsmodul - Interdisziplinär (Modul-Nummer: 5100) erstreckt sich über 2 Semester, hat einen Umfang von 12 ECTS-Leistungspunkten und einen Workload von 360 Stunden."
         ]
     },
     {
         "user_input": "Wie lang ist die offizielle Bearbeitungszeit für die Bachelorarbeit?",
         "reference": "Die Bearbeitungszeit für die Bachelorarbeit beträgt maximal drei Monate.",
-        "response": "Die Bearbeitungszeit beträgt maximal drei Monate.",
+        "response": "Die offizielle Bearbeitungszeit beträgt maximal drei Monate.",
         "retrieved_contexts": [
-            "Prüfungsberechtigte können nach ihrem Ausscheiden aus der Heinrich-Heine-Universität noch innerhalb von zwei Jahren zu Prüferinnen und Prüfern bestellt werden; diese Frist kann verlängert werden.",
             "Die Bearbeitungszeit beträgt maximal drei Monate, eine Nachfrist von bis zu vier Wochen kann ausnahmsweise gewährt werden.",
-            "Das Bachelorzeugnis ist unverzüglich, möglichst innerhalb von vier Wochen, auszustellen und enthält die Noten der Prüfungen, das Thema und die Note der Bachelorarbeit sowie die Gesamtnote.",
             "Die Bewertung der Bachelorarbeit ist der Kandidatin oder dem Kandidaten nach spätestens acht Wochen mitzuteilen.",
-            "Die Bearbeitungszeit für Studienarbeiten endet zwei Monate nach Abschluss der mündlichen Leistung, spätestens zum Vorlesungsbeginn des darauffolgenden Semesters.",
-            "Das Thema der Bachelorarbeit kann bis vier Wochen nach Ausgabe zurückgegeben werden, dies ist einmalig möglich.",
-            "Form, Umfang, Dauer und Terminierung einer Modulabschlussprüfung entscheiden die Prüferin oder der Prüfer unter Berücksichtigung der Wünsche der Kandidatin oder des Kandidaten und der Vorgaben des Modulhandbuchs und der Prüfungsordnung."
+            "Das Bachelorzeugnis ist unverzüglich, möglichst innerhalb von vier Wochen, auszustellen und enthält die Noten der Prüfungen, das Thema und die Note der Bachelorarbeit sowie die Gesamtnote.",
+            "Die Bearbeitungszeit für Studienarbeiten endet zwei Monate nach Abschluss der mündlichen Leistung, spätestens zum Vorlesungsbeginn des darauffolgenden Semesters."
         ]
     }
 ]
