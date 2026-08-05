@@ -8,15 +8,30 @@ Implements the LumberChunker algorithm from the paper:
 The chunker splits a document into semantically coherent segments by
 iteratively asking a Gemini LLM to detect the first paragraph where the
 content clearly shifts compared to the preceding context.
+
+Caching
+-------
+LLM boundary-detection is expensive.  To avoid re-querying the API when the
+same document is chunked again (e.g. across experiment reruns), the chunker
+persists the computed boundary list to disk.  The cache is keyed on the
+document's ``doc_id`` and a SHA-256 hash of its text, so stale entries are
+automatically ignored when the preprocessed content changes.
+
+Cache files are stored as JSON under ``cache_dir`` (default:
+``storage/lumber_chunker_cache/``).  Pass ``cache_dir=None`` to disable
+caching entirely.
 """
 
 from __future__ import annotations
 
+import hashlib
+import json
 import logging
 import os
 import random
 import re
 import time
+from pathlib import Path
 
 from google import genai
 from google.genai import errors
@@ -38,6 +53,8 @@ _DEFAULT_MIN_TOKENS = 550
 
 _ANSWER_PATTERN = re.compile(r"Answer:\s*ID\s*(\d+)", re.IGNORECASE)
 
+_DEFAULT_CACHE_DIR = Path("storage/lumber_chunker_cache")
+
 
 # ---------------------------------------------------------------------------
 # Helper
@@ -47,6 +64,11 @@ _ANSWER_PATTERN = re.compile(r"Answer:\s*ID\s*(\d+)", re.IGNORECASE)
 def _approx_token_count(text: str) -> int:
     """Approximate token count: number of words * 1.2 (as in original paper)."""
     return round(1.2 * len(text.split()))
+
+
+def _text_hash(text: str) -> str:
+    """Return a short SHA-256 hex digest of *text* for cache invalidation."""
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()[:16]
 
 
 # ---------------------------------------------------------------------------
@@ -69,10 +91,18 @@ class LumberChunker(BaseChunker):
           the content clearly shifts.
        c. Parse the returned ID and use it as the start of the next window.
     4. Assemble the final chunks by joining paragraphs between boundary IDs.
+
+    Parameters
+    ----------
+    cache_dir:
+        Directory in which to store boundary-ID cache files.  One JSON file
+        is written per document, named ``<doc_id>_<text_hash>.json``.
+        Set to ``None`` to disable caching.
     """
 
-    def __init__(self) -> None:
+    def __init__(self, cache_dir: str | Path | None = _DEFAULT_CACHE_DIR) -> None:
         self.client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
+        self.cache_dir: Path | None = Path(cache_dir) if cache_dir is not None else None
 
     # ------------------------------------------------------------------
     # BaseChunker interface
@@ -114,11 +144,82 @@ class LumberChunker(BaseChunker):
         if n <= 5:
             return self._make_chunks(document, paragraphs, [n])
 
-        # 2. Run the sliding-window LLM loop
-        boundary_ids = self._find_boundaries(paragraphs)
+        # 2. Run the sliding-window LLM loop (with caching)
+        boundary_ids = self._find_boundaries_cached(document, paragraphs)
 
         # 3. Assemble chunks
         return self._make_chunks(document, paragraphs, boundary_ids)
+
+    # ------------------------------------------------------------------
+    # Cache helpers
+    # ------------------------------------------------------------------
+
+    def _cache_path(self, doc_id: str, text_hash: str) -> Path | None:
+        """Return the cache file path for this document, or ``None`` if disabled."""
+        if self.cache_dir is None:
+            return None
+        return self.cache_dir / f"{doc_id}__{text_hash}.json"
+
+    def _load_cache(self, cache_path: Path) -> list[int] | None:
+        """
+        Load cached boundary IDs from *cache_path*.
+
+        Returns ``None`` if the file does not exist or is unreadable.
+        """
+        try:
+            with open(cache_path, "r", encoding="utf-8") as fh:
+                data = json.load(fh)
+            boundary_ids: list[int] = data["boundary_ids"]
+            logger.info(
+                "LumberChunker: loaded %d boundary ID(s) from cache '%s'.",
+                len(boundary_ids),
+                cache_path,
+            )
+            return boundary_ids
+        except (FileNotFoundError, KeyError, json.JSONDecodeError):
+            return None
+
+    def _save_cache(self, cache_path: Path, boundary_ids: list[int]) -> None:
+        """Persist *boundary_ids* to *cache_path* as JSON."""
+        try:
+            cache_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(cache_path, "w", encoding="utf-8") as fh:
+                json.dump({"boundary_ids": boundary_ids}, fh)
+            logger.info(
+                "LumberChunker: cached %d boundary ID(s) to '%s'.",
+                len(boundary_ids),
+                cache_path,
+            )
+        except OSError as exc:
+            logger.warning(
+                "LumberChunker: could not write cache file '%s': %s", cache_path, exc
+            )
+
+    def _find_boundaries_cached(
+        self, document: Document, paragraphs: list[str]
+    ) -> list[int]:
+        """
+        Return boundary IDs, loading from cache when available.
+
+        The cache key is ``doc_id + SHA-256(text[:16])``.  A hash mismatch
+        (e.g. after re-preprocessing) causes the cache entry to be ignored
+        and a fresh LLM run to be performed.
+        """
+        text_hash = _text_hash(document.text)
+        cache_path = self._cache_path(document.doc_id, text_hash)
+
+        if cache_path is not None:
+            cached = self._load_cache(cache_path)
+            if cached is not None:
+                return cached
+
+        # Cache miss – run the full LLM loop
+        boundary_ids = self._find_boundaries(paragraphs)
+
+        if cache_path is not None:
+            self._save_cache(cache_path, boundary_ids)
+
+        return boundary_ids
 
     # ------------------------------------------------------------------
     # Prompt construction
