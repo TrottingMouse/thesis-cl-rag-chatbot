@@ -9,6 +9,13 @@ The chunker splits a document into semantically coherent segments by
 iteratively asking a Gemini LLM to detect the first paragraph where the
 content clearly shifts compared to the preceding context.
 
+Paragraph splitting
+-------------------
+The chunker first tries to split on double newlines (``\n\n``).  If that
+yields fewer than 10 paragraphs (e.g. DirectLLM output files where
+paragraphs are separated by a single newline) it falls back to splitting
+on single newlines, mirroring the behaviour of :class:`FixedParagraphChunker`.
+
 Caching
 -------
 LLM boundary-detection is expensive.  To avoid re-querying the API when the
@@ -130,8 +137,13 @@ class LumberChunker(BaseChunker):
         if not text:
             return []
 
-        # 1. Split into non-empty paragraphs
+        # 1. Split into non-empty paragraphs.
+        # Primary split: double newlines (standard markdown / plain text).
         paragraphs = [p.strip() for p in re.split(r"\n\s*\n", text) if p.strip()]
+        # Fallback: single newlines for DirectLLM output (e.g. POgesDirectLLMGeminiMarkdown.txt)
+        # where paragraphs are not separated by blank lines.
+        if len(paragraphs) < 10:
+            paragraphs = [p.strip() for p in re.split(r"\n", text) if p.strip()]
         if not paragraphs:
             return []
 
@@ -271,11 +283,8 @@ class LumberChunker(BaseChunker):
                 if _approx_token_count(window_text) >= _DEFAULT_MIN_TOKENS:
                     break
 
-            # If the window grew to more than one paragraph, drop the last one
-            # so the LLM sees a clean window without an incomplete boundary.
+
             effective_end = window_end  # exclusive upper bound for this batch
-            if (effective_end - chunk_start) > 1:
-                effective_end -= 1
 
             if (effective_end - chunk_start) == 1:
                 logger.warning(
@@ -438,3 +447,63 @@ class LumberChunker(BaseChunker):
             )
             prev = end
         return chunks
+
+
+# ---------------------------------------------------------------------------
+# Manual test
+# ---------------------------------------------------------------------------
+
+def _test_file(path: str, doc_id: str, chunker: "LumberChunker") -> None:
+    """Chunk *path*, print a summary and a short preview of every chunk."""
+    with open(path, "r", encoding="utf-8") as fh:
+        text = fh.read()
+
+    doc = Document(source_path=path, doc_id=doc_id, text=text)  # type: ignore[arg-type]
+
+    print(f"\n{'='*70}")
+    print(f"File   : {path}")
+    print(f"Doc-ID : {doc_id}")
+    print(f"Length : {len(text):,} chars")
+    print(f"{'='*70}")
+
+    chunks = chunker.chunk(doc)
+
+    print(f"Chunks produced: {len(chunks)}\n")
+    for i, chunk in enumerate(chunks):
+        preview = chunk.text[:200].replace("\n", "↵")
+        print(
+            f"  [{i:>3}] chars={len(chunk.text):>5}  "
+            f"para {chunk.metadata.get('para_start','?')}–{chunk.metadata.get('para_end','?')}"
+            f"  │ {preview!r}"
+        )
+
+
+def main() -> None:
+    import sys
+    from dotenv import load_dotenv
+
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(levelname)s - %(message)s",
+        stream=sys.stdout,
+    )
+    load_dotenv()
+
+    chunker = LumberChunker()  # caching enabled by default
+
+    # Both files are DirectLLM-converted (single-newline format)
+    _test_file(
+        path="storage/cached_documents/PO_markdown_gemini_direct_llm.txt",
+        doc_id="PO_markdown_gemini_direct_llm",
+        chunker=chunker,
+    )
+
+    _test_file(
+        path="storage/cached_documents/MHB_markdown_gemini_direct_llm.txt",
+        doc_id="MHB_markdown_gemini_direct_llm",
+        chunker=chunker,
+    )
+
+
+if __name__ == "__main__":
+    main()
