@@ -5,23 +5,37 @@ Compares three query processors
   - NoProcessingProcessor
   - HyDEQueryProcessor
   - CoTQueryProcessor
-across two preprocessing configurations:
-  A. GeminiMarkdownProcessor only
-  B. GeminiMarkdownProcessor + DirectLLMProcessor
+across all combinations of the following preprocessor and chunker
+configurations:
+
+  Preprocessors:
+    markdown   → GeminiMarkdownProcessor
+    direct     → GeminiMarkdownProcessor + DirectLLMProcessor
+
+  Chunkers (applied per preprocessor as listed in PIPELINE_CONFIGS):
+    paragraph  → FixedParagraphChunker  (chunk_size=1, overlap=0)
+    character  → FixedCharacterChunker
+    wholetable → WholeTableParagraphChunker   (markdown only)
+    splittable → SplitTableParagraphChunker   (markdown only)
+    dynamic    → DynamicTokenChunker          (direct only)
+    llmchunker → LumberChunker                (direct only)
+    maxmin     → MaxMinChunker                (direct only)
+
+For each (preprocessor × chunker) combination the offline index is built
+once and then shared across the three query-processor runs.
 
 All other pipeline components are hardcoded:
-  - Chunker:    FixedParagraphChunker  (CHUNK_SIZE=1, OVERLAP=0)
   - Index:      FaissIndexBuilder
   - Retriever:  FaissRetriever         (TOP_K=9)
   - Reranker:   PassthroughReranker    (TOP_N=3)
   - Generator:  HuggingfaceGenerator
   - Models:     embedding_model and generation_model from config/config.yaml
 
-For each of the 6 runs the script:
-  1. Reuses the offline index built for that preprocessing config.
+For each of the 9×3 = 27 runs the script:
+  1. Reuses the offline index built for that (preprocessor, chunker) config.
   2. Runs all queries from qa_pairs_grid.json.
   3. Persists raw QA pairs to storage/query_exp_results/<run_name>.json.
-  4. Evaluates with RAGAS and collects the mean metrics.
+  4. Evaluates with evaluate_minimal() and collects the mean metrics.
 
 A summary CSV is written to storage/query_exp_results/query_exp_summary.csv.
 """
@@ -63,24 +77,38 @@ QA_EVAL_FILE = "storage/evaluation/qa_pairs_grid.json"
 RESULTS_DIR  = Path("storage/query_exp_results")
 INDEX_BASE   = Path("storage/query_exp_index")
 
-# Offline components (hardcoded)
-CHUNKER_NAME       = "FixedParagraphChunker"
-INDEX_BUILDER_NAME = "FaissIndexBuilder"
-CHUNK_SIZE         = 1
-OVERLAP            = 0
+# Paragraph chunker settings (chunk_size=1 ≈ one paragraph per chunk)
+PARA_CHUNK_SIZE = 1
+PARA_OVERLAP    = 0
 
 # Online components (hardcoded, except model names which come from config)
-RETRIEVER_NAME = "FaissRetriever"
-RERANKER_NAME  = "PassthroughReranker"
-GENERATOR_NAME = "HuggingfaceGenerator"
-TOP_K          = 9
-TOP_N          = 3
+INDEX_BUILDER_NAME  = "FaissIndexBuilder"
+RETRIEVER_NAME      = "FaissRetriever"
+RERANKER_NAME       = "PassthroughReranker"
+GENERATOR_NAME      = "HuggingfaceGenerator"
+TOP_K               = 9
+TOP_N               = 3
 RERANKING_THRESHOLD = 0.1
 
-# Preprocessing configurations: (label, ordered list of preprocessor registry names)
-PREPROCESSING_CONFIGS: list[tuple[str, list[str]]] = [
-    ("gemini",            ["GeminiMarkdownProcessor"]),
-    ("gemini_direct_llm", ["GeminiMarkdownProcessor", "DirectLLMProcessor"]),
+# ---------------------------------------------------------------------------
+# All (preprocessor, chunker) combinations to evaluate.
+#
+# Each entry is a tuple:
+#   (preprocessing_label, preprocessor_names, chunker_label, chunker_name, chunker_kwargs)
+# ---------------------------------------------------------------------------
+
+PIPELINE_CONFIGS: list[tuple[str, list[str], str, str, dict]] = [
+    # markdown preprocessor
+    ("markdown", ["GeminiMarkdownProcessor"], "paragraph",  "FixedParagraphChunker",      {"chunk_size": PARA_CHUNK_SIZE, "overlap": PARA_OVERLAP}),
+    ("markdown", ["GeminiMarkdownProcessor"], "character",  "FixedCharacterChunker",       {}),
+    ("markdown", ["GeminiMarkdownProcessor"], "wholetable", "WholeTableParagraphChunker",  {}),
+    ("markdown", ["GeminiMarkdownProcessor"], "splittable", "SplitTableParagraphChunker",  {}),
+    # direct preprocessor (GeminiMarkdown → DirectLLM)
+    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "paragraph",   "FixedParagraphChunker",  {"chunk_size": PARA_CHUNK_SIZE, "overlap": PARA_OVERLAP}),
+    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "dynamic",     "DynamicTokenChunker",    {}),
+    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "character",   "FixedCharacterChunker",  {}),
+    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "llmchunker",  "LumberChunker",          {}),
+    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "maxmin",      "MaxMinChunker",          {}),
 ]
 
 # Query processors to compare: (label, registry name)
@@ -99,6 +127,8 @@ def run_pipeline(
     query_processor_name: str,
     run_name: str,
     preprocessing_label: str,
+    chunker_label: str,
+    chunker_kwargs: dict,
     offline_pipeline,           # already built & populated offline pipeline
     generation_model: str,
     queries: list[str],
@@ -108,7 +138,7 @@ def run_pipeline(
     Build and execute one online pipeline for the given query processor.
 
     The offline pipeline (and its populated index builder) is shared across
-    the three query-processor runs for the same preprocessing config.
+    the three query-processor runs for the same (preprocessor, chunker) config.
 
     Returns a dict with evaluation metrics and bookkeeping columns.
     """
@@ -142,17 +172,18 @@ def run_pipeline(
         json.dump(qa_pairs, f, indent=4, ensure_ascii=False)
     logger.info("Raw QA results saved to '%s'.", qa_save)
 
-    # Evaluate
+    # Evaluate (minimal set: AnswerCorrectness only)
     evaluator = Evaluator(str(qa_save))
-    eval_df = evaluator.evaluate()
+    eval_df = evaluator.evaluate_minimal()
     metrics = eval_df.mean(numeric_only=True).to_dict()
 
     row = {
         "run_name":            run_name,
         "preprocessing":       preprocessing_label,
+        "chunker":             chunker_label,
         "query_processor":     query_processor_name,
-        "chunk_size":          CHUNK_SIZE,
-        "overlap":             OVERLAP,
+        "chunk_size":          chunker_kwargs.get("chunk_size", ""),
+        "overlap":             chunker_kwargs.get("overlap", ""),
         "top_k":               TOP_K,
         "top_n":               TOP_N,
         "reranking_threshold": RERANKING_THRESHOLD,
@@ -175,8 +206,8 @@ def query_experiment() -> None:
     offline_config = OfflineConfig(**base_cfg.get("offline_config", {}))
     online_config  = OnlineConfig(**base_cfg.get("online_config", {}))
 
-    embedding_model:   str = offline_config.embedding_model
-    generation_model:  str = online_config.generation_model
+    embedding_model:  str = offline_config.embedding_model
+    generation_model: str = online_config.generation_model
 
     logger.info("Embedding model:   %s", embedding_model)
     logger.info("Generation model:  %s", generation_model)
@@ -190,32 +221,39 @@ def query_experiment() -> None:
     summary_rows: list[dict] = []
 
     # ======================================================================
-    # Outer loop: preprocessing configurations
-    # Each config gets its own offline index built once.
+    # Outer loop: (preprocessing_config × chunker_config)
+    # Each combination builds its offline index once; the three query
+    # processors then share that index.
     # ======================================================================
-    for preprocessing_label, preprocessor_names in PREPROCESSING_CONFIGS:
+    for (
+        preprocessing_label,
+        preprocessor_names,
+        chunker_label,
+        chunker_name,
+        chunker_kwargs,
+    ) in PIPELINE_CONFIGS:
+
+        config_label = f"{preprocessing_label}__{chunker_label}"
         logger.info("=" * 70)
         logger.info(
-            "PREPROCESSING CONFIG: %s  (preprocessors=%s)",
-            preprocessing_label,
-            preprocessor_names,
+            "CONFIG: %s  (preprocessors=%s, chunker=%s, kwargs=%s)",
+            config_label, preprocessor_names, chunker_name, chunker_kwargs,
         )
         logger.info("=" * 70)
 
-        # Build the offline pipeline once per preprocessing config
+        # Build the offline pipeline once per (preprocessing, chunker) config
         offline_pipeline = build_offline_pipeline(
             preprocessor_names=preprocessor_names,
-            chunker_name=CHUNKER_NAME,
+            chunker_name=chunker_name,
             index_builder_name=INDEX_BUILDER_NAME,
-            storage_path=INDEX_BASE / preprocessing_label,
+            storage_path=INDEX_BASE / config_label,
             embedding_model=embedding_model,
-            chunk_size=CHUNK_SIZE,
-            overlap=OVERLAP,
+            **chunker_kwargs,
         )
         offline_result = offline_pipeline.run(document_paths)
         logger.info(
             "Offline index built for '%s'. %d chunk(s) produced.",
-            preprocessing_label,
+            config_label,
             len(offline_result.chunks),
         )
 
@@ -226,11 +264,13 @@ def query_experiment() -> None:
         )
 
         for processor_label, query_processor_name in PROCESSOR_CONFIGS:
-            run_name = f"{preprocessing_label}__{processor_label}"
+            run_name = f"{config_label}__{processor_label}"
             row = run_pipeline(
                 query_processor_name=query_processor_name,
                 run_name=run_name,
                 preprocessing_label=preprocessing_label,
+                chunker_label=chunker_label,
+                chunker_kwargs=chunker_kwargs,
                 offline_pipeline=offline_pipeline,
                 generation_model=generation_model,
                 queries=queries,

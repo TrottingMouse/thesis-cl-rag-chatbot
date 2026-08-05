@@ -18,19 +18,27 @@ Strategy B – Similarity threshold
     This lets chunkers with small chunks be selective: if a query only needs
     a few chunks the pipeline can use fewer tokens without a fixed hard cut.
 
-The experiment is run across four configurations that cover both
-document-representation styles and granularity levels:
+The experiment is run across all combinations of the following
+preprocessor and chunker configurations:
 
-  1. Markdown,    FixedParagraphChunker  (chunk_size=1, overlap=0)
-  2. Linearized,  FixedParagraphChunker  (chunk_size=1, overlap=0)
-  3. Markdown,    SplitTableParagraphChunker
-  4. Linearized,  SplitTableParagraphChunker
+  Preprocessors:
+    markdown   → GeminiMarkdownProcessor
+    direct     → GeminiMarkdownProcessor + DirectLLMProcessor
 
-"Linearized" means GeminiMarkdownProcessor + DirectLLMProcessor (converts
-markdown to dense, entity-rich prose).
+  Chunkers:
+    paragraph  → FixedParagraphChunker  (chunk_size=1, overlap=0)
+    character  → FixedCharacterChunker
+    wholetable → WholeTableParagraphChunker
+    splittable → SplitTableParagraphChunker
+    dynamic    → DynamicTokenChunker
+    llmchunker → LumberChunker
+    maxmin     → MaxMinChunker
 
-For Strategy B the thresholds [0.0, 0.1, 0.2, 0.3, 0.4] are tested.
-Threshold 0.0 is equivalent to Strategy A (no filtering).
+  Not every preprocessor applies to every chunker; the full 2×7 = 14
+  combinations listed in PIPELINE_CONFIGS are all exercised.
+
+For Strategy B the thresholds [0.0, 0.025, 0.05, 0.075, 0.1, 0.125] are
+tested.  Threshold 0.0 is equivalent to Strategy A (no filtering).
 
 Results are persisted per run and collected in a summary CSV.
 """
@@ -81,22 +89,30 @@ PARA_OVERLAP    = 0
 
 # Similarity thresholds tested for Strategy B.
 # 0.0 is included as a baseline (equivalent to Strategy A with no filtering).
-THRESHOLDS = [0.0, 0.025, 0.05, 0.075, 0.1, 0.125]
+THRESHOLDS = [0.0, 0.05, 0.1]
 
-# Preprocessing configurations:
-#   "markdown"    → GeminiMarkdownProcessor only
-#   "linearized"  → GeminiMarkdownProcessor + DirectLLMProcessor
-PREPROCESSING_CONFIGS: list[tuple[str, list[str]]] = [
-    ("markdown",   ["GeminiMarkdownProcessor"]),
-    ("linearized", ["GeminiMarkdownProcessor", "DirectLLMProcessor"]),
-]
+# ---------------------------------------------------------------------------
+# All (preprocessor, chunker) combinations to evaluate.
+#
+# Each entry is a tuple:
+#   (preprocessing_label, preprocessor_names, chunker_label, chunker_name, chunker_kwargs)
+#
+# preprocessing_label / chunker_label are short identifiers used in file
+# names and the summary CSV.
+# ---------------------------------------------------------------------------
 
-# Chunker configurations:
-#   "paragraph"   → FixedParagraphChunker (chunk_size=1, overlap=0)
-#   "split_table" → SplitTableParagraphChunker (default params)
-CHUNKER_CONFIGS: list[tuple[str, str, dict]] = [
-    ("paragraph",   "FixedParagraphChunker",       {"chunk_size": PARA_CHUNK_SIZE, "overlap": PARA_OVERLAP}),
-    ("split_table", "SplitTableParagraphChunker",  {}),
+PIPELINE_CONFIGS: list[tuple[str, list[str], str, str, dict]] = [
+    # markdown preprocessor
+    ("markdown", ["GeminiMarkdownProcessor"], "paragraph",  "FixedParagraphChunker",      {"chunk_size": PARA_CHUNK_SIZE, "overlap": PARA_OVERLAP}),
+    ("markdown", ["GeminiMarkdownProcessor"], "character",  "FixedCharacterChunker",       {}),
+    ("markdown", ["GeminiMarkdownProcessor"], "wholetable", "WholeTableParagraphChunker",  {}),
+    ("markdown", ["GeminiMarkdownProcessor"], "splittable", "SplitTableParagraphChunker",  {}),
+    # direct preprocessor (GeminiMarkdown → DirectLLM)
+    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "paragraph",   "FixedParagraphChunker",  {"chunk_size": PARA_CHUNK_SIZE, "overlap": PARA_OVERLAP}),
+    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "dynamic",     "DynamicTokenChunker",    {}),
+    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "character",   "FixedCharacterChunker",  {}),
+    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "llmchunker",  "LumberChunker",          {}),
+    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "maxmin",      "MaxMinChunker",          {}),
 ]
 
 
@@ -142,7 +158,7 @@ def _run_pipeline_with_threshold(
     extra_cols: dict,
 ) -> dict:
     """Build, run and evaluate one online pipeline, returning a summary row."""
-    logger.info("--- Run: %s (threshold=%.2f) ---", run_name, threshold)
+    logger.info("--- Run: %s (threshold=%.3f) ---", run_name, threshold)
 
     online_pipeline = build_online_pipeline(
         cfg=online_pipeline_cfg,
@@ -217,70 +233,75 @@ def context_experiment() -> None:
     # Each combination builds its offline index once, then all threshold
     # variants share that index.
     # ======================================================================
-    for preprocessing_label, preprocessor_names in PREPROCESSING_CONFIGS:
-        for chunker_label, chunker_name, chunker_kwargs in CHUNKER_CONFIGS:
+    for (
+        preprocessing_label,
+        preprocessor_names,
+        chunker_label,
+        chunker_name,
+        chunker_kwargs,
+    ) in PIPELINE_CONFIGS:
 
-            config_label = f"{preprocessing_label}__{chunker_label}"
-            logger.info("=" * 70)
-            logger.info(
-                "CONFIG: %s  (preprocessors=%s, chunker=%s, kwargs=%s)",
-                config_label, preprocessor_names, chunker_name, chunker_kwargs,
+        config_label = f"{preprocessing_label}__{chunker_label}"
+        logger.info("=" * 70)
+        logger.info(
+            "CONFIG: %s  (preprocessors=%s, chunker=%s, kwargs=%s)",
+            config_label, preprocessor_names, chunker_name, chunker_kwargs,
+        )
+        logger.info("=" * 70)
+
+        # Build offline pipeline once per (preprocessing, chunker) pair
+        offline_pipeline = build_offline_pipeline(
+            preprocessor_names=preprocessor_names,
+            chunker_name=chunker_name,
+            index_builder_name="FaissIndexBuilder",
+            storage_path=INDEX_BASE / config_label,
+            embedding_model=embedding_model,
+            **chunker_kwargs,
+        )
+        offline_result = offline_pipeline.run(document_paths)
+        chunks = offline_result.chunks
+        num_chunks = len(chunks)
+        logger.info("Offline index built. %d chunk(s) produced.", num_chunks)
+
+        # Derive fixed retrieval parameters from average chunk size
+        avg_tokens = _compute_avg_chunk_tokens(chunks, tokenizer)
+        top_k, top_n = _derive_retrieval_params(avg_tokens)
+        logger.info(
+            "avg_chunk_tokens=%.1f → top_n=%d, top_k=%d",
+            avg_tokens, top_n, top_k,
+        )
+
+        # Common metadata for every threshold run in this config
+        extra_cols = {
+            "chunk_size": chunker_kwargs.get("chunk_size", ""),
+            "overlap":    chunker_kwargs.get("overlap", ""),
+        }
+
+        # ------------------------------------------------------------------
+        # Inner loop: similarity thresholds (Strategy B)
+        # Threshold 0.0 is equivalent to Strategy A (no filtering).
+        # ------------------------------------------------------------------
+        for threshold in THRESHOLDS:
+            run_name = f"{config_label}__thr{str(threshold).replace('.', '')}"
+
+            row = _run_pipeline_with_threshold(
+                run_name=run_name,
+                offline_pipeline=offline_pipeline,
+                top_k=top_k,
+                top_n=top_n,
+                threshold=threshold,
+                online_pipeline_cfg=online_pipeline_cfg,
+                generation_model=generation_model,
+                reranking_score_threshold_override=threshold,
+                queries=queries,
+                qa_pairs_template=qa_pairs_template,
+                avg_tokens=avg_tokens,
+                num_chunks=num_chunks,
+                chunker_label=chunker_label,
+                preprocessing_label=preprocessing_label,
+                extra_cols=extra_cols,
             )
-            logger.info("=" * 70)
-
-            # Build offline pipeline once per (preprocessing, chunker) pair
-            offline_pipeline = build_offline_pipeline(
-                preprocessor_names=preprocessor_names,
-                chunker_name=chunker_name,
-                index_builder_name="FaissIndexBuilder",
-                storage_path=INDEX_BASE / config_label,
-                embedding_model=embedding_model,
-                **chunker_kwargs,
-            )
-            offline_result = offline_pipeline.run(document_paths)
-            chunks = offline_result.chunks
-            num_chunks = len(chunks)
-            logger.info("Offline index built. %d chunk(s) produced.", num_chunks)
-
-            # Derive fixed retrieval parameters from average chunk size
-            avg_tokens = _compute_avg_chunk_tokens(chunks, tokenizer)
-            top_k, top_n = _derive_retrieval_params(avg_tokens)
-            logger.info(
-                "avg_chunk_tokens=%.1f → top_n=%d, top_k=%d",
-                avg_tokens, top_n, top_k,
-            )
-
-            # Common metadata for every threshold run in this config
-            extra_cols = {
-                "chunk_size": chunker_kwargs.get("chunk_size", ""),
-                "overlap":    chunker_kwargs.get("overlap", ""),
-            }
-
-            # ------------------------------------------------------------------
-            # Inner loop: similarity thresholds (Strategy B)
-            # Threshold 0.0 is equivalent to Strategy A (no filtering).
-            # ------------------------------------------------------------------
-            for threshold in THRESHOLDS:
-                run_name = f"{config_label}__thr{str(threshold).replace('.', '')}"
-
-                row = _run_pipeline_with_threshold(
-                    run_name=run_name,
-                    offline_pipeline=offline_pipeline,
-                    top_k=top_k,
-                    top_n=top_n,
-                    threshold=threshold,
-                    online_pipeline_cfg=online_pipeline_cfg,
-                    generation_model=generation_model,
-                    reranking_score_threshold_override=threshold,
-                    queries=queries,
-                    qa_pairs_template=qa_pairs_template,
-                    avg_tokens=avg_tokens,
-                    num_chunks=num_chunks,
-                    chunker_label=chunker_label,
-                    preprocessing_label=preprocessing_label,
-                    extra_cols=extra_cols,
-                )
-                summary_rows.append(row)
+            summary_rows.append(row)
 
     # Write summary CSV
     if summary_rows:
