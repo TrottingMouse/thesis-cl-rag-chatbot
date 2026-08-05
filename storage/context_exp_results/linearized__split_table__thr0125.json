@@ -1,0 +1,151 @@
+[
+    {
+        "user_input": "Welche Kurse sollte ich im ersten Semester belegen?",
+        "reference": "Laut dem exemplarischen Studienverlaufsplan solltest du im ersten Semester folgende Kurse belegen: Mathematische Grundlagen, Einführung in die computationelle Logik, Einführung in die Computerlinguistik, Einführung in die Programmierung mit Python, Morphologie und Syntax.",
+        "response": "Im ersten Semester sollten Sie die folgenden Kurse belegen:\n- Einführung in die computationelle Logik (Seminar & Übung) mit der Nummer 2101\n- Mathematische Grundlagen (Seminar) mit der Nummer 2102\n- Basismodul - Mathematische und logische Grundlagen\n- Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung\n- Basismodul - Python-Programmierung",
+        "retrieved_contexts": [
+            "Der Studienplan sieht für das erste Jahr zudem einen Einstieg in die computerlinguistische Programmierung mit Python vor, welche neben Grundlagen auch aktuelle Methoden der Sprachtechnologie lehrt.",
+            "Es beinhaltet die Lehrveranstaltungen Einführung in die computationelle Logik (Seminar & Übung) mit der Nummer 2101 und Mathematische Grundlagen (Seminar) mit der Nummer 2102.",
+            "Fachsemester oder höher, und inhaltlich das Basismodul - Mathematische und logische Grundlagen, das Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung und das Basismodul - Python-Programmierung."
+        ]
+    },
+    {
+        "user_input": "Kann ich auch im Sommersemester anfangen?",
+        "reference": "Nein, das Studium ist für einen Beginn im Wintersemester ausgelegt.",
+        "response": "Ja, Sie können auch im Sommersemester anfangen.",
+        "retrieved_contexts": [
+            "Dieses Modul wird jedes Sommersemester angeboten.",
+            "Dieses Modul wird jedes Sommersemester (a) und jedes Semester (b) angeboten."
+        ]
+    },
+    {
+        "user_input": "Muss ich fließend Englisch sprechen können um Computerlinguistik zu studieren?",
+        "reference": "Fließendes Englisch wird nicht vorausgesetzt, jedoch benötigst du Englischkenntnisse auf dem Niveau B1. Dies entspricht vergleichsweise einem erfolgreichen vierjährigen Schulunterricht an einer weiterführenden Schule.",
+        "response": "Für die Zulassung zum Studium sind Kenntnisse des Englischen auf dem Niveau B1 erforderlich.",
+        "retrieved_contexts": [
+            "Für die Zulassung zum Studium sind Kenntnisse des Englischen auf dem Niveau B1 erforderlich, was einem erfolgreichen vierjährigen Schulunterricht an einer weiterführenden Schule entspricht.",
+            "Für die Teilnahme am Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung sind keine formalen oder inhaltlichen Teilnahmevoraussetzungen erforderlich."
+        ]
+    },
+    {
+        "user_input": "Muss ich für den Python-Kurs Vorkenntnisse haben?",
+        "reference": "Nein, für das Modul \"Python-Programmierung\" werden weder formale noch inhaltliche Vorkenntnisse vorausgesetzt.",
+        "response": "Für die Teilnahme am Basismodul - Python-Programmierung sind keine formalen oder inhaltlichen Teilnahmevoraussetzungen erforderlich. Es wird keine Programmiererfahrung vorausgesetzt.",
+        "retrieved_contexts": [
+            "Für die Teilnahme am Basismodul - Python-Programmierung sind keine formalen oder inhaltlichen Teilnahmevoraussetzungen erforderlich.",
+            "Es wird keine Programmiererfahrung vorausgesetzt."
+        ]
+    },
+    {
+        "user_input": "Gibt es eine Übung für den Kurs Mathematische Grundlagen?",
+        "reference": "Nein, für den Kurs \"Mathematische Grundlagen\" gibt es keine begleitende Übung. Es handelt sich dabei ausschließlich um ein Seminar.",
+        "response": "Ja, es gibt eine Übung für den Kurs Mathematische Grundlagen (Seminar mit der Nummer 2102).",
+        "retrieved_contexts": [
+            "Es beinhaltet die Lehrveranstaltungen Einführung in die computationelle Logik (Seminar & Übung) mit der Nummer 2101 und Mathematische Grundlagen (Seminar) mit der Nummer 2102.",
+            "Die Belegung für das Basismodul - Mathematische und logische Grundlagen erfordert die Teilnahme an Seminar und Übung (a) sowie am Seminar (b).",
+            "4301) und Parsing (Übung, 3 LP, 2 SWS, Pnr.",
+            "Die Belegung für dieses Basismodul erfordert die Teilnahme an Seminar mit Übung (a) und Seminar (b).",
+            "4201) und Automatentheorie & Formale Sprachen (Übung, 3 LP, 2 SWS, Pnr."
+        ]
+    },
+    {
+        "user_input": "Wann soll ich das Praktikum machen?",
+        "reference": "Es wird empfohlen, das Berufsfeldpraktikum nach dem vierten oder fünften Semester zu absolvieren.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": []
+    },
+    {
+        "user_input": "Gibt es eine generelle Anwesenheitspflicht für Vorlesungen?",
+        "reference": "Nein, bei Vorlesungen kann keine Anwesenheitspflicht festgelegt werden.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "Bei Vorlesungen ist keine Anwesenheitspflicht festlegbar.",
+            "Eine Anwesenheitspflicht in Lehrveranstaltungen kann gemäß § 8 in allen Modulen oder Modulteilen vorgeschrieben werden, bei denen regelmäßige Anwesenheit und aktive Teilnahme für das Erreichen des Lernziels erforderlich sind.",
+            "Für andere Lehrveranstaltungen gilt eine Anwesenheitspflicht nur, wenn sie im fächerspezifischen Anhang explizit festgelegt ist."
+        ]
+    },
+    {
+        "user_input": "Wann gilt die Anwesenheitspflicht in einer Lehrveranstaltung als erfüllt?",
+        "reference": "Die Anwesenheitspflicht ist erfüllt, wenn ein Studierender oder eine Studierende 80% der Veranstaltungszeit beigewohnt hat.",
+        "response": "Die Anwesenheitspflicht gilt als erfüllt, wenn ein Studierender 80% der Veranstaltungszeit beigewohnt hat.",
+        "retrieved_contexts": [
+            "Die Anwesenheitspflicht ist erfüllt, wenn ein Studierender 80% der Veranstaltungszeit beigewohnt hat.",
+            "Eine Anwesenheitspflicht in Lehrveranstaltungen kann gemäß § 8 in allen Modulen oder Modulteilen vorgeschrieben werden, bei denen regelmäßige Anwesenheit und aktive Teilnahme für das Erreichen des Lernziels erforderlich sind.",
+            "Für andere Lehrveranstaltungen gilt eine Anwesenheitspflicht nur, wenn sie im fächerspezifischen Anhang explizit festgelegt ist."
+        ]
+    },
+    {
+        "user_input": "Gibt es eine Klausur in Wahrscheinlichkeitstheorie?",
+        "reference": "Nein, im \"Basismodul - Statistische Methoden in der Computerlinguistik\", zu dem die Wahrscheinlichkeitstheorie gehört, gibt es gar keine Modulprüfung und somit auch keine Klausur. Es müssen lediglich Studienleistungen erbracht werden.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "Für dieses Vertiefungsmodul gibt es keine Prüfungsformen.",
+            "Für dieses Modul gibt es keine Prüfungsformen.",
+            "5110) oder Klausur (Pnr."
+        ]
+    },
+    {
+        "user_input": "Wie lang dauert eine Klausur?",
+        "reference": "Die Dauer einer Klausurarbeit beträgt in der Regel 90 Minuten.",
+        "response": "Die Dauer einer Klausur beträgt in der Regel 90 Minuten, kann aber je nach Workload des Moduls auf bis zu 180 Minuten verlängert oder auf mindestens 45 Minuten verkürzt werden.",
+        "retrieved_contexts": [
+            "Die Dauer einer Klausurarbeit beträgt in der Regel 90 Minuten, kann aber je nach Workload des Moduls auf bis zu 180 Minuten verlängert oder auf mindestens 45 Minuten verkürzt werden."
+        ]
+    },
+    {
+        "user_input": "Wie oft darf ich eine nicht bestandene Modulprüfung wiederholen?",
+        "reference": "Eine nicht bestandene Modulprüfung kann insgesamt zweimal wiederholt werden.",
+        "response": "Eine nicht bestandene Modulprüfung kann zweimal wiederholt werden.",
+        "retrieved_contexts": [
+            "Eine nicht bestandene Modulprüfung oder eine mit weniger als \"ausreichend\" bewertete Prüfungsleistung als Teil einer Gruppenarbeit kann zweimal wiederholt werden.",
+            "Die Wiederholungsprüfung soll innerhalb eines Jahres nach Abschluss der nicht bestandenen Prüfung abgeschlossen sein.",
+            "Das Thema der Bachelorarbeit kann bis vier Wochen nach Ausgabe zurückgegeben werden, dies ist einmalig möglich."
+        ]
+    },
+    {
+        "user_input": "Wie stark zählt die Bachelorarbeit für meine Abschlussnote?",
+        "reference": "Die Note der Bachelorarbeit wird bei der Ermittlung der Gesamtnote dreifach gewichtet. Im Vergleich dazu gehen alle anderen Modulprüfungen nur einfach in die Gesamtnote ein.",
+        "response": "Die Bachelorarbeit zählt bei Kern- und Ergänzungsfachstudiengängen zu 20 Prozent der Gesamtnote. Bei integrierten Studiengängen wird sie dreifach oder vierfach gewichtet und ist Teil des gewichteten arithmetischen Mittels.",
+        "retrieved_contexts": [
+            "Bei der Gewichtung der Prüfungen für die Gesamtnote wird die Bachelorarbeit dreifach gewichtet, während alle Modulprüfungen einfach zählen.",
+            "Die Note der Bachelorarbeit ergibt sich wie folgt: Wenn die Noten beider Gutachten mindestens \"ausreichend\" (4,0) sind und nicht mehr als 2,0 auseinander liegen, errechnet sich die Endnote als Durchschnitt.",
+            "Die Gesamtnote der Bachelorprüfung bei Kern- und Ergänzungsfachstudiengängen errechnet sich zu 20 Prozent aus der Note der Bachelorarbeit, zu 50 Prozent aus dem gewichteten arithmetischen Mittel aller Modulnoten des Kernfachs und zu 30 Prozent aus dem gewichteten arithmetischen Mittel aller Modulnoten des Ergänzungsfachs.",
+            "Die Gesamtnote der Bachelorprüfung bei integrierten Studiengängen errechnet sich als gewichtetes arithmetisches Mittel aus den Modulnoten und der Bachelorarbeit, wobei die Bachelorarbeit nach Maßgabe des fächerspezifischen Anhangs dreifach oder vierfach gewichtet wird."
+        ]
+    },
+    {
+        "user_input": "Was passiert, wenn ich in einer Präsenzprüfung generative Künstliche Intelligenz benutze?",
+        "reference": "Der Einsatz generativer Künstlicher Intelligenz im Rahmen von Präsenzprüfungen ist unzulässig. Dies gilt als Täuschungsversuch.",
+        "response": "Der Einsatz generativer Künstlicher Intelligenz im Rahmen von Präsenzprüfungen ist unzulässig.",
+        "retrieved_contexts": [
+            "Der Einsatz generativer Künstlicher Intelligenz im Rahmen von Präsenzprüfungen ist unzulässig."
+        ]
+    },
+    {
+        "user_input": "Muss ich Kurse aus der Linguistik für das interdisziplinäre Vertiefungsmodul belegen?",
+        "reference": "Nein, Linguistik-Kurse sind keine Pflicht. Das Modul sieht vor, dass du zwei Vorlesungen oder Seminare aus der Linguistik oder der Informatik wählst, wobei lediglich der Informatik-Anteil von 4 SWS vorgeschrieben ist.",
+        "response": "Nein, Kurse aus der Linguistik müssen nicht belegt werden. Das interdisziplinäre Vertiefungsmodul erfordert mindestens eine Veranstaltung aus der Informatik und kann Veranstaltungen aus Linguistik und Informatik belegen, die nicht notwendigerweise dezidiert computerlinguistisch sind.",
+        "retrieved_contexts": [
+            "Zusätzlich gibt es das interdisziplinäre Vertiefungsmodul, das den Studierenden ermöglicht, neben Veranstaltungen aus der Computerlinguistik auch Veranstaltungen aus Linguistik und Informatik zu belegen, die nicht notwendigerweise dezidiert computerlinguistisch sind.",
+            "Über die Zulassung von nicht im Vorlesungsverzeichnis zugeordneten Veranstaltungen zu diesem Vertiefungsmodul entscheiden die Modulverantwortlichen.",
+            "Formale Teilnahmevoraussetzungen für das Vertiefungsmodul - Interdisziplinär sind keine.",
+            "Die Belegung für dieses Vertiefungsmodul erfolgt nach Vorgabe der gewählten Veranstaltungen.",
+            "Im Rahmen dieses interdisziplinären Vertiefungsmoduls ist mindestens eine Veranstaltung aus der Informatik zu belegen.",
+            "Die Lehrveranstaltungen für dieses Vertiefungsmodul sind zwei Vorlesungen oder Seminare aus Linguistik oder Informatik, wobei Vorlesungen Linguistik (5101, 5105), Vorlesungen Informatik (5102, 5106), Seminare Linguistik (5103, 5107) und Seminare Informatik (5104, 5108) zur Auswahl stehen.",
+            "Die Voraussetzungen für die Vergabe von ECTS-Leistungspunkten für das Vertiefungsmodul - Interdisziplinär sind eine bestandene Modulprüfung und die aktive und erfolgreiche Mitwirkung in den Seminaren und theoretischen und praktischen Übungen.",
+            "Die Belegung für dieses Vertiefungsmodul erfordert die Teilnahme an Seminar (a) und Seminar (b).",
+            "Die angestrebten Lernergebnisse und Studieninhalte dieses Vertiefungsmoduls umfassen vertiefte Kenntnisse in Spezialgebieten von Linguistik, Computerlinguistik und Informatik."
+        ]
+    },
+    {
+        "user_input": "Wie lang ist die offizielle Bearbeitungszeit für die Bachelorarbeit?",
+        "reference": "Die Bearbeitungszeit für die Bachelorarbeit beträgt maximal drei Monate.",
+        "response": "Die offizielle Bearbeitungszeit beträgt maximal drei Monate.",
+        "retrieved_contexts": [
+            "Die Bearbeitungszeit beträgt maximal drei Monate, eine Nachfrist von bis zu vier Wochen kann ausnahmsweise gewährt werden.",
+            "Die Bewertung der Bachelorarbeit ist der Kandidatin oder dem Kandidaten nach spätestens acht Wochen mitzuteilen.",
+            "Das Bachelorzeugnis ist unverzüglich, möglichst innerhalb von vier Wochen, auszustellen und enthält die Noten der Prüfungen, das Thema und die Note der Bachelorarbeit sowie die Gesamtnote.",
+            "Die Bearbeitungszeit für Studienarbeiten endet zwei Monate nach Abschluss der mündlichen Leistung, spätestens zum Vorlesungsbeginn des darauffolgenden Semesters."
+        ]
+    }
+]
