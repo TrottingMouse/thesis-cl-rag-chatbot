@@ -145,7 +145,7 @@ def _maxmin_configs() -> list[dict]:
     """
     MaxMinChunker grid.
       fixed_threshold : 0.6, 0.7, 0.8  (≥ algorithm default of 0.6)
-      c               : 0.8, 0.9, 0.95 (≥ algorithm default of 0.9 — note 0.8
+      c               : 0.85, 0.9, 0.95 (≥ algorithm default of 0.9 — note 0.8
                                          is included to explore a slightly
                                          looser damping that may still outperform
                                          the default on this homogenous corpus)
@@ -186,10 +186,10 @@ def _derive_retrieval_params(avg_tokens: float) -> tuple[int, int]:
     """
     Derive top_n and top_k from the average chunk size in tokens.
 
-    top_n = floor(2000 / avg_tokens)   (min 1)
+    top_n = floor(1500 / avg_tokens)   (min 1)
     top_k = 3 * top_n
     """
-    top_n = max(1, math.floor(2000.0 / avg_tokens))
+    top_n = max(1, math.floor(1500.0 / avg_tokens))
     top_k = 3 * top_n
     return top_k, top_n
 
