@@ -152,7 +152,7 @@ def _maxmin_configs() -> list[dict]:
                                          the default on this homogenous corpus)
     """
     configs = []
-    for ft, c in itertools.product((0.6, 0.7, 0.8), (0.85, 0.9, 0.95)):
+    for ft, c in itertools.product((0.6, 0.7, 0.8), (0.9, 0.93, 0.96)):
         configs.append({"fixed_threshold": ft, "c": c})
     return configs
 
