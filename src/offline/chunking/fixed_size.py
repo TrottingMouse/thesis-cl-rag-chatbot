@@ -95,7 +95,7 @@ class DynamicTokenChunker(BaseChunker):
     preserve context across boundaries.
     """
 
-    def __init__(self, chunk_size: int = 256, overlap: int = 0):
+    def __init__(self, chunk_size: int = 250, overlap: int = 0):
         """
         Parameters
         ----------
