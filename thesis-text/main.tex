@@ -6,7 +6,9 @@
 % --- Packages for Tables and Figures ---
 \usepackage{graphicx} % Required for \resizebox
 \usepackage{booktabs} % Required for professional table lines (\toprule, etc.)
+\usepackage{multirow}
 \usepackage{listings}
+\usepackage{placeins}
 \lstset{
   inputencoding=utf8,
   extendedchars=true,
@@ -59,14 +61,17 @@ Thus, there are several goals for this thesis. Firstly, a RAG pipeline is built.
 The RAG-chatbot is based on three administrative documents from the department of Computational Linguistics at the University of Düsseldorf: Prüfungsordnung (PO), Modulhandbuch (MH) and fachspezifische Prüfungsordnung (fPO). PO is relatively easy to handle, as it contains all the general information about studying and exams and is structured in paragraphs. MH has to be preprocessed, as all the modules for Computational Linguistics are shown in table-like structures with two columns. For fPO, preprocessing is absolutely crucial as there is a table for every semester containing subjects and their credit points, time required, exams and administrative numbers.
 \subsection{RAG pipeline}
 \subsubsection{Document preprocessing}
-As two of the documents contain tables, a direct conversion to raw, unformatted text is not sensible. \textcite{min2024exploring} identified four methods to handle tables for RAG. First, the table can be converted to Markdown. Second, it can be converted to simple sentences using automatic templates. Third, traditional (non-generative) language models can be finetuned for this task. Fourth, LLMs can be used to convert the tables to linearized text. In a comparison of the four strategies, LLM-based conversion performed best, followed by Markdown, which still gave good generation results. Thus, for the RAG pipeline, both Markdown and LLM-based conversion are used. For conversion to Markdown, Docling \parencite{Docling} and conversion by an LLM are tested. For conversion to text by an LLM, the technique from Min et al. and a self-written prompt are compared. In the paper, the table is first converted into a nested bracket structure and then converted to text by the LLM. The conversion prompt from the paper is translated into German.The self-written prompt (see appendix~\ref{sec:preprocessing_prompts}) takes the documents in Markdown and converts them directly to text.\footnote{Parts of this section have been taken from the previous literature review}
+As two of the documents contain tables, a direct conversion to raw, unformatted text is not sensible. \textcite{min2024exploring} identified four methods to handle tables for RAG. First, the table can be converted to Markdown. Second, it can be converted to simple sentences using automatic templates.
+Third, traditional (non-generative) language models can be finetuned for this task. Fourth, LLMs can be used to convert the tables to linearized text. In a comparison of the four strategies, LLM-based conversion performed best, followed by Markdown, which still gave good generation results.
+Thus, for the RAG pipeline, both Markdown and LLM-based conversion are used. For conversion to Markdown, Docling \parencite{Docling} and conversion by an LLM are tested. Docling is a framework based on pre-trained lightweight vision models and a deep learning model specialized on table conversion. The prompt for the conversion via LLM can be found in appendix \ref{sec:preprocessing_prompts}. \\
+For conversion to text by an LLM, the technique from Min et al. and a self-written prompt are compared. In the paper, the table is first converted into a nested bracket structure and then converted to text by the LLM. The conversion prompt from the paper is translated into German. The self-written prompt (see appendix~\ref{sec:preprocessing_prompts}) takes the documents in Markdown and converts them directly to text.\footnote{Parts of this section have been taken from the previous literature review}
 \subsubsection{Chunking}
 With early transformer models and the first RAG systems, chunking was only done in a fixed size of tokens, words or characters \parencite{dai2019transformer, lewis2020retrieval}. For this thesis, Fixed Character Chunking was implemented as a baseline chunker. With Dynamic Token Chunking and Fixed Paragraph Chunking, two other simple deterministic Chunkers were implemented. Dynamic Token Chunking sets a maximum number of tokens and cuts off at the last sentence ending before the limit. Fixed Character Chunking packs a fixed number of paragraphs into one chunk. Fixed Character Chunking and Fixed Paragraph Chunking are used in combination with both preprocessing techniques, while Dynamic Token Chunking is only used with linearized text, as it needs sentences for splitting and does not work with Markdown tables.\\
 A big problem of chunking in general, and especially fixed-size chunking, is the splitting of contexts (context problem). A word or a sentence in one chunk can reference parts of the previous chunk or even a more distant one. This information gets lost in the chunking process. The first solution to this problem, which was derived from the training of BERT \parencite{devlin2019bert}, was overlapping chunks. Overlap is a certain number of tokens or characters that two adjacent chunks share, giving the beginning and the end of a chunk more context.\\
 Another solution to the context problem is semantic chunking. This method embeds every sentence and separates two adjacent sentences into different chunks if their similarity is below a certain threshold \parencite{kamradt2024fivelevels}. However, later studies found that semantic chunking had only a slight, non-significant edge over fixed-size chunking for large contexts, which does not justify the computational overhead \parencite{qu2025semantic,bennani2026systematic}. This led to the development of Max-Min-Chunking, an improved semantic chunker achieving significantly better retrieval and RAG accuracy than both previous semantic chunkers and simple fixed-size chunkers. The algorithm uses "dynamic clustering". With Max-Min semantic chunking, a sentence is allocated to the same chunk as the previous one if it shares a higher similarity with any sentence in the current chunk than the pair with the lowest similarity in the chunk. This dynamic threshold can even be dampened by a factor c. However, there is a hard baseline for cosine similarity (fixed\_threshold). This chunker is tested for linearized text in the chunking experiments.\\
 An alternative approach to deal with the context problem is improving the workflow of chunking. Contextual Retrieval addresses it by prepending contextual text to every chunk, situating it inside the bigger document. This significantly reduces the retrieval failure rate \parencite{anthropic2024contextual}. JinaAI proposed a more profound change to the retrieval pipeline. Late Chunking embeds all tokens first so the word embeddings have the context of the whole text. Only then are the documents chunked using any chunking algorithm. In the end, mean pooling is done on the vectors in each chunk. However, both methods are more sensible for in-corpus retrieval, meaning retrieval from a big, thematically heterogenous corpus. For this thesis, there are only three, thematically homogenous documents included, making the task more similar to in-document retrieval (retrieval from one long, homogenous document). Here, contextualized chunking with standard methods is not advised \parencite{zhou2026beyond}. Instead, two structure-based methods enriching table chunks with context were implemented specifically for the documents.\\
 The first one, Whole Table Paragraph Chunker, splits the structured Markdown documents into entire tables (for fPO) or modules (for MH). Each table chunk receives the abbreviation legend and its heading as contextualization. The unstructured text in the Markdown documents is split into paragraphs.\\
-The second one, Split Table Chunker, splits the tables and modules into smaller parts [INCLUDE GRAPHIC??] to make retrieval more precise and reduce the context for the LLM. Because context gets lost here, the headings are prepended and the abbreviations are replaced by the full words.\\
+The second one, the Split Table Paragraph Chunker, splits semester tables at module boundaries. It also divides module descriptions by individual field lines. This makes retrieval more precise and reduces the context for the LLM. Because context gets lost here, the relevant semester or module headings are prepended to each chunk. Additionally, abbreviations are replaced by their full words, and sub-course letter references are resolved to their actual names.\\
 With transformer-based LLMs getting more reliable, the models were used for more mechanical tasks like chunking. LumberChunker successfully implemented this approach. The document is split into paragraphs. Iteratively, all paragraphs up to a certain token length are fed to an LLM to decide where the content changes, which is where the current chunk is cut. The resulting chunks align closely with manually created chunks and thus perform quite well. For in-document retrieval, LumberChunker performed particularly well in a comparative study \parencite{zhou2026beyond}. Thus, LumberChunker was selected as one of the chunkers for the chunking experiments for linearized text.\footnote{Parts of this section have been taken from the previous literature review}
 \subsubsection{Indexing and Retrieval}
 After chunking, the chunks are embedded using a sentence transformer model. The model used is jinaai/jina-embeddings-v5-nano, a cutting-edge embedding model with only 239M parameters \parencite{akram2026jina}. A particularly small model was chosen in order to keep resource usage limited, also for indexing and retrieval. FAISS was used for vector storage \parencite{douze2024faiss}.\\
@@ -90,11 +95,14 @@ An important attribute of RAG pipelines which cannot be captured by the previous
 \subsection{Experiments}
 \subsubsection{Pipeline configuration}
 The whole RAG pipeline has many configurations and hyperparameters which can be optimized. As evaluation with LLM-as-a-judge is expensive resource-wise, this thesis cannot cover the whole search space.
-Thus, four separate experiments are done to optimize document preprocessing, context size, query expansion and chunking hyperparameters before the main experiment, which is comparing preprocessor/chunker pairs.
-These experiments are also only done on a thematically balanced subset of the evaluation dataset containing 15 question-answer pairs.\\
+Thus, four separate experiments are done to optimize document preprocessing, context size, query expansion and chunking hyperparameters before the main experiment, which is comparing preprocessor/chunker pairs. For all experiments, the results of the previous experiments are already used. For example, after the preprocessing experiment, only the top performing preprocessors are taken into consideration.
+The experiments are only done on a thematically balanced subset of the evaluation dataset containing 15 question-answer pairs.\\
 
 \subsubsection{Document preprocessing}
 In a first step, the Markdown conversion by Gemini is compared to the conversion by Docling. Then, the better Markdown Processor is chained with the self-written prompt for linearized text and the results are compared to the text linearization from \textcite{min2024exploring}. For both Markdown and for linearized text, the better method of each of the two comparisons is taken in all following experiments. The preprocessors should preserve the structure from the documents, while still not only working for one chunker. Thus, Fixed Paragraph Chunker with size 1 and overlap 0 is used as this chunker pays some attention to document structure, but it is not as specifically tailored to the documents as the table-based methods. As the paragraphs are quite long (up to 600 tokens), the number of retrieved (top\_k) and reranked (top\_n) documents are set to 9 and 3 respectively.\\
+\subsubsection{Grid search for chunking hyperparameters}
+For the fixed size chunkers and Dynamic Token Chunking, chunk size and overlap can be tuned. The parameters are chosen so that the size of one chunk remains under 2000 tokens in every case.\\
+For Max-Min Chunking, the hard baseline threshold (hard\_threshold) and the dampening parameter (c) are tuned in a grid search. As the documents are thematically very homomgenous, values for both hard\_threshold and c are chosen higher or equal than the default values.
 \subsubsection{Context size}
 For the numbers of retrieved (top\_k) and reranked (top\_n) documents, there are different strategies. The most simple one is to use the same top\_k and top\_n for all experiments. However, this bears the problem that the length of the context given to the LLM becomes very uncomparable for different Chunkers, as chunk lengths vary massively.
 These problems can be fixed by setting a fixed token limit and making top\_k and top\_n dependent on average chunk size and token limit:\\
@@ -106,39 +114,72 @@ $$\begin{aligned}
 The token limit was set to 1500 because (as mentioned in the introduction) performance of SLMs around 8B parameters already drops between 4000 and 8000 input tokens of context. Thus, for the 2B model, the context input was set to less than half.\\
 The pure token cap can be good for comparison of chunkers, but it can also disadvantage smaller chunk sizes, as these are made for being more flexible. For some queries, less context is needed, so these chunkers have the advantage of being able to potentially provide more precise context with less tokens. This attribute is taken into consideration by using a similarity threshold. Here, there is still a hard top\_n (dependent on chunk size), but there is the option to retrieve less chunks if the cross-encoding score of lower-ranked chunks is below a certain threshold. This method is tested for several thresholds with both Markdown and linearized documents for paragraph-level and for the smaller Split Table Chunks to cover a broad variety.\\
 \subsubsection{Query expansion}
-Using the results from the previous two experiments, the two query expansion methods and no query expansion are compared. As the influence of chunk size is not as big as for the context size experiment, only Paragraph Chunking was chosen here, as in the preprocessing experiment.\\
-\subsubsection{Grid search for chunking hyperparameters}
-For the fixed size chunkers and Dynamic Token Chunking, chunk size and overlap can be tuned. The parameters are chosen so that the size of one chunk remains under 2000 tokens in every case.\\
-For Max-Min Chunking, the hard baseline threshold (hard\_threshold) and the dampening parameter (c) are tuned in a grid search. As the documents are thematically very homomgenous, values for both hard\_threshold and c are chosen higher or equal than the default values.
+The two query expansion methods and no query expansion are compared. As the influence of chunk size is not as big as for the context size experiment, only Paragraph Chunking was chosen here, as in the preprocessing experiment.\\
+
 \subsubsection{Main Experiment: Preprocessor and Chunker Comparison}
 Using the outcomes from the previous experiments, all sensible preprocessor/chunker combinations are compared on the full dataset and on the negative rejection dataset. Some combinations are not sensible, as the chunker relies on a certain document type or structure, while other chunkers are universally applicable.
 \section{Results}
 \subsection{Preprocessing choices}
-
-
+GeminiMarkdownProcessor outperforms DoclingMarkdownProcessor for Markdown conversion. Together with DirectLLMProcessor, it also outperforms PaperLLMProcessor for text linearization (see table \ref{tab:preprocessor_comparison}).
 \begin{table}[htbp]
     \centering
     \caption{Comparison of Document Preprocessors}
     \label{tab:preprocessor_comparison}
-    \resizebox{\textwidth}{!}{% % This scales the table to perfectly match your new 1-inch margins
-        \begin{tabular}{lccccc}
-            \toprule
-            \textbf{Preprocessor}                      & \textbf{Num Chunks} & \textbf{Context Recall} & \textbf{Faithfulness} & \textbf{Answer Relevancy} & \textbf{Answer Correctness} \\
-            \midrule
-            DoclingMarkdownProcessor                   & 878                 & 0.833                   & 0.614                 & 0.574                     & 0.454                       \\
-            GeminiMarkdownProcessor                    & 261                 & 0.778                   & 0.667                 & 0.699                     & 0.485                       \\
-            GeminiMarkdownProcessor+DirectLLMProcessor & 68                  & 0.700                   & 0.811                 & 0.581                     & 0.531                       \\
-            PaperLLMProcessor                          & 924                 & 0.533                   & 0.787                 & 0.613                     & 0.439                       \\
-            \bottomrule
-        \end{tabular}
-    }
+    \begin{tabular}{lc}
+        \toprule
+        \textbf{Preprocessor}                      & \textbf{Answer Accuracy} \\
+        \midrule
+        DoclingMarkdownProcessor                   & 0.454                    \\
+        GeminiMarkdownProcessor                    & 0.485                    \\
+        GeminiMarkdownProcessor+DirectLLMProcessor & 0.531                    \\
+        PaperLLMProcessor                          & 0.439                    \\
+        \bottomrule
+    \end{tabular}
 \end{table}
 
+\subsection{Chunking Parameters}
+
+\subsection{Context Size and Threshold}
+\begin{table}[htbp]
+    \centering
+    \small
+    \setlength{\tabcolsep}{8pt} % Adjust horizontal space between columns
+    \renewcommand{\arraystretch}{1.1} % Comfortable line spacing
+    \caption{Evaluation of RAG Pipeline Answer Correctness Across Preprocessing Methods, Chunkers, and Reranking Thresholds.}
+    \label{tab:rag_correctness_eval_compact}
+    \begin{tabular}{llccc}
+        \toprule
+                               &                  & \multicolumn{3}{c}{\textbf{Reranking Threshold}}                                   \\
+        \cmidrule(lr){3-5}
+        \textbf{Preprocessing} & \textbf{Chunker} & \textbf{0.00}                                    & \textbf{0.05}  & \textbf{0.10}  \\
+        \midrule
+        \multirow{4}{*}{Markdown}
+                               & Paragraph        & 0.604                                            & \textbf{0.627} & 0.587          \\
+                               & Character        & 0.608                                            & 0.568          & \textbf{0.635} \\
+                               & Whole Table      & \textbf{0.640}                                   & 0.626          & 0.609          \\
+                               & Split Table      & \textbf{0.649}                                   & 0.549          & 0.557          \\
+        \midrule
+        \multirow{5}{*}{Direct}
+                               & Paragraph        & 0.591                                            & \textbf{0.597} & 0.517          \\
+                               & Dynamic          & \textbf{0.668}                                   & 0.622          & 0.572          \\
+                               & Character        & \textbf{0.560}                                   & 0.533          & 0.443          \\
+                               & LLM Chunker      & 0.501                                            & \textbf{0.502} & 0.487          \\
+                               & Max-Min          & \textbf{0.396}                                   & 0.389          & 0.380          \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\FloatBarrier
+\section{Discussion}
+The first part of the preprocessing experiment hints to the fact that LLMs can outperform elaborate frameworks at complicated tasks. Docling was specifically designed for converting documents containing tables to markdown. Still, Gemini performed better with a simple one line prompt.\\
+The good results of the text linearization technique from \textcite{min2024exploring} could not be reproduced. Instead, also here, a custom prompt using the Markdown documents as input achieved a better answer correctness.\\
+
 \section{Limitations and Future Research}
-As this work focuses on preprocessing, chunking and query preprocessing, the optimization of other pipeline components is neglected. Especially the online part of the pipeline has a lot more potential for optimization.\\
+As this work focuses on preprocessing, chunking and query preprocessing, the optimization of other pipeline components is neglected. Especially the online part of the pipeline has a lot more potential for optimization. Even the maximum context size and the factor between top\_k and top\_n are optimizable in context of the rest of the pipeline. This could be done in an independent experiment or as part of a bigger grid search.\\
 For the embedder, reranker, and generator, other models can be compared. For this work, only a few models were tested superficially, leaving this question open for future work. The retriever can even be combined with a sparse BM25 retriever. In previous work, this has outperformed a pure dense retriever. However, especially (but not exclusively) when switching to hybrid retrieval, the results for chunking and preprocessing might have to be re-evaluated. \\
 For improved retrieval results, the embedding model can be fine-tuned. As the topic is very specific and the number of documents is very limited, this could boost retrieval quality by a great margin. Furthermore, the query preprocessing can be more precise with fine-tuned embeddings. Query2doc [cite!] achieves a performance gain over HyDE by fine-tuning an embedding model on extended queries.\\
-Furthermore, the values for number of retrieved documents, maximum number of documents returned by the reranker and reranking threshold can be improved for any specific chunker in a grid search.
+Furthermore, the components optimized in the first four experiments (preprocessor, chunking parameters, context threshold and query expansion) can be further improved in a grid search. As the experiments were conducted sequentially due to evaluation resource constraints, there is no guarantee that this thesis found the best pipeline configuration. The best chunk size for RAG is for example heavily dependent on retrieval threshold, which was only investigated after the chunker experiment here.
+With more computational and monetary resources, future research could improve the outcome by finding a better combination of components and settings.\\
 For chatbot deployment, the repository can be made more performant using lazy imports, i. e., moving imports into methods. Thus, imports are only triggered when really needed. By using vllm with a locally saved model instead of HuggingFace, there is an even greater potential gain in performance.
 
 
