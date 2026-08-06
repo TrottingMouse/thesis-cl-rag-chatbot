@@ -273,6 +273,7 @@ def main():
         text = f.read()
 
     document = Document(
+        source_path="",
         doc_id = "pdf_4",
         text = text
     )
