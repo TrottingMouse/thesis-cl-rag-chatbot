@@ -264,7 +264,7 @@ class MaxMinChunker(BaseChunker):
 
 def main():
     chunker = MaxMinChunker(
-        embedding_model_name="jinaai/jina-embeddings-v5-nano", 
+        embedding_model_name="jinaai/jina-embeddings-v5-text-nano", 
         fixed_threshold=0.6, 
         c=0.9, 
         init_constant=1.5
