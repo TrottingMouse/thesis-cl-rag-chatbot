@@ -1,40 +1,53 @@
 """
 Grid search for optimal chunking parameters.
 
-For every chunker listed in grid_search_config.yaml, this script:
-  1. Uses ALL preprocessors from grid_search_config.yaml (applied in order).
-  2. Iterates over every (chunk_size, overlap) combination defined in the config.
-  3. After chunking, computes the average chunk length **in tokens** (using the
-     generator model's tokenizer) across all chunks.
-  4. Derives retrieval parameters dynamically:
-       top_n = floor(2000 / avg_chunk_size_tokens)   (minimum 1)
+All experiment parameters are hardcoded below — no external YAML config is
+needed.  The script covers four chunkers:
+
+  FixedParagraphChunker
+    chunk_size ∈ {1, 2, 3}
+    overlap    : 1 for sizes 1 and 2; 0 for size 3
+
+  FixedCharacterChunker
+    chunk_size ∈ {500, 1_000, 1_500}
+    overlap    : 0 or 10 % of chunk_size (rounded)
+
+  DynamicTokenChunker
+    chunk_size ∈ {150, 250, 500}
+    overlap    : 0 or 10 % of chunk_size (rounded)
+
+  MaxMinChunker
+    fixed_threshold ∈ {0.6, 0.7, 0.8}   (≥ default; thematically homogenous corpus)
+    c               ∈ {0.8, 0.9, 0.95}  (≥ default)
+
+For every run the script:
+  1. Builds the offline index for the given chunker + params.
+  2. Derives retrieval parameters dynamically from avg chunk size:
+       top_n = floor(2000 / avg_chunk_size_tokens)  (min 1)
        top_k = 3 * top_n
-  5. Runs the full offline + online pipeline.
-  6. Evaluates with minimal set.
-  7. Saves per-configuration results and a summary CSV.
+  3. Runs all queries from qa_pairs_grid.json.
+  4. Evaluates with evaluate_minimal() and collects mean metrics.
+
+A summary CSV is written to storage/grid_search_results/grid_search_summary.csv.
 """
 
 from __future__ import annotations
 
-import copy
+import itertools
 import json
 import logging
 import math
 from pathlib import Path
-from typing import List, Any
 
-import yaml
 from dotenv import load_dotenv
 from transformers import AutoTokenizer
 
 from src.factory import (
-    load_yaml_config,
     build_offline_pipeline,
     build_online_pipeline,
     run_queries,
     write_summary_csv,
 )
-from src.config import OfflineConfig, OnlineConfig
 from src.evaluation import Evaluator
 
 # ---------------------------------------------------------------------------
@@ -48,195 +61,268 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 load_dotenv()
 
+# ---------------------------------------------------------------------------
+# Hardcoded experiment parameters
+# ---------------------------------------------------------------------------
+
+# Documents to index
+DOCUMENT_PATHS: list[str] = [
+    "documents/PO.pdf",
+    "documents/MHB.pdf",
+    "documents/POges.pdf",
+]
+
+# Models
+EMBEDDING_MODEL  = "jinaai/jina-embeddings-v5-text-nano"
+GENERATION_MODEL = "Qwen/Qwen3.5-2B"
+
+# Preprocessor chain (applied to every chunker)
+PREPROCESSOR_NAMES: list[str] = ["GeminiMarkdownProcessor"]
+
+# Online components (fixed across all runs)
+INDEX_BUILDER_NAME = "FaissIndexBuilder"
+RETRIEVER_NAME     = "FaissRetriever"
+RERANKER_NAME      = "JinaReranker"
+GENERATOR_NAME     = "HuggingfaceGenerator"
+
+# Reranking threshold (fixed; only top_k / top_n vary per run)
+RERANKING_THRESHOLD = 0.1
+
+# QA evaluation file
+QA_EVAL_FILE = "storage/evaluation/qa_pairs_grid.json"
+
+# Output directories
+RESULTS_DIR = Path("storage/grid_search_results")
+INDEX_BASE  = Path("storage/grid_search_index")
+
+# ---------------------------------------------------------------------------
+# Per-chunker parameter grids
+# ---------------------------------------------------------------------------
+
+def _paragraph_configs() -> list[dict]:
+    """
+    FixedParagraphChunker grid.
+      sizes   : 1, 2, 3
+      overlap : 1 only for sizes 1 and 2 (overlap must be < chunk_size)
+    """
+    configs = []
+    for size in (1, 2, 3):
+        overlaps = [0, 1] if size <= 2 else [0]
+        for ov in overlaps:
+            configs.append({"chunk_size": size, "overlap": ov})
+    return configs
+
+
+def _character_configs() -> list[dict]:
+    """
+    FixedCharacterChunker grid.
+      sizes   : 500, 1_000, 1_500
+      overlap : 0  or  10 % of chunk_size (rounded to nearest int)
+    """
+    configs = []
+    for size in (500, 1_000, 1_500):
+        ten_pct = round(size * 0.10)
+        for ov in sorted({0, ten_pct}):          # deduplicate if 10 % rounds to 0
+            configs.append({"chunk_size": size, "overlap": ov})
+    return configs
+
+
+def _dynamic_configs() -> list[dict]:
+    """
+    DynamicTokenChunker grid.
+      sizes   : 150, 250, 500
+      overlap : 0  or  10 % of chunk_size (rounded)
+    """
+    configs = []
+    for size in (150, 250, 500):
+        ten_pct = round(size * 0.10)
+        for ov in sorted({0, ten_pct}):
+            configs.append({"chunk_size": size, "overlap": ov})
+    return configs
+
+
+def _maxmin_configs() -> list[dict]:
+    """
+    MaxMinChunker grid.
+      fixed_threshold : 0.6, 0.7, 0.8  (≥ algorithm default of 0.6)
+      c               : 0.8, 0.9, 0.95 (≥ algorithm default of 0.9 — note 0.8
+                                         is included to explore a slightly
+                                         looser damping that may still outperform
+                                         the default on this homogenous corpus)
+    """
+    configs = []
+    for ft, c in itertools.product((0.6, 0.7, 0.8), (0.85, 0.9, 0.95)):
+        configs.append({"fixed_threshold": ft, "c": c})
+    return configs
+
+
+# Registry of all chunkers with their grids
+#   (label, registry_name, param_configs, extra_kwargs_for_build)
+CHUNKER_SPECS: list[tuple[str, str, list[dict], dict]] = [
+    ("paragraph", "FixedParagraphChunker",  _paragraph_configs(), {}),
+    ("character", "FixedCharacterChunker",  _character_configs(), {}),
+    ("dynamic",   "DynamicTokenChunker",    _dynamic_configs(),   {}),
+    # MaxMinChunker needs the embedding model injected; factory handles this
+    # automatically when chunker_name == "MaxMinChunker" and
+    # "embedding_model_name" is absent from chunker_kwargs.
+    ("maxmin",    "MaxMinChunker",          _maxmin_configs(),    {}),
+]
 
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
 
-def _compute_avg_chunk_size(chunks: List[Any], tokenizer: AutoTokenizer) -> float:
-    """Return the average token length of a list of Chunk objects using the generator tokenizer."""
+def _compute_avg_chunk_size(chunks, tokenizer: AutoTokenizer) -> float:
+    """Return the average token length of a list of Chunk objects."""
     if not chunks:
         return 1.0
-    total_tokens = sum(len(tokenizer.encode(c.text, add_special_tokens=False)) for c in chunks)
-    return total_tokens / len(chunks)
+    total = sum(
+        len(tokenizer.encode(c.text, add_special_tokens=False)) for c in chunks
+    )
+    return total / len(chunks)
 
 
-def _derive_retrieval_params(avg_chunk_size_tokens: float) -> tuple[int, int]:
+def _derive_retrieval_params(avg_tokens: float) -> tuple[int, int]:
     """
     Derive top_n and top_k from the average chunk size in tokens.
 
-    top_n = floor(2000 / avg_chunk_size_tokens)  (min 1)
+    top_n = floor(2000 / avg_tokens)   (min 1)
     top_k = 3 * top_n
     """
-    top_n = max(1, math.floor(2000.0 / avg_chunk_size_tokens))
+    top_n = max(1, math.floor(2000.0 / avg_tokens))
     top_k = 3 * top_n
     return top_k, top_n
 
 
-def _make_run_name(preprocessor_names: list[str], chunker_name: str, **params) -> str:
-    """Build a short, filesystem-safe name for this grid run."""
-    prep_part = "_".join(p[:6] for p in preprocessor_names)
-    param_part = "_".join(str(v) for v in params.values())
-    return f"{prep_part}_{chunker_name[:10]}_{param_part}"
+def _run_name(chunker_label: str, params: dict) -> str:
+    """Build a short, filesystem-safe run name."""
+    param_part = "_".join(f"{k}{v}" for k, v in params.items())
+    return f"{chunker_label}__{param_part}"
 
+
+# ---------------------------------------------------------------------------
+# Online pipeline config dict (mirrors the YAML online_pipeline section)
+# ---------------------------------------------------------------------------
+
+ONLINE_PIPELINE_CFG = {
+    "query_processor": "NoProcessingProcessor",
+    "retriever":       RETRIEVER_NAME,
+    "reranker":        RERANKER_NAME,
+    "generator":       GENERATOR_NAME,
+}
 
 # ---------------------------------------------------------------------------
 # Main grid search
 # ---------------------------------------------------------------------------
 
-def chunking_grid_search():
-    # 1. Load configs
-    grid_cfg = load_yaml_config("config/grid_search_config.yaml")
-    base_cfg = load_yaml_config("config/config.yaml")
+def chunking_grid_search() -> None:
+    logger.info("Loading tokenizer for '%s' ...", GENERATION_MODEL)
+    tokenizer = AutoTokenizer.from_pretrained(GENERATION_MODEL)
 
-    preprocessor_names: list[str] = grid_cfg["preprocessing"]
-    chunkers: list[dict] = grid_cfg["chunking"]
-    document_paths: list[str] = base_cfg["documents"]
-
-    offline_config = OfflineConfig(**base_cfg.get("offline_config", {}))
-    online_config = OnlineConfig(**base_cfg.get("online_config", {}))
-    online_pipeline_cfg: dict = base_cfg["online_pipeline"]
-    offline_pipeline_cfg: dict = base_cfg["offline_pipeline"]
-
-    # Load the generator tokenizer once — chunk sizes are measured in its token space
-    logger.info("Loading tokenizer for '%s' ...", online_config.generation_model)
-    tokenizer = AutoTokenizer.from_pretrained(online_config.generation_model)
-
-    # QA evaluation files
-    qa_eval_file = "storage/evaluation/qa_pairs_grid.json"
-    with open(qa_eval_file) as f:
+    with open(QA_EVAL_FILE) as f:
         qa_pairs_template = json.load(f)
-    queries = [item["user_input"] for item in qa_pairs_template]
+    queries: list[str] = [item["user_input"] for item in qa_pairs_template]
+    logger.info("Loaded %d queries from '%s'.", len(queries), QA_EVAL_FILE)
 
-    # Output directory for grid search results
-    results_dir = Path("storage/grid_search_results")
-    results_dir.mkdir(parents=True, exist_ok=True)
-
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     summary_rows: list[dict] = []
 
-    # 2. Iterate over every chunker configuration
-    for chunker_cfg in chunkers:
-        chunker_name: str = chunker_cfg["name"]
-        options: dict = chunker_cfg["options"]
+    for chunker_label, chunker_name, param_grid, _extra in CHUNKER_SPECS:
+        logger.info("=" * 70)
+        logger.info(
+            "CHUNKER: %s (%s)  |  %d parameter combination(s)",
+            chunker_label, chunker_name, len(param_grid),
+        )
+        logger.info("=" * 70)
 
-        is_maxmin = chunker_name == "MaxMinChunker"
-
-        if is_maxmin:
-            c_values: list[float] = options["c"]
-            fixed_threshold_values: list[float] = options["fixed_threshold"]
-            embedding_model_name: str = options.get(
-                "embedding_model_name", offline_config.embedding_model
-            )
-            param_combinations = [
-                {"c": c_val, "fixed_threshold": ft_val}
-                for c_val in c_values
-                for ft_val in fixed_threshold_values
-            ]
-            logger.info(
-                "=== Grid search for chunker '%s' | c=%s | fixed_threshold=%s ===",
-                chunker_name,
-                c_values,
-                fixed_threshold_values,
-            )
-        else:
-            chunk_sizes: list[int] = options["chunk_sizes"]
-            overlaps: list[int] = options["overlaps"]
-            max_total: int | None = options.get("max_paragraphs_per_chunk")
-            param_combinations = [
-                {"chunk_size": cs, "overlap": ov}
-                for cs in chunk_sizes
-                for ov in overlaps
-                if ov < cs
-                and (max_total is None or cs + ov <= max_total)
-            ]
-            logger.info(
-                "=== Grid search for chunker '%s' | chunk_sizes=%s | overlaps=%s ===",
-                chunker_name,
-                chunk_sizes,
-                overlaps,
-            )
-
-        for params in param_combinations:
-            run_name = _make_run_name(preprocessor_names, chunker_name, **params)
+        for params in param_grid:
+            run_name = _run_name(chunker_label, params)
             logger.info("--- Run: %s ---", run_name)
 
-            index_path = Path("storage/grid_search_index") / run_name
+            index_path = INDEX_BASE / run_name
 
-            # Build and run offline pipeline
-            chunker_kwargs = (
-                {
-                    "embedding_model_name": embedding_model_name,
-                    **params,
-                }
-                if is_maxmin
-                else params
-            )
+            # ------------------------------------------------------------------
+            # Offline pipeline
+            # ------------------------------------------------------------------
             offline_pipeline = build_offline_pipeline(
-                preprocessor_names=preprocessor_names,
+                preprocessor_names=PREPROCESSOR_NAMES,
                 chunker_name=chunker_name,
-                index_builder_name=offline_pipeline_cfg["index_builder"],
+                index_builder_name=INDEX_BUILDER_NAME,
                 storage_path=index_path,
-                embedding_model=offline_config.embedding_model,
-                **chunker_kwargs,
+                embedding_model=EMBEDDING_MODEL,
+                **params,
+                # factory auto-injects embedding_model_name for MaxMinChunker
             )
-            offline_result = offline_pipeline.run(document_paths)
+            offline_result = offline_pipeline.run(DOCUMENT_PATHS)
             chunks = offline_result.chunks
 
-            # Derive dynamic retrieval parameters
-            avg_chunk_size_tokens = _compute_avg_chunk_size(chunks, tokenizer)
-            top_k, top_n = _derive_retrieval_params(avg_chunk_size_tokens)
+            # ------------------------------------------------------------------
+            # Derive dynamic retrieval parameters from avg chunk size
+            # ------------------------------------------------------------------
+            avg_tokens = _compute_avg_chunk_size(chunks, tokenizer)
+            top_k, top_n = _derive_retrieval_params(avg_tokens)
             logger.info(
-                "avg_chunk_size=%.1f tokens | top_n=%d | top_k=%d",
-                avg_chunk_size_tokens, top_n, top_k,
+                "  num_chunks=%d | avg_chunk_tokens=%.1f | top_n=%d | top_k=%d",
+                len(chunks), avg_tokens, top_n, top_k,
             )
 
-            # Build online pipeline, run queries, save raw results
+            # ------------------------------------------------------------------
+            # Online pipeline + query execution
+            # ------------------------------------------------------------------
             online_pipeline = build_online_pipeline(
-                cfg=online_pipeline_cfg,
+                cfg=ONLINE_PIPELINE_CFG,
                 index_builder=offline_pipeline.index_builder,
                 top_k=top_k,
                 top_n=top_n,
-                generation_model=online_config.generation_model,
-                reranking_score_threshold=online_config.reranking_score_threshold,
+                generation_model=GENERATION_MODEL,
+                reranking_score_threshold=RERANKING_THRESHOLD,
             )
             qa_pairs = run_queries(online_pipeline, queries, qa_pairs_template)
 
-            qa_save = results_dir / f"{run_name}.json"
-            with open(qa_save, "w") as f:
-                json.dump(qa_pairs, f, indent=4)
+            qa_save = RESULTS_DIR / f"{run_name}.json"
+            with open(qa_save, "w", encoding="utf-8") as f:
+                json.dump(qa_pairs, f, indent=4, ensure_ascii=False)
+            logger.info("  Raw QA results saved to '%s'.", qa_save)
 
-            # Evaluate
+            # ------------------------------------------------------------------
+            # Evaluation
+            # ------------------------------------------------------------------
             evaluator = Evaluator(str(qa_save))
-            eval_df = evaluator.evaluate()
-            metrics = eval_df.mean(numeric_only=True).to_dict()
+            eval_df   = evaluator.evaluate_minimal()
+            metrics   = eval_df.mean(numeric_only=True).to_dict()
 
             row = {
-                "run_name": run_name,
-                "preprocessors": "+".join(preprocessor_names),
-                "chunker": chunker_name,
-                # MaxMinChunker-specific columns (empty for other chunkers)
-                "c": params.get("c", ""),
-                "fixed_threshold": params.get("fixed_threshold", ""),
-                # Standard chunker columns (empty for MaxMinChunker)
-                "chunk_size": params.get("chunk_size", ""),
-                "overlap": params.get("overlap", ""),
-                "num_chunks": len(chunks),
-                "avg_chunk_size_tokens": round(avg_chunk_size_tokens, 1),
-                "top_k": top_k,
-                "top_n": top_n,
-                "reranking_threshold": online_config.reranking_score_threshold,
-                **{f"{k}": v for k, v in metrics.items()},
+                "run_name":              run_name,
+                "preprocessors":         "+".join(PREPROCESSOR_NAMES),
+                "chunker":               chunker_name,
+                # MaxMinChunker-specific (empty for other chunkers)
+                "fixed_threshold":       params.get("fixed_threshold", ""),
+                "c":                     params.get("c", ""),
+                # Fixed-size chunker columns (empty for MaxMinChunker)
+                "chunk_size":            params.get("chunk_size", ""),
+                "overlap":               params.get("overlap", ""),
+                # Retrieval info
+                "num_chunks":            len(chunks),
+                "avg_chunk_tokens":      round(avg_tokens, 1),
+                "top_k":                 top_k,
+                "top_n":                 top_n,
+                "reranking_threshold":   RERANKING_THRESHOLD,
+                **metrics,
             }
             summary_rows.append(row)
-            logger.info("Run '%s' complete.", run_name)
+            logger.info("  Run '%s' complete. Metrics: %s", run_name, metrics)
 
-    # 3. Write summary CSV
+    # --------------------------------------------------------------------------
+    # Summary CSV
+    # --------------------------------------------------------------------------
     if summary_rows:
-        summary_path = results_dir / "grid_search_summary.csv"
+        summary_path = RESULTS_DIR / "grid_search_summary.csv"
         write_summary_csv(summary_path, summary_rows)
-        logger.info("Grid search complete. Summary written to '%s'.", summary_path)
+        logger.info(
+            "Grid search complete. Summary written to '%s'.", summary_path
+        )
     else:
-        logger.warning("No runs were completed. Check your grid_search_config.yaml.")
+        logger.warning("No runs completed.")
 
 
 if __name__ == "__main__":
