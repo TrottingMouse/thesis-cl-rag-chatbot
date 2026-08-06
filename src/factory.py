@@ -119,6 +119,10 @@ def build_offline_pipeline(
         (e.g. ``chunk_size``, ``overlap``, ``c``, ``fixed_threshold``).
     """
     preprocessors = build_preprocessors(preprocessor_names)
+    # MaxMinChunker needs the embedding model name; inject it automatically
+    # so callers don't have to repeat it in chunker_kwargs.
+    if chunker_name == "MaxMinChunker" and "embedding_model_name" not in chunker_kwargs:
+        chunker_kwargs = {"embedding_model_name": embedding_model, **chunker_kwargs}
     chunker = build_chunker(chunker_name, **chunker_kwargs)
     index_builder = build_index_builder(index_builder_name, storage_path, embedding_model)
     return OfflinePipeline(preprocessors, chunker, index_builder)
