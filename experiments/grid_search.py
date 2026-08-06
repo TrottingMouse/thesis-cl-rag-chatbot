@@ -103,11 +103,12 @@ def _paragraph_configs() -> list[dict]:
     """
     FixedParagraphChunker grid.
       sizes   : 1, 2, 3
-      overlap : 1 only for sizes 1 and 2 (overlap must be < chunk_size)
+      overlap : 1 only for size 2 (overlap must be strictly < chunk_size,
+                so size=1 with overlap=1 is invalid)
     """
     configs = []
     for size in (1, 2, 3):
-        overlaps = [0, 1] if size <= 2 else [0]
+        overlaps = [0, 1] if size == 2 else [0]
         for ov in overlaps:
             configs.append({"chunk_size": size, "overlap": ov})
     return configs
