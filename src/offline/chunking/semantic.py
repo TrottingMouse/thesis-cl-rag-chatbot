@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 
 
 # ---------------------------------------------------------------------------
-# Core algorithm (ported from temporary.py)
+# Core algorithm (ported from original paper)
 # ---------------------------------------------------------------------------
 
 
@@ -95,7 +95,7 @@ def _process_sentences(
             )[0]
             pairwise_min = float(sim[0])
             new_sentence_similarity = init_constant * pairwise_min
-
+        print(f"sentence {i}: {new_sentence_similarity} vs adjusted {adjusted_threshold} vs fixed {fixed_threshold}")
         # Extend current cluster or start a new one.
         if new_sentence_similarity > max(adjusted_threshold, fixed_threshold):
             current_paragraph.append(sentences[i])
@@ -265,7 +265,7 @@ class MaxMinChunker(BaseChunker):
 def main():
     chunker = MaxMinChunker(
         embedding_model_name="jinaai/jina-embeddings-v5-text-nano", 
-        fixed_threshold=0.6, 
+        fixed_threshold=0.8, 
         c=0.9, 
         init_constant=1.5
     )
