@@ -261,3 +261,27 @@ class MaxMinChunker(BaseChunker):
             len(chunks),
         )
         return chunks
+
+def main():
+    chunker = MaxMinChunker(
+        embedding_model_name="jinaai/jina-embeddings-v5-nano", 
+        fixed_threshold=0.6, 
+        c=0.9, 
+        init_constant=1.5
+    )
+    with open("storage/cached_documents/PO_markdown_gemini.txt") as f:
+        text = f.read()
+
+    document = Document(
+        doc_id = "pdf_4",
+        text = text
+    )
+
+    chunks = chunker.chunk(document)
+    
+    print(f"Chunked {len(chunks)} chunks for document {document.doc_id}.")
+    
+    
+if __name__ == "__main__":
+    main()
+    
