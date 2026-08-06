@@ -153,7 +153,8 @@ def _maxmin_configs() -> list[dict]:
     """
     configs = []
     for ft, c in itertools.product((0.6, 0.7, 0.8), (1.1, 1.2, 1.3, 1.4)):
-        configs.append({"fixed_threshold": ft, "c": c})
+        if ft + c > 1.7:
+            configs.append({"fixed_threshold": ft, "c": c})
     return configs
 
 
