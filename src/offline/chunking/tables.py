@@ -431,9 +431,9 @@ if __name__ == "__main__":
     target = "MHB"
 
     if target == "MHB":
-        path = "storage/cached_documents/MHB_markdown_gemini_direct_llm.txt"
+        path = "storage/cached_documents/MHB_markdown_gemini.txt"
     else:
-        path = "storage/cached_documents/PO_markdown_gemini_direct_llm.txt"
+        path = "storage/cached_documents/PO_markdown_gemini.txt"
 
     with open(path) as f:
         raw = f.read()

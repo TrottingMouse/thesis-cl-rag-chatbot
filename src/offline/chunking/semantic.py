@@ -95,9 +95,6 @@ def _process_sentences(
             )[0]
             pairwise_min = float(sim[0])
             new_sentence_similarity = init_constant * pairwise_min
-        print(f"sentence {i}: {new_sentence_similarity} vs adjusted {adjusted_threshold} vs fixed {fixed_threshold}")
-        print(_sigmoid((cluster_end - cluster_start) - 1))
-        print(cluster_end - cluster_start)
         # Extend current cluster or start a new one.
         if new_sentence_similarity > max(adjusted_threshold, fixed_threshold):
             current_paragraph.append(sentences[i])
@@ -271,7 +268,7 @@ def main():
         c=0.9, 
         init_constant=1.5
     )
-    with open("storage/cached_documents/PO_markdown_gemini.txt") as f:
+    with open("storage/cached_documents/PO_markdown_gemini_direct_llm.txt") as f:
         text = f.read()
 
     document = Document(
