@@ -13,7 +13,7 @@ configurations:
     direct     → GeminiMarkdownProcessor + DirectLLMProcessor
 
   Chunkers (applied per preprocessor as listed in PIPELINE_CONFIGS):
-    paragraph  → FixedParagraphChunker  (chunk_size=1, overlap=0)
+    paragraph  → FixedParagraphChunker  (optimal params per preprocessor, see PIPELINE_CONFIGS)
     character  → FixedCharacterChunker
     wholetable → WholeTableParagraphChunker   (markdown only)
     splittable → SplitTableParagraphChunker   (markdown only)
@@ -77,38 +77,51 @@ QA_EVAL_FILE = "storage/evaluation/qa_pairs_grid.json"
 RESULTS_DIR  = Path("storage/query_exp_results")
 INDEX_BASE   = Path("storage/query_exp_index")
 
-# Paragraph chunker settings (chunk_size=1 ≈ one paragraph per chunk)
-PARA_CHUNK_SIZE = 1
-PARA_OVERLAP    = 0
 
 # Online components (hardcoded, except model names which come from config)
 INDEX_BUILDER_NAME  = "FaissIndexBuilder"
 RETRIEVER_NAME      = "FaissRetriever"
 RERANKER_NAME       = "PassthroughReranker"
 GENERATOR_NAME      = "HuggingfaceGenerator"
-TOP_K               = 9
-TOP_N               = 3
-RERANKING_THRESHOLD = 0.1
 
 # ---------------------------------------------------------------------------
 # All (preprocessor, chunker) combinations to evaluate.
 #
 # Each entry is a tuple:
-#   (preprocessing_label, preprocessor_names, chunker_label, chunker_name, chunker_kwargs)
+#   (preprocessing_label, preprocessor_names, chunker_label, chunker_name,
+#    chunker_kwargs, top_k, top_n, reranking_threshold)
+#
+# The top_k / top_n / reranking_threshold values are the best-performing
+# settings for each pair as determined by context_exp_summary.csv.
 # ---------------------------------------------------------------------------
 
-PIPELINE_CONFIGS: list[tuple[str, list[str], str, str, dict]] = [
+PIPELINE_CONFIGS: list[tuple[str, list[str], str, str, dict, int, int, float]] = [
     # markdown preprocessor
-    ("markdown", ["GeminiMarkdownProcessor"], "paragraph",  "FixedParagraphChunker",      {"chunk_size": PARA_CHUNK_SIZE, "overlap": PARA_OVERLAP}),
-    ("markdown", ["GeminiMarkdownProcessor"], "character",  "FixedCharacterChunker",       {}),
-    ("markdown", ["GeminiMarkdownProcessor"], "wholetable", "WholeTableParagraphChunker",  {}),
-    ("markdown", ["GeminiMarkdownProcessor"], "splittable", "SplitTableParagraphChunker",  {}),
+    # best threshold=0.05 (score 0.627), top_k=39, top_n=13
+    # chunker best: S=2, O=0 → acc 0.6274
+    ("markdown", ["GeminiMarkdownProcessor"], "paragraph",  "FixedParagraphChunker",     {"chunk_size": 2, "overlap": 0}, 39, 13, 0.05),
+    # best threshold=0.1  (score 0.635), top_k=15, top_n=5
+    # chunker best: S=1500, O=0 → acc 0.6811
+    ("markdown", ["GeminiMarkdownProcessor"], "character",  "FixedCharacterChunker",      {"chunk_size": 1500, "overlap": 0}, 15,  5, 0.1),
+    # best threshold=0.0  (score 0.640), top_k=45, top_n=15
+    ("markdown", ["GeminiMarkdownProcessor"], "wholetable", "WholeTableParagraphChunker", {}, 45, 15, 0.0),
+    # best threshold=0.0  (score 0.649), top_k=111, top_n=37
+    ("markdown", ["GeminiMarkdownProcessor"], "splittable", "SplitTableParagraphChunker", {}, 111, 37, 0.0),
     # direct preprocessor (GeminiMarkdown → DirectLLM)
-    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "paragraph",   "FixedParagraphChunker",  {"chunk_size": PARA_CHUNK_SIZE, "overlap": PARA_OVERLAP}),
-    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "dynamic",     "DynamicTokenChunker",    {}),
-    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "character",   "FixedCharacterChunker",  {}),
-    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "llmchunker",  "LumberChunker",          {}),
-    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "maxmin",      "MaxMinChunker",          {}),
+    # best threshold=0.05 (score 0.597), top_k=9,  top_n=3
+    # chunker best: S=1, O=0 → acc 0.6605
+    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "paragraph",  "FixedParagraphChunker", {"chunk_size": 1, "overlap": 0},  9,  3, 0.05),
+    # best threshold=0.0  (score 0.668), top_k=9,  top_n=3
+    # chunker best: S=150, O=15 → acc 0.6386
+    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "dynamic",    "DynamicTokenChunker",   {"chunk_size": 150, "overlap": 15},  9,  3, 0.0),
+    # best threshold=0.0  (score 0.560), top_k=18, top_n=6
+    # chunker best: S=500, O=50 → acc 0.6184
+    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "character",  "FixedCharacterChunker", {"chunk_size": 500, "overlap": 50}, 18,  6, 0.0),
+    # best threshold=0.05 (score 0.502), top_k=3,  top_n=1
+    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "llmchunker", "LumberChunker",         {},  3,  1, 0.05),
+    # best threshold=0.0  (score 0.396), top_k=3,  top_n=1
+    # chunker best: τ=0.75, c=1.3 → acc 0.5861
+    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "maxmin",     "MaxMinChunker",         {"fixed_threshold": 0.75, "c": 1.3},  3,  1, 0.0),
 ]
 
 # Query processors to compare: (label, registry name)
@@ -133,6 +146,9 @@ def run_pipeline(
     generation_model: str,
     queries: list[str],
     qa_pairs_template: list[dict],
+    top_k: int,
+    top_n: int,
+    reranking_threshold: float,
 ) -> dict:
     """
     Build and execute one online pipeline for the given query processor.
@@ -157,10 +173,10 @@ def run_pipeline(
     online_pipeline = build_online_pipeline(
         cfg=online_pipeline_cfg,
         index_builder=offline_pipeline.index_builder,
-        top_k=TOP_K,
-        top_n=TOP_N,
+        top_k=top_k,
+        top_n=top_n,
         generation_model=generation_model,
-        reranking_score_threshold=RERANKING_THRESHOLD,
+        reranking_score_threshold=reranking_threshold,
     )
 
     qa_pairs = run_queries(online_pipeline, queries, qa_pairs_template)
@@ -184,9 +200,9 @@ def run_pipeline(
         "query_processor":     query_processor_name,
         "chunk_size":          chunker_kwargs.get("chunk_size", ""),
         "overlap":             chunker_kwargs.get("overlap", ""),
-        "top_k":               TOP_K,
-        "top_n":               TOP_N,
-        "reranking_threshold": RERANKING_THRESHOLD,
+        "top_k":               top_k,
+        "top_n":               top_n,
+        "reranking_threshold": reranking_threshold,
         **metrics,
     }
 
@@ -231,6 +247,9 @@ def query_experiment() -> None:
         chunker_label,
         chunker_name,
         chunker_kwargs,
+        top_k,
+        top_n,
+        reranking_threshold,
     ) in PIPELINE_CONFIGS:
 
         config_label = f"{preprocessing_label}__{chunker_label}"
@@ -275,6 +294,9 @@ def query_experiment() -> None:
                 generation_model=generation_model,
                 queries=queries,
                 qa_pairs_template=qa_pairs_template,
+                top_k=top_k,
+                top_n=top_n,
+                reranking_threshold=reranking_threshold,
             )
             summary_rows.append(row)
 

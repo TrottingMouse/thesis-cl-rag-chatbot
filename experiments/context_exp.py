@@ -83,10 +83,6 @@ QA_EVAL_FILE = "storage/evaluation/qa_pairs_grid.json"
 RESULTS_DIR  = Path("storage/context_exp_results")
 INDEX_BASE   = Path("storage/context_exp_index")
 
-# Paragraph chunker settings (chunk_size=1 ≈ one paragraph per chunk)
-PARA_CHUNK_SIZE = 1
-PARA_OVERLAP    = 0
-
 # Similarity thresholds tested for Strategy B.
 # 0.0 is included as a baseline (equivalent to Strategy A with no filtering).
 THRESHOLDS = [0.0, 0.05, 0.1]
@@ -99,20 +95,66 @@ THRESHOLDS = [0.0, 0.05, 0.1]
 #
 # preprocessing_label / chunker_label are short identifiers used in file
 # names and the summary CSV.
+#
+# Chunker kwargs are set to the best hyperparameters found during the grid
+# search (preprocessing_exp.py / grid_search.py):
+#
+#   GM  + FixedChar    → S=1500, O=0      (acc 0.6811)
+#   GM  + FixedPara    → S=2,    O=0      (acc 0.6274)
+#   GM+LLM + FixedPara → S=1,   O=0      (acc 0.6605)
+#   GM+LLM + FixedChar → S=500, O=50     (acc 0.6184)
+#   GM+LLM + MaxMin    → τ=0.75, c=1.3   (acc 0.5861)
+#   GM+LLM + DynToken  → S=150, O=15     (acc 0.6386)
 # ---------------------------------------------------------------------------
 
 PIPELINE_CONFIGS: list[tuple[str, list[str], str, str, dict]] = [
     # markdown preprocessor
-    ("markdown", ["GeminiMarkdownProcessor"], "paragraph",  "FixedParagraphChunker",      {"chunk_size": PARA_CHUNK_SIZE, "overlap": PARA_OVERLAP}),
-    ("markdown", ["GeminiMarkdownProcessor"], "character",  "FixedCharacterChunker",       {}),
-    ("markdown", ["GeminiMarkdownProcessor"], "wholetable", "WholeTableParagraphChunker",  {}),
-    ("markdown", ["GeminiMarkdownProcessor"], "splittable", "SplitTableParagraphChunker",  {}),
+    (
+        "markdown", ["GeminiMarkdownProcessor"],
+        "paragraph",  "FixedParagraphChunker",
+        {"chunk_size": 2, "overlap": 0},            # best: S=2, O=0 → 0.6274
+    ),
+    (
+        "markdown", ["GeminiMarkdownProcessor"],
+        "character",  "FixedCharacterChunker",
+        {"chunk_size": 1500, "overlap": 0},         # best: S=1500, O=0 → 0.6811
+    ),
+    (
+        "markdown", ["GeminiMarkdownProcessor"],
+        "wholetable", "WholeTableParagraphChunker",
+        {},
+    ),
+    (
+        "markdown", ["GeminiMarkdownProcessor"],
+        "splittable", "SplitTableParagraphChunker",
+        {},
+    ),
     # direct preprocessor (GeminiMarkdown → DirectLLM)
-    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "paragraph",   "FixedParagraphChunker",  {"chunk_size": PARA_CHUNK_SIZE, "overlap": PARA_OVERLAP}),
-    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "dynamic",     "DynamicTokenChunker",    {}),
-    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "character",   "FixedCharacterChunker",  {}),
-    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "llmchunker",  "LumberChunker",          {}),
-    ("direct",   ["GeminiMarkdownProcessor", "DirectLLMProcessor"], "maxmin",      "MaxMinChunker",          {}),
+    (
+        "direct", ["GeminiMarkdownProcessor", "DirectLLMProcessor"],
+        "paragraph",  "FixedParagraphChunker",
+        {"chunk_size": 1, "overlap": 0},            # best: S=1, O=0 → 0.6605
+    ),
+    (
+        "direct", ["GeminiMarkdownProcessor", "DirectLLMProcessor"],
+        "character",  "FixedCharacterChunker",
+        {"chunk_size": 500, "overlap": 50},         # best: S=500, O=50 → 0.6184
+    ),
+    (
+        "direct", ["GeminiMarkdownProcessor", "DirectLLMProcessor"],
+        "dynamic",    "DynamicTokenChunker",
+        {"chunk_size": 150, "overlap": 15},         # best: S=150, O=15 → 0.6386
+    ),
+    (
+        "direct", ["GeminiMarkdownProcessor", "DirectLLMProcessor"],
+        "llmchunker", "LumberChunker",
+        {},
+    ),
+    (
+        "direct", ["GeminiMarkdownProcessor", "DirectLLMProcessor"],
+        "maxmin",     "MaxMinChunker",
+        {"fixed_threshold": 0.75, "c": 1.3},       # best: τ=0.75, c=1.3 → 0.5861
+    ),
 ]
 
 
