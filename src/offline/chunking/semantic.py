@@ -96,6 +96,7 @@ def _process_sentences(
             pairwise_min = float(sim[0])
             new_sentence_similarity = init_constant * pairwise_min
         # Extend current cluster or start a new one.
+        print(new_sentence_similarity, adjusted_threshold, fixed_threshold)
         if new_sentence_similarity > max(adjusted_threshold, fixed_threshold):
             current_paragraph.append(sentences[i])
             cluster_end += 1
