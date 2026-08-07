@@ -138,13 +138,62 @@ GeminiMarkdownProcessor outperforms DoclingMarkdownProcessor for Markdown conver
 
 \subsection{Chunking Parameters}
 
-\subsection{Context Size and Threshold}
+\subsection{Chunking Hyperparameters}
+The results for the hyperparameter grid search across chunking strategies and preprocessors are presented in Table~\ref{tab:preprocessor_comparison}. For Fixed Character Chunking on Markdown documents (GM), larger chunk sizes without overlap yielded the highest performance, peaking at an answer correctness score of 0.6811 for a chunk size of $S = 1500$ characters. Introducing an overlap consistently degraded performance across all tested chunk sizes for Markdown, most noticeably at $S = 500$, where adding a 50-character overlap dropped accuracy from 0.6612 to 0.4191. For Fixed Paragraph Chunking on Markdown, a chunk size of $S = 2$ paragraphs without overlap achieved the highest score (0.6274), outperforming both smaller ($S = 1$) and larger ($S = 3$) paragraph windows as well as configurations with paragraph overlap ($S = 2, O = 1$).
+
+When applied to linearized text (GM+LLM), Fixed Paragraph Chunking performed best at a smaller size of $S = 1$ paragraph (0.6605), with performance declining as the paragraph count or overlap increased. For Fixed Character Chunking on linearized text, a smaller chunk size with overlap ($S = 500, O = 50$) achieved the best result (0.6184). For Dynamic Token Chunking, a smaller context window with a 10\% overlap ($S = 150, O = 15$) proved optimal, attaining an answer correctness of 0.6386. Finally, for Max-Min Chunking, tuning the hard threshold ($\tau$) and dampening parameter ($c$) confirmed that higher threshold values were necessary to prevent degenerate chunking behavior; the combination of $\tau = 0.75$ and $c = 1.3$ achieved the highest score of 0.5861 for this strategy.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Grid Search Results for Chunking Hyperparameters}
+    \label{tab:preprocessor_comparison}
+    \scriptsize
+    \setlength{\tabcolsep}{3pt} % reduce horizontal column padding
+    \begin{tabular}{lll r c lll r}
+        \toprule
+        \textbf{Prep.} & \textbf{Chunker} & \textbf{Params}     & \textbf{Acc.}   & \quad & \textbf{Prep.} & \textbf{Chunker} & \textbf{Params}        & \textbf{Acc.}   \\
+        \cmidrule{1-4} \cmidrule{6-9}
+        GM             & FixedChar        & $S{=}500, O{=}0$    & 0.6612          &       & GM+LLM         & MaxMin           & $\tau{=}0.70, c{=}1.3$ & 0.4982          \\
+        GM             & FixedChar        & $S{=}500, O{=}50$   & 0.4191          &       & GM+LLM         & MaxMin           & $\tau{=}0.70, c{=}1.4$ & 0.5204          \\
+        GM             & FixedChar        & $S{=}1000, O{=}0$   & 0.5598          &       & GM+LLM         & MaxMin           & $\tau{=}0.70, c{=}1.5$ & 0.5247          \\
+        GM             & FixedChar        & $S{=}1000, O{=}100$ & 0.5967          &       & GM+LLM         & MaxMin           & $\tau{=}0.75, c{=}1.2$ & 0.5720          \\
+        GM             & FixedChar        & $S{=}1500, O{=}0$   & \textbf{0.6811} &       & GM+LLM         & MaxMin           & $\tau{=}0.75, c{=}1.3$ & \textbf{0.5861} \\
+        GM             & FixedChar        & $S{=}1500, O{=}150$ & 0.5887          &       & GM+LLM         & MaxMin           & $\tau{=}0.75, c{=}1.4$ & 0.5440          \\
+        \cmidrule(r){1-4}
+        GM             & FixedPara        & $S{=}1, O{=}0$      & 0.6166          &       & GM+LLM         & MaxMin           & $\tau{=}0.75, c{=}1.5$ & 0.5819          \\
+        GM             & FixedPara        & $S{=}2, O{=}0$      & \textbf{0.6274} &       & GM+LLM         & MaxMin           & $\tau{=}0.80, c{=}1.2$ & 0.5392          \\
+        GM             & FixedPara        & $S{=}2, O{=}1$      & 0.5939          &       & GM+LLM         & MaxMin           & $\tau{=}0.80, c{=}1.3$ & 0.5524          \\
+        GM             & FixedPara        & $S{=}3, O{=}0$      & 0.5702          &       & GM+LLM         & MaxMin           & $\tau{=}0.80, c{=}1.4$ & 0.5496          \\
+        \cmidrule(r){1-4} \cmidrule{6-9}
+        GM+LLM         & FixedPara        & $S{=}1, O{=}0$      & \textbf{0.6605} &       & GM+LLM         & DynToken         & $S{=}150, O{=}0$       & 0.6058          \\
+        GM+LLM         & FixedPara        & $S{=}2, O{=}0$      & 0.5988          &       & GM+LLM         & DynToken         & $S{=}150, O{=}15$      & \textbf{0.6386} \\
+        GM+LLM         & FixedPara        & $S{=}2, O{=}1$      & 0.5421          &       & GM+LLM         & DynToken         & $S{=}250, O{=}0$       & 0.6084          \\
+        GM+LLM         & FixedPara        & $S{=}3, O{=}0$      & 0.5275          &       & GM+LLM         & DynToken         & $S{=}250, O{=}25$      & 0.5738          \\
+        \cmidrule(r){1-4}
+        GM+LLM         & FixedChar        & $S{=}500, O{=}0$    & 0.6019          &       & GM+LLM         & DynToken         & $S{=}500, O{=}0$       & 0.5975          \\
+        GM+LLM         & FixedChar        & $S{=}500, O{=}50$   & \textbf{0.6184} &       & GM+LLM         & DynToken         & $S{=}500, O{=}50$      & 0.4894          \\
+        GM+LLM         & FixedChar        & $S{=}1000, O{=}0$   & 0.5313          &       &                &                  &                        &                 \\
+        GM+LLM         & FixedChar        & $S{=}1000, O{=}100$ & 0.5716          &       &                &                  &                        &                 \\
+        GM+LLM         & FixedChar        & $S{=}1500, O{=}0$   & 0.5619          &       &                &                  &                        &                 \\
+        GM+LLM         & FixedChar        & $S{=}1500, O{=}150$ & 0.5261          &       &                &                  &                        &                 \\
+        \bottomrule
+        \multicolumn{9}{l}{\textit{Note:} GM = GeminiMarkdownProcessor, LLM = DirectLLMProcessor, $S$ = Size, $O$ = Overlap, $\tau$ = Threshold.}
+    \end{tabular}
+\end{table}
+
+\FloatBarrier
+
+\subsection{Context Size and Reranking Threshold}
+
+The performance evaluation across reranking thresholds is presented in Table~\ref{tab:rag_correctness_eval_compact}. Overall, applying a similarity threshold yielded mixed effects depending on the chunking strategy and preprocessing format. For several configurations, introducing a moderate threshold of 0.05 improved answer correctness compared to the baseline without thresholding (threshold = 0.00). Specifically, Whole Table Chunking peaked at 0.647, Dynamic Token Chunking reached 0.639, Max-Min Chunking improved to 0.584, and the LLM Chunker increased to 0.526 under the 0.05 cutoff.
+
+Conversely, for standard Paragraph and Character chunkers across both Markdown and Direct preprocessing, introducing a threshold generally led to a decline in answer correctness compared to the 0.00 baseline. An exception to this pattern was observed with the Split Table Chunker, which performed poorest at the 0.05 threshold (0.549) but achieved its highest accuracy at a stricter threshold of 0.10 (0.591). Across most other strategies, however, raising the threshold to 0.10 resulted in noticeable performance drops, most prominently seen in Whole Table Chunking (falling to 0.544) and Dynamic Token Chunking (falling to 0.518).
 \begin{table}[htbp]
     \centering
     \small
-    \setlength{\tabcolsep}{8pt} % Adjust horizontal space between columns
-    \renewcommand{\arraystretch}{1.1} % Comfortable line spacing
-    \caption{Evaluation of RAG Pipeline Answer Correctness Across Preprocessing Methods, Chunkers, and Reranking Thresholds.}
+    \setlength{\tabcolsep}{8pt}
+    \renewcommand{\arraystretch}{1.1}
+    \caption{Comparison of Reranking Thresholds for each Preprocessor/Chunker Combination}
     \label{tab:rag_correctness_eval_compact}
     \begin{tabular}{llccc}
         \toprule
@@ -153,17 +202,17 @@ GeminiMarkdownProcessor outperforms DoclingMarkdownProcessor for Markdown conver
         \textbf{Preprocessing} & \textbf{Chunker} & \textbf{0.00}                                    & \textbf{0.05}  & \textbf{0.10}  \\
         \midrule
         \multirow{4}{*}{Markdown}
-                               & Paragraph        & 0.604                                            & \textbf{0.627} & 0.587          \\
-                               & Character        & 0.608                                            & 0.568          & \textbf{0.635} \\
-                               & Whole Table      & \textbf{0.640}                                   & 0.626          & 0.609          \\
-                               & Split Table      & \textbf{0.649}                                   & 0.549          & 0.557          \\
+                               & Paragraph        & \textbf{0.627}                                   & 0.593          & 0.601          \\
+                               & Character        & \textbf{0.649}                                   & 0.584          & 0.580          \\
+                               & Whole Table      & 0.645                                            & \textbf{0.647} & 0.544          \\
+                               & Split Table      & 0.579                                            & 0.549          & \textbf{0.591} \\
         \midrule
         \multirow{5}{*}{Direct}
-                               & Paragraph        & 0.591                                            & \textbf{0.597} & 0.517          \\
-                               & Dynamic          & \textbf{0.668}                                   & 0.622          & 0.572          \\
-                               & Character        & \textbf{0.560}                                   & 0.533          & 0.443          \\
-                               & LLM Chunker      & 0.501                                            & \textbf{0.502} & 0.487          \\
-                               & Max-Min          & \textbf{0.396}                                   & 0.389          & 0.380          \\
+                               & Paragraph        & \textbf{0.598}                                   & 0.592          & 0.524          \\
+                               & Character        & \textbf{0.600}                                   & 0.568          & 0.579          \\
+                               & Dynamic          & 0.630                                            & \textbf{0.639} & 0.518          \\
+                               & LLM Chunker      & 0.504                                            & \textbf{0.526} & 0.516          \\
+                               & Max-Min          & 0.576                                            & \textbf{0.584} & 0.578          \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -181,6 +230,7 @@ Furthermore, the components optimized in the first four experiments (preprocesso
 With more computational and monetary resources, future research could improve the outcome by finding a better combination of components and settings.\\
 For chatbot deployment, the repository can be made more performant using lazy imports, i. e., moving imports into methods. Thus, imports are only triggered when really needed. By using vllm with a locally saved model instead of HuggingFace, there is an even greater potential gain in performance.
 
+\section{Conclusion}
 
 \printbibliography[title={References}]
 
