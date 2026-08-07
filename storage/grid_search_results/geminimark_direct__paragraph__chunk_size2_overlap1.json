@@ -40,8 +40,10 @@
     {
         "user_input": "Wann soll ich das Praktikum machen?",
         "reference": "Es wird empfohlen, das Berufsfeldpraktikum nach dem vierten oder fünften Semester zu absolvieren.",
-        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
-        "retrieved_contexts": []
+        "response": "Das Praktikum soll von vier Wochen bis zu drei Monaten dauern und kann in Abschnitten absolviert werden.",
+        "retrieved_contexts": [
+            "Das obligatorische Berufsfeldpraktikum, beschrieben in § 9, ist in einigen Studiengängen zu absolvieren und kann von vier Wochen bis zu drei Monaten dauern, auch in Abschnitten. Einschlägige Berufstätigkeiten und Praxiserfahrungen können im Einzelfall angerechnet werden. Für je vier Wochen Berufsfeldpraktikum werden mindestens 5 LP angerechnet. Das Berufsfeldpraktikum soll Einblicke in einschlägige Berufsfelder und die Berufspraxis ermöglichen sowie eine Erprobung von Fachkenntnissen in der Praxis bieten, um berufsqualifizierende Fähigkeiten und Handlungskompetenzen zu vermitteln und den Übergang in die Berufswelt zu erleichtern. Die Beratung bei der Vermittlung von Praktikumsplätzen und die fachliche Betreuung während des Praktikums werden durch die Studiengangbeauftragte oder den Studiengangbeauftragten koordiniert. Das Berufsfeldpraktikum wird mit einem Praktikumsbericht abgeschlossen. Näheres regeln die Praktikumsordnungen der einzelnen Studiengänge.\n\nIm Bereich Prüfungen beginnt § 10 mit dem Umfang und der Art der Bachelorprüfung. Diese besteht aus studienbegleitenden Prüfungen, der Bachelorarbeit und, nach Maßgabe des fächerspezifischen Anhangs, den dort genannten Modulprüfungen."
+        ]
     },
     {
         "user_input": "Gibt es eine generelle Anwesenheitspflicht für Vorlesungen?",
@@ -62,8 +64,10 @@
     {
         "user_input": "Gibt es eine Klausur in Wahrscheinlichkeitstheorie?",
         "reference": "Nein, im \"Basismodul - Statistische Methoden in der Computerlinguistik\", zu dem die Wahrscheinlichkeitstheorie gehört, gibt es gar keine Modulprüfung und somit auch keine Klausur. Es müssen lediglich Studienleistungen erbracht werden.",
-        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
-        "retrieved_contexts": []
+        "response": "Nein, es gibt keine Klausur in Wahrscheinlichkeitstheorie.",
+        "retrieved_contexts": [
+            "Im Bereich Prüfungen beginnt § 10 mit dem Umfang und der Art der Bachelorprüfung. Diese besteht aus studienbegleitenden Prüfungen, der Bachelorarbeit und, nach Maßgabe des fächerspezifischen Anhangs, den dort genannten Modulprüfungen.\n\nModulprüfungen, wie in § 11 erläutert, beziehen sich auf die in der Modulbeschreibung vorgegebenen Kompetenzziele unter Bezugnahme auf Lehrveranstaltungen oder Themenschwerpunkte des Moduls. Eine nachträgliche Umbuchung ist nicht möglich, und die Verbindlichkeit gilt unabhängig vom Bestehen, Nichtbestehen oder der späteren Anrechnung, wobei Ausnahmen im fächerspezifischen Anhang getroffen werden können. Werden Modulprüfungen im Kontext von Lehrveranstaltungen abgelegt, steht den Studierenden die Wahl der Lehrveranstaltung unter Berücksichtigung des fächerspezifischen Anhangs frei. Grundsätzlich ist jedem Modul genau eine Modulprüfung zugeordnet, in begründeten Ausnahmefällen können es auch mehrere sein, näheres regelt der fächerspezifische Anhang. Zu jeder Modulprüfung ist eine gesonderte Meldung erforderlich, wobei nur zugelassen wird, wer die Zulassungsvoraussetzungen gemäß § 12 erfüllt. Meldetermine werden im elektronischen Campus Management System und in der jeweiligen Lehrveranstaltung bekannt gegeben. Abmeldung und Rücktritt von Prüfungen sind in § 17 geregelt. Modulprüfungen erfolgen als Klausur (auch elektronisch), mündliche Prüfung, Studienarbeit, Hausarbeit, Portfolio oder Projektarbeit mit individuell zurechenbarer Prüfungsleistung. Die Kandidatin oder der Kandidat soll nachweisen, dass sie oder er ein Problem aus dem Stoffgebiet erkennen und Lösungswege finden kann. Mindestens eine Modulabschlussprüfung muss in Form einer Hausarbeit oder Studienarbeit und mindestens eine in Form einer mündlichen Prüfung abgelegt werden. Form, Umfang, Dauer und Terminierung einer Modulabschlussprüfung entscheiden die Prüferin oder der Prüfer unter Berücksichtigung der Wünsche der Kandidatin oder des Kandidaten und der Vorgaben des Modulhandbuchs und der Prüfungsordnung. Die Prüfungen werden in der Regel in deutscher Sprache abgenommen, in Absprache auch in einer anderen Sprache; die Prüfungssprache in Fremdsprachenphilologien ist im fächerspezifischen Anhang geregelt. Die Bewertung von Prüfungen ist den Studierenden jeweils nach spätestens acht Wochen bekannt zu geben."
+        ]
     },
     {
         "user_input": "Wie lang dauert eine Klausur?",
