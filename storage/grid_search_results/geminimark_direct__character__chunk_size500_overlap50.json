@@ -1,0 +1,143 @@
+[
+    {
+        "user_input": "Welche Kurse sollte ich im ersten Semester belegen?",
+        "reference": "Laut dem exemplarischen Studienverlaufsplan solltest du im ersten Semester folgende Kurse belegen: Mathematische Grundlagen, Einführung in die computationelle Logik, Einführung in die Computerlinguistik, Einführung in die Programmierung mit Python, Morphologie und Syntax.",
+        "response": "Im ersten Semester sollten Sie die Kurse „putationelle Logik (Seminar & Übung) mit der Nummer 2101\" und „Mathematische Grundlagen (Seminar) mit der Nummer 2102\" belegen.",
+        "retrieved_contexts": [
+            "putationelle Logik (Seminar & Übung) mit der Nummer 2101 und Mathematische Grundlagen (Seminar) mit der Nummer 2102. Die Belegung für das Basismodul - Mathematische und logische Grundlagen erfordert die Teilnahme an Seminar und Übung (a) sowie am Seminar (b). Das empfohlene Studiensemester für dieses Basismodul ist das 1. Fachsemester (Wintersemester) für beide Lehrveranstaltungen, mit einer Prüfung im 1. Fachsemester (Wintersemester). Die Lehrveranstaltungen des Basismoduls - Mathematische und "
+        ]
+    },
+    {
+        "user_input": "Kann ich auch im Sommersemester anfangen?",
+        "reference": "Nein, das Studium ist für einen Beginn im Wintersemester ausgelegt.",
+        "response": "Ja, Sie können im Sommersemester anfangen.",
+        "retrieved_contexts": [
+            "ür das Basismodul - Python-Programmierung erfordert die Teilnahme am Seminar (a) mit Übung (b) sowie am Seminar (c) mit Übung (d). Das empfohlene Studiensemester für die erste Hälfte (a, b) ist das 1. Fachsemester (Wintersemester), für die zweite Hälfte (c, d) das 2. Fachsemester (Sommersemester), mit einer Prüfung im 2. Fachsemester (Sommersemester). Die Lehrveranstaltungen des Basismoduls - Python-Programmierung werden jedes Wintersemester (a, b) und jedes Sommersemester (c, d) angeboten. Die ",
+            "ter (Wintersemester), für die zweite Hälfte (c, d) das 2. Fachsemester (Sommersemester), mit einer Prüfung im 2. Fachsemester (Sommersemester). Die Lehrveranstaltungen dieses Basismoduls werden jedes Wintersemester (a, b) und jedes Sommersemester (c, d) angeboten. Die geplante Gruppengröße für alle vier Lehrveranstaltungen des Basismoduls - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung beträgt ca. 60 Studierende. Die Kontaktzeit für Einführung in die Computerlinguistik (a) ",
+            "b) und jedes Sommersemester (c, d) angeboten. Die geplante Gruppengröße für alle vier Lehrveranstaltungen des Basismoduls - Python-Programmierung beträgt ca. 60 Studierende. Die Kontaktzeit für Einführung in die Programmierung mit Python (a) und (b) beträgt jeweils 2 SWS / 30 Stunden und 1 ECTS-Leistungspunkt. Ebenso beträgt die Kontaktzeit für Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (c) und (d) jeweils 2 SWS / 30 Stunden und 1 ECTS-Leistungspunkt. Das Selbststudium für Einfüh"
+        ]
+    },
+    {
+        "user_input": "Muss ich fließend Englisch sprechen können um Computerlinguistik zu studieren?",
+        "reference": "Fließendes Englisch wird nicht vorausgesetzt, jedoch benötigst du Englischkenntnisse auf dem Niveau B1. Dies entspricht vergleichsweise einem erfolgreichen vierjährigen Schulunterricht an einer weiterführenden Schule.",
+        "response": "Für die Zulassung zum Studium des Bachelor-Programms Computerlinguistik sind Kenntnisse des Englischen auf dem Niveau B1 erforderlich.",
+        "retrieved_contexts": [
+            "Die vorliegende Lesefassung vom 26.09.2025 beschreibt die Studiengangsübersicht für den Bachelor Computerlinguistik PO 2025. Der Studiengang Computerlinguistik ist ein integrierter Studiengang, der ausschließlich im Wintersemester beginnt. Der gesamte Studienumfang beträgt 180 ECTS-Leistungspunkte (LP). Für die Zulassung zum Studium sind Kenntnisse des Englischen auf dem Niveau B1 erforderlich, was einem erfolgreichen vierjährigen Schulunterricht an einer weiterführenden Schule entspricht. Es gi"
+        ]
+    },
+    {
+        "user_input": "Muss ich für den Python-Kurs Vorkenntnisse haben?",
+        "reference": "Nein, für das Modul \"Python-Programmierung\" werden weder formale noch inhaltliche Vorkenntnisse vorausgesetzt.",
+        "response": "Für die Teilnahme am Basismodul - Python-Programmierung sind keine formalen oder inhaltlichen Teilnahmevoraussetzungen erforderlich.",
+        "retrieved_contexts": [
+            "LP erworben, sowie die Fähigkeit, ein kleines Software-Projekt durchzuführen und zu präsentieren. Für die Teilnahme am Basismodul - Python-Programmierung sind keine formalen oder inhaltlichen Teilnahmevoraussetzungen erforderlich. Die Prüfungsform des Basismoduls - Python-Programmierung ist eine Projektarbeit (Pnr. 2310). Es gibt keine Voraussetzungen für die Zulassung zur Modulprüfung. Die Voraussetzungen für die Vergabe von ECTS-Leistungspunkten für das Basismodul - Python-Programmierung sind ",
+            "wicklung behandelt. Die angestrebten Lernergebnisse und Studieninhalte des Basismoduls - Python-Programmierung befähigen die Studierenden, grundlegende Fähigkeiten in der Programmierung mit der Programmiersprache Python zu erwerben sowie Kenntnisse über fortgeschrittene Konzepte der Python-Programmierung (objektorientierte und funktionale Programmierung). Außerdem werden Grundkenntnisse des Einsatzes von Python in den Bereichen Data Science und NLP erworben, sowie die Fähigkeit, ein kleines Soft"
+        ]
+    },
+    {
+        "user_input": "Gibt es eine Übung für den Kurs Mathematische Grundlagen?",
+        "reference": "Nein, für den Kurs \"Mathematische Grundlagen\" gibt es keine begleitende Übung. Es handelt sich dabei ausschließlich um ein Seminar.",
+        "response": "Ja, es gibt eine Übung für den Kurs Mathematische Grundlagen, die als „Einführung in die computationelle Logik (Seminar & Übung)\" mit der Nummer 2101 bezeichnet wird.",
+        "retrieved_contexts": [
+            "putationelle Logik (Seminar & Übung) mit der Nummer 2101 und Mathematische Grundlagen (Seminar) mit der Nummer 2102. Die Belegung für das Basismodul - Mathematische und logische Grundlagen erfordert die Teilnahme an Seminar und Übung (a) sowie am Seminar (b). Das empfohlene Studiensemester für dieses Basismodul ist das 1. Fachsemester (Wintersemester) für beide Lehrveranstaltungen, mit einer Prüfung im 1. Fachsemester (Wintersemester). Die Lehrveranstaltungen des Basismoduls - Mathematische und ",
+            "sismodul Mathematische und logische Grundlagen umfasst 1 MP, 2 SL, 12 LP und 8 SWS. Darin enthalten sind Einführung in die computationelle Logik (Seminar mit Übung, 4 LP, 4 SWS, Pnr. 2101), Mathematische Grundlagen (Seminar, 4 LP, 4 SWS, Pnr. 2102) und die Modulprüfung (Portfolio, 4 LP, Pnr. 2110). Das Basismodul Grundlagen der Computerlinguistik und formale Grammatikbeschreibung [1/2] beinhaltet 2 SL, 4 LP und 4 SWS, mit den Veranstaltungen Einführung in die Computerlinguistik (Seminar, 2 LP, 2",
+            " Semester kann als Mobilitätssemester gewählt werden, da Kurse von anderen Universitäten in den Vertiefungsmodulen anerkannt werden können.\n\nDas Modul Basismodul - Mathematische und logische Grundlagen (Modul-Nummer: 2100) hat einen Umfang von 12 ECTS-Leistungspunkten und einen Workload von 360 Stunden. Die Dauer des Basismoduls - Mathematische und logische Grundlagen beträgt 1 Semester. Es beinhaltet die Lehrveranstaltungen Einführung in die computationelle Logik (Seminar & Übung) mit der Numme"
+        ]
+    },
+    {
+        "user_input": "Wann soll ich das Praktikum machen?",
+        "reference": "Es wird empfohlen, das Berufsfeldpraktikum nach dem vierten oder fünften Semester zu absolvieren.",
+        "response": "Das Praktikum soll im letzten Studienjahr des Bachelorstudiums gemacht werden.",
+        "retrieved_contexts": [
+            "reifach gewichtet, während alle Modulprüfungen einfach zählen. Es gibt keine Angabe zur Prüfungssprache nach § 6 (4). Ein Auslandsaufenthalt ist optional und das Mobilitätsfenster hierfür ist das 5. Semester. Es gibt keine Angabe zu Exkursionen.\n\nNach dem vierten oder fünften Semester des Bachelor Computerlinguistik ist ein mindestens 6-wöchiges Berufsfeldpraktikum oder eine Projektarbeit mit einschlägig computerlinguistischem Inhalt zu absolvieren. Dieses Praktikum im Bachelor Computerlinguisti",
+            " Linguistik und Informatik ermöglichen, sind im letzten Studienjahr ein Praktikum zur Berufsorientierung und die Anfertigung der Bachelorarbeit vorgesehen. Die Bachelorarbeit wird in der Regel im letzten Semester durchgeführt, parallel zum Besuch des Forschungskolloquiums der Computerlinguistik. Das Forschungskolloquium bietet interessante Einblicke in aktuelle Forschungsthemen und liefert Anregungen und Inspiration für die Bachelorarbeit. Das 5. Semester kann als Mobilitätssemester gewählt werd"
+        ]
+    },
+    {
+        "user_input": "Gibt es eine generelle Anwesenheitspflicht für Vorlesungen?",
+        "reference": "Nein, bei Vorlesungen kann keine Anwesenheitspflicht festgelegt werden.",
+        "response": "Für Vorlesungen ist keine Anwesenheitspflicht festlegbar.",
+        "retrieved_contexts": [
+            "emäß § 8 in allen Modulen oder Modulteilen vorgeschrieben werden, bei denen regelmäßige Anwesenheit und aktive Teilnahme für das Erreichen des Lernziels erforderlich sind. Dies gilt generell für Exkursionen, Forschungsprojekte, Praktika, Sprachkurse und Übungen. Seminare können mit einer Anwesenheitspflicht belegt werden, sofern nicht mehr als 25 Personen teilnehmen, da sie auf kontinuierliche Beteiligung am Dialog ausgerichtet sind. Bei Vorlesungen ist keine Anwesenheitspflicht festlegbar. Für ",
+            "gen ist keine Anwesenheitspflicht festlegbar. Für andere Lehrveranstaltungen gilt eine Anwesenheitspflicht nur, wenn sie im fächerspezifischen Anhang explizit festgelegt ist. Die Anwesenheitspflicht ist erfüllt, wenn ein Studierender 80% der Veranstaltungszeit beigewohnt hat.\n\nDas obligatorische Berufsfeldpraktikum, beschrieben in § 9, ist in einigen Studiengängen zu absolvieren und kann von vier Wochen bis zu drei Monaten dauern, auch in Abschnitten. Einschlägige Berufstätigkeiten und Praxiserf"
+        ]
+    },
+    {
+        "user_input": "Wann gilt die Anwesenheitspflicht in einer Lehrveranstaltung als erfüllt?",
+        "reference": "Die Anwesenheitspflicht ist erfüllt, wenn ein Studierender oder eine Studierende 80% der Veranstaltungszeit beigewohnt hat.",
+        "response": "Die Anwesenheitspflicht gilt als erfüllt, wenn ein Studierender 80% der Veranstaltungszeit beigewohnt hat.",
+        "retrieved_contexts": [
+            "gen ist keine Anwesenheitspflicht festlegbar. Für andere Lehrveranstaltungen gilt eine Anwesenheitspflicht nur, wenn sie im fächerspezifischen Anhang explizit festgelegt ist. Die Anwesenheitspflicht ist erfüllt, wenn ein Studierender 80% der Veranstaltungszeit beigewohnt hat.\n\nDas obligatorische Berufsfeldpraktikum, beschrieben in § 9, ist in einigen Studiengängen zu absolvieren und kann von vier Wochen bis zu drei Monaten dauern, auch in Abschnitten. Einschlägige Berufstätigkeiten und Praxiserf",
+            "emäß § 8 in allen Modulen oder Modulteilen vorgeschrieben werden, bei denen regelmäßige Anwesenheit und aktive Teilnahme für das Erreichen des Lernziels erforderlich sind. Dies gilt generell für Exkursionen, Forschungsprojekte, Praktika, Sprachkurse und Übungen. Seminare können mit einer Anwesenheitspflicht belegt werden, sofern nicht mehr als 25 Personen teilnehmen, da sie auf kontinuierliche Beteiligung am Dialog ausgerichtet sind. Bei Vorlesungen ist keine Anwesenheitspflicht festlegbar. Für "
+        ]
+    },
+    {
+        "user_input": "Gibt es eine Klausur in Wahrscheinlichkeitstheorie?",
+        "reference": "Nein, im \"Basismodul - Statistische Methoden in der Computerlinguistik\", zu dem die Wahrscheinlichkeitstheorie gehört, gibt es gar keine Modulprüfung und somit auch keine Klausur. Es müssen lediglich Studienleistungen erbracht werden.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "ng) mit der Nummer 2401 und Linguistische Ressourcen (Seminar) mit der Nummer 2402. Die Belegung für dieses Basismodul erfordert die Teilnahme an Seminar mit Übung (a) und Seminar (b). Das empfohlene Studiensemester für Wahrscheinlichkeitstheorie und Statistik (a) ist das 2. Fachsemester (Sommersemester), und für Linguistische Ressourcen (b) das 3. Fachsemester (Wintersemester). Dieses Basismodul wird jedes Wintersemester (a) und jedes Sommersemester (b) angeboten. Die geplante Gruppengröße für ",
+            "nwendungen (Übung, 2 LP, 2 SWS, Pnr. 2304) und Modulprüfung (Klausur, 4 LP, Pnr. 2310). Das Basiswissen Linguistik - Semantik und Pragmatik besteht aus 1 MP, 2 SL, 9 LP und 6 SWS, mit Vorlesung (4 LP, 4 SWS, Pnr. 1401), Tutorium (2 LP, 2 SWS, Pnr. 1402) und Modulprüfung (Klausur, 3 LP, Pnr. 1410). Das Basismodul Statistische Methoden in der Computerlinguistik [1/2] hat 0 MP, 1 SL, 4 LP und 4 SWS, mit der Veranstaltung Wahrscheinlichkeitstheorie und Statistik (Seminar und Übung, 4 LP, 4 SWS, Pnr."
+        ]
+    },
+    {
+        "user_input": "Wie lang dauert eine Klausur?",
+        "reference": "Die Dauer einer Klausurarbeit beträgt in der Regel 90 Minuten.",
+        "response": "Die Dauer einer Klausur beträgt in der Regel 90 Minuten und kann je nach Workload des Moduls auf bis zu 180 Minuten verlängert oder auf mindestens 45 Minuten verkürzt werden.",
+        "retrieved_contexts": [
+            "d Auswertung sind Authentizität und Integrität der Prüfungsergebnisse sicherzustellen. Besteht eine Klausur aus Multiple-Choice-Aufgaben, wird die Bestehensgrenze von dem Prüfer oder der Prüferin nach fachlichen Kriterien festgelegt, unter Berücksichtigung des Mittelwerts und der Verteilung der erzielten Leistungen. Die Dauer einer Klausurarbeit beträgt in der Regel 90 Minuten, kann aber je nach Workload des Moduls auf bis zu 180 Minuten verlängert oder auf mindestens 45 Minuten verkürzt werden.",
+            "rt oder auf mindestens 45 Minuten verkürzt werden. Die Bewertung einer Klausur erfolgt durch die Dozentinnen und Dozenten und wird der Kandidatin oder dem Kandidaten nach spätestens acht Wochen bekannt gemacht. Näheres regelt der fächerspezifische Anhang. Eine Studienarbeit besteht aus einer mündlichen Präsentation und schriftlichen Ausarbeitung einer Thematik; alternativ kann eine Klausur von 45 Minuten Dauer an die Stelle der schriftlichen Ausarbeitung treten. Die Dauer der mündlichen Präsenta",
+            "Einvernehmen mit den Kandidatinnen oder Kandidaten auch als Gruppenprüfung mit bis zu 3 Teilnehmerinnen und Teilnehmern durchgeführt werden, wobei die Dauer pro Kandidatin oder Kandidat mindestens 15 und höchstens 20 Minuten beträgt.\n\nSchriftliche Modulprüfungen, wie in § 14 beschrieben, können als Klausuren oder dokumentierte Einzelberichte ausgestaltet sein. Klausuren können Multiple-Choice-Aufgaben enthalten. Bei elektronischer Durchführung und Auswertung sind Authentizität und Integrität der"
+        ]
+    },
+    {
+        "user_input": "Wie oft darf ich eine nicht bestandene Modulprüfung wiederholen?",
+        "reference": "Eine nicht bestandene Modulprüfung kann insgesamt zweimal wiederholt werden.",
+        "response": "Eine nicht bestandene Modulprüfung kann zweimal wiederholt werden.",
+        "retrieved_contexts": [
+            "ichkeit der Wiederholung Auskunft gibt. Eine nicht bestandene Modulprüfung oder eine mit weniger als \"ausreichend\" bewertete Prüfungsleistung als Teil einer Gruppenarbeit kann zweimal wiederholt werden. Eine mit weniger als \"ausreichend\" bewertete Bachelorarbeit oder ein individueller Teil einer Bachelorarbeit kann einmal wiederholt werden. Bei Wiederholung der Bachelorarbeit ist eine Rückgabe des Themas nur zulässig, wenn bei der ersten Anfertigung nicht von dieser Möglichkeit Gebrauch gemacht ",
+            "ung nicht von dieser Möglichkeit Gebrauch gemacht wurde. Die Wiederholungsprüfung soll innerhalb eines Jahres nach Abschluss der nicht bestandenen Prüfung abgeschlossen sein. Prüfungsleistungen in Wiederholungsprüfungen sind, bei deren endgültigem Nichtbestehen keine Ausgleichsmöglichkeit vorgesehen ist, von zwei Prüferinnen oder Prüfern zu begutachten und zu bewerten. Die Note ergibt sich aus dem arithmetischen Mittel der Einzelbewertungen, wobei alle Dezimalstellen außer der ersten ohne Rundun",
+            "en bestanden sind, alle notwendigen Studienleistungen vorliegen, der Nachweis des Besuchs von gegebenenfalls vorgesehenen Praktika vorliegt und insgesamt 180 beziehungsweise 240 ECTS-Leistungspunkte erreicht wurden. Prüfungen werden bescheinigt. Eine bestandene Prüfung kann nicht wiederholt werden. Ist eine Prüfung nicht bestanden oder gilt sie als nicht bestanden, erteilt der Prüfungsausschuss einen schriftlichen Bescheid, der auch über die Möglichkeit der Wiederholung Auskunft gibt. Eine nicht",
+            "i alle Dezimalstellen außer der ersten ohne Rundung gestrichen werden. Die Bachelorprüfung ist endgültig nicht bestanden, wenn die Bachelorarbeit nicht bestanden und nicht wiederholbar ist, eine verpflichtende Modulprüfung nicht bestanden und nicht wiederholbar ist, oder eine Modulprüfung in einem Wahlpflichtbereich nicht bestanden, nicht wiederholbar ist und die notwendige Bestehensgrenze nicht erreicht werden kann. Das endgültige Nichtbestehen der Bachelorprüfung wird bescheinigt.\n\nDie Ungülti"
+        ]
+    },
+    {
+        "user_input": "Wie stark zählt die Bachelorarbeit für meine Abschlussnote?",
+        "reference": "Die Note der Bachelorarbeit wird bei der Ermittlung der Gesamtnote dreifach gewichtet. Im Vergleich dazu gehen alle anderen Modulprüfungen nur einfach in die Gesamtnote ein.",
+        "response": "Die Bachelorarbeit zählt für 30 Prozent der Gesamtnote.",
+        "retrieved_contexts": [
+            "oduls. Die Gesamtnote der Bachelorprüfung bei integrierten Studiengängen errechnet sich als gewichtetes arithmetisches Mittel aus den Modulnoten und der Bachelorarbeit, wobei die Bachelorarbeit nach Maßgabe des fächerspezifischen Anhangs dreifach oder vierfach gewichtet wird. Die Gewichtung der Modulnoten ist im fächerspezifischen Anhang angegeben. Die Gesamtnote der Bachelorprüfung bei Kern- und Ergänzungsfachstudiengängen errechnet sich zu 20 Prozent aus der Note der Bachelorarbeit, zu 50 Proz",
+            "rozent aus der Note der Bachelorarbeit, zu 50 Prozent aus dem gewichteten arithmetischen Mittel aller Modulnoten des Kernfachs und zu 30 Prozent aus dem gewichteten arithmetischen Mittel aller Modulnoten des Ergänzungsfachs. Modulnoten können nach Maßgabe des fächerspezifischen Anhangs doppelt oder dreifach gewichtet werden. Im Bachelorprüfungszeugnis und auf den Leistungsübersichten werden alle Noten sowie die Gesamtnote angegeben. Die Endnote wird wie folgt lautet: bis 1,5: sehr gut; von 1,6 b",
+            "chluss des Studiums bilden die Abschlussarbeit und das Forschungskolloquium (2 SWS, 15 LP). Ergänzend gibt es den Profilbildungsbereich mit insgesamt 18 LP.\n\nEs gibt keine Angabe zu den Voraussetzungen für Prüfungen im Bachelor Computerlinguistik. Eine Besonderheit des Studiengangs ist, dass die zweite Wiederholung einer Modulprüfung als mündliche Prüfung erfolgen darf. Bei der Gewichtung der Prüfungen für die Gesamtnote wird die Bachelorarbeit dreifach gewichtet, während alle Modulprüfungen ein"
+        ]
+    },
+    {
+        "user_input": "Was passiert, wenn ich in einer Präsenzprüfung generative Künstliche Intelligenz benutze?",
+        "reference": "Der Einsatz generativer Künstlicher Intelligenz im Rahmen von Präsenzprüfungen ist unzulässig. Dies gilt als Täuschungsversuch.",
+        "response": "Der Einsatz generativer Künstlicher Intelligenz im Rahmen von Präsenzprüfungen ist unzulässig.",
+        "retrieved_contexts": [
+            "rgebnisse angerechnet. Ärztliche Atteste sind per E-Mail über die Studierenden- und Prüfungsverwaltung an den Prüfungsausschuss zu richten. Das Verfahren ist auf der Internetseite der HHU bekanntgegeben. Versuche, das Ergebnis einer Prüfungsleistung durch Täuschung zu beeinflussen, führen zur Bewertung als \"nicht ausreichend\" (5,0). Der Einsatz generativer Künstlicher Intelligenz im Rahmen von Präsenzprüfungen ist unzulässig. Als Täuschungsversuch gelten auch nicht gekennzeichnete Zitate aus Int"
+        ]
+    },
+    {
+        "user_input": "Muss ich Kurse aus der Linguistik für das interdisziplinäre Vertiefungsmodul belegen?",
+        "reference": "Nein, Linguistik-Kurse sind keine Pflicht. Das Modul sieht vor, dass du zwei Vorlesungen oder Seminare aus der Linguistik oder der Informatik wählst, wobei lediglich der Informatik-Anteil von 4 SWS vorgeschrieben ist.",
+        "response": "Nein, Kurse aus der Linguistik sind nicht zwingend erforderlich, um das interdisziplinäre Vertiefungsmodul zu belegen. Das Modul erfordert mindestens eine Veranstaltung aus der Informatik und kann auch Veranstaltungen aus der Linguistik belegen, die nicht spezifisch computerlinguistisch sind.",
+        "retrieved_contexts": [
+            "mfassen vertiefte Kenntnisse in Spezialgebieten von Linguistik, Computerlinguistik und Informatik. Formale Teilnahmevoraussetzungen für das Vertiefungsmodul - Interdisziplinär sind keine. Die Prüfungsformen für dieses Vertiefungsmodul sind Mündliche Prüfung (Pnr. 5110) oder Klausur (Pnr. 5120) oder Hausarbeit (Pnr. 5130) oder Studienarbeit (Pnr. 5140) oder Projektarbeit (Pnr. 5150). Es gibt keine Voraussetzungen für die Zulassung zur Modulprüfung. Die Voraussetzungen für die Vergabe von ECTS-Lei",
+            "ibt es das interdisziplinäre Vertiefungsmodul, das den Studierenden ermöglicht, neben Veranstaltungen aus der Computerlinguistik auch Veranstaltungen aus Linguistik und Informatik zu belegen, die nicht notwendigerweise dezidiert computerlinguistisch sind. Im Rahmen dieses interdisziplinären Vertiefungsmoduls ist mindestens eine Veranstaltung aus der Informatik zu belegen. Neben diesen Modulen, die flexible Spezialisierungen in Computerlinguistik, Linguistik und Informatik ermöglichen, sind im le",
+            "d nicht vorhanden.\n\nDas Modul Vertiefungsmodul - Interdisziplinär (Modul-Nummer: 5100) erstreckt sich über 2 Semester, hat einen Umfang von 12 ECTS-Leistungspunkten und einen Workload von 360 Stunden. Die Lehrveranstaltungen für dieses Vertiefungsmodul sind zwei Vorlesungen oder Seminare aus Linguistik oder Informatik, wobei Vorlesungen Linguistik (5101, 5105), Vorlesungen Informatik (5102, 5106), Seminare Linguistik (5103, 5107) und Seminare Informatik (5104, 5108) zur Auswahl stehen. Die Beleg",
+            " gewählten Veranstaltungen. Die ECTS-Leistungspunkte für die Modulprüfung dieses Vertiefungsmoduls richten sich ebenfalls nach den gewählten Veranstaltungen. Die Inhalte dieses Vertiefungsmoduls umfassen Themen der Linguistik und Informatik. Mögliche Themen in der Linguistik sind beispielsweise Phonetik und Phonologie, Psycho- und Neurolinguistik, historische Linguistik. Es müssen Veranstaltungen im Umfang von mindestens 4 SWS in der Informatik belegt werden, wobei keine Doppelung von Inhalten d",
+            ". Die Voraussetzungen für die Vergabe von ECTS-Leistungspunkten für das Vertiefungsmodul - Interdisziplinär sind eine bestandene Modulprüfung und die aktive und erfolgreiche Mitwirkung in den Seminaren und theoretischen und praktischen Übungen. Sonstige Informationen für das Vertiefungsmodul - Interdisziplinär sind nicht vorhanden.\n\nDas Modul Vertiefungsmodul - Computerlinguistik 1 (Modul-Nummer: 5200) hat einen Umfang von 12 ECTS-Leistungspunkten und einen Workload von 360 Stunden. Die Dauer di"
+        ]
+    },
+    {
+        "user_input": "Wie lang ist die offizielle Bearbeitungszeit für die Bachelorarbeit?",
+        "reference": "Die Bearbeitungszeit für die Bachelorarbeit beträgt maximal drei Monate.",
+        "response": "Die offizielle Bearbeitungszeit beträgt maximal drei Monate.",
+        "retrieved_contexts": [
+            "stem ausgehändigt und der Zeitpunkt der Ausgabe wird aktenkundig gemacht. Die Bearbeitungszeit beträgt maximal drei Monate, eine Nachfrist von bis zu vier Wochen kann ausnahmsweise gewährt werden. Bei Erkrankung innerhalb der Nachfrist kann eine weitere Nachfrist von bis zu zwei Wochen gewährt werden. Das Thema der Bachelorarbeit kann bis vier Wochen nach Ausgabe zurückgegeben werden, dies ist einmalig möglich. Die Kandidatinnen und Kandidaten sollen nachweisen, dass sie eine Fragestellung des F",
+            "verlängert werden. Verzögert sich die Bearbeitung durch nicht zu vertretende Umstände, kann eine Nachfrist von bis zu 4 Wochen eingeräumt werden.\n\nDie Bachelorarbeit, wie in § 15 dargelegt, wird in der Regel im sechsten Studiensemester angefertigt. Sie bezieht sich meist auf den Inhalt eines Aufbaumoduls des Abschlussjahrs, in Kern- und Ergänzungsfachstudiengängen auf den Inhalt eines Aufbaumoduls des betreffenden Kernfachs. Näheres kann im fächerspezifischen Anhang geregelt sein. Mit Zustimmung"
+        ]
+    }
+]
