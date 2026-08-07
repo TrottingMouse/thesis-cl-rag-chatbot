@@ -97,7 +97,7 @@ RERANKER_NAME      = "JinaReranker"
 GENERATOR_NAME     = "HuggingfaceGenerator"
 
 # Reranking threshold (fixed; only top_k / top_n vary per run)
-RERANKING_THRESHOLD = 0.1
+RERANKING_THRESHOLD = 0
 
 # QA evaluation file
 QA_EVAL_FILE = "storage/evaluation/qa_pairs_grid.json"
