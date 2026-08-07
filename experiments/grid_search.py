@@ -163,8 +163,8 @@ def _maxmin_configs() -> list[dict]:
                                          the default on this homogenous corpus)
     """
     configs = []
-    for ft, c in itertools.product((0.7, 0.8, 0.9), (1.2, 1.3, 1.4)):
-        if ft + c > 1.9:
+    for ft, c in itertools.product((0.7, 0.75, 0.8), (1.2, 1.3, 1.4, 1.5)):
+        if ft + c > 1.9 and ft + c < 2.3:
             configs.append({"fixed_threshold": ft, "c": c})
     return configs
 
