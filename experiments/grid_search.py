@@ -2,11 +2,21 @@
 Grid search for optimal chunking parameters.
 
 All experiment parameters are hardcoded below — no external YAML config is
-needed.  The script covers four chunkers:
+needed.  The script covers the following explicit
+(preprocessor_chain, chunker) combinations:
 
+  geminimark   + character
+  geminimark   + paragraph
+  geminimark/directllm + paragraph
+  geminimark/directllm + character
+  geminimark/directllm + maxmin
+  geminimark/directllm + dynamic
+
+Chunker parameter grids
+-----------------------
   FixedParagraphChunker
     chunk_size ∈ {1, 2, 3}
-    overlap    : 1 for sizes 1 and 2; 0 for size 3
+    overlap    : 1 only for size 2
 
   FixedCharacterChunker
     chunk_size ∈ {500, 1_000, 1_500}
@@ -17,13 +27,13 @@ needed.  The script covers four chunkers:
     overlap    : 0 or 10 % of chunk_size (rounded)
 
   MaxMinChunker
-    fixed_threshold ∈ {0.6, 0.7, 0.8}   (≥ default; thematically homogenous corpus)
-    c               ∈ {0.8, 0.9, 0.95}  (≥ default)
+    fixed_threshold ∈ {0.7, 0.8, 0.9}
+    c               ∈ {1.2, 1.3, 1.4}  (ft + c > 1.9 only)
 
 For every run the script:
-  1. Builds the offline index for the given chunker + params.
+  1. Builds the offline index for the given preprocessor chain + chunker + params.
   2. Derives retrieval parameters dynamically from avg chunk size:
-       top_n = floor(2000 / avg_chunk_size_tokens)  (min 1)
+       top_n = floor(1500 / avg_chunk_size_tokens)  (min 1)
        top_k = 3 * top_n
   3. Runs all queries from qa_pairs_grid.json.
   4. Evaluates with evaluate_minimal() and collects mean metrics.
@@ -76,8 +86,9 @@ DOCUMENT_PATHS: list[str] = [
 EMBEDDING_MODEL  = "jinaai/jina-embeddings-v5-text-nano"
 GENERATION_MODEL = "Qwen/Qwen3.5-2B"
 
-# Preprocessor chain (applied to every chunker)
-PREPROCESSOR_NAMES: list[str] = ["GeminiMarkdownProcessor"]
+# Preprocessor chain shorthands
+_GEMINIMARK      = ["GeminiMarkdownProcessor"]
+_GEMINIMARK_DIRECT = ["GeminiMarkdownProcessor", "DirectLLMProcessor"]
 
 # Online components (fixed across all runs)
 INDEX_BUILDER_NAME = "FaissIndexBuilder"
@@ -158,16 +169,26 @@ def _maxmin_configs() -> list[dict]:
     return configs
 
 
-# Registry of all chunkers with their grids
-#   (label, registry_name, param_configs, extra_kwargs_for_build)
-CHUNKER_SPECS: list[tuple[str, str, list[dict], dict]] = [
-    ("paragraph", "FixedParagraphChunker",  _paragraph_configs(), {}),
-    ("character", "FixedCharacterChunker",  _character_configs(), {}),
-    ("dynamic",   "DynamicTokenChunker",    _dynamic_configs(),   {}),
+# Chunker registry (label -> (registry_name, param_configs))
+_CHUNKERS: dict[str, tuple[str, list[dict]]] = {
+    "paragraph": ("FixedParagraphChunker", _paragraph_configs()),
+    "character": ("FixedCharacterChunker", _character_configs()),
+    "dynamic":   ("DynamicTokenChunker",   _dynamic_configs()),
     # MaxMinChunker needs the embedding model injected; factory handles this
     # automatically when chunker_name == "MaxMinChunker" and
     # "embedding_model_name" is absent from chunker_kwargs.
-    ("maxmin",    "MaxMinChunker",          _maxmin_configs(),    {}),
+    "maxmin":    ("MaxMinChunker",         _maxmin_configs()),
+}
+
+# Explicit experiment combinations
+#   Each entry: (preprocessor_label, preprocessor_names, chunker_label)
+EXPERIMENT_SPECS: list[tuple[str, list[str], str]] = [
+    ("geminimark",        _GEMINIMARK,        "character"),
+    ("geminimark",        _GEMINIMARK,        "paragraph"),
+    ("geminimark_direct", _GEMINIMARK_DIRECT, "paragraph"),
+    ("geminimark_direct", _GEMINIMARK_DIRECT, "character"),
+    ("geminimark_direct", _GEMINIMARK_DIRECT, "maxmin"),
+    ("geminimark_direct", _GEMINIMARK_DIRECT, "dynamic"),
 ]
 
 # ---------------------------------------------------------------------------
@@ -229,16 +250,20 @@ def chunking_grid_search() -> None:
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     summary_rows: list[dict] = []
 
-    for chunker_label, chunker_name, param_grid, _extra in CHUNKER_SPECS:
+    for prep_label, prep_names, chunker_label in EXPERIMENT_SPECS:
+        chunker_name, param_grid = _CHUNKERS[chunker_label]
+
         logger.info("=" * 70)
         logger.info(
-            "CHUNKER: %s (%s)  |  %d parameter combination(s)",
-            chunker_label, chunker_name, len(param_grid),
+            "PREPROCESSORS: %s  |  CHUNKER: %s (%s)  |  %d parameter combination(s)",
+            "+".join(prep_names), chunker_label, chunker_name, len(param_grid),
         )
         logger.info("=" * 70)
 
         for params in param_grid:
-            run_name = _run_name(chunker_label, params)
+            # Include the preprocessor label in the run name so results from
+            # different preprocessor chains never collide in the CSV / on disk.
+            run_name = f"{prep_label}__{_run_name(chunker_label, params)}"
             logger.info("--- Run: %s ---", run_name)
 
             index_path = INDEX_BASE / run_name
@@ -247,7 +272,7 @@ def chunking_grid_search() -> None:
             # Offline pipeline
             # ------------------------------------------------------------------
             offline_pipeline = build_offline_pipeline(
-                preprocessor_names=PREPROCESSOR_NAMES,
+                preprocessor_names=prep_names,
                 chunker_name=chunker_name,
                 index_builder_name=INDEX_BUILDER_NAME,
                 storage_path=index_path,
@@ -295,7 +320,7 @@ def chunking_grid_search() -> None:
 
             row = {
                 "run_name":              run_name,
-                "preprocessors":         "+".join(PREPROCESSOR_NAMES),
+                "preprocessors":         "+".join(prep_names),
                 "chunker":               chunker_name,
                 # MaxMinChunker-specific (empty for other chunkers)
                 "fixed_threshold":       params.get("fixed_threshold", ""),
