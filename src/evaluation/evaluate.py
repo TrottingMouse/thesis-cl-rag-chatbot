@@ -45,9 +45,9 @@ class Evaluator:
         ans_rel.strictness = 1
         
         metrics = [
-#            ContextRecall(llm=self.ragas_llm),
- #           Faithfulness(llm=self.ragas_llm),
-  #          ans_rel,
+            ContextRecall(llm=self.ragas_llm),
+            Faithfulness(llm=self.ragas_llm),
+            ans_rel,
             AnswerCorrectness(llm=self.ragas_llm, embeddings=self.ragas_embeddings)
         ]
         
@@ -89,36 +89,21 @@ class Evaluator:
     
     def evaluate_rejection(self):
         eval_dataset = EvaluationDataset.from_list(self.data)
-        
+
         my_run_config = RunConfig(max_workers=2, timeout=1200, max_retries=10)
 
         negative_rejection = AspectCritic(
-                name="negative_rejection",
-                definition="Did the model reject the query as not answerable from the given context?",
-                llm=self.ragas_llm,
-            )
-            
+            name="negative_rejection",
+            definition="Did the model reject the query as not answerable from the given context?",
+            llm=self.ragas_llm,
+        )
+
         result = evaluate(
             dataset=eval_dataset,
             metrics=[negative_rejection],
             raise_exceptions=False,
-            run_config=my_run_config
+            run_config=my_run_config,
         )
-
-    # def evaluate_retrieval(self):
-    #     eval_dataset = EvaluationDataset.from_list(self.data)
-        
-    #     my_run_config = RunConfig(max_workers=2, timeout=1200, max_retries=10)
-
-    #     context_recall = ContextRecall(llm=self.ragas_llm)
-    #     context_precision = ContextPrecision(llm=self.ragas_llm)
-        
-    #     result = evaluate(
-    #         dataset=eval_dataset,
-    #         metrics=[context_recall, context_precision],
-    #         raise_exceptions=False,
-    #         run_config=my_run_config
-    #     )
 
         print(result)
         return result.to_pandas()
