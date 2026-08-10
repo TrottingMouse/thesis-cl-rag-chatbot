@@ -1,0 +1,872 @@
+[
+    {
+        "user_input": "Welche Kurse sollte ich im ersten Semester belegen?",
+        "reference": "Laut dem exemplarischen Studienverlaufsplan solltest du im ersten Semester folgende Kurse belegen: Mathematische Grundlagen, Einführung in die computationelle Logik, Einführung in die Computerlinguistik, Einführung in die Programmierung mit Python, Morphologie und Syntax.",
+        "response": "Im ersten Semester solltest du folgende Kurse belegen:\n\n*   Basismodul - Mathematische und logische Grundlagen\n*   Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung\n*   Basismodul - Python-Programmierung",
+        "retrieved_contexts": [
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Mathematische und logische Grundlagen** | **1 Modulprüfung** | **2 Studienleistung** | **12 ECTS-Leistungspunkte** | **8 Semesterwochenstunden** |\n| Einführung in die computationelle Logik (Seminar mit Übung) | | Prüfungsnummer 2101 | 4 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Mathematische Grundlagen (Seminar) | | Prüfungsnummer 2102 | 4 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Modulprüfung (Portfolio) | Prüfungsnummer 2110 | | 4 ECTS-Leistungspunkte | |",
+            "Desweiteren sieht der Studienplan für das erste Jahr einen Einstieg in computerlinguistische Programmierung mit Python vor, die neben Grundlagen auch aktuelle Methoden der Sprachtechnologie vermittelt.",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Python-Programmierung [1/2]** | | **2 Studienleistung** | **4 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Einführung in die Programmierung mit Python (Seminar) | | Prüfungsnummer 2301 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Einführung in die Programmierung mit Python (Übung) | | Prüfungsnummer 2302 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |",
+            "**Phase 1 Erwerb von Basiswissen für die Computerlinguistik:** Hierzu gehört die Vermittlung mathematischer und logischer Konzepte und Methoden, die für die Computerlinguistik wesentlich sind, eine Einführung in die Computerlinguistik, die einen Überblick über zentrale computerlinguistische Fragestellungen und gängige Methoden in diesen Bereichen gibt, der Erwerb von Kenntnissen über Formalismen und Methoden der Grammatikmodellierung und eine Einführung in die Statistik.",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung [1/2]** | | **2 Studienleistung** | **4 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Einführung in die Computerlinguistik (Seminar) | | Prüfungsnummer 2201 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Einführung in die Computerlinguistik (Übung) | | Prüfungsnummer 2202 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |",
+            "| **Art und Inhalt der Module und der Prüfungen** | **Module:**<br>- Basismodul - Mathematische und logische Grundlagen (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Python-Programmierung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Morphologie und Syntax (6 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Semantik und Pragmatik (6 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Basismodul - Statistische Methoden in der Computerlinguistik (6 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Maschinelles Lernen (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Aufbaumodul - Mathematische Linguistik (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Parsing (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Logische Programmierung (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Objektorientierte Programmierung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Praktikum und Orientierung (2 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - interdisziplinär (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 1 (8 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 2 (4 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Abschlussarbeit und Forschungskolloquium (2 Semesterwochenstunden, 15 ECTS-Leistungspunkte)<br>- Profilbildungsbereich (18 ECTS-Leistungspunkte) |"
+        ]
+    },
+    {
+        "user_input": "Gibt es eine Übung für den Kurs Mathematische Grundlagen?",
+        "reference": "Nein, für den Kurs \"Mathematische Grundlagen\" gibt es keine begleitende Übung. Es handelt sich dabei ausschließlich um ein Seminar.",
+        "response": "Ja, es gibt eine Übung für den Kurs Mathematische Grundlagen.",
+        "retrieved_contexts": [
+            "### Modul: Basismodul - Mathematische und logische Grundlagen\n**Belegung:** Seminar und Übung (Einführung in die computationelle Logik (Seminar & Übung)) und Seminar (Mathematische Grundlagen (Seminar))<br>",
+            "### Modul: Basismodul - Mathematische und logische Grundlagen\n**Lehrveranstaltungen und Lehrformen:** Einführung in die computationelle Logik (Seminar & Übung): Einführung in die computationelle Logik (Seminar & Übung) / 2101 | Mathematische Grundlagen (Seminar): Mathematische Grundlagen (Seminar) / 2102<br>",
+            "### Modul: Basismodul - Mathematische und logische Grundlagen\n**Häufigkeit des Angebots:** Einführung in die computationelle Logik (Seminar & Übung): Jedes Wintersemester | Mathematische Grundlagen (Seminar): Jedes Wintersemester<br>",
+            "### Modul: Basismodul - Mathematische und logische Grundlagen\n**Selbststudium:** Einführung in die computationelle Logik (Seminar & Übung): 60 Stunden / 2 ECTS-Leistungspunkte | Mathematische Grundlagen (Seminar): 60 Stunden/2 ECTS-Leistungspunkte<br>",
+            "### Modul: Basismodul - Mathematische und logische Grundlagen\n**Kontaktzeit:** Einführung in die computationelle Logik (Seminar & Übung): 4 SWS/60 Stunden / 2 ECTS-Leistungspunkte | Mathematische Grundlagen (Seminar): 4 SWS/60 Stunden / 2 ECTS-Leistungspunkte<br>",
+            "### Modul: Basismodul - Mathematische und logische Grundlagen\n**Geplante Gruppengröße:** Einführung in die computationelle Logik (Seminar & Übung): Ca. 60 Studierende | Mathematische Grundlagen (Seminar): Ca. 60 Studierende<br>"
+        ]
+    },
+    {
+        "user_input": "Muss ich für den Python-Kurs Vorkenntnisse haben?",
+        "reference": "Nein, für das Modul \"Python-Programmierung\" werden weder formale noch inhaltliche Vorkenntnisse vorausgesetzt.",
+        "response": "Nein, es ist nicht erforderlich, Vorkenntnisse zu haben.",
+        "retrieved_contexts": [
+            "### Modul: Basismodul - Python-Programmierung\n**Teilnahmevoraussetzungen:** Formal: Keine | Inhaltlich: Keine<br>",
+            "### Modul: Basismodul - Python-Programmierung\n**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine-<br>",
+            "Im Rahmen dieses Moduls muss mindestens eine Veranstaltung aus der Informatik belegt werden.",
+            "### Modul: Basismodul - Python-Programmierung\n**Angestrebte Lernergebnisse und Studieninhalte:** Die Studierenden erwerben grundlegende Fähigkeiten in der Programmierung mit der Programmiersprache Python sowie Kenntnisse über fortgeschrittene Konzepte der Python-Programmierung (objektorientierte und funktionale Programmierung). Außerdem werden Grundkenntnisse des Einsatzes von Python in den Bereichen Data Science und NLP (Natural Language Processing) erworben, sowie die Fähigkeit ein kleines Software-Projekt durchzuführen und zu präsentieren.<br>",
+            "### Modul: Praktikum & Orientierung\n**Teilnahmevoraussetzungen:** Formal: 4. Fachsemester oder höher | Inhaltlich: Basismodul - Mathematische und logische Grundlagen, Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung, Basismodul - Python-Programmierung<br>"
+        ]
+    },
+    {
+        "user_input": "Muss ich fließend Englisch sprechen können um Computerlinguistik zu studieren?",
+        "reference": "Fließendes Englisch wird nicht vorausgesetzt, jedoch benötigst du Englischkenntnisse auf dem Niveau B1. Dies entspricht vergleichsweise einem erfolgreichen vierjährigen Schulunterricht an einer weiterführenden Schule.",
+        "response": "Nein, fließend Englisch zu sprechen ist nicht zwingend erforderlich, um Computerlinguistik zu studieren. Die bereitgestellten Dokumente zeigen, dass das Studium auf Basismodulen wie \"Einführung in die Computerlinguistik\" und \"Grundlagen der Computerlinguistik und formale Grammatikbeschreibung\" basiert, die spezifisch auf formale Grammatik und sprachwissenschaftliche Bereiche (Morphologie, Syntax, Semantik) ausgerichtet sind.",
+        "retrieved_contexts": [
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung [1/2]** | | **2 Studienleistung** | **4 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Einführung in die Computerlinguistik (Seminar) | | Prüfungsnummer 2201 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Einführung in die Computerlinguistik (Übung) | | Prüfungsnummer 2202 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |",
+            "Damit sind sie optimal auf einen anschließenden Masterstudiengang. z.B. im Bereich Sprachtechnologie oder Künstliche Intelligenz oder im Bereich Linguistik vorbereitet.",
+            "Dies wird ergänzt durch Einführungen in die für die Computerlinguistik zentralen sprachwissenschaftlichen Bereiche Morphologie/Syntax und Semantik/Pragmatik."
+        ]
+    },
+    {
+        "user_input": "Kann ich Einführung in die Programmierung mit Python auch im zweiten Semester belegen?",
+        "reference": "Der Studienverlaufsplan ist nur exemplarisch und nicht verpflichtend. Allerdings wird das Seminar \"Einführung in die Programmierung mit Python\" ausschließlich jedes Wintersemester angeboten. Da das zweite Semester in der Regel ein Sommersemester ist, ist eine reguläre Belegung dort nicht möglich.",
+        "response": "Ja, die Einführung in die Programmierung mit Python kann im zweiten Semester belegen.",
+        "retrieved_contexts": [
+            "### Modul: Basismodul - Python-Programmierung\n**Empfohlenes Studiensemester:** Einführung in die Programmierung mit Python (Seminar): 1. Fachsemester (Wintersemester) | Einführung in die Programmierung mit Python (Übung): 1. Fachsemester (Wintersemester) | Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar): 2. Fachsemester (Sommersemester) | Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Übung): 2. Fachsemester (Sommersemester) | Prüfung im 2. Fachsemester (Sommersemester)<br>",
+            "### Modul: Basismodul - Python-Programmierung\n**Dauer:** 2 Semester<br>",
+            "### 2. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Python-Programmierung [2/2]** | **1 Modulprüfung** | **2 Studienleistung** | **8 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar) | | Prüfungsnummer 2303 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Übung) | | Prüfungsnummer 2304 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Modulprüfung (Klausur) | Prüfungsnummer 2310 | | 4 ECTS-Leistungspunkte | |",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Python-Programmierung [1/2]** | | **2 Studienleistung** | **4 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Einführung in die Programmierung mit Python (Seminar) | | Prüfungsnummer 2301 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Einführung in die Programmierung mit Python (Übung) | | Prüfungsnummer 2302 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |"
+        ]
+    },
+    {
+        "user_input": "Muss ich in mathematische Grundlagen und in Logik eine Klausur schreiben?",
+        "reference": "Nein, du musst nicht in beiden Veranstaltungen eine Klausur schreiben. Für das gesamte \"Basismodul - Mathematische und logische Grundlagen\" ist nur eine einzige Modulprüfung in Form eines Portfolios vorgesehen.",
+        "response": "Nein, du musst in mathematische Grundlagen und in Logik eine Klausur schreiben.",
+        "retrieved_contexts": [
+            "### Modul: Basismodul - Mathematische und logische Grundlagen\n**Empfohlenes Studiensemester:** Einführung in die computationelle Logik (Seminar & Übung): 1. Fachsemester (Wintersemester) | Mathematische Grundlagen (Seminar): 1. Fachsemester (Wintersemester) | Prüfung im 1. Fachsemester (Wintersemester)<br>",
+            "### Modul: Basismodul - Mathematische und logische Grundlagen\n**Inhalte:** Aufbereitung der mathematischen Schulkenntnisse und deren Vertiefung, um formale Methoden der Mathematik einsetzen zu können wie z.B. Mengenlehre, Vektorrechnung oder Beweisführung. Bedeutung der Logik; menschliche Sprache und formale Sprache; Einführung in die Aussagenlogik und Prädikatenlogik; Modelle, Wahrheitswerte und formale Beweise.<br>",
+            "### Modul: Basismodul - Mathematische und logische Grundlagen\n**Belegung:** Seminar und Übung (Einführung in die computationelle Logik (Seminar & Übung)) und Seminar (Mathematische Grundlagen (Seminar))<br>",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Mathematische und logische Grundlagen** | **1 Modulprüfung** | **2 Studienleistung** | **12 ECTS-Leistungspunkte** | **8 Semesterwochenstunden** |\n| Einführung in die computationelle Logik (Seminar mit Übung) | | Prüfungsnummer 2101 | 4 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Mathematische Grundlagen (Seminar) | | Prüfungsnummer 2102 | 4 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Modulprüfung (Portfolio) | Prüfungsnummer 2110 | | 4 ECTS-Leistungspunkte | |",
+            "### Modul: Basismodul - Mathematische und logische Grundlagen\n**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine-<br>"
+        ]
+    },
+    {
+        "user_input": "Wie viele Klausuren/Prüfungen habe ich im ersten Semester?",
+        "reference": "Wenn du dich an den exemplarischen Studienverlaufsplan hältst, hast du im ersten Semester insgesamt zwei Modulprüfungen. Diese finden in den Modulen \"Mathematische und logische Grundlagen\" (als Portfolio) und \"Morphologie und Syntax\" (als Klausur) statt.",
+        "response": "Im ersten Semester gibt es 3 Modulprüfungen (Klausuren).",
+        "retrieved_contexts": [
+            "| **Anzahl der Modulprüfungen** | 9, zuzüglich Bachelorarbeit |",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basiswissen Linguistik - Morphologie und Syntax** | **1 Modulprüfung** | **2 Studienleistung** | **9 ECTS-Leistungspunkte** | **6 Semesterwochenstunden** |\n| Vorlesung | | Prüfungsnummer 1301 | 2 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Tutorium | | Prüfungsnummer 1302 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Modulprüfung (Klausur) | Prüfungsnummer 1310 | | 3 ECTS-Leistungspunkte | |",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Mathematische und logische Grundlagen** | **1 Modulprüfung** | **2 Studienleistung** | **12 ECTS-Leistungspunkte** | **8 Semesterwochenstunden** |\n| Einführung in die computationelle Logik (Seminar mit Übung) | | Prüfungsnummer 2101 | 4 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Mathematische Grundlagen (Seminar) | | Prüfungsnummer 2102 | 4 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Modulprüfung (Portfolio) | Prüfungsnummer 2110 | | 4 ECTS-Leistungspunkte | |",
+            "(5) Modulprüfungen erfolgen als Klausur, auch in elektronischer Form, in Form einer mündlichen Prüfung, Studienarbeit, Hausarbeit, Portfolio oder Projektarbeit mit individuell zurechenbarer Prüfungsleistung."
+        ]
+    },
+    {
+        "user_input": "Muss ich in Python eine Klausur/Prüfung absolvieren?",
+        "reference": "Ja, du musst im Modul \"Python-Programmierung\" eine Prüfung in Form einer Projektarbeit ablegen. Diese Modulprüfung ist jedoch erst im zweiten Fachsemester (Sommersemester) vorgesehen. Im ersten Semester musst du dafür lediglich Studienleistungen erbringen.",
+        "response": "Nein, du musst in Python eine Klausur/Prüfung nicht absolvieren.\n\nDie Prüfungsordnung für das Modul \"Basismodul - Python-Programmierung\" erlaubt folgende Prüfungsformen:\n*   Projektarbeit (Prüfungsnummer 2310)\n*   mündliche Prüfung\n*   Studienarbeit\n*   Hausarbeit\n*   Portfolio\n*   Projektarbeit\n\nEs wird keine Klausur (z. B. Schriftliche Modulprüfung) verlangt.",
+        "retrieved_contexts": [
+            "### 2. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Python-Programmierung [2/2]** | **1 Modulprüfung** | **2 Studienleistung** | **8 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar) | | Prüfungsnummer 2303 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Übung) | | Prüfungsnummer 2304 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Modulprüfung (Klausur) | Prüfungsnummer 2310 | | 4 ECTS-Leistungspunkte | |",
+            "### Modul: Basismodul - Python-Programmierung\n**Prüfungsformen:** Projektarbeit (Pnr. 2310)<br>",
+            "(1) Schriftliche Modulprüfungen können als Klausuren oder dokumentierte Einzelberichte ausgestaltet werden.",
+            "(6) Mindestens eine Modulabschlussprüfung muss in der Form einer Hausarbeit oder Studienarbeit, mindestens eine Modulabschlussprüfung in der Form einer mündlichen Prüfung abgelegt werden.",
+            "(5) Modulprüfungen erfolgen als Klausur, auch in elektronischer Form, in Form einer mündlichen Prüfung, Studienarbeit, Hausarbeit, Portfolio oder Projektarbeit mit individuell zurechenbarer Prüfungsleistung.",
+            "Studienleistungen sind unbenotet und können als Prüfungsvoraussetzung bestimmt werden.",
+            "Im Studium müssen die Studierenden nach den Bestimmungen dieser Prüfungsordnung Pflicht- und Wahlpflichtveranstaltungen einschließlich des Profilbildungsbereiches belegen.",
+            "Prüfung im Sinne von § 2 der Weitergeltungsordnung sind eine Klausurarbeit von zwei Zeitstunden und eine mündliche Prüfung von 20 bis 30 Minuten Dauer, in denen die Kandidatin oder der Kandidat ihre oder seine fachlichen und methodischen Voraussetzungen für ein Bachelorstudium nachweist.",
+            "### Modul: Basismodul - Python-Programmierung\n**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine-<br>"
+        ]
+    },
+    {
+        "user_input": "Muss ich in Grundlagen der Computerlinguistik eine Klausur/Prüfung machen?",
+        "reference": "Ja, für das Modul \"Grundlagen der Computerlinguistik und formale Grammatikbeschreibung\" musst du eine Klausur schreiben. Diese Modulprüfung findet allerdings erst im zweiten Fachsemester (Sommersemester) statt und wird dann in Kombination mit dem Kurs \"Grammatikformalismen\" geprüft.",
+        "response": "Ja, du musst in Grundlagen der Computerlinguistik eine Klausur machen.",
+        "retrieved_contexts": [
+            "### Modul: Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung\n**Prüfungsformen:** Klausur (Pnr. 2210)<br>",
+            "### Modul: Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung\n**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine-<br>",
+            "### 2. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung [2/2]** | **1 Modulprüfung** | **2 Studienleistung** | **8 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Grammatikformalismen (Seminar) | | Prüfungsnummer 2203 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Grammatikformalismen (Übung) | | Prüfungsnummer 2204 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Modulprüfung (Klausur) | Prüfungsnummer 2210 | | 4 ECTS-Leistungspunkte | |",
+            "### Modul: Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung\n**Empfohlenes Studiensemester:** Einführung in die Computerlinguistik (Seminar): 1. Fachsemester (Wintersemester) | Einführung in die Computerlinguistik (Übung): 1. Fachsemester (Wintersemester) | Grammatikformalismen (Seminar): 2. Fachsemester (Sommersemester) | Grammatikformalismen (Übung): 2. Fachsemester (Sommersemester) | Prüfung im 2. Fachsemester (Sommersemester)<br>",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basiswissen Linguistik - Morphologie und Syntax** | **1 Modulprüfung** | **2 Studienleistung** | **9 ECTS-Leistungspunkte** | **6 Semesterwochenstunden** |\n| Vorlesung | | Prüfungsnummer 1301 | 2 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Tutorium | | Prüfungsnummer 1302 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Modulprüfung (Klausur) | Prüfungsnummer 1310 | | 3 ECTS-Leistungspunkte | |",
+            "### Modul: Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung\n**Teilnahmevoraussetzungen:** Formal: Keine | Inhaltlich: Keine<br>",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung [1/2]** | | **2 Studienleistung** | **4 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Einführung in die Computerlinguistik (Seminar) | | Prüfungsnummer 2201 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Einführung in die Computerlinguistik (Übung) | | Prüfungsnummer 2202 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 2\n**Prüfungsformen:** Mündliche Prüfung (Pnr. 5310) oder Klausur (Pnr. 5320) oder Hausarbeit (Pnr. 5330) oder Studienarbeit (Pnr. 5340) oder Projektarbeit (Pnr. 5350)<br>",
+            "| **Art und Inhalt der Module und der Prüfungen** | **Module:**<br>- Basismodul - Mathematische und logische Grundlagen (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Python-Programmierung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Morphologie und Syntax (6 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Semantik und Pragmatik (6 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Basismodul - Statistische Methoden in der Computerlinguistik (6 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Maschinelles Lernen (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Aufbaumodul - Mathematische Linguistik (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Parsing (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Logische Programmierung (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Objektorientierte Programmierung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Praktikum und Orientierung (2 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - interdisziplinär (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 1 (8 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 2 (4 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Abschlussarbeit und Forschungskolloquium (2 Semesterwochenstunden, 15 ECTS-Leistungspunkte)<br>- Profilbildungsbereich (18 ECTS-Leistungspunkte) |"
+        ]
+    },
+    {
+        "user_input": "Gibt es eine Klausur in Wahrscheinlichkeitstheorie?",
+        "reference": "Nein, im \"Basismodul - Statistische Methoden in der Computerlinguistik\", zu dem die Wahrscheinlichkeitstheorie gehört, gibt es gar keine Modulprüfung und somit auch keine Klausur. Es müssen lediglich Studienleistungen erbracht werden.",
+        "response": "Nein, es gibt keine Klausur in Wahrscheinlichkeitstheorie.",
+        "retrieved_contexts": [
+            "(5) Modulprüfungen erfolgen als Klausur, auch in elektronischer Form, in Form einer mündlichen Prüfung, Studienarbeit, Hausarbeit, Portfolio oder Projektarbeit mit individuell zurechenbarer Prüfungsleistung.",
+            "### 2. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Statistische Methoden in der Computerlinguistik [1/2]** | **0 Modulprüfung** | **1 Studienleistung** | **4 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Wahrscheinlichkeitstheorie und Statistik (Seminar und Übung) | | Prüfungsnummer 2401 | 4 ECTS-Leistungspunkte | 4 Semesterwochenstunden |",
+            "(1) Schriftliche Modulprüfungen können als Klausuren oder dokumentierte Einzelberichte ausgestaltet werden.",
+            "Klausuren können Aufgaben enthalten, bei denen mehrere Antworten zur Wahl stehen (Antwort-Wahl beziehungsweise Multiple-Choice-Aufgaben)."
+        ]
+    },
+    {
+        "user_input": "Gibt es eine Klausur in Parsing?",
+        "reference": "Nein, auch für das Aufbaumodul \"Parsing\" ist keine Modulprüfung vorgesehen.",
+        "response": "Nein, es gibt keine Klausur im Modul \"Aufbaumodul - Parsing\". Das Modul besteht aus einer Seminarform (Parsing) und einer Übung (Parsing).",
+        "retrieved_contexts": [
+            "### Modul: Aufbaumodul - Parsing\n**Prüfungsformen:** -keine-<br>",
+            "### 4. Semester Bachelor Computerlinguistik\n\n| **Aufbaumodul - Parsing** | | **2 Studienleistung** | **6 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Parsing (Seminar) | | Prüfungsnummer 4301 | 3 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Parsing (Übung) | | Prüfungsnummer 4302 | 3 ECTS-Leistungspunkte | 2 Semesterwochenstunden |",
+            "### Modul: Aufbaumodul - Parsing\n**Lehrveranstaltungen und Lehrformen:** Parsing (Seminar): Parsing (Seminar) / 4301 | Übung zu Parsing (Übung): Übung zu Parsing (Übung) / 4302<br>",
+            "### 2. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung [2/2]** | **1 Modulprüfung** | **2 Studienleistung** | **8 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Grammatikformalismen (Seminar) | | Prüfungsnummer 2203 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Grammatikformalismen (Übung) | | Prüfungsnummer 2204 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Modulprüfung (Klausur) | Prüfungsnummer 2210 | | 4 ECTS-Leistungspunkte | |",
+            "### Modul: Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung\n**Prüfungsformen:** Klausur (Pnr. 2210)<br>",
+            "### Modul: Basiswissen Linguistik - Morphologie und Syntax\n**Prüfungsformen:** Klausur (Pnr. 1310)<br>",
+            "### Modul: Aufbaumodul - Parsing\n**Empfohlenes Studiensemester:** Parsing (Seminar): 4. Fachsemester (Sommersemester) | Übung zu Parsing (Übung): 4. Fachsemester (Sommersemester)<br>",
+            "| **Art und Inhalt der Module und der Prüfungen** | **Module:**<br>- Basismodul - Mathematische und logische Grundlagen (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Python-Programmierung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Morphologie und Syntax (6 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Semantik und Pragmatik (6 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Basismodul - Statistische Methoden in der Computerlinguistik (6 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Maschinelles Lernen (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Aufbaumodul - Mathematische Linguistik (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Parsing (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Logische Programmierung (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Objektorientierte Programmierung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Praktikum und Orientierung (2 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - interdisziplinär (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 1 (8 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 2 (4 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Abschlussarbeit und Forschungskolloquium (2 Semesterwochenstunden, 15 ECTS-Leistungspunkte)<br>- Profilbildungsbereich (18 ECTS-Leistungspunkte) |",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 2\n**Prüfungsformen:** Mündliche Prüfung (Pnr. 5310) oder Klausur (Pnr. 5320) oder Hausarbeit (Pnr. 5330) oder Studienarbeit (Pnr. 5340) oder Projektarbeit (Pnr. 5350)<br>",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basiswissen Linguistik - Morphologie und Syntax** | **1 Modulprüfung** | **2 Studienleistung** | **9 ECTS-Leistungspunkte** | **6 Semesterwochenstunden** |\n| Vorlesung | | Prüfungsnummer 1301 | 2 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Tutorium | | Prüfungsnummer 1302 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Modulprüfung (Klausur) | Prüfungsnummer 1310 | | 3 ECTS-Leistungspunkte | |"
+        ]
+    },
+    {
+        "user_input": "Wann soll ich das Praktikum machen?",
+        "reference": "Es wird empfohlen, das Berufsfeldpraktikum nach dem vierten oder fünften Semester zu absolvieren.",
+        "response": "Nach dem vierten oder fünften Semester wird entweder ein mindestens 6-wöchiges Berufsfeldpraktikum oder eine Projektarbeit absolviert.",
+        "retrieved_contexts": [
+            "| **Praktikum** | Nach dem vierten oder fünften Semester wird entweder ein mindestens 6-wöchiges Berufsfeldpraktikum oder eine Projektarbeit absolviert, jeweils mit einschlägig computerlinguistischem Inhalt. Das Praktikum soll einen Einblick in die Berufspraxis vermitteln sowie den späteren Übergang in die Berufswelt erleichtern. Die Wahl des Praktikumsplatzes erfolgt im Einvernehmen mit dem/der Praktikumsbeauftragten der Abteilung für Computerlinguistik. Der/die Praktikumsbeauftragte ist bei der Vermittlung von Praktikumsplätzen behilflich und bietet eine fachliche Praktikumsberatung und -begleitung an. Über das Praktikum ist ein kurzer Bericht (ca. 3-5 Seiten) zu verfassen und ein Zeugnis der Praktikumsstelle einzureichen. |"
+        ]
+    },
+    {
+        "user_input": "Wann kann ich ins Ausland gehen?",
+        "reference": "Ein Auslandsaufenthalt ist optional. Als sogenanntes \"Mobilitätsfenster\" ist das fünfte Semester vorgesehen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "| **Auslandsaufenthalt** | Optional (Mobilitätsfenster: 5. Semester) |"
+        ]
+    },
+    {
+        "user_input": "Muss ich für Semantik und Pragmatik vorher Morphologie und Syntax belegt haben?",
+        "reference": "Nein, für das Modul \"Basiswissen Linguistik - Semantik und Pragmatik\" gibt es keinerlei formale oder inhaltliche Teilnahmevoraussetzungen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "Dies wird ergänzt durch Einführungen in die für die Computerlinguistik zentralen sprachwissenschaftlichen Bereiche Morphologie/Syntax und Semantik/Pragmatik.",
+            "### Modul: Basiswissen Linguistik - Semantik und Pragmatik\n**Teilnahmevoraussetzungen:** Formal: -keine- | Inhaltlich: -keine-<br>",
+            "### Modul: Basiswissen Linguistik - Morphologie und Syntax\n**Empfohlenes Studiensemester:** Morphologie und Syntax (Vorlesung): 1. Fachsemester (Wintersemester) | Tutorium zu Morphologie und Syntax (Tutorium): 1. Fachsemester (Wintersemester) | Prüfung im 1. Fachsemester (Wintersemester)<br>",
+            "Außerdem werden die Bereiche syntaktische Verarbeitung und Automatentheorie und formale Sprachen in Hinblick auf computerlinguistische Problemstellungen vertieft.",
+            "### Modul: Basiswissen Linguistik - Morphologie und Syntax\n**Teilnahmevoraussetzungen:** Formal: -keine- | Inhaltlich: -keine-<br>",
+            "### Modul: Basiswissen Linguistik - Morphologie und Syntax\n**Belegung:** Vorlesung (Morphologie und Syntax (Vorlesung)) und Tutorium (Tutorium zu Morphologie und Syntax (Tutorium))<br>",
+            "### Modul: Basiswissen Linguistik - Morphologie und Syntax\n**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine-<br>"
+        ]
+    },
+    {
+        "user_input": "Gibt es in Machine Learning eine Klausur?",
+        "reference": "Nein, im Aufbaumodul \"Maschinelles Lernen\" wird keine Klausur geschrieben. Die Prüfungsform ist hier entweder eine Hausarbeit oder eine Studienarbeit, jeweils in Verbindung mit einem Programmierprojekt.",
+        "response": "Ja, es gibt in den bereitgestellten Dokumenten Klausuren. Sie werden als „Klausur\" oder „Modulprüfung (Klausur)\" bezeichnet und finden in verschiedenen Modulen statt, wie z. B. im Aufbaumodul für Objektorientierte Programmierung (Pnr. 4510) oder im Basismodul für Python-Programmierung (Pnr. 2310).",
+        "retrieved_contexts": [
+            "### Modul: Aufbaumodul - Maschinelles Lernen\n**Prüfungsformen:** Hausarbeit (mit Programmierprojekt) (Pnr. 4110) oder Studienarbeit (mit Programmierprojekt) (Pnr. 4120)<br>",
+            "Klausuren können Aufgaben enthalten, bei denen mehrere Antworten zur Wahl stehen (Antwort-Wahl beziehungsweise Multiple-Choice-Aufgaben).",
+            "### Modul: Aufbaumodul - Objektorientierte Programmierung\n**Prüfungsformen:** Klausur (Pnr. 4510)<br>",
+            "### 2. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Python-Programmierung [2/2]** | **1 Modulprüfung** | **2 Studienleistung** | **8 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar) | | Prüfungsnummer 2303 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Übung) | | Prüfungsnummer 2304 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Modulprüfung (Klausur) | Prüfungsnummer 2310 | | 4 ECTS-Leistungspunkte | |",
+            "### Modul: Aufbaumodul - Maschinelles Lernen\n**Empfohlenes Studiensemester:** Grundlagen des maschinellen Lernens (Seminar und Übung): 3. Fachsemester (Wintersemester) | Deep Learning (Seminar): 4. Fachsemester (Sommersemester) | Prüfung im 4. Fachsemester (Sommersemester)<br>",
+            "Prüfung im Sinne von § 2 der Weitergeltungsordnung sind eine Klausurarbeit von zwei Zeitstunden und eine mündliche Prüfung von 20 bis 30 Minuten Dauer, in denen die Kandidatin oder der Kandidat ihre oder seine fachlichen und methodischen Voraussetzungen für ein Bachelorstudium nachweist.",
+            "### Modul: Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung\n**Prüfungsformen:** Klausur (Pnr. 2210)<br>",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 2\n**Prüfungsformen:** Mündliche Prüfung (Pnr. 5310) oder Klausur (Pnr. 5320) oder Hausarbeit (Pnr. 5330) oder Studienarbeit (Pnr. 5340) oder Projektarbeit (Pnr. 5350)<br>"
+        ]
+    },
+    {
+        "user_input": "Wie lang ist das Praktikum?",
+        "reference": "Das Berufsfeldpraktikum dauert in der Regel mindestens sechs Wochen und wird in Vollzeit absolviert.",
+        "response": "Das Praktikum kann von vier Wochen bis zu drei Monaten dauern.",
+        "retrieved_contexts": [
+            "(1) In einigen Studiengängen ist ein obligatorisches Berufsfeldpraktikum zu absolvieren, das von vier Wochen bis zu drei Monaten dauern kann.",
+            "| **Praktikum** | Nach dem vierten oder fünften Semester wird entweder ein mindestens 6-wöchiges Berufsfeldpraktikum oder eine Projektarbeit absolviert, jeweils mit einschlägig computerlinguistischem Inhalt. Das Praktikum soll einen Einblick in die Berufspraxis vermitteln sowie den späteren Übergang in die Berufswelt erleichtern. Die Wahl des Praktikumsplatzes erfolgt im Einvernehmen mit dem/der Praktikumsbeauftragten der Abteilung für Computerlinguistik. Der/die Praktikumsbeauftragte ist bei der Vermittlung von Praktikumsplätzen behilflich und bietet eine fachliche Praktikumsberatung und -begleitung an. Über das Praktikum ist ein kurzer Bericht (ca. 3-5 Seiten) zu verfassen und ein Zeugnis der Praktikumsstelle einzureichen. |"
+        ]
+    },
+    {
+        "user_input": "Kann ich mein Praktikum machen, wann ich will?",
+        "reference": "Nein, du kannst den Zeitpunkt nicht völlig frei wählen. Als formale Teilnahmevoraussetzung für das Praktikums-Modul ist vorgeschrieben, dass du dich mindestens im 4. Fachsemester befinden musst.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "Er gibt den Studierenden Gelegenheit, das Studium nach ihren persönlichen Neigungen und Fähigkeiten zu gestalten und den Arbeitsaufwand flexibel auf die Studiensemester zu verteilen.",
+            "Das Berufsfeldpraktikum kann auch in Abschnitten absolviert werden."
+        ]
+    },
+    {
+        "user_input": "Kann ich für das interdisziplinäre Vertiefungsmodul nur linguistische Kurse belegen?",
+        "reference": "Nein, das ist nicht erlaubt. Das Modul verlangt zwingend, dass Veranstaltungen aus der Informatik im Umfang von mindestens 4 Semesterwochenstunden (SWS) belegt werden müssen.",
+        "response": "Nein, du kannst nicht nur linguistische Kurse belegen. Das interdisziplinäre Vertiefungsmodul erlaubt neben Veranstaltungen aus der Computerlinguistik auch Kurse aus Linguistik und Informatik.",
+        "retrieved_contexts": [
+            "Daneben gibt es das interdisziplinäre Vertiefungsmodul, in dem den Studierenden ermöglicht wird, neben Veranstaltungen aus der Computerlinguistik auch Veranstaltungen aus Linguistik und Informatik zu belegen, die nicht notwendig dezidiert computerlinguistisch sind.",
+            "### Modul: Vertiefungsmodul - Interdisziplinär\n**Lehrveranstaltungen und Lehrformen:** Zwei Vorlesungen oder Seminare aus Linguistik oder Informatik | Vorlesung Linguistik: 5101, 5105 | Vorlesung Informatik: 5102, 5106 | Seminar Linguistik: 5103, 5107 | Seminar Informatik: 5104, 5108<br>",
+            "• Linguistik (integrativ),",
+            "### Modul: Vertiefungsmodul - Interdisziplinär\n**Angestrebte Lernergebnisse und Studieninhalte:** Vertiefte Kenntnisse in Spezialgebieten von Linguistik/Computerlinguistik/Informatik<br>",
+            "### Modul: Vertiefungsmodul - Interdisziplinär\n**Inhalte:** Mögliche Inhalte sind Themen der Linguistik und Informatik. Relevante mögliche Themen in der Linguistik sind z.B.: Phonetik und Phonologie, Psycho- und Neurolinguistik, historische Linguistik. Es müssen Veranstaltungen im Umfang von mindestens 4 SWS in der Informatik belegt werden. Dabei darf keine Doppelung von Inhalten der Module aus der Computerlinguistik entstehen. Für die Computerlinguistik relevante mögliche Themen in der Informatik sind z.B.: Professionelle Softwareentwicklung, Datenbanksysteme, Nichtkooperative Spieltheorie, Komplexitätstheorie, Numerische Optimierung, Dialogsysteme, Überblick Künstliche Intelligenz.<br>",
+            "Zum einen werden im Rahmen der beiden computerlinguistischen Vertiefungsmodule regelmäßig eine Reihe von unterschiedlichen thematischen Seminaren angeboten werden, aus denen die Studierenden frei wählen können.",
+            "Neben diesen Modulen, die relativ flexibel Spezialisierungen in Computerlinguistik, Linguistik und Informatik erlauben, ist im letzten Jahr ein Praktikum zur Berufsorientierung und die Anfertigung der Bachelorarbeit vorgesehen."
+        ]
+    },
+    {
+        "user_input": "Muss ich Kurse aus der Linguistik für das interdisziplinäre Vertiefungsmodul belegen?",
+        "reference": "Nein, Linguistik-Kurse sind keine Pflicht. Das Modul sieht vor, dass du zwei Vorlesungen oder Seminare aus der Linguistik oder der Informatik wählst, wobei lediglich der Informatik-Anteil von 4 SWS vorgeschrieben ist.",
+        "response": "Nein, Kurse aus der Linguistik müssen nicht belegt werden. Das interdisziplinäre Vertiefungsmodul ermöglicht es Studierenden, neben Veranstaltungen aus der Computerlinguistik auch Veranstaltungen aus Linguistik und Informatik zu belegen, die nicht notwendig dezidiert computerlinguistisch sind.",
+        "retrieved_contexts": [
+            "Daneben gibt es das interdisziplinäre Vertiefungsmodul, in dem den Studierenden ermöglicht wird, neben Veranstaltungen aus der Computerlinguistik auch Veranstaltungen aus Linguistik und Informatik zu belegen, die nicht notwendig dezidiert computerlinguistisch sind.",
+            "### Modul: Vertiefungsmodul - Interdisziplinär\n**Inhalte:** Mögliche Inhalte sind Themen der Linguistik und Informatik. Relevante mögliche Themen in der Linguistik sind z.B.: Phonetik und Phonologie, Psycho- und Neurolinguistik, historische Linguistik. Es müssen Veranstaltungen im Umfang von mindestens 4 SWS in der Informatik belegt werden. Dabei darf keine Doppelung von Inhalten der Module aus der Computerlinguistik entstehen. Für die Computerlinguistik relevante mögliche Themen in der Informatik sind z.B.: Professionelle Softwareentwicklung, Datenbanksysteme, Nichtkooperative Spieltheorie, Komplexitätstheorie, Numerische Optimierung, Dialogsysteme, Überblick Künstliche Intelligenz.<br>",
+            "### Modul: Vertiefungsmodul - Interdisziplinär\n**Lehrveranstaltungen und Lehrformen:** Zwei Vorlesungen oder Seminare aus Linguistik oder Informatik | Vorlesung Linguistik: 5101, 5105 | Vorlesung Informatik: 5102, 5106 | Seminar Linguistik: 5103, 5107 | Seminar Informatik: 5104, 5108<br>",
+            "### Modul: Vertiefungsmodul - Interdisziplinär\n**Belegung:** Nach Vorgabe der gewählten Veranstaltungen<br>",
+            "### Modul: Vertiefungsmodul - Interdisziplinär\n**Voraussetzungen für die Vergabe von ECTS-Leistungspunkten:** Bestandene Modulprüfung, aktive und erfolgreiche Mitwirkung in den Seminaren und theoretischen und praktischen Übungen.<br>",
+            "### Modul: Vertiefungsmodul - Interdisziplinär\n**Teilnahmevoraussetzungen:** Formal: keine<br>",
+            "Zum einen werden im Rahmen der beiden computerlinguistischen Vertiefungsmodule regelmäßig eine Reihe von unterschiedlichen thematischen Seminaren angeboten werden, aus denen die Studierenden frei wählen können.",
+            "Neben diesen Modulen, die relativ flexibel Spezialisierungen in Computerlinguistik, Linguistik und Informatik erlauben, ist im letzten Jahr ein Praktikum zur Berufsorientierung und die Anfertigung der Bachelorarbeit vorgesehen.",
+            "### Modul: Vertiefungsmodul - Interdisziplinär\n**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine<br>",
+            "### Modul: Vertiefungsmodul - Interdisziplinär\n**Angestrebte Lernergebnisse und Studieninhalte:** Vertiefte Kenntnisse in Spezialgebieten von Linguistik/Computerlinguistik/Informatik<br>",
+            "| **Art und Inhalt der Module und der Prüfungen** | **Module:**<br>- Basismodul - Mathematische und logische Grundlagen (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Python-Programmierung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Morphologie und Syntax (6 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Semantik und Pragmatik (6 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Basismodul - Statistische Methoden in der Computerlinguistik (6 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Maschinelles Lernen (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Aufbaumodul - Mathematische Linguistik (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Parsing (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Logische Programmierung (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Objektorientierte Programmierung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Praktikum und Orientierung (2 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - interdisziplinär (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 1 (8 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 2 (4 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Abschlussarbeit und Forschungskolloquium (2 Semesterwochenstunden, 15 ECTS-Leistungspunkte)<br>- Profilbildungsbereich (18 ECTS-Leistungspunkte) |"
+        ]
+    },
+    {
+        "user_input": "Warum kann ich mich nicht zu den Vertiefungsmodulen anmelden?",
+        "reference": "Dies liegt höchstwahrscheinlich daran, dass du die formalen Voraussetzungen noch nicht erfüllt hast. Für die Vertiefungsmodule \"Computerlinguistik 1\" und \"Computerlinguistik 2\" ist zwingend vorgeschrieben, dass du die Module \"Basismodul - Mathematische und logische Grundlagen\", \"Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung\" sowie das \"Aufbaumodul - Maschinelles Lernen\" vorher bestanden hast.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "• die im fächerspezifischen Anhang aufgeführten Zulassungsbedingungen nicht erfüllt sind oder",
+            "### Modul: Vertiefungsmodul - Interdisziplinär\n**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine<br>",
+            "### Modul: Vertiefungsmodul - Interdisziplinär\n**Teilnahmevoraussetzungen:** Formal: keine<br>"
+        ]
+    },
+    {
+        "user_input": "Muss ich alle Module bestanden haben, bevor ich meine Bachelorarbeit schreibe?",
+        "reference": "Nein, du musst nicht zwingend das gesamte Studium vorher abgeschlossen haben. Die einzige formale Teilnahmevoraussetzung für das Modul \"Abschlussarbeit und Forschungskolloquium\" ist der erfolgreiche Abschluss aller Basis- und Aufbaumodule.",
+        "response": "Nein, es ist nicht erforderlich, alle Module bestanden zu haben, sondern nur die Abschlussprüfungen (wie Hausarbeit oder mündliche Prüfung) und die Studienleistungen vorliegen zu haben.",
+        "retrieved_contexts": [
+            "• alle notwendigen Modulprüfungen bestanden sind,",
+            "### Modul: Abschlussarbeit und Forschungskolloquium\n**Teilnahmevoraussetzungen:** Formal: Alle Basis- und Aufbaumodule<br>",
+            "• alle notwendigen Studienleistungen vorliegen,",
+            "(6) Mindestens eine Modulabschlussprüfung muss in der Form einer Hausarbeit oder Studienarbeit, mindestens eine Modulabschlussprüfung in der Form einer mündlichen Prüfung abgelegt werden.",
+            "(1) Sobald eine Kandidatin oder ein Kandidat alle Abschlussprüfungen bestanden, alle Studienleistungen erbracht und 180 ECTS-Leistungspunkte, bei vierjährigen Studiengängen 240 ECTS-Leistungspunkte, erworben hat, stellt sie oder er bei der Studierenden- und Prüfungsverwaltung den Antrag auf Ausstellung des Bachelorzeugnisses und der Bachelorurkunde.",
+            "(4) Zu jeder einzelnen Modulprüfung ist eine gesonderte Meldung erforderlich.",
+            "Studienleistungen sind unbenotet und können als Prüfungsvoraussetzung bestimmt werden."
+        ]
+    },
+    {
+        "user_input": "Wie stark zählt die Bachelorarbeit für meine Abschlussnote?",
+        "reference": "Die Note der Bachelorarbeit wird bei der Ermittlung der Gesamtnote dreifach gewichtet. Im Vergleich dazu gehen alle anderen Modulprüfungen nur einfach in die Gesamtnote ein.",
+        "response": "Die Bachelorarbeit zählt bei integrierten Studiengängen zu 30 Prozent der Gesamtnote.",
+        "retrieved_contexts": [
+            "(6) Die Gesamtnote der Bachelorprüfung bei Kern- und Ergänzungsfachstudiengängen errechnet sich zu 20 Prozent aus der Note der Bachelorarbeit, zu 50 Prozent aus dem gewichteten arithmetischen Mittel aller Modulnoten des Kernfaches, und zu 30 Prozent aus dem gewichteten arithmetischen Mittel aller Modulnoten des Ergänzungsfaches.",
+            "Die Note ergibt sich aus dem arithmetischen Mittel der Einzelbewertungen.",
+            "(5) Die Gesamtnote der Bachelorprüfung bei integrierten Studiengängen errechnet sich als gewichtetes arithmetisches Mittel aus den Modulnoten und der Bachelorarbeit.",
+            "| **Gewichtung der Prüfungen für die Gesamtnote** | Bachelorarbeit: dreifach<br>Alle Modulprüfungen: einfach |"
+        ]
+    },
+    {
+        "user_input": "Wie viel Zeit sollte ich für die Bachelorarbeit einplanen?",
+        "reference": "Für das gesamte Modul \"Abschlussarbeit und Forschungskolloquium\" wird ein Arbeitsaufwand von 450 Stunden veranschlagt.",
+        "response": "Basierend auf den bereitgestellten Dokumenten ist die Regelstudienzeit bis zum vollständigen Abschluss der Bachelorprüfung drei oder ausnahmsweise vier Studienjahre.",
+        "retrieved_contexts": [
+            "(1) Die Regelstudienzeit bis zum vollständigen Abschluss der Bachelorprüfung beträgt drei oder ausnahmsweise vier Studienjahre.",
+            "Der Bachelorstudiengang ist so konzipiert, dass er mit einem durchschnittlichen Arbeitsaufwand (workload) von 900 Stunden pro Semester abgeschlossen werden kann.",
+            "(5) Das Thema der Bachelorarbeit kann bis vier Wochen nach Ausgabe des Themas zurückgegeben werden."
+        ]
+    },
+    {
+        "user_input": "Welche Programmiersprachen lerne ich im Laufe des Studiums?",
+        "reference": "In den Basismodulen lernst du ausführlich die Programmierung mit Python. Im Aufbaumodul \"Objektorientierte Programmierung\" wird eine objektorientierte Programmiersprache erlernt. Im Aufbaumodul \"Logische Programmierung\" wird in das logische Programmierparadigma anhand der Sprache Prolog eingeführt. Im Bereich Statistik kann die statistische Programmierung in einer geeigneten Sprache (beispielsweise R) erlernt werden.",
+        "response": "Im Laufe des Studiums lerne ich Python-Programmierung, objektorientiertes Programmieren und funktionale Programmierung.",
+        "retrieved_contexts": [
+            "Desweiteren sieht der Studienplan für das erste Jahr einen Einstieg in computerlinguistische Programmierung mit Python vor, die neben Grundlagen auch aktuelle Methoden der Sprachtechnologie vermittelt.",
+            "### Modul: Basismodul - Python-Programmierung\n**Angestrebte Lernergebnisse und Studieninhalte:** Die Studierenden erwerben grundlegende Fähigkeiten in der Programmierung mit der Programmiersprache Python sowie Kenntnisse über fortgeschrittene Konzepte der Python-Programmierung (objektorientierte und funktionale Programmierung). Außerdem werden Grundkenntnisse des Einsatzes von Python in den Bereichen Data Science und NLP (Natural Language Processing) erworben, sowie die Fähigkeit ein kleines Software-Projekt durchzuführen und zu präsentieren.<br>",
+            "**Phase 2 Aufbau von Fachkompetenzen für die Computerlinguistik:** Methodisch lernt man in dieser zweiten Phase die für die datengetriebene Computerlinguistik so zentralen Bereiche des Maschinellen Lernens und des Deep Learnings (also maschinelles Lernen mit künstlichen neuronalen Netzen) kennen, aufbauend auf dem Wissen über Fragestellungen und Repräsentationen der Computerlinguistik und auf soliden Kenntnissen der Programmiersprache Python (siehe Phase 1).",
+            "Daneben werden in dieser Phase weitere Paradigma von Programmiersprachen vermittelt, nämlich objektorientiertes Programmieren und, im Kontext von Themen der computationellen Semantik, entweder logische oder funktionale Programmierung.",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Python-Programmierung [1/2]** | | **2 Studienleistung** | **4 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Einführung in die Programmierung mit Python (Seminar) | | Prüfungsnummer 2301 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Einführung in die Programmierung mit Python (Übung) | | Prüfungsnummer 2302 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |"
+        ]
+    },
+    {
+        "user_input": "Muss ich nach dem Studienplan studieren?",
+        "reference": "Nein, bei dem Plan handelt es sich lediglich um eine exemplarische Darstellung, die nicht verpflichtend ist. Es ist nur eine Möglichkeit von vielen, wie das Studium strukturiert werden kann. Die Studienberatung kann aufgrund von didaktischen Überlegungen auch individuell zu anderen Studienverläufen raten.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "Bei dieser Darstellung handelt es sich um einen exemplarischen Studienverlaufsplan, der nicht verpflichtend ist."
+        ]
+    },
+    {
+        "user_input": "Was muss ich nach dem Praktikum bei der Uni einreichen, um meine ECTS zu bekommen?",
+        "reference": "Um die Leistungspunkte für das Praktikum zu erhalten, musst du einen Praktikumsnachweis (ein Zeugnis der Praktikumsstelle) einreichen. Zusätzlich muss ein kurzer Praktikumsbericht im Umfang von etwa 3 bis 5 Seiten verfasst werden.",
+        "response": "Um deine ECTS zu bekommen, musst du den Praktikumsbericht einreichen. Der Antrag wird über die Studierenden- und Prüfungsverwaltung an den Prüfungsausschuss gestellt.",
+        "retrieved_contexts": [
+            "### Modul: Praktikum & Orientierung\n**Voraussetzungen für die Vergabe von ECTS-Leistungspunkten:** Erbrachte Studienleistungen (SL) in (Orientierungsseminar (Seminar)) und 6-wöchiges Praktikum nachgewiesen über Praktikumsnachweis und Praktikumsbericht.<br>",
+            "• der Nachweis des Besuchs von gegebenenfalls vorgesehenen Praktika vorliegt,",
+            "Der Antrag ist über die Studierenden- und Prüfungsverwaltung an den Prüfungsausschuss zu stellen.",
+            "(1) Sobald eine Kandidatin oder ein Kandidat alle Abschlussprüfungen bestanden, alle Studienleistungen erbracht und 180 ECTS-Leistungspunkte, bei vierjährigen Studiengängen 240 ECTS-Leistungspunkte, erworben hat, stellt sie oder er bei der Studierenden- und Prüfungsverwaltung den Antrag auf Ausstellung des Bachelorzeugnisses und der Bachelorurkunde."
+        ]
+    },
+    {
+        "user_input": "Wie viele Leistungspunkte (LP) müssen im Profilbildungsbereich erworben werden?",
+        "reference": "Im Profilbildungsbereich müssen über das Studium verteilt insgesamt 18 Leistungspunkte erworben werden.",
+        "response": "18 LP",
+        "retrieved_contexts": [
+            "(2) Der Profilbildungsbereich umfasst in der Regel 18 LP.",
+            "• 3 Studienjahre, insgesamt 180 LP, Kernfach 108 LP, Ergänzungsfach 54 LP, Profilbildungsbereich 18 LP oder",
+            "| **Art und Inhalt der Module und der Prüfungen** | **Module:**<br>- Basismodul - Mathematische und logische Grundlagen (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Python-Programmierung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Morphologie und Syntax (6 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Semantik und Pragmatik (6 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Basismodul - Statistische Methoden in der Computerlinguistik (6 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Maschinelles Lernen (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Aufbaumodul - Mathematische Linguistik (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Parsing (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Logische Programmierung (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Objektorientierte Programmierung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Praktikum und Orientierung (2 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - interdisziplinär (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 1 (8 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 2 (4 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Abschlussarbeit und Forschungskolloquium (2 Semesterwochenstunden, 15 ECTS-Leistungspunkte)<br>- Profilbildungsbereich (18 ECTS-Leistungspunkte) |",
+            "### 3. Semester Bachelor Computerlinguistik\n\n| **Profilbildungsbereich** | | | **6 ECTS-Leistungspunkte** | |",
+            "• insgesamt 180 beziehungsweise bei vierjährigen Studiengängen 240 ECTS-Leistungspunkte erreicht worden sind.",
+            "• 4 Studienjahre, insgesamt 240 LP, Kernfach 168 LP, Ergänzungsfach 54 LP, Profilbildungsbereich 18 LP.",
+            "### 6. Semester Bachelor Computerlinguistik\n\n| **Profilbildungsbereich** | | | **6 ECTS-Leistungspunkte** | |"
+        ]
+    },
+    {
+        "user_input": "Aus welchen Teilen besteht das Modul Objektorientierte Programmierung?",
+        "reference": "Das Modul umfasst eine Vorlesung, eine reguläre Übung sowie eine praktische Übung zur Vorlesung.",
+        "response": "Das Modul Objektorientierte Programmierung besteht aus folgenden Inhalten:\n\n*   Grundlegende Programmierkenntnisse in einer objektorientierten Programmiersprache\n*   Einführende Aspekte von Algorithmen und Datenstrukturen\n*   Eigene Datentypen (Klassen) und Arrays\n*   Programmstrukturen im Speicher (Heap, Stack)\n*   Konzepte der Objektorientierung (Polymorphie, Schnittstellen)\n*   Rekursion\n*   Fehlerbehandlung\n*   Dynamische Datenstrukturen (Listen, Binärbäume, Hashing)\n*   Suchen und Sortieren (ausgewählte Algorithmen, u.a. binäre Suche, BubbleSort, QuickSort)\n*   Datenströme (Standard-Eingabe und -Ausgabe, einfache 2D-Grafik, Dateien)",
+        "retrieved_contexts": [
+            "### Modul: Aufbaumodul - Objektorientierte Programmierung\n**Inhalte:** Dieses Modul vermittelt grundlegende Programmierkenntnisse in einer objektorientierten Programmiersprache. Darüber hinaus werden einführend Aspekte von Algorithmen und Datenstrukturen behandelt. Es wird keine Programmiererfahrung vorausgesetzt. Grundlegende Begriffe der Informatik; Primitive Datentypen und Variablen; Kontrollstrukturen; Eigene Datentypen (Klassen) und Arrays; Programmstrukturen im Speicher (Heap, Stack); Konzepte der Objektorientierung (Polymorphie, Schnittstellen); Rekursion; Fehlerbehandlung; Dynamische Datenstrukturen (Listen, Binärbäume, Hashing); Suchen und Sortieren (ausgewählte Algorithmen, u.a. binäre Suche, BubbleSort, QuickSort); Datenströme (Standard-Eingabe und -Ausgabe, einfache 2D-Grafik, Dateien)<br>",
+            "### Modul: Aufbaumodul - Objektorientierte Programmierung\n**Angestrebte Lernergebnisse und Studieninhalte:** Studierende sollen nach Absolvierung der Lehrveranstaltungen in der Lage sein, Begriffe der Informatik und der Programmierung zu nennen und zu erläutern; einfache Algorithmen (iterativ und rekursiv) zu verstehen, deren Ablauf zu beschreiben, sowie selbst zu erstellen; eigene Datentypen zu konzipieren und anzuwenden; einfache objektorientierte Programme mit Polymorphie, Vererbung und Schnittstellen zu entwickeln; die behandelten dynamischen Datenstrukturen anzuwenden.<br>"
+        ]
+    },
+    {
+        "user_input": "Worum geht es im Orientierungsseminar?",
+        "reference": "Das Seminar bietet eine Orientierung für die zweite Studienphase. Die Inhalte umfassen die Studienorganisation (wie Schwerpunktsetzung und Auslandsaufenthalte), die Vorbereitung auf die Abschlussarbeit (inklusive Themenwahl und wissenschaftlichem Arbeiten) sowie Berufsperspektiven und mögliche Anschlussstudiengänge.",
+        "response": "Das Orientierungsseminar bietet Orientierung für die zweite Studienphase in Bezug auf Studienorganisation, Abschlussarbeit, Berufsperspektiven und Anschlussstudiengänge. Es vermittelt konkrete berufsqualifizierende Fähigkeiten und Handlungskompetenzen sowie erweiterte Methodenkenntnisse aus der beruflichen Praxis.",
+        "retrieved_contexts": [
+            "### Modul: Praktikum & Orientierung\n**Inhalte:** Orientierungsseminar (Seminar): Das Seminar bietet Orientierung für die zweite Studienphase insbesondere in Bezug auf Studienorganisation (Schwerpunktsetzung, Auslandsaufenthalt, Praktikum, ...); Abschlussarbeit (Themenwahl, wissenschaftliches Arbeiten, ...); Berufsperspektiven (Bewerbungsverfahren, Berufsfeldorientierung, ...); Anschlussstudiengänge (wissenschaftliche Karriere, ...). | Praktikum (in der Regel 6 Wochen in Vollzeit): Berufsorientierte Anwendung der im Studium vermittelten Qualifikationen<br>",
+            "### Modul: Praktikum & Orientierung\n**Angestrebte Lernergebnisse und Studieninhalte:** Die Studierenden entwickeln Entwicklungsziele für ihre Zukunft und lernen, welche Schritte sie zur Realisierung ergreifen können. Sie erlangen Orientierung sowohl für den weiteren Studienaufbau als auch für ihren beruflichen Werdegang. Berufliche Wünsche und Möglichkeiten können sie realistischer beurteilen. Sie erwerben erweiterte Methodenkenntnis aus der beruflichen Praxis und gewinnen ein verstärktes Selbstvertrauen durch Praxiserprobung des bisher erworbenen Wissens. Sie vertiefen ihre Kenntnisse zum wissenschaftlichen Arbeiten, können eigene Forschungsfragen formulieren, diese angemessen einengen und die zur Beantwortung notwendigen Schritte planen und umsetzen.<br>",
+            "Auf diese Weise sollen den Studierenden konkrete berufsqualifizierende Fähigkeiten und Handlungskompetenzen vermittelt und der Übergang in die Berufswelt erleichtert werden."
+        ]
+    },
+    {
+        "user_input": "Welche Themen kann ich im Vertiefungsmodul von der Informatik belegen?",
+        "reference": "Für die Computerlinguistik relevante, mögliche Themen in der Informatik sind: Professionelle Softwareentwicklung, Datenbanksysteme, Nichtkooperative Spieltheorie, Komplexitätstheorie, Numerische Optimierung, Dialogsysteme und Überblick Künstliche Intelligenz.",
+        "response": "Phonetik und Phonologie, Psycho- und Neurolinguistik, historische Linguistik, Professionelle Softwareentwicklung, Datenbanksysteme, Nichtkooperative Spieltheorie, Komplexitätstheorie, Numerische Optimierung, Dialogsysteme, Überblick Künstliche Intelligenz.",
+        "retrieved_contexts": [
+            "### Modul: Vertiefungsmodul - Interdisziplinär\n**Inhalte:** Mögliche Inhalte sind Themen der Linguistik und Informatik. Relevante mögliche Themen in der Linguistik sind z.B.: Phonetik und Phonologie, Psycho- und Neurolinguistik, historische Linguistik. Es müssen Veranstaltungen im Umfang von mindestens 4 SWS in der Informatik belegt werden. Dabei darf keine Doppelung von Inhalten der Module aus der Computerlinguistik entstehen. Für die Computerlinguistik relevante mögliche Themen in der Informatik sind z.B.: Professionelle Softwareentwicklung, Datenbanksysteme, Nichtkooperative Spieltheorie, Komplexitätstheorie, Numerische Optimierung, Dialogsysteme, Überblick Künstliche Intelligenz.<br>",
+            "Daneben gibt es das interdisziplinäre Vertiefungsmodul, in dem den Studierenden ermöglicht wird, neben Veranstaltungen aus der Computerlinguistik auch Veranstaltungen aus Linguistik und Informatik zu belegen, die nicht notwendig dezidiert computerlinguistisch sind.",
+            "### Modul: Vertiefungsmodul - Interdisziplinär\n**Angestrebte Lernergebnisse und Studieninhalte:** Vertiefte Kenntnisse in Spezialgebieten von Linguistik/Computerlinguistik/Informatik<br>",
+            "Themen dieser Seminare sind z.B."
+        ]
+    },
+    {
+        "user_input": "Welche Kurse muss ich für das Aufbaumodul Maschinelles Lernen schon belegt haben?",
+        "reference": "Um das Aufbaumodul \"Maschinelles Lernen\" belegen zu können, wird inhaltlich vorausgesetzt, dass du das \"Basismodul - Statistische Methoden in der Computerlinguistik\" bereits absolviert hast. Es gibt jedoch keine strengen formalen Teilnahmevoraussetzungen.",
+        "response": "Basierend auf den bereitgestellten Dokumenten müssen Sie für das Aufbaumodul Maschinelles Lernen folgende Kurse belegt haben:\n\n*   Grundlagen des maschinellen Lernens (Seminar und Übung)\n*   Deep Learning (Seminar)",
+        "retrieved_contexts": [
+            "### Modul: Aufbaumodul - Maschinelles Lernen\n**Belegung:** Seminar mit Übung (Grundlagen des maschinellen Lernens (Seminar und Übung)) und Seminar (Deep Learning (Seminar))<br>",
+            "### Modul: Aufbaumodul - Maschinelles Lernen\n**Empfohlenes Studiensemester:** Grundlagen des maschinellen Lernens (Seminar und Übung): 3. Fachsemester (Wintersemester) | Deep Learning (Seminar): 4. Fachsemester (Sommersemester) | Prüfung im 4. Fachsemester (Sommersemester)<br>",
+            "### Modul: Aufbaumodul - Maschinelles Lernen\n**Lehrveranstaltungen und Lehrformen:** Grundlagen des maschinellen Lernens (Seminar und Übung): Grundlagen des maschinellen Lernens (Seminar und Übung) / 4101 | Deep Learning (Seminar): Deep Learning (Seminar) / 4102<br>",
+            "Im Rahmen dieses Moduls muss mindestens eine Veranstaltung aus der Informatik belegt werden."
+        ]
+    },
+    {
+        "user_input": "Wie wird die Gesamtnote meines Bachelorabschlusses berechnet?",
+        "reference": "Die Gesamtnote setzt sich aus den Noten der Modulprüfungen und der Bachelorarbeit zusammen. Dabei wird die Note der Bachelorarbeit dreifach gewichtet, während alle anderen Modulprüfungen nur einfach in die Gesamtnote einfließen.",
+        "response": "Die Gesamtnote wird basierend auf dem Studiengang berechnet: Bei integrierten Studiengängen ist es das gewichtete arithmetische Mittel aus Modulnoten und der Bachelorarbeit. Bei Kern- und Ergänzungsfachstudiengängen beträgt sie 20 Prozent aus der Bachelorarbeit, 50 Prozent aus dem gewichteten arithmetischen Mittel aller Modulnoten des Kernfaches und 30 Prozent aus dem gewichteten arithmetischen Mittel aller Modulnoten des Ergänzungsfaches.",
+        "retrieved_contexts": [
+            "(5) Die Gesamtnote der Bachelorprüfung bei integrierten Studiengängen errechnet sich als gewichtetes arithmetisches Mittel aus den Modulnoten und der Bachelorarbeit.",
+            "(6) Die Gesamtnote der Bachelorprüfung bei Kern- und Ergänzungsfachstudiengängen errechnet sich zu 20 Prozent aus der Note der Bachelorarbeit, zu 50 Prozent aus dem gewichteten arithmetischen Mittel aller Modulnoten des Kernfaches, und zu 30 Prozent aus dem gewichteten arithmetischen Mittel aller Modulnoten des Ergänzungsfaches."
+        ]
+    },
+    {
+        "user_input": "Welche Vorkenntnisse brauche ich für das Aufbaumodul Mathematische Linguistik?",
+        "reference": "Inhaltlich wird vorausgesetzt, dass du die Kurse aus dem \"Basismodul - Mathematische und logische Grundlagen\" sowie dem \"Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung\" kennst. Formale Zulassungsbeschränkungen für die Teilnahme gibt es für dieses Modul aber nicht.",
+        "response": "Formale Grundlagen, mathematische und logische Grundlagen sowie Grundlagen der Computerlinguistik und formale Grammatikbeschreibung.",
+        "retrieved_contexts": [
+            "### Modul: Aufbaumodul - Mathematische Linguistik\n**Teilnahmevoraussetzungen:** Formal: keine | Inhaltlich: Basismodul - Mathematische und logische Grundlagen, Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung<br>",
+            "### Modul: Aufbaumodul - Mathematische Linguistik\n**Angestrebte Lernergebnisse und Studieninhalte:** Vertrautheit mit den mathematischen und informatischen Grundlagen der Linguistik und Computerlinguistik. Verständnis von Beweisverfahren. Fähigkeit, Sprachen, Grammatiken und Automaten aufeinander zu beziehen und passende Entsprechungen zu konstruieren.<br>",
+            "### Modul: Aufbaumodul - Parsing\n**Teilnahmevoraussetzungen:** Formal: keine | Inhaltlich: Basismodul - Mathematische und logische Grundlagen, Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung, Basiswissen Linguistik - Morphologie und Syntax<br>",
+            "### Modul: Aufbaumodul - Mathematische Linguistik\n**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine-<br>",
+            "### Modul: Basismodul - Mathematische und logische Grundlagen\n**Angestrebte Lernergebnisse und Studieninhalte:** Die Studierenden beherrschen wesentliche logische und mathematische Verfahren und haben Verständnis von grundlegenden logischen und mathematischen Methoden sowie deren Anwendung in spezifischen Fällen. Sie haben das formale Rüstzeug, um die wichtigsten Methoden der formalen Linguistik und Computerlinguistik zu verstehen.<br>"
+        ]
+    },
+    {
+        "user_input": "Was ist der Unterschied zwischen Vertiefungsmodul Computerlinguistik 1 und Vertiefungsmodul Computerlinguistik 2?",
+        "reference": "Die Unterschiede liegen im Umfang, der zeitlichen Verteilung und den Prüfungen: Computerlinguistik 1: Umfasst 12 ECTS-Leistungspunkte (8 SWS), ist für das 5. Fachsemester vorgesehen und besteht aus zwei frei wählbaren Seminaren. Es ist keine eigene Modulprüfung vorgesehen (0 MP), die Punkte werden durch aktive/erfolgreiche Mitwirkung erbracht. Computerlinguistik 2: Umfasst 9 ECTS-Leistungspunkte (4 SWS), ist für das 6. Fachsemester vorgesehen und besteht aus nur einem thematischen Seminar. Hier muss zwingend eine Modulprüfung (1 MP) abgelegt werden (z. B. als mündliche Prüfung, Klausur oder Hausarbeit).",
+        "response": "Der Unterschied liegt in der Tiefe und dem Fokus der Inhalte:\n\n*   **Vertiefungsmodul Computerlinguistik 1 (Modul 5200):**\n    *   **Fokus:** Vertiefte Kenntnisse in Spezialgebieten der Computerlinguistik.\n    *   **Inhalte:** Nichtklassische Logiken, besondere Grammatikformalismen (Kategorialgrammatik), Vertiefungsseminare im Bereich maschinelles Lernen und Deep Learning.\n    *   **Voraussetzungen:** Formal: Basismodul (Mathematik, Logik, Computerlinguistik, Formale Grammatik), Aufbaumodul (Maschinelles Lernen).\n    *   **Lehrveranstaltungen:** Seminar Computerlinguistik (Seminar).\n\n*   **Vertiefungsmodul Computerlinguistik 2 (Modul 5300):**\n    *   **Fokus:** Vertiefte Kenntnisse in Spezialgebieten der Computerlinguistik (mit Schwerpunkt auf Datengetriebene Computerlinguistik und Deep Learning).\n    *   **Inhalte:** Themen der Computerlinguistik (Nichtklassische Logiken, besondere Grammatikform",
+        "retrieved_contexts": [
+            "### Modul: Vertiefungsmodul - Computerlinguistik 2\n**Angestrebte Lernergebnisse und Studieninhalte:** Studierende lernen vertiefte Kenntnisse in Spezialgebieten der Computerlinguistik.<br>",
+            "**Phase 2 Aufbau von Fachkompetenzen für die Computerlinguistik:** Methodisch lernt man in dieser zweiten Phase die für die datengetriebene Computerlinguistik so zentralen Bereiche des Maschinellen Lernens und des Deep Learnings (also maschinelles Lernen mit künstlichen neuronalen Netzen) kennen, aufbauend auf dem Wissen über Fragestellungen und Repräsentationen der Computerlinguistik und auf soliden Kenntnissen der Programmiersprache Python (siehe Phase 1).",
+            "Zum einen werden im Rahmen der beiden computerlinguistischen Vertiefungsmodule regelmäßig eine Reihe von unterschiedlichen thematischen Seminaren angeboten werden, aus denen die Studierenden frei wählen können.",
+            "Daneben gibt es das interdisziplinäre Vertiefungsmodul, in dem den Studierenden ermöglicht wird, neben Veranstaltungen aus der Computerlinguistik auch Veranstaltungen aus Linguistik und Informatik zu belegen, die nicht notwendig dezidiert computerlinguistisch sind.",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 2\n**Teilnahmevoraussetzungen:** Formal: Basismodul - Mathematische und logische Grundlagen, Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung, Aufbaumodul - Maschinelles Lernen | Inhaltlich: Je nach Thema<br>",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 2\n**Inhalte:** Mögliche Inhalte sind Themen der Computerlinguistik. Das können sein: Nichtklassische (modale, fuzzy oder substrukturelle) Logiken; besondere Grammatikformalismen (Kategorialgrammatik); Vertiefungsseminare im Bereich maschinelles Lernen und Deep Learning.<br>",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 2\n**Modul-Nummer:** 5300<br>",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 1\n**Modul-Nummer:** 5200<br>",
+            "Die Studierenden erwerben im Rahmen der ersten beiden Jahre Wissen über die Komplexität sprachlicher Erscheinungen, Methodenkenntnisse und -fertigkeiten sowohl im Bereich der symbolischen Sprachverarbeitung als auch im Bereich des maschinellen Lernens und der künstlichen Intelligenz, und Programmierkenntnisse auf hohem Niveau.",
+            "Die Studierenden erwerben außerdem besonders in den Aufbau- und Vertiefungsmodulen die Fähigkeit, relevante Informationen im Bereich der Computerlinguistik zu sammeln, zu bewerten und zu interpretieren und daraus wissenschaftlich fundierte Urteile abzuleiten, z.B. auch über gesellschaftsrelevante Aspekte von Sprachtechnologien wie etwa den Einsatz von Methoden der künstlichen Intelligenz in großen Sprachmodellen.",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 2\n**Englischer Titel:** Specialization module computational linguistics 2<br>",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 1\n**Angestrebte Lernergebnisse und Studieninhalte:** Studierende lernen vertiefte Kenntnisse in Spezialgebieten der Computerlinguistik.<br>",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 1\n**Englischer Titel:** Specialization module - computational linguistics 1<br>",
+            "### 6. Semester Bachelor Computerlinguistik\n\n| **Vertiefungsmodul - Computerlinguistik 2** | **1 Modulprüfung** | **1 Studienleistung** | **9 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Seminar nach Wahl im Bereich Computerlinguistik | | Prüfungsnummer 5301 | 5 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Modulprüfung | Prüfungsnummer 5310 | | 4 ECTS-Leistungspunkte | |",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 2\n**Belegung:** Seminar (thematisches Seminar in der Computerlinguistik (Seminar))<br>",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 1\n**Teilnahmevoraussetzungen:** Formal: Basismodul - Mathematische und logische Grundlagen, Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung, Aufbaumodul - Maschinelles Lernen | Inhaltlich: Je nach Thema<br>",
+            "| **Art und Inhalt der Module und der Prüfungen** | **Module:**<br>- Basismodul - Mathematische und logische Grundlagen (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Python-Programmierung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Morphologie und Syntax (6 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Semantik und Pragmatik (6 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Basismodul - Statistische Methoden in der Computerlinguistik (6 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Maschinelles Lernen (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Aufbaumodul - Mathematische Linguistik (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Parsing (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Logische Programmierung (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Objektorientierte Programmierung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Praktikum und Orientierung (2 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - interdisziplinär (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 1 (8 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 2 (4 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Abschlussarbeit und Forschungskolloquium (2 Semesterwochenstunden, 15 ECTS-Leistungspunkte)<br>- Profilbildungsbereich (18 ECTS-Leistungspunkte) |",
+            "### 5. Semester Bachelor Computerlinguistik\n\n| **Vertiefungsmodul - Computerlinguistik 1** | | **2 Studienleistung** | **12 ECTS-Leistungspunkte** | **8 Semesterwochenstunden** |\n| Seminar nach Wahl im Bereich Computerlinguistik | | Prüfungsnummer 5201 | 6 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Seminar nach Wahl im Bereich Computerlinguistik | | Prüfungsnummer 5202 | 6 ECTS-Leistungspunkte | 4 Semesterwochenstunden |",
+            "Neben diesen Modulen, die relativ flexibel Spezialisierungen in Computerlinguistik, Linguistik und Informatik erlauben, ist im letzten Jahr ein Praktikum zur Berufsorientierung und die Anfertigung der Bachelorarbeit vorgesehen.",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 1\n**Inhalte:** Mögliche Inhalte sind Themen der Computerlinguistik. Das können sein: Nichtklassische (modale, fuzzy oder substrukturelle) Logiken; besondere Grammatikformalismen (Kategorialgrammatik); Vertiefungsseminare im Bereich maschinelles Lernen und Deep Learning. Über die Zulassung von nicht im Vorlesungsverzeichnis zugeordneten Veranstaltungen zu diesem Modul entscheiden die Modulverantwortlichen.<br>",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 2\n**Sonstige Informationen:** -keine-",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 2\n**Prüfungsformen:** Mündliche Prüfung (Pnr. 5310) oder Klausur (Pnr. 5320) oder Hausarbeit (Pnr. 5330) oder Studienarbeit (Pnr. 5340) oder Projektarbeit (Pnr. 5350)<br>",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 1\n**Lehrveranstaltungen und Lehrformen:** Seminar Computerlinguistik (Seminar): Seminar Computerlinguistik (Seminar) / 5201 | Seminar Computerlinguistik (Seminar): Seminar Computerlinguistik (Seminar) / 5202<br>",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 1\n**Sonstige Informationen:** -keine-",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 2\n**Lehrveranstaltungen und Lehrformen:** thematisches Seminar in der Computerlinguistik (Seminar): thematisches Seminar in der Computerlinguistik (Seminar) / 5301<br>",
+            "### 2. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung [2/2]** | **1 Modulprüfung** | **2 Studienleistung** | **8 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Grammatikformalismen (Seminar) | | Prüfungsnummer 2203 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Grammatikformalismen (Übung) | | Prüfungsnummer 2204 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Modulprüfung (Klausur) | Prüfungsnummer 2210 | | 4 ECTS-Leistungspunkte | |",
+            "### Modul: Vertiefungsmodul - Interdisziplinär\n**Angestrebte Lernergebnisse und Studieninhalte:** Vertiefte Kenntnisse in Spezialgebieten von Linguistik/Computerlinguistik/Informatik<br>",
+            "Desweiteren sieht der Studienplan für das erste Jahr einen Einstieg in computerlinguistische Programmierung mit Python vor, die neben Grundlagen auch aktuelle Methoden der Sprachtechnologie vermittelt.",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 2\n**Dauer:** 1 Semester<br>",
+            "**Phase 1 Erwerb von Basiswissen für die Computerlinguistik:** Hierzu gehört die Vermittlung mathematischer und logischer Konzepte und Methoden, die für die Computerlinguistik wesentlich sind, eine Einführung in die Computerlinguistik, die einen Überblick über zentrale computerlinguistische Fragestellungen und gängige Methoden in diesen Bereichen gibt, der Erwerb von Kenntnissen über Formalismen und Methoden der Grammatikmodellierung und eine Einführung in die Statistik."
+        ]
+    },
+    {
+        "user_input": "Kann ich mit dem Studium in Computerlinguistik auch im Sommersemester anfangen?",
+        "reference": "Nein, das Studium ist für einen Beginn im Wintersemester ausgelegt.",
+        "response": "Ja, du kannst mit dem Studium in Computerlinguistik im Sommersemester anfangen.",
+        "retrieved_contexts": [
+            "### Modul: Vertiefungsmodul - Computerlinguistik 2\n**Empfohlenes Studiensemester:** thematisches Seminar in der Computerlinguistik (Seminar): 6. Fachsemester (Sommersemester) | Prüfung im 6. Fachsemester (Sommersemester)<br>",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 2\n**Häufigkeit des Angebots:** thematisches Seminar in der Computerlinguistik (Seminar): Jedes Sommersemester<br>",
+            "### Modul: Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung\n**Empfohlenes Studiensemester:** Einführung in die Computerlinguistik (Seminar): 1. Fachsemester (Wintersemester) | Einführung in die Computerlinguistik (Übung): 1. Fachsemester (Wintersemester) | Grammatikformalismen (Seminar): 2. Fachsemester (Sommersemester) | Grammatikformalismen (Übung): 2. Fachsemester (Sommersemester) | Prüfung im 2. Fachsemester (Sommersemester)<br>"
+        ]
+    },
+    {
+        "user_input": "Wie viele Prüfungen muss ich insgesamt ablegen?",
+        "reference": "Im gesamten Bachelorstudium musst du 9 Modulprüfungen ablegen, zuzüglich der Bachelorarbeit.",
+        "response": "9 Prüfungen",
+        "retrieved_contexts": [
+            "(6) Mindestens eine Modulabschlussprüfung muss in der Form einer Hausarbeit oder Studienarbeit, mindestens eine Modulabschlussprüfung in der Form einer mündlichen Prüfung abgelegt werden.",
+            "| **Anzahl der Modulprüfungen** | 9, zuzüglich Bachelorarbeit |"
+        ]
+    },
+    {
+        "user_input": "Wie finde ich einen Praktikumsplatz?",
+        "reference": "Der oder die Praktikumsbeauftragte der Abteilung für Computerlinguistik ist bei der Vermittlung von Praktikumsplätzen behilflich. Zudem bietet diese Person eine fachliche Praktikumsberatung und -begleitung an.",
+        "response": "Um einen Praktikumsplatz zu finden, sollte man sich mit dem/der Praktikumsbeauftragten der Abteilung für Computerlinguistik in Einvernehmen bringen. Dieser behilft sich bei der Vermittlung von Praktikumsplätzen und bietet fachliche Beratung und Begleitung an.",
+        "retrieved_contexts": [
+            "| **Praktikum** | Nach dem vierten oder fünften Semester wird entweder ein mindestens 6-wöchiges Berufsfeldpraktikum oder eine Projektarbeit absolviert, jeweils mit einschlägig computerlinguistischem Inhalt. Das Praktikum soll einen Einblick in die Berufspraxis vermitteln sowie den späteren Übergang in die Berufswelt erleichtern. Die Wahl des Praktikumsplatzes erfolgt im Einvernehmen mit dem/der Praktikumsbeauftragten der Abteilung für Computerlinguistik. Der/die Praktikumsbeauftragte ist bei der Vermittlung von Praktikumsplätzen behilflich und bietet eine fachliche Praktikumsberatung und -begleitung an. Über das Praktikum ist ein kurzer Bericht (ca. 3-5 Seiten) zu verfassen und ein Zeugnis der Praktikumsstelle einzureichen. |",
+            "(3) Die Beratung bei der Vermittlung von Praktikumsplätzen und die fachliche Betreuung während des Praktikums werden durch die Studiengangbeauftragte beziehungsweise den Studiengangbeauftragten des jeweiligen Studiengangs koordiniert."
+        ]
+    },
+    {
+        "user_input": "Welche Prüfungsform hat das Basismodul - Mathematische und logische Grundlagen?",
+        "reference": "Die Modulprüfung für dieses Basismodul erbringst du in Form eines Portfolios.",
+        "response": "Portfolio (Pnr. 2110)",
+        "retrieved_contexts": [
+            "### Modul: Basismodul - Mathematische und logische Grundlagen\n**Prüfungsformen:** Portfolio (Pnr. 2110)<br>",
+            "(5) Modulprüfungen erfolgen als Klausur, auch in elektronischer Form, in Form einer mündlichen Prüfung, Studienarbeit, Hausarbeit, Portfolio oder Projektarbeit mit individuell zurechenbarer Prüfungsleistung.",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Mathematische und logische Grundlagen** | **1 Modulprüfung** | **2 Studienleistung** | **12 ECTS-Leistungspunkte** | **8 Semesterwochenstunden** |\n| Einführung in die computationelle Logik (Seminar mit Übung) | | Prüfungsnummer 2101 | 4 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Mathematische Grundlagen (Seminar) | | Prüfungsnummer 2102 | 4 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Modulprüfung (Portfolio) | Prüfungsnummer 2110 | | 4 ECTS-Leistungspunkte | |",
+            "* Modulprüfung = MP",
+            "(6) Mindestens eine Modulabschlussprüfung muss in der Form einer Hausarbeit oder Studienarbeit, mindestens eine Modulabschlussprüfung in der Form einer mündlichen Prüfung abgelegt werden.",
+            "### Modul: Basismodul - Mathematische und logische Grundlagen\n**Belegung:** Seminar und Übung (Einführung in die computationelle Logik (Seminar & Übung)) und Seminar (Mathematische Grundlagen (Seminar))<br>",
+            "Diese sind die Bachelorarbeit und nach Maßgabe des fächerspezifischen Anhangs die dort genannten Modulprüfungen.",
+            "### Modul: Basismodul - Mathematische und logische Grundlagen\n**Empfohlenes Studiensemester:** Einführung in die computationelle Logik (Seminar & Übung): 1. Fachsemester (Wintersemester) | Mathematische Grundlagen (Seminar): 1. Fachsemester (Wintersemester) | Prüfung im 1. Fachsemester (Wintersemester)<br>",
+            "| **Art und Inhalt der Module und der Prüfungen** | **Module:**<br>- Basismodul - Mathematische und logische Grundlagen (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Python-Programmierung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Morphologie und Syntax (6 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Semantik und Pragmatik (6 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Basismodul - Statistische Methoden in der Computerlinguistik (6 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Maschinelles Lernen (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Aufbaumodul - Mathematische Linguistik (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Parsing (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Logische Programmierung (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Objektorientierte Programmierung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Praktikum und Orientierung (2 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - interdisziplinär (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 1 (8 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 2 (4 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Abschlussarbeit und Forschungskolloquium (2 Semesterwochenstunden, 15 ECTS-Leistungspunkte)<br>- Profilbildungsbereich (18 ECTS-Leistungspunkte) |"
+        ]
+    },
+    {
+        "user_input": "Welche Themen werden im Modul Parsing behandelt?",
+        "reference": "Es werden verschiedene Algorithmen und Techniken für das automatische Erstellen syntaktischer Strukturen (Parsing) über bestehendem Text eingeführt. Dabei werden sowohl symbolische als auch datengetriebene Ansätze besprochen. Der Fokus liegt auf Konstituenten- und Dependenzstrukturen.",
+        "response": "Im Modul Parsing werden folgende Themen behandelt:\n\n*   Automatische syntaktische Analyse von Text (Parsing)\n*   Konstituentenstrukturen\n*   Dependenzstrukturen\n*   Gängige Parsingalgorithmen (grammatikbasiertes Parsings)\n*   Techniken des datengetriebenen Konstituentenparsings\n*   Ansätze des Dependenparsing\n*   Beschreibungen von Parsern (z. B. aus Forschungsartikeln)\n*   Syntaktische Verarbeitung\n*   Automatentheorie und formale Sprachen",
+        "retrieved_contexts": [
+            "### Modul: Aufbaumodul - Parsing\n**Inhalte:** Parsing, also die automatische syntaktische Analyse von Text, ist ein zentraler Bestandteil vieler computerlinguistischer Systeme. Gängige Formate für die Repräsentation von Syntax sind entweder Konstituentenstrukturen oder Dependenzstrukturen. In diesem Modul werden verschiedene Algorithmen und Techniken für das automatische Erstellen derartiger Strukturen über bestehendem Text (= Parsing) eingeführt. Es werden sowohl symbolische also auch datengetriebene Ansätze behandelt, und es werden Konstituenten- und Dependenzstrukturen berücksichtigt.<br>",
+            "### Modul: Aufbaumodul - Parsing\n**Angestrebte Lernergebnisse und Studieninhalte:** Kenntnisse gängiger Parsingalgorithmen im Bereich des grammatikbasierten Parsings. Kenntnisse gängiger Techniken des datengetriebenen Konstituentenparsings. Kenntnisse verschiedener Ansätze des Dependenparsing. Fähigkeit, Beschreibungen von Parsern, z.B. aus Forschungsartikeln, einordnen und verstehen zu können.<br>",
+            "Vektorsemantik, große Sprachmodelle, Transformer-Architekturen in computerlinguistischen Anwendungen, Advanced Constituency Parsing, Dependency Parsing, Finite-State Morphology, Semantic Role Labeling, Discourse Representation Theory, Fuzzy Logic usw.",
+            "### Modul: Aufbaumodul - Parsing\n**Teilnahmevoraussetzungen:** Formal: keine | Inhaltlich: Basismodul - Mathematische und logische Grundlagen, Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung, Basiswissen Linguistik - Morphologie und Syntax<br>",
+            "Außerdem werden die Bereiche syntaktische Verarbeitung und Automatentheorie und formale Sprachen in Hinblick auf computerlinguistische Problemstellungen vertieft.",
+            "| **Art und Inhalt der Module und der Prüfungen** | **Module:**<br>- Basismodul - Mathematische und logische Grundlagen (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Python-Programmierung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Morphologie und Syntax (6 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Semantik und Pragmatik (6 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Basismodul - Statistische Methoden in der Computerlinguistik (6 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Maschinelles Lernen (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Aufbaumodul - Mathematische Linguistik (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Parsing (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Logische Programmierung (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Objektorientierte Programmierung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Praktikum und Orientierung (2 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - interdisziplinär (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 1 (8 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 2 (4 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Abschlussarbeit und Forschungskolloquium (2 Semesterwochenstunden, 15 ECTS-Leistungspunkte)<br>- Profilbildungsbereich (18 ECTS-Leistungspunkte) |"
+        ]
+    },
+    {
+        "user_input": "Was ist das Forschungskolloquium?",
+        "reference": "Im Forschungskolloquium tragen jede zweite Woche meist auswärtige Gäste ihre aktuelle Forschungsarbeit vor. In der Woche davor werden die Inhalte dieser Vorträge anhand von Artikeln gemeinsam besprochen und vorbereitet.",
+        "response": "Das Forschungskolloquium ist ein Modul zur Abschlussarbeit und Forschung, bei dem jede zweite Woche (meist auswärtige) Gäste ihre aktuelle Forschungsarbeit vorlegen. Die Inhalte der Vorträge werden an der Woche davor anhand von Artikeln besprochen und vorbereitet. Das Thema der Bachelorarbeit darf frei gewählt werden, muss aber im Bereich Computerlinguistik liegen. Letztere wird in der Regel im letzten Semester durchgeführt.",
+        "retrieved_contexts": [
+            "### Modul: Abschlussarbeit und Forschungskolloquium\n**Belegung:** Forschungskolloquium (Forschungskolloquium Computerlinguistik (Kolloquium)) oder Seminar (Seminar (Seminar))<br>",
+            "### Modul: Abschlussarbeit und Forschungskolloquium\n**Inhalte:** Im Forschungskolloquium tragen jede zweite Woche (meist auswärtige) Gäste ihre aktuelle Forschungsarbeit vor. Die Woche davor werden die Inhalte der Vorträge anhand von Artikeln besprochen und vorbereitet. Das Thema der Bachelorarbeit darf frei gewählt werden, muss aber im Bereich Computerlinguistik liegen.<br>",
+            "Letztere wird in der Regel im letzten Semester durchgeführt, wobei parallel das Forschungskolloquium der Computerlinguistik besucht wird, wodurch interessante Einblicke in aktuelle Forschungsthemen geboten werden und Anregungen und Inspiration für die Bachelorarbeit gewonnen werden kann.",
+            "### Modul: Abschlussarbeit und Forschungskolloquium\n**Lehrveranstaltungen und Lehrformen:** Forschungskolloquium Computerlinguistik (Kolloquium): Forschungskolloquium Computerlinguistik (Kolloquium) / 5901 | Seminar (Seminar): Seminar (Seminar) / 5902<br>"
+        ]
+    },
+    {
+        "user_input": "Wie bekomme ich ein Thema für meine Bachelorarbeit?",
+        "reference": "Das genaue Thema deiner Bachelorarbeit darfst du frei wählen, es muss jedoch zwingend im Bereich der Computerlinguistik liegen.",
+        "response": "Um ein Thema für deine Bachelorarbeit zu bekommen, kannst du den Themenbereich vorschlagen oder eine Prüferin/Prüfer vorschlagen. Das Thema kann auch aus einem anderen Themenbereich gestellt werden, sofern im fächerspezifischen Anhang nichts anderes bestimmt ist.",
+        "retrieved_contexts": [
+            "Die Kandidatinnen und Kandidaten können den Themenbereich für die Bachelorarbeit vorschlagen.",
+            "(3) Für die Bachelorarbeit können die Kandidatinnen und Kandidaten eine Prüferin oder einen Prüfer vorschlagen.",
+            "Mit Zustimmung der Kandidatin oder des Kandidaten kann das Thema auch aus einem anderen Themenbereich gestellt werden, sofern im fächerspezifischen Anhang nichts anderes bestimmt ist."
+        ]
+    },
+    {
+        "user_input": "Welche Kursarten gehören zum Modul Semantik und Pragmatik?",
+        "reference": "Das Modul besteht aus einer Vorlesung sowie einem begleitenden Tutorium.",
+        "response": "Basismodul - Semantik und Pragmatik",
+        "retrieved_contexts": [
+            "### Modul: Basiswissen Linguistik - Semantik und Pragmatik\n**Lehrveranstaltungen und Lehrformen:** Semantik und Pragmatik (Vorlesung): Semantik und Pragmatik (Vorlesung) / 1401 | Tutorium zu Semantik und Pragmatik (Tutorium): Tutorium zu Semantik und Pragmatik (Tutorium) / 1402<br>",
+            "### Modul: Basiswissen Linguistik - Semantik und Pragmatik\n**Inhalte:** Semantik: Grundlagen der Wortsemantik und Satzsemantik; Bedeutungsbegriff; deskriptive, soziale und expressive Bedeutung; semantische Relationen (z.B. Ambiguität, Vagheit, Polysemie, Synonymie); Prädikation; theoretische Ansätze: Wahrheitsbedingungssemantik. Pragmatik: Sprechakttheorie (Austin, Searle), Theorie der konversationellen Implikaturen (Grice) und ihre Anwendungen (z.B. Horn-Skalen); Presuppositions, Models of Contextual Information, Anaphora.<br>",
+            "| **Art und Inhalt der Module und der Prüfungen** | **Module:**<br>- Basismodul - Mathematische und logische Grundlagen (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Python-Programmierung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Morphologie und Syntax (6 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Semantik und Pragmatik (6 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Basismodul - Statistische Methoden in der Computerlinguistik (6 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Maschinelles Lernen (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Aufbaumodul - Mathematische Linguistik (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Parsing (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Logische Programmierung (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Objektorientierte Programmierung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Praktikum und Orientierung (2 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - interdisziplinär (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 1 (8 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 2 (4 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Abschlussarbeit und Forschungskolloquium (2 Semesterwochenstunden, 15 ECTS-Leistungspunkte)<br>- Profilbildungsbereich (18 ECTS-Leistungspunkte) |",
+            "### Modul: Basiswissen Linguistik - Semantik und Pragmatik\n**Angestrebte Lernergebnisse und Studieninhalte:** Mit erfolgreichem Abschluss des Moduls können die Studierenden die grundlegenden Fachbegriffe aus den Bereichen Semantik und Pragmatik nennen, diese auf ausgewählte Beispiele anwenden, unterschiedliche Analysemethoden innerhalb der Semantik und innerhalb der Pragmatik miteinander vergleichen, menschliche Sprache als Kommunikationsmittel (Semantik) verstehen und den Einsatz dieses Kommunikationsmittels (Pragmatik) analysieren, sich nach Anleitung zuverlässig und systematisch mit dem zur Verfügung gestellten Lernmaterial (Unterrichtsmaterial, Online-Ressourcen) versorgen, Erkenntnisse strukturieren und sowohl mündlich als auch in der schriftlichen Ausarbeitung (wissenschaftliche Schreibkompetenz) präzise und terminologisch sicher darstellen, durch das wöchentliche Einreichen von Hausaufgaben mit Abgabeterminen umgehen und ihre eigenständige Arbeit dementsprechend strukturieren.<br>",
+            "### Modul: Basiswissen Linguistik - Semantik und Pragmatik\n**Belegung:** Vorlesung (Semantik und Pragmatik (Vorlesung)) und Tutorium (Tutorium zu Semantik und Pragmatik (Tutorium))<br>",
+            "### Modul: Basiswissen Linguistik - Semantik und Pragmatik\n**Empfohlenes Studiensemester:** Semantik und Pragmatik (Vorlesung): 2. Fachsemester (Sommersemester) | Tutorium zu Semantik und Pragmatik (Tutorium): 2. Fachsemester (Sommersemester) | Prüfung im 2. Fachsemester (Sommersemester)<br>"
+        ]
+    },
+    {
+        "user_input": "Wann sollte ich Automatentheorie belegen?",
+        "reference": "Den Kurs Automatentheorie aus dem Modul Aufbaumodul – Mathematische Linguistik solltest du im dritten Semester belegen.",
+        "response": "Automatentheorie sollte im letzten Semester belegen werden, parallel zum Forschungskolloquium der Computerlinguistik.",
+        "retrieved_contexts": [
+            "### Modul: Aufbaumodul - Mathematische Linguistik\n**Belegung:** Seminar (Automatentheorie & Formale Sprachen (Seminar)) und Übung (Übung zu Automatentheorie & Formale Sprachen (Übung))<br>",
+            "Damit sind sie optimal auf einen anschließenden Masterstudiengang. z.B. im Bereich Sprachtechnologie oder Künstliche Intelligenz oder im Bereich Linguistik vorbereitet.",
+            "Letztere wird in der Regel im letzten Semester durchgeführt, wobei parallel das Forschungskolloquium der Computerlinguistik besucht wird, wodurch interessante Einblicke in aktuelle Forschungsthemen geboten werden und Anregungen und Inspiration für die Bachelorarbeit gewonnen werden kann."
+        ]
+    },
+    {
+        "user_input": "Was ist der Unterschied zwischen den beiden python-Kursen?",
+        "reference": "Im Wintersemester werden die Grundlagen der Python-Programmierung, Datentypen, gängige Programmkonstrukte und elementare Textverarbeitung gelehrt. Im Sommersemester liegt der Fokus auf objektorientierter und funktionaler Programmierung, dem Einsatz von Bibliotheken für Data Science und NLP sowie den Grundzügen der Software-Entwicklung.",
+        "response": "Der Unterschied liegt in der Struktur und dem Umfang des Programms:\n\n*   **Basismodul (1. Semester):** Enthält Grundlagen der Programmierung, Datentypen, gängige Konstrukte und elementare Textverarbeitung.\n*   **Fortgeschrittene Python-Programmierung (2. Semester):** Fokussiert sich auf fortgeschrittene Programmierung mit NLP-Anwendungen, Sorftware-Entwicklung und Data Science.",
+        "retrieved_contexts": [
+            "### Modul: Basismodul - Python-Programmierung\n**Inhalte:** Wintersemester: Grundlagen der Python-Programmierung; Datentypen in Python; gängige Programmkonstrukte; elementare Textverarbeitung. Sommersemester: Objektorientierte und funktionale Programmierung mit Python; Einsatz von Programm-Bibliotheken in den Bereichen Data Science und NLP; Grundzüge der Sorftware-Entwicklung.<br>",
+            "### 2. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Python-Programmierung [2/2]** | **1 Modulprüfung** | **2 Studienleistung** | **8 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar) | | Prüfungsnummer 2303 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Übung) | | Prüfungsnummer 2304 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Modulprüfung (Klausur) | Prüfungsnummer 2310 | | 4 ECTS-Leistungspunkte | |",
+            "Desweiteren sieht der Studienplan für das erste Jahr einen Einstieg in computerlinguistische Programmierung mit Python vor, die neben Grundlagen auch aktuelle Methoden der Sprachtechnologie vermittelt.",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Python-Programmierung [1/2]** | | **2 Studienleistung** | **4 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Einführung in die Programmierung mit Python (Seminar) | | Prüfungsnummer 2301 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Einführung in die Programmierung mit Python (Übung) | | Prüfungsnummer 2302 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |"
+        ]
+    },
+    {
+        "user_input": "Muss ich ein Praktikum machen?",
+        "reference": "Nein, alternativ zu einem mindestens 6-wöchigen Berufsfeldpraktikum kann auch eine Projektarbeit absolviert werden, sofern diese einen einschlägig computerlinguistischen Inhalt aufweist.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "(1) In einigen Studiengängen ist ein obligatorisches Berufsfeldpraktikum zu absolvieren, das von vier Wochen bis zu drei Monaten dauern kann.",
+            "§ 9 Obligatorisches Berufsfeldpraktikum",
+            "Auf diese Weise sollen den Studierenden konkrete berufsqualifizierende Fähigkeiten und Handlungskompetenzen vermittelt und der Übergang in die Berufswelt erleichtert werden.",
+            "• ein fakultatives Berufsfeldpraktikum."
+        ]
+    },
+    {
+        "user_input": "Wie viele ECTS gibt es für Morphologie und Syntax?",
+        "reference": "Für den erfolgreichen Abschluss dieses Moduls erhältst du insgesamt 9 ECTS-Leistungspunkte.",
+        "response": "9 ECTS-Leistungspunkte",
+        "retrieved_contexts": [
+            "### Modul: Basiswissen Linguistik - Morphologie und Syntax\n**Kontaktzeit:** Morphologie und Syntax (Vorlesung): 4 SWS/60 Stunden/2 ECTS-Leistungspunkte | Tutorium zu Morphologie und Syntax (Tutorium): 2 SWS/30 Stunden / 1 ECTS-Leistungspunkt<br>",
+            "### Modul: Basiswissen Linguistik - Morphologie und Syntax\n**ECTS-Leistungspunkte:** 9 ECTS-Leistungspunkte<br>",
+            "### Modul: Basiswissen Linguistik - Morphologie und Syntax\n**ECTS-Leistungspunkte für die Modulprüfung:** 3 ECTS-Leistungspunkte<br>",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basiswissen Linguistik - Morphologie und Syntax** | **1 Modulprüfung** | **2 Studienleistung** | **9 ECTS-Leistungspunkte** | **6 Semesterwochenstunden** |\n| Vorlesung | | Prüfungsnummer 1301 | 2 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Tutorium | | Prüfungsnummer 1302 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Modulprüfung (Klausur) | Prüfungsnummer 1310 | | 3 ECTS-Leistungspunkte | |",
+            "### Modul: Basiswissen Linguistik - Morphologie und Syntax\n**Selbststudium:** 90 Stunden / 3 ECTS-Leistungspunkte<br>"
+        ]
+    },
+    {
+        "user_input": "Welche linguistischen Kursthemen kann ich im interdisziplinären Vertiefungsmodul wählen?",
+        "reference": "Beispiele für relevante Themengebiete in der Linguistik für dieses Modul sind Phonetik und Phonologie, Psycho- und Neurolinguistik sowie die historische Linguistik.",
+        "response": "Basierend auf den bereitgestellten Dokumenten können im interdisziplinären Vertiefungsmodul folgende linguistische Kursthemen gewählt werden:\n\n*   Phonetik und Phonologie\n*   Psycho- und Neurolinguistik\n*   Historische Linguistik\n*   Morphologie\n*   Syntax\n*   Semantik\n*   Pragmatik",
+        "retrieved_contexts": [
+            "### Modul: Vertiefungsmodul - Interdisziplinär\n**Inhalte:** Mögliche Inhalte sind Themen der Linguistik und Informatik. Relevante mögliche Themen in der Linguistik sind z.B.: Phonetik und Phonologie, Psycho- und Neurolinguistik, historische Linguistik. Es müssen Veranstaltungen im Umfang von mindestens 4 SWS in der Informatik belegt werden. Dabei darf keine Doppelung von Inhalten der Module aus der Computerlinguistik entstehen. Für die Computerlinguistik relevante mögliche Themen in der Informatik sind z.B.: Professionelle Softwareentwicklung, Datenbanksysteme, Nichtkooperative Spieltheorie, Komplexitätstheorie, Numerische Optimierung, Dialogsysteme, Überblick Künstliche Intelligenz.<br>",
+            "Daneben gibt es das interdisziplinäre Vertiefungsmodul, in dem den Studierenden ermöglicht wird, neben Veranstaltungen aus der Computerlinguistik auch Veranstaltungen aus Linguistik und Informatik zu belegen, die nicht notwendig dezidiert computerlinguistisch sind.",
+            "### Modul: Vertiefungsmodul - Interdisziplinär\n**Angestrebte Lernergebnisse und Studieninhalte:** Vertiefte Kenntnisse in Spezialgebieten von Linguistik/Computerlinguistik/Informatik<br>",
+            "Dies wird ergänzt durch Einführungen in die für die Computerlinguistik zentralen sprachwissenschaftlichen Bereiche Morphologie/Syntax und Semantik/Pragmatik.",
+            "• Linguistik,",
+            "• Linguistik (integrativ),",
+            "### Modul: Vertiefungsmodul - Interdisziplinär\n**Lehrveranstaltungen und Lehrformen:** Zwei Vorlesungen oder Seminare aus Linguistik oder Informatik | Vorlesung Linguistik: 5101, 5105 | Vorlesung Informatik: 5102, 5106 | Seminar Linguistik: 5103, 5107 | Seminar Informatik: 5104, 5108<br>"
+        ]
+    },
+    {
+        "user_input": "In welchem Semester wird empfohlen, das Seminar \"Linguistische Ressourcen\" zu belegen?",
+        "reference": "Dem exemplarischen Studienverlaufsplan nach sollte dieses Seminar im 3. Fachsemester (Wintersemester) belegt werden.",
+        "response": "3. Fachsemester (Wintersemester)",
+        "retrieved_contexts": [
+            "### Modul: Basismodul - Statistische Methoden in der Computerlinguistik\n**Empfohlenes Studiensemester:** Wahrscheinlichkeitstheorie und Statistik (Seminar und Übung): 2. Fachsemester (Sommersemester) | Linguistische Ressourcen (Seminar): 3. Fachsemester (Wintersemester)<br>",
+            "### Modul: Basismodul - Statistische Methoden in der Computerlinguistik\n**Selbststudium:** Wahrscheinlichkeitstheorie und Statistik (Seminar und Übung): 60 Stunden / 2 ECTS-Leistungspunkte | Linguistische Ressourcen (Seminar): 30 Stunden / 1 ECTS-Leistungspunkt<br>",
+            "### Modul: Basismodul - Statistische Methoden in der Computerlinguistik\n**Häufigkeit des Angebots:** Wahrscheinlichkeitstheorie und Statistik (Seminar und Übung): Jedes Wintersemester | Linguistische Ressourcen (Seminar): Jedes Sommersemester<br>",
+            "### 3. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Statistische Methoden in der Computerlinguistik [2/2]** | | **1 Studienleistung** | **2 ECTS-Leistungspunkte** | **2 Semesterwochenstunden** |\n| Linguistische Ressourcen (Seminar) | | Prüfungsnummer 2402 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |",
+            "### Modul: Basismodul - Statistische Methoden in der Computerlinguistik\n**Lehrveranstaltungen und Lehrformen:** Wahrscheinlichkeitstheorie und Statistik (Seminar und Übung): Wahrscheinlichkeitstheorie und Statistik (Seminar und Übung) / 2401 | Linguistische Ressourcen (Seminar): Linguistische Ressourcen (Seminar) / 2402<br>",
+            "### Modul: Basismodul - Statistische Methoden in der Computerlinguistik\n**Kontaktzeit:** Wahrscheinlichkeitstheorie und Statistik (Seminar und Übung): 4 SWS/60 Stunden / 2 ECTS-Leistungspunkte | Linguistische Ressourcen (Seminar): 2 SWS/30 Stunden / 1 ECTS-Leistungspunkt<br>",
+            "### Modul: Basismodul - Statistische Methoden in der Computerlinguistik\n**Belegung:** Seminar mit Übung (Wahrscheinlichkeitstheorie und Statistik (Seminar und Übung)) und Seminar (Linguistische Ressourcen (Seminar))<br>",
+            "### Modul: Basiswissen Linguistik - Semantik und Pragmatik\n**Empfohlenes Studiensemester:** Semantik und Pragmatik (Vorlesung): 2. Fachsemester (Sommersemester) | Tutorium zu Semantik und Pragmatik (Tutorium): 2. Fachsemester (Sommersemester) | Prüfung im 2. Fachsemester (Sommersemester)<br>",
+            "Parallel dazu gewinnen die Studierenden Einblick in linguistische Ressourcen.",
+            "### Modul: Basismodul - Statistische Methoden in der Computerlinguistik\n**Geplante Gruppengröße:** Wahrscheinlichkeitstheorie und Statistik (Seminar und Übung): Ca. 60 Studierende | Linguistische Ressourcen (Seminar): Ca. 60 Studierende<br>"
+        ]
+    },
+    {
+        "user_input": "Wird im Studiengang KI behandelt?",
+        "reference": "Ja, das Thema Künstliche Intelligenz (KI) ist ein zentraler und fest verankerter Bestandteil des Studiengangs. Im Pflichtbereich (Deep Learning): Im Aufbaumodul \"Maschinelles Lernen\" lernen die Studierenden den Umgang mit künstlichen neuronalen Netzen (Deep Learning) kennen und implementieren diese zur Lösung von Aufgaben im Natural Language Processing (NLP). Als Wahlthema in der Informatik: Im \"Vertiefungsmodul - Interdisziplinär\" kann aus dem Bereich der Informatik explizit die Veranstaltung \"Überblick Künstliche Intelligenz\" belegt werden. Spezialisierung im 3. Studienjahr: In den Vertiefungsmodulen der Computerlinguistik werden hochaktuelle KI-Architekturen in Seminaren gelehrt, darunter ausdrücklich \"große Sprachmodelle\" (Large Language Models) und \"Transformer-Architekturen\".",
+        "response": "Ja, im Studiengang KI werden Wissen über die Komplexität sprachlicher Erscheinungen, Methodenkenntnisse und -fertigkeiten im Bereich des maschinellen Lernens und der künstlichen Intelligenz erworben.",
+        "retrieved_contexts": [
+            "Die Studierenden erwerben im Rahmen der ersten beiden Jahre Wissen über die Komplexität sprachlicher Erscheinungen, Methodenkenntnisse und -fertigkeiten sowohl im Bereich der symbolischen Sprachverarbeitung als auch im Bereich des maschinellen Lernens und der künstlichen Intelligenz, und Programmierkenntnisse auf hohem Niveau."
+        ]
+    },
+    {
+        "user_input": "Wie viele Semesterwochenstunden (SWS) umfasst das Modul Basiswissen Linguistik - Morphologie und Syntax?",
+        "reference": "Das Modul Basiswissen Linguistik - Morphologie und Syntax umfasst insgesamt 6 Semesterwochenstunden (SWS).",
+        "response": "6 Semesterwochenstunden",
+        "retrieved_contexts": [
+            "### Modul: Basiswissen Linguistik - Morphologie und Syntax\n**Kontaktzeit:** Morphologie und Syntax (Vorlesung): 4 SWS/60 Stunden/2 ECTS-Leistungspunkte | Tutorium zu Morphologie und Syntax (Tutorium): 2 SWS/30 Stunden / 1 ECTS-Leistungspunkt<br>",
+            "### Modul: Basiswissen Linguistik - Morphologie und Syntax\n**Dauer:** 1 Semester<br>",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basiswissen Linguistik - Morphologie und Syntax** | **1 Modulprüfung** | **2 Studienleistung** | **9 ECTS-Leistungspunkte** | **6 Semesterwochenstunden** |\n| Vorlesung | | Prüfungsnummer 1301 | 2 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Tutorium | | Prüfungsnummer 1302 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Modulprüfung (Klausur) | Prüfungsnummer 1310 | | 3 ECTS-Leistungspunkte | |",
+            "### Modul: Basiswissen Linguistik - Morphologie und Syntax\n**Workload:** 270 Stunden<br>",
+            "| **Art und Inhalt der Module und der Prüfungen** | **Module:**<br>- Basismodul - Mathematische und logische Grundlagen (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Python-Programmierung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Morphologie und Syntax (6 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Semantik und Pragmatik (6 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Basismodul - Statistische Methoden in der Computerlinguistik (6 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Maschinelles Lernen (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Aufbaumodul - Mathematische Linguistik (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Parsing (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Logische Programmierung (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Objektorientierte Programmierung (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Praktikum und Orientierung (2 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - interdisziplinär (8 Semesterwochenstunden, 1 Modulprüfung, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 1 (8 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 2 (4 Semesterwochenstunden, 1 Modulprüfung, 9 ECTS-Leistungspunkte)<br>- Abschlussarbeit und Forschungskolloquium (2 Semesterwochenstunden, 15 ECTS-Leistungspunkte)<br>- Profilbildungsbereich (18 ECTS-Leistungspunkte) |",
+            "* Semesterwochenstunden = SWS",
+            "### Modul: Basiswissen Linguistik - Morphologie und Syntax\n**Empfohlenes Studiensemester:** Morphologie und Syntax (Vorlesung): 1. Fachsemester (Wintersemester) | Tutorium zu Morphologie und Syntax (Tutorium): 1. Fachsemester (Wintersemester) | Prüfung im 1. Fachsemester (Wintersemester)<br>"
+        ]
+    },
+    {
+        "user_input": "In welchem Semester ist das Modul Vertiefungsmodul - Computerlinguistik 1 vorgesehen?",
+        "reference": "Dieses Vertiefungsmodul ist laut dem exemplarischen Studienverlaufsplan für das 5. Fachsemester vorgesehen.",
+        "response": "Das Modul Vertiefungsmodul - Computerlinguistik 1 ist im 5. Semester Bachelor Computerlinguistik vorgesehen.",
+        "retrieved_contexts": [
+            "### Modul: Vertiefungsmodul - Computerlinguistik 1\n**Empfohlenes Studiensemester:** Seminar Computerlinguistik (Seminar): 5. Fachsemester (Wintersemester) | Seminar Computerlinguistik (Seminar): 5. Fachsemester (Wintersemester)<br>",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 1\n**Häufigkeit des Angebots:** Jedes Wintersemester<br>",
+            "### 5. Semester Bachelor Computerlinguistik\n\n| **Vertiefungsmodul - Computerlinguistik 1** | | **2 Studienleistung** | **12 ECTS-Leistungspunkte** | **8 Semesterwochenstunden** |\n| Seminar nach Wahl im Bereich Computerlinguistik | | Prüfungsnummer 5201 | 6 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Seminar nach Wahl im Bereich Computerlinguistik | | Prüfungsnummer 5202 | 6 ECTS-Leistungspunkte | 4 Semesterwochenstunden |",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 1\n**Selbststudium:** Im 5. Fachsemester: 240 Stunden / 8 ECTS-Leistungspunkte<br>",
+            "### Modul: Vertiefungsmodul - Computerlinguistik 1\n**Dauer:** 1 Semester<br>"
+        ]
+    },
+    {
+        "user_input": "Wie viele ECTS-Leistungspunkte gibt es für das Orientierungsseminar?",
+        "reference": "Für den erfolgreichen Abschluss des Orientierungsseminars erhält man 3 ECTS-Leistungspunkte.",
+        "response": "Für das Orientierungsseminar gibt es 2 ECTS-Leistungspunkte.",
+        "retrieved_contexts": [
+            "### Modul: Praktikum & Orientierung\n**Selbststudium:** Orientierungsseminar (Seminar): 60 Stunden / 2 ECTS-Leistungspunkte | Praktikum (in der Regel 6 Wochen in Vollzeit): 270 Stunden/9 ECTS-Leistungspunkte<br>",
+            "### Modul: Praktikum & Orientierung\n**Kontaktzeit:** Orientierungsseminar (Seminar): 2 SWS / 30 Stunden / 1 ECTS-Leistungspunkt | Praktikum (in der Regel 6 Wochen in Vollzeit): keine<br>",
+            "### Modul: Praktikum & Orientierung\n**ECTS-Leistungspunkte:** 12 ECTS-Leistungspunkte<br>",
+            "### 4. Semester Bachelor Computerlinguistik\n\n| **Praktikum & Orientierung [1/2]** | | **1 Studienleistung** | **3 ECTS-Leistungspunkte** | **2 Semesterwochenstunden** |\n| Orientierungsseminar (Seminar) | | Prüfungsnummer 3001 | 3 ECTS-Leistungspunkte | 2 Semesterwochenstunden |"
+        ]
+    },
+    {
+        "user_input": "Wann findet die Modulprüfung für die Python-Programmierung statt?",
+        "reference": "Die Modulprüfung für die Python-Programmierung findet im 2. Fachsemester beziehungsweise im Sommersemester statt.",
+        "response": "Die Modulprüfung für die Python-Programmierung findet im 2. Fachsemester (Sommersemester) statt.",
+        "retrieved_contexts": [
+            "### Modul: Basismodul - Python-Programmierung\n**Empfohlenes Studiensemester:** Einführung in die Programmierung mit Python (Seminar): 1. Fachsemester (Wintersemester) | Einführung in die Programmierung mit Python (Übung): 1. Fachsemester (Wintersemester) | Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar): 2. Fachsemester (Sommersemester) | Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Übung): 2. Fachsemester (Sommersemester) | Prüfung im 2. Fachsemester (Sommersemester)<br>",
+            "### 2. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Python-Programmierung [2/2]** | **1 Modulprüfung** | **2 Studienleistung** | **8 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar) | | Prüfungsnummer 2303 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Übung) | | Prüfungsnummer 2304 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Modulprüfung (Klausur) | Prüfungsnummer 2310 | | 4 ECTS-Leistungspunkte | |",
+            "### Modul: Basismodul - Python-Programmierung\n**Häufigkeit des Angebots:** Einführung in die Programmierung mit Python (Seminar): Jedes Wintersemester | Einführung in die Programmierung mit Python (Übung): Jedes Wintersemester | Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar): Jedes Sommersemester | Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Übung): Jedes Sommersemester<br>",
+            "### Modul: Basismodul - Python-Programmierung\n**Prüfungsformen:** Projektarbeit (Pnr. 2310)<br>"
+        ]
+    },
+    {
+        "user_input": "Wie hoch ist der durchschnittliche Arbeitsaufwand (Workload) pro Semester im Bachelorstudiengang?",
+        "reference": "Der Bachelorstudiengang ist so konzipiert, dass er mit einem durchschnittlichen Arbeitsaufwand (Workload) von 900 Stunden pro Semester abgeschlossen werden kann.",
+        "response": "Der durchschnittliche Arbeitsaufwand pro Semester beträgt 900 Stunden.",
+        "retrieved_contexts": [
+            "Der Bachelorstudiengang ist so konzipiert, dass er mit einem durchschnittlichen Arbeitsaufwand (workload) von 900 Stunden pro Semester abgeschlossen werden kann."
+        ]
+    },
+    {
+        "user_input": "Wie viele ECTS-Leistungspunkte (LP) bringt die Bachelorarbeit?",
+        "reference": "Die Bachelorarbeit wird mit 12 ECTS-Leistungspunkten gewertet.",
+        "response": "Die Bachelorarbeit bringt 12 ECTS-Leistungspunkte.",
+        "retrieved_contexts": [
+            "(5) Die Bachelorarbeit wird mit 12 ECTS-Leistungspunkten gewertet.",
+            "### 6. Semester Bachelor Computerlinguistik\n\n| **Abschlussarbeit und Forschungskolloquium** | | **1 Studienleistung** | **15 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Forschungskolloquium oder Seminar | | Prüfungsnummer 5901 | 3 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Bachelorarbeit | Prüfungsnummer 6000 | | 12 ECTS-Leistungspunkte | |",
+            "(1) Ein ECTS-Leistungspunkt (abgekürzt LP) im Sinne dieser Prüfungsordnung (European Credit Transfer System) wird für eine Leistung vergeben, wenn der Erfolg dieser Arbeit im Umfang von durchschnittlich 30 Stunden durch eine Prüfung oder eine Studienleistung nachgewiesen ist."
+        ]
+    },
+    {
+        "user_input": "Kann ich eine bestandene Prüfung noch einmal wiederholen, um meine Note zu verbessern?",
+        "reference": "Nein, eine bestandene Prüfung kann nicht wiederholt werden.",
+        "response": "Eine bestandene Prüfung kann nicht wiederholt werden.",
+        "retrieved_contexts": [
+            "(3) Eine bestandene Prüfung kann nicht wiederholt werden.",
+            "(5) Eine nicht bestandene Modulprüfung, beziehungsweise eine mit weniger als \"ausreichend\" bewertete Prüfungsleistung als Teil der Gruppenarbeit, kann zweimal wiederholt werden.",
+            "(4) Ist eine Prüfung nicht bestanden, oder gilt sie im Sinne von § 17 Absatz 2 oder 4 beziehungsweise § 16 Absatz 1 als nicht bestanden, erteilt die oder der Vorsitzende des Prüfungsausschusses beziehungsweise ihre oder seine Stellvertretung der Kandidatin oder dem Kandidaten hierüber einen schriftlichen Bescheid, der auch darüber Auskunft gibt, ob die Prüfung wiederholt werden kann.",
+            "Wiederwahl ist zulässig.",
+            "(7) Die Wiederholungsprüfung soll innerhalb eines Jahres nach Abschluss der nicht bestandenen Prüfung abgeschlossen sein.",
+            "Weitere Ausnahmen kann die oder der Vorsitzende des Prüfungsausschusses oder deren oder dessen Stellvertretung auf Antrag der Kandidatin oder des Kandidaten und nach Anhörung der Betreuerin oder des Betreuers gestatten.",
+            "§ 19 Bestehen, Nichtbestehen und Wiederholung von Prüfungen",
+            "(6) Eine mit weniger als \"ausreichend\" bewertete Bachelorarbeit, beziehungsweise bei einer Gruppenarbeit ein mit weniger als \"ausreichend\" bewerteter individueller Teil einer Bachelorarbeit, können jeweils einmal wiederholt werden."
+        ]
+    },
+    {
+        "user_input": "Wie oft darf ich eine nicht bestandene Modulprüfung wiederholen?",
+        "reference": "Eine nicht bestandene Modulprüfung kann insgesamt zweimal wiederholt werden.",
+        "response": "Eine nicht bestandene Modulprüfung kann zweimal wiederholt werden.",
+        "retrieved_contexts": [
+            "(5) Eine nicht bestandene Modulprüfung, beziehungsweise eine mit weniger als \"ausreichend\" bewertete Prüfungsleistung als Teil der Gruppenarbeit, kann zweimal wiederholt werden.",
+            "(7) Die Wiederholungsprüfung soll innerhalb eines Jahres nach Abschluss der nicht bestandenen Prüfung abgeschlossen sein.",
+            "• eine Modulprüfung in einem Wahlpflichtbereich nicht bestanden ist, nicht mehr wiederholt werden darf und es nicht möglich ist, die notwendige Bestehensgrenze des Wahlpflichtbereiches durch alternative Modulprüfungen zu erreichen.",
+            "• eine verpflichtende Modulprüfung nicht bestanden ist und nicht mehr wiederholt werden darf oder",
+            "(6) Eine mit weniger als \"ausreichend\" bewertete Bachelorarbeit, beziehungsweise bei einer Gruppenarbeit ein mit weniger als \"ausreichend\" bewerteter individueller Teil einer Bachelorarbeit, können jeweils einmal wiederholt werden."
+        ]
+    },
+    {
+        "user_input": "Wie oft darf die Bachelorarbeit wiederholt werden, wenn sie nicht bestanden wurde?",
+        "reference": "Eine mit weniger als \"ausreichend\" bewertete Bachelorarbeit kann genau einmal wiederholt werden.",
+        "response": "Eine Bachelorarbeit, die nicht bestanden ist, kann nur einmal wiederholt werden.",
+        "retrieved_contexts": [
+            "• die Bachelorarbeit nicht bestanden ist und nicht mehr wiederholt werden darf,",
+            "(6) Eine mit weniger als \"ausreichend\" bewertete Bachelorarbeit, beziehungsweise bei einer Gruppenarbeit ein mit weniger als \"ausreichend\" bewerteter individueller Teil einer Bachelorarbeit, können jeweils einmal wiederholt werden.",
+            "(7) Die Wiederholungsprüfung soll innerhalb eines Jahres nach Abschluss der nicht bestandenen Prüfung abgeschlossen sein.",
+            "(5) Eine nicht bestandene Modulprüfung, beziehungsweise eine mit weniger als \"ausreichend\" bewertete Prüfungsleistung als Teil der Gruppenarbeit, kann zweimal wiederholt werden.",
+            "Wiederwahl ist zulässig."
+        ]
+    },
+    {
+        "user_input": "Welche Note erhalte ich, wenn ich bei einer Prüfung bei einem Täuschungsversuch erwischt werde?",
+        "reference": "Versuchen Kandidatinnen oder Kandidaten, das Ergebnis durch Täuschung zu beeinflussen, gilt die betreffende Prüfungsleistung als mit \"nicht ausreichend\" (5,0) bewertet.",
+        "response": "Wenn Sie bei einer Prüfung bei einem Täuschungsversuch erwischt werden, erhalten Sie eine Note von \"nicht ausreichend\" (5,0).",
+        "retrieved_contexts": [
+            "(5) Versuchen Kandidatinnen oder Kandidaten, das Ergebnis einer Prüfungsleistung durch Täuschung, zum Beispiel Benutzung nicht zugelassener Hilfsmittel, zu beeinflussen, gilt die betreffende Prüfungsleistung als mit \"nicht ausreichend\" (5,0) bewertet.",
+            "(1) Hat die Kandidatin oder der Kandidat bei einer Prüfung getäuscht und wird diese Tatsache erst nach der Aushändigung des Zeugnisses bekannt, kann der Prüfungsausschuss nachträglich die Noten für diejenigen Prüfungsleistungen, bei deren Erbringung die Kandidatin oder der Kandidat getäuscht hat, entsprechend berichtigen und die Prüfung ganz oder teilweise für nicht bestanden erklären.",
+            "Sonst gilt die Prüfungsleistung als mit \"nicht ausreichend\" (5,0) bewertet."
+        ]
+    },
+    {
+        "user_input": "Was passiert, wenn ich in einer Präsenzprüfung generative Künstliche Intelligenz benutze?",
+        "reference": "Der Einsatz generativer Künstlicher Intelligenz im Rahmen von Präsenzprüfungen ist unzulässig. Dies gilt als Täuschungsversuch.",
+        "response": "Der Einsatz generativer Künstlicher Intelligenz in einer Präsenzprüfung ist unzulässig.",
+        "retrieved_contexts": [
+            "Der Einsatz generativer Künstlicher Intelligenz im Rahmen von Präsenzprüfungen ist unzulässig.",
+            "Sofern generative Künstliche Intelligenz im Rahmen der Arbeit genutzt wurde, ist die Verwendung in einem entsprechenden Absatz methodisch zu reflektieren und in einer Form zu dokumentieren, die den Prüfenden die wissenschaftliche Eigenleistung nachvollziehbar macht."
+        ]
+    },
+    {
+        "user_input": "Wie lang ist die Bearbeitungszeit für die Bachelorarbeit?",
+        "reference": "Die Bearbeitungszeit für die Bachelorarbeit beträgt maximal drei Monate.",
+        "response": "Die Bearbeitungszeit beträgt maximal drei Monate.",
+        "retrieved_contexts": [
+            "(2) Das Bachelorzeugnis ist unverzüglich, möglichst innerhalb von vier Wochen, auszustellen und enthält die Noten der Prüfungen, das Thema und die Note der Bachelorarbeit sowie die Gesamtnote.",
+            "(4) Die Bearbeitungszeit beträgt maximal drei Monate.",
+            "(10) Die Bearbeitungszeit für Studienarbeiten endet zwei Monate nach Abschluss der mündlichen Leistung, spätestens zum Vorlesungsbeginn des darauffolgenden Semesters.",
+            "(3) Die Bewertung der Bachelorarbeit ist der Kandidatin oder dem Kandidaten nach spätestens acht Wochen mitzuteilen.",
+            "Auf begründeten Antrag der Kandidatin oder des Kandidaten kann ausnahmsweise eine Nachfrist von bis zu vier Wochen gewährt werden.",
+            "Ausnahmsweise kann die Bearbeitungszeit abhängig vom Workload des Moduls auf höchstens 180 Minuten verlängert oder auf mindestens 45 Minuten verkürzt werden."
+        ]
+    },
+    {
+        "user_input": "Darf ich das Thema meiner Bachelorarbeit nach der Anmeldung noch einmal ändern?",
+        "reference": "Das Thema der Bachelorarbeit kann bis vier Wochen nach der Ausgabe des Themas zurückgegeben werden. Von dieser Möglichkeit darf jedoch nur einmal Gebrauch gemacht werden.",
+        "response": "Mit Zustimmung der Kandidatin oder des Kandidaten kann das Thema auch aus einem anderen Themenbereich gestellt werden, sofern im fächerspezifischen Anhang nichts anderes bestimmt ist.",
+        "retrieved_contexts": [
+            "Mit Zustimmung der Kandidatin oder des Kandidaten kann das Thema auch aus einem anderen Themenbereich gestellt werden, sofern im fächerspezifischen Anhang nichts anderes bestimmt ist.",
+            "Bei einer Wiederholung der Bachelorarbeit ist eine Rückgabe des Themas nach § 15 Absatz 5 jedoch nur zulässig, wenn bei der Anfertigung der ersten Bachelorarbeit nicht von dieser Möglichkeit Gebrauch gemacht wurde.",
+            "Näheres kann im fächerspezifischen Anhang geregelt sein.",
+            "(5) Das Thema der Bachelorarbeit kann bis vier Wochen nach Ausgabe des Themas zurückgegeben werden.",
+            "Das Thema darf nicht mit dem Thema einer bereits abgelegten Abschlussprüfung deckungsgleich sein."
+        ]
+    },
+    {
+        "user_input": "Wie lang dauert eine Klausur?",
+        "reference": "Die Dauer einer Klausurarbeit beträgt in der Regel 90 Minuten.",
+        "response": "Eine Klausur kann je nach Art variieren: 90 Minuten für eine Klausurarbeit, 45 Minuten für eine schriftliche Ausarbeitung, 2 Stunden für eine Klausurarbeit oder 60 Minuten für einen schriftlichen Test.",
+        "retrieved_contexts": [
+            "(3) Die Dauer einer Klausurarbeit beträgt in der Regel 90 Minuten.",
+            "Alternativ kann eine Klausur von 45 Minuten Dauer an die Stelle der schriftlichen Ausarbeitung treten.",
+            "Prüfung im Sinne von § 2 der Weitergeltungsordnung sind eine Klausurarbeit von zwei Zeitstunden und eine mündliche Prüfung von 20 bis 30 Minuten Dauer, in denen die Kandidatin oder der Kandidat ihre oder seine fachlichen und methodischen Voraussetzungen für ein Bachelorstudium nachweist.",
+            "Die Dauer eines schriftlichen Tests beträgt in der Regel 60 Minuten."
+        ]
+    },
+    {
+        "user_input": "Bis wann kann ich mich von einer Klausur ohne Angabe von Gründen abmelden?",
+        "reference": "Von einer Modulprüfung in Form einer Klausur oder einer mündlichen Prüfung kann sich die Kandidatin oder der Kandidat bis spätestens eine Woche vor dem jeweiligen Prüfungstermin abmelden.",
+        "response": "Bis spätestens eine Woche vor dem jeweiligen Prüfungstermin.",
+        "retrieved_contexts": [
+            "(1) Von einer Modulprüfung in Form einer Klausur oder mündlichen Prüfung kann sich die Kandidatin oder der Kandidat bis spätestens eine Woche vor dem jeweiligen Prüfungstermin abmelden."
+        ]
+    },
+    {
+        "user_input": "Wer begutachtet und bewertet die Bachelorarbeit?",
+        "reference": "Die Bachelorarbeit wird von zwei Prüferinnen oder Prüfern unabhängig voneinander begutachtet und bewertet. Erstgutachterin oder Erstgutachter ist dabei in der Regel die Betreuerin oder der Betreuer der Arbeit.",
+        "response": "Die Bachelorarbeit wird von zwei Prüferinnen oder Prüfern beziehungsweise einer Prüferin und einem Prüfer unabhängig voneinander begutachtet und nach Maßgabe des § 18 Absatz 1 bewertet.",
+        "retrieved_contexts": [
+            "(2) Die Bachelorarbeit wird von zwei Prüferinnen oder Prüfern beziehungsweise einer Prüferin und einem Prüfer gemäß § 25 Absatz 2 bis 4 unabhängig voneinander begutachtet und nach Maßgabe des § 18 Absatz 1 bewertet.",
+            "Für Abschlussarbeiten erfolgt die Bestellung der Gutachtenden aus der Gruppe der Hochschullehrerinnen und Hochschullehrer sowie aus dem Kreis der Personen gemäß § 65 Absatz 1 HG durch den Prüfungsausschuss.",
+            "Die Bewertung einer Studienarbeit wird durch die Dozentin oder den Dozenten vorgenommen.",
+            "(8) Prüfungsleistungen in Wiederholungsprüfungen, bei deren endgültigem Nichtbestehen keine Ausgleichsmöglichkeit vorgesehen ist, sind von zwei Prüferinnen oder Prüfern gemäß § 25 Absatz 2 bis 4 zu begutachten und zu bewerten, von denen im Fall einer mündlichen Prüfung eine beziehungsweise einer zugleich das Protokoll führt.",
+            "Zuständig für die Entscheidung ist der Prüfungsausschuss.",
+            "(2) Für die Bestellung von Prüferinnen und Prüfern und für ihren Einsatz bei Modulprüfungen ist der Prüfungsausschuss zuständig.",
+            "Die Prüferinnen oder Prüfer werden von der oder dem Vorsitzenden des Prüfungsausschusses oder deren oder dessen Stellvertretung bestellt."
+        ]
+    },
+    {
+        "user_input": "In welcher Sprache muss die Bachelorarbeit geschrieben werden?",
+        "reference": "Die Bachelorarbeit kann wahlweise in deutscher oder englischer Sprache abgefasst werden. Es gibt jedoch Ausnahmen: Im Studiengang Germanistik muss sie in deutscher, in Anglistik und Amerikanistik in englischer Sprache verfasst werden.",
+        "response": "Die Bachelorarbeit muss je nach Studiengang in deutscher oder englischer Sprache geschrieben werden.",
+        "retrieved_contexts": [
+            "(7) Die Bachelorarbeit kann wahlweise in deutscher oder englischer Sprache abgefasst werden.",
+            "Im Bachelorstudiengang Germanistik muss sie in deutscher, im Bachelorstudiengang Anglistik und Amerikanistik in englischer Sprache abgefasst werden."
+        ]
+    },
+    {
+        "user_input": "Wie viele Wörter oder Seiten muss die Bachelorarbeit umfassen?",
+        "reference": "Der Umfang der Bachelorarbeit muss 9.000 bis 15.000 Wörter betragen, was circa 30 bis 50 Seiten entspricht.",
+        "response": "Die Bachelorarbeit muss zwischen 9.000 und 15.000 Wörtern (circa 30 bis 50 Seiten) betragen.",
+        "retrieved_contexts": [
+            "(10) Der Umfang der Bachelorarbeit, beziehungsweise bei Gruppenarbeiten der einzelnen Beiträge zur Abschlussarbeit, muss 9.000 bis 15.000 Wörter (circa 30 bis 50 Seiten) betragen.",
+            "Enthält die Bachelorarbeit unter anderem auch experimentelle oder gestalterische Leistungen, verringert sich der Textumfang entsprechend um 5 Seiten.",
+            "Der Umfang einer Hausarbeit soll mindestens 3000 Wörter (circa 10 Seiten) und höchstens 6000 Wörter (circa 20 Seiten) betragen.",
+            "Der Umfang der schriftlichen Ausarbeitung soll mindestens 1500 Wörter (circa 5 Seiten) und höchstens 4500 Wörter (circa 15 Seiten) betragen."
+        ]
+    },
+    {
+        "user_input": "Wer ist für die Anerkennung von Studienleistungen einer anderen Hochschule zuständig?",
+        "reference": "Zuständig für die Anrechnungen von Studien- und Prüfungsleistungen ist der Prüfungsausschuss.",
+        "response": "Für die Anerkennung von Studienleistungen einer anderen Hochschule ist der Prüfungsausschuss zuständig.",
+        "retrieved_contexts": [
+            "(1) Studienzeiten in denselben Studiengängen an anderen wissenschaftlichen Hochschulen im Geltungsbereich des Grundgesetzes und dabei erbrachte Studienleistungen werden von Amts wegen angerechnet.",
+            "Soweit die Gleichwertigkeit nicht aufgrund der bescheinigten ECTS-Leistungspunkte nach dem ECTS-System festgestellt werden kann, sind für die Gleichwertigkeit von Studienzeiten und Studienleistungen an ausländischen Hochschulen die von der Kultusministerkonferenz und der Hochschulrektorenkonferenz gebilligten Äquivalenzvereinbarungen maßgebend.",
+            "(3) Studienzeiten in anderen Studiengängen oder an anderen als wissenschaftlichen Hochschulen im Geltungsbereich des Grundgesetzes sowie dabei erbrachte Studienleistungen werden von Amts wegen angerechnet, sofern hinsichtlich der erworbenen Kompetenzen kein wesentlicher Unterschied zu den Leistungen besteht, die ersetzt werden (das heißt Gleichwertigkeit besteht).",
+            "Bei der Feststellung der Gleichwertigkeit sind gemeinsame Beschlüsse der Kultusministerkonferenz und der Hochschulrektorenkonferenz zu beachten.",
+            "Bescheinigungen über einzelne Prüfungsleistungen in anderen Studiengängen oder an anderen als wissenschaftlichen Hochschulen im Geltungsbereich des Hochschulrahmengesetzes werden von Amts wegen angerechnet, soweit die Gleichwertigkeit festgestellt wird.",
+            "Zuständig für die Entscheidung ist der Prüfungsausschuss.",
+            "Der Prüfungsausschuss entscheidet in diesem Fall über die Gleichwertigkeitsprüfung.",
+            "Alle Regelfälle erledigt die oder der Vorsitzende des Prüfungsausschusses oder deren oder dessen Stellvertretung.",
+            "(4) Über eine Zulassung entscheidet die oder der Vorsitzende des Prüfungsausschusses oder deren oder dessen Stellvertretung."
+        ]
+    },
+    {
+        "user_input": "Gibt es eine generelle Anwesenheitspflicht für Vorlesungen?",
+        "reference": "Nein, bei Vorlesungen kann keine Anwesenheitspflicht festgelegt werden.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "Bei Vorlesungen kann keine Anwesenheitspflicht festgelegt werden.",
+            "Eine Pflicht zur Anwesenheit in Lehrveranstaltungen kann in allen Modulen oder Modulteilen vorgeschrieben werden, in denen die regelmäßige Anwesenheit und die aktive Teilnahme für das Erreichen des Lernziels erforderlich ist.",
+            "Für andere Lehrveranstaltungen gilt eine Anwesenheitspflicht nur dann, wenn sie im jeweiligen fächerspezifischen Anhang explizit festgelegt ist."
+        ]
+    },
+    {
+        "user_input": "Wann gilt die Anwesenheitspflicht in einer Lehrveranstaltung als offiziell erfüllt?",
+        "reference": "Die Anwesenheitspflicht ist erfüllt, wenn ein Studierender oder eine Studierende 80% der Veranstaltungszeit beigewohnt hat.",
+        "response": "Die Anwesenheitspflicht gilt als offiziell erfüllt, wenn ein/e Studierende/r 80% der Veranstaltungszeit beigewohnt hat.",
+        "retrieved_contexts": [
+            "Für andere Lehrveranstaltungen gilt eine Anwesenheitspflicht nur dann, wenn sie im jeweiligen fächerspezifischen Anhang explizit festgelegt ist.",
+            "Die Anwesenheitspflicht ist erfüllt, wenn ein/e Studierende/r 80% der Veranstaltungszeit beigewohnt hat.",
+            "Eine Pflicht zur Anwesenheit in Lehrveranstaltungen kann in allen Modulen oder Modulteilen vorgeschrieben werden, in denen die regelmäßige Anwesenheit und die aktive Teilnahme für das Erreichen des Lernziels erforderlich ist."
+        ]
+    },
+    {
+        "user_input": "Was ist ein Portfolio als Prüfungsform?",
+        "reference": "Ein Portfolio ist eine über die Modulveranstaltungen hinweg systematisch angelegte Zusammenstellung verschiedener studentischer Arbeitsergebnisse. Es umfasst mindestens zwei unterschiedliche, in sich abgeschlossene Objekte wie beispielsweise Reviews, Essays, Präsentationen oder Videobeiträge.",
+        "response": "Ein Portfolio ist eine über die Modulveranstaltungen hinweg systematisch angelegte Zusammenstellung verschiedener studentischer Arbeitsergebnisse, die je nach Fach oder Thema unterschiedlichen Charakter haben und/oder verschiedenen Medien (zum Beispiel Text, Bild, Film) zuzuordnen sind.",
+        "retrieved_contexts": [
+            "(5) Modulprüfungen erfolgen als Klausur, auch in elektronischer Form, in Form einer mündlichen Prüfung, Studienarbeit, Hausarbeit, Portfolio oder Projektarbeit mit individuell zurechenbarer Prüfungsleistung.",
+            "### Modul: Basismodul - Mathematische und logische Grundlagen\n**Prüfungsformen:** Portfolio (Pnr. 2110)<br>",
+            "(7) Ein Portfolio ist eine über die Modulveranstaltungen hinweg systematisch angelegte Zusammenstellung verschiedener studentischer Arbeitsergebnisse, die je nach Fach oder Thema unterschiedlichen Charakter haben und/oder verschiedenen Medien (zum Beispiel Text, Bild, Film) zuzuordnen sind.",
+            "Ein Portfolio soll die Lernprozesse der Studierenden zur Erreichung der Lernergebnisse und Kompetenzen eines Moduls widerspiegeln."
+        ]
+    },
+    {
+        "user_input": "Welche Voraussetzungen gelten für Beisitzer bei mündlichen Prüfungen?",
+        "reference": "Beisitzerinnen oder Beisitzer von mündlichen Abschlussprüfungen müssen ihre Sachkenntnis dadurch nachweisen, dass sie eine entsprechende oder vergleichbare Prüfung bestanden haben.",
+        "response": "Beisitzerinnen oder Beisitzer von mündlichen Abschlussprüfungen müssen ihre Sachkenntnis durch Bestehen einer entsprechenden oder vergleichbaren Prüfung nachgewiesen haben.",
+        "retrieved_contexts": [
+            "(5) Beisitzerinnen oder Beisitzer von mündlichen Abschlussprüfungen müssen ihre Sachkenntnis durch Bestehen einer entsprechenden oder vergleichbaren Prüfung nachgewiesen haben.",
+            "Mündliche Prüfungen werden als Einzelprüfung vor einer Prüferin oder einem Prüfer in Gegenwart einer sachkundigen Beisitzerin oder eines sachkundigen Beisitzers gemäß § 25 Absatz 5 abgelegt."
+        ]
+    },
+    {
+        "user_input": "Wie viel Zeit haben die Lehrenden, um die Bewertung einer Klausur bekanntzugeben?",
+        "reference": "Die Bewertung einer Klausur ist der Kandidatin oder dem Kandidaten nach spätestens acht Wochen bekannt zu machen.",
+        "response": "Die Lehrenden haben nach spätestens acht Wochen Zeit, um die Bewertung einer Klausur bekanntzugeben.",
+        "retrieved_contexts": [
+            "(9) Die Bewertung von Prüfungen ist den Studierenden jeweils nach spätestens acht Wochen bekanntzugeben.",
+            "Die Bewertung ist der Kandidatin oder dem Kandidaten nach spätestens acht Wochen bekannt zu machen.",
+            "Die Bewertung ist der Kandidatin oder dem Kandidaten spätestens acht Wochen nach der Abgabe der schriftlichen Ausarbeitung beziehungsweise des Tests bekannt zu machen.",
+            "Die Bewertung ist der Kandidatin oder dem Kandidaten nach spätestens acht Wochen nach Abgabe der schriftlichen Ausarbeitung bekannt zu machen.",
+            "Die Bewertung ist der Kandidatin oder dem Kandidaten unmittelbar nach Ende der Prüfung bekannt zu machen."
+        ]
+    }
+]
