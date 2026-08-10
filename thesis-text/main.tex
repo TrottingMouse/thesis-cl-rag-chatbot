@@ -92,6 +92,11 @@ $$\text{F1 Score} = \frac{|\text{TP}|}{(|\text{TP}| + 0.5 \times (|\text{FP}| + 
 TP (true positives) are facts extracted from the generated answer that are present in the reference answer. FP (false positives) are facts present in the generated answer that are not present in the reference answer. FN (false negatives) are facts present in the reference answer that are not present in the generated answer.
 Answer correctness is the main metric for evaluating the pipeline. The goal of this paper is to find a pipeline configuration that works well in combination with the SLM and answer correctness tests the overall result. However, the other metrics can help to identify problems with certain pipeline configurations.\\
 An important attribute of RAG pipelines which cannot be captured by the previous four metrics is negative rejection. This is the ability to reject questions which cannot be answered with the given context. In order to measure negative rejection, a second dataset containing 15 unanswerable questions was created. Some of these questions are thematically closely related to the documents and some are very distant. For the RAGAS framework, a metric with a custom prompt was implemented to measure negative rejection (see appendix \ref{sec:eval_prompts}).\\
+\subsection{Left-out Methods}
+Several RAG frameworks created by previous papers were tested or considered but in the end not included for various reasons.\\
+TableRAG \parencite{chen2024tablerag} uses an LLM to create queries for pandas. However, this does not take mixed documents into consideration, where there are both text and tables. Another TableRAG framework based on SQL \parencite{yu2025tablerag} takes both into account. However, the integration for the experiments and especially for later deployment was too complex due to database connections and a complex architecture.\\
+TabRAG \parencite{si2025tabrag} separates and includes both text and tables into RAG using a vision learning model. This was tested on the faculty GPU server, but the model turned out to be too large for the resources available on the server.\\
+MiniRAG \parencite{fan2025minirag} is a graph-based framework specifically designed for SLMs. It extracts entities and relationships from the documents and links entities to context. With the university documents, this method was hardly functionable. Some entities could be extracted, but the algorithm detected no relationships between them. Thus, the elaborate retrieval algorithm could did work and the generation results were worse than even for simple chunkers.
 \subsection{Experiments}
 \subsubsection{Pipeline Configuration}
 The RAG pipeline encompasses numerous configurable components and hyperparameters. Because evaluation using LLM-as-a-judge is computationally and resource-intensive, exhaustive grid searches across the entire parameter space are impractical. To address this, four preliminary sequential experiments are conducted to independently optimize document preprocessing, chunking hyperparameters, context size, and query expansion prior to the main evaluation. In each stage, the optimal parameters identified in preceding steps are adopted. For instance, following the preprocessing benchmark, only the top-performing preprocessors are evaluated in subsequent pipeline stages. To conserve computational resources during parameter tuning, these preliminary experiments are executed on a representative, thematically balanced subset of 15 question-answer pairs drawn from the primary evaluation dataset.
@@ -216,6 +221,68 @@ Conversely, for standard Paragraph and Character chunkers across both Markdown a
         \bottomrule
     \end{tabular}
 \end{table}
+
+\subsection{Query Expansion}
+There was no clear best strategy for query expansion across all preprocessing and chunking strategies (Table \ref{tab:query_processor_eval_compact}). However, some trends could be observed.
+\begin{table}[htbp]
+    \centering
+    \small
+    \setlength{\tabcolsep}{8pt}
+    \renewcommand{\arraystretch}{1.1}
+    \caption{Evaluation of RAG Pipeline Answer Correctness Across Query Processors.}
+    \label{tab:query_processor_eval_compact}
+    \begin{tabular}{llccc}
+        \toprule
+                               &                  & \multicolumn{3}{c}{\textbf{Query Processor}}                                   \\
+        \cmidrule(lr){3-5}
+        \textbf{Preprocessing} & \textbf{Chunker} & \textbf{No Processing}                       & \textbf{HyDE}  & \textbf{CoT}   \\
+        \midrule
+        \multirow{4}{*}{Markdown}
+                               & Paragraph        & 0.556                                        & \textbf{0.589} & 0.501          \\
+                               & Character        & \textbf{0.689}                               & 0.660          & 0.603          \\
+                               & Whole Table      & 0.620                                        & 0.640          & \textbf{0.647} \\
+                               & Split Table      & \textbf{0.551}                               & 0.514          & 0.459          \\
+        \midrule
+        \multirow{5}{*}{Direct}
+                               & Paragraph        & 0.639                                        & 0.588          & \textbf{0.646} \\
+                               & Character        & 0.612                                        & 0.579          & \textbf{0.677} \\
+                               & Dynamic          & \textbf{0.636}                               & 0.624          & 0.629          \\
+                               & LLM Chunker      & \textbf{0.507}                               & 0.502          & 0.489          \\
+                               & Max-Min          & 0.585                                        & 0.585          & \textbf{0.595} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Main Experiment}
+\begin{table}[htbp]
+    \centering
+    \footnotesize
+    \setlength{\tabcolsep}{3.5pt}
+    \renewcommand{\arraystretch}{1.1}
+    \caption{Evaluation of RAG Pipeline Across Preprocessing and Chunking Strategies Across All Metrics.}
+    \label{tab:rag_all_metrics_eval}
+    \begin{tabular}{llccccc}
+        \toprule
+        \textbf{Preprocessing} & \textbf{Chunker} & \textbf{CR}    & \textbf{Faith.} & \textbf{AR}    & \textbf{AC}    & \textbf{NRR}   \\
+        \midrule
+        \multirow{4}{*}{Markdown}
+                               & Paragraph        & 0.856          & 0.683           & 0.658          & 0.553          & 0.786          \\
+                               & Character        & 0.775          & 0.672           & 0.689          & 0.515          & 0.857          \\
+                               & Whole Table      & \textbf{0.902} & 0.663           & 0.636          & 0.556          & 0.786          \\
+                               & Split Table      & 0.749          & 0.687           & 0.688          & 0.515          & 0.714          \\
+        \midrule
+        \multirow{5}{*}{Direct}
+                               & Paragraph        & 0.862          & 0.737           & 0.656          & 0.533          & 0.786          \\
+                               & Dynamic          & 0.861          & 0.689           & 0.627          & 0.544          & \textbf{0.929} \\
+                               & Character        & 0.839          & \textbf{0.740}  & 0.666          & \textbf{0.577} & 0.643          \\
+                               & LLM Chunker      & 0.745          & 0.671           & 0.598          & 0.517          & 0.857          \\
+                               & Max-Min          & 0.829          & 0.737           & \textbf{0.711} & 0.570          & 0.857          \\
+        \bottomrule
+    \end{tabular}
+    \vskip 3pt
+        {\scriptsize \textit{Note:} CR = Context Recall, Faith. = Faithfulness, AR = Answer Relevancy, AC = Answer Correctness, NRR = Neg. Rejection Rate.}
+\end{table}
+
 
 \FloatBarrier
 \section{Discussion}
