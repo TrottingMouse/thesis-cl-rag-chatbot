@@ -28,31 +28,31 @@ def main():
     positive_queries = [item["user_input"] for item in positive_qa_pairs]
     negative_queries = [item["user_input"] for item in negative_qa_pairs]
 
-    #positive_online_results = online_pipeline.batch_query(positive_queries)
+    positive_online_results = online_pipeline.batch_query(positive_queries)
     negative_online_results = online_pipeline.batch_query(negative_queries)
 
-    # for i, pipeline_result in enumerate(positive_online_results):
-    #     positive_qa_pairs[i]["response"] = pipeline_result.generation_result
-    #     positive_qa_pairs[i]["retrieved_contexts"] = [result.chunk.text for result in pipeline_result.reranked_results]
-    #     positive_qa_pairs[i]["reranking_scores"] = [result.reranking_score for result in pipeline_result.reranked_results]
+    for i, pipeline_result in enumerate(positive_online_results):
+        positive_qa_pairs[i]["response"] = pipeline_result.generation_result
+        positive_qa_pairs[i]["retrieved_contexts"] = [result.chunk.text for result in pipeline_result.reranked_results]
+        positive_qa_pairs[i]["reranking_scores"] = [result.reranking_score for result in pipeline_result.reranked_results]
     for i, pipeline_result in enumerate(negative_online_results):
         negative_qa_pairs[i]["response"] = pipeline_result.generation_result
         negative_qa_pairs[i]["retrieved_contexts"] = [result.chunk.text for result in pipeline_result.reranked_results]
         negative_qa_pairs[i]["reranking_scores"] = [result.reranking_score for result in pipeline_result.reranked_results]
     
-    # positive_save_path = "storage/results/positive/" + pipeline_name + ".json"
+    positive_save_path = "storage/results/positive/" + pipeline_name + ".json"
     negative_save_path = "storage/results/negative/" + pipeline_name + ".json"
-    # os.makedirs(os.path.dirname(positive_save_path), exist_ok=True)
+    os.makedirs(os.path.dirname(positive_save_path), exist_ok=True)
     os.makedirs(os.path.dirname(negative_save_path), exist_ok=True)
-    # with open(positive_save_path, "w") as f:
-    #     json.dump(positive_qa_pairs, f, indent=4)
+    with open(positive_save_path, "w") as f:
+        json.dump(positive_qa_pairs, f, indent=4)
     with open(negative_save_path, "w") as f:
         json.dump(negative_qa_pairs, f, indent=4)
-    # logging.info(f"Offline pipeline completed. Results saved to {positive_save_path} and {negative_save_path}")
+    logging.info(f"Offline pipeline completed. Results saved to {positive_save_path} and {negative_save_path}")
 
-    # evaluator_positive = Evaluator(positive_save_path)
-    # evaluation_df_positive = evaluator_positive.evaluate_minimal()
-    # print(evaluation_df_positive)
+    evaluator_positive = Evaluator(positive_save_path)
+    evaluation_df_positive = evaluator_positive.evaluate_minimal()
+    print(evaluation_df_positive)
     evaluator_negative = Evaluator(negative_save_path)
     evaluation_df_negative = evaluator_negative.evaluate_rejection()
     print(evaluation_df_negative)

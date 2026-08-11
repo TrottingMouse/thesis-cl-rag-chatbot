@@ -16,8 +16,7 @@ online_config:
 
 offline_pipeline:
   preprocessors:
-    - "GeminiMarkdownProcessor"
-    - "DirectLLMProcessor"
+    - "RawTextProcessor"
   chunker: "PassthroughChunker"
   index_builder: "PassthroughIndexBuilder"
 
