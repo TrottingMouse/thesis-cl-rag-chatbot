@@ -17,11 +17,12 @@ online_config:
 offline_pipeline:
   preprocessors:
     - "GeminiMarkdownProcessor"
-  chunker: "SplitTableParagraphChunker"
-  index_builder: "FaissIndexBuilder"
+    - "DirectLLMProcessor"
+  chunker: "PassthroughChunker"
+  index_builder: "PassthroughIndexBuilder"
 
 online_pipeline:
   query_processor: "NoProcessingProcessor"
-  retriever: "FaissRetriever"
-  reranker: "JinaReranker"
+  retriever: "PassthroughRetriever"
+  reranker: "PassthroughReranker"
   generator: "HuggingfaceGenerator"
