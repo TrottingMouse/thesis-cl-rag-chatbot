@@ -124,7 +124,8 @@ The two query expansion techniques—Hypothetical Document Embeddings (HyDE) and
 \subsubsection{Main Experiment: Preprocessor and Chunker Comparison}
 In the final experiment, all viable combinations of preprocessors and chunkers—configured with the optimal hyperparameters established in the preceding steps—are evaluated on the complete dataset of 73 question-answer pairs as well as the 15-item negative rejection dataset.
 Combinations that are structurally incompatible (such as applying table-aware chunkers to linearized text) are excluded from the main comparative benchmark.
-An experiment without chunking is run as a baseline for comparison. For this experiment, the SLM is given all three documents processed in linearized form by the optimized preprocessor setup (GeminiMarkdownProcessor+DirectLLMProcessor).
+Two experiments are run as baselines for comparison. The first one uses no preprocessing and no chunking. Thus, the SLM is given all three documents as raw text without any formatting.
+For the second baseline experiment, the documents are preprocessed to linearized text by the optimized preprocessor setup (GeminiMarkdownProcessor+DirectLLMProcessor), but are not chunked. These baseline experiments serve to make sure that the introduction of chunking and RAG has a measurable effect on generation results.
 \section{Results}
 \subsection{Preprocessing choices}
 GeminiMarkdownProcessor outperforms DoclingMarkdownProcessor for Markdown conversion. Together with DirectLLMProcessor, it also outperforms PaperLLMProcessor for text linearization (see table \ref{tab:preprocessor_comparison}).
@@ -146,9 +147,11 @@ GeminiMarkdownProcessor outperforms DoclingMarkdownProcessor for Markdown conver
 
 \subsection{Chunking Parameters}
 
-The results for the hyperparameter grid search across chunking strategies and preprocessors are presented in Table~\ref{tab:preprocessor_comparison}. For Fixed Character Chunking on Markdown documents (GM), larger chunk sizes without overlap yielded the highest performance, peaking at an answer correctness score of 0.6811 for a chunk size of $S = 1500$ characters. Introducing an overlap consistently degraded performance across all tested chunk sizes for Markdown, most noticeably at $S = 500$, where adding a 50-character overlap dropped accuracy from 0.6612 to 0.4191. For Fixed Paragraph Chunking on Markdown, a chunk size of $S = 2$ paragraphs without overlap achieved the highest score (0.6274), outperforming both smaller ($S = 1$) and larger ($S = 3$) paragraph windows as well as configurations with paragraph overlap ($S = 2, O = 1$).
+The results for the hyperparameter grid search across chunking strategies and preprocessors are presented in Table~\ref{tab:preprocessor_comparison}. For Fixed Character Chunking on Markdown documents (GM), larger chunk sizes without overlap yielded the highest performance, peaking for a chunk size of $S = 1500$ characters. Introducing an overlap consistently degraded performance across all tested chunk sizes for Markdown, most noticeably at $S = 500$, where adding a 50-character overlap dropped accuracy from 0.6612 to 0.4191. For Fixed Paragraph Chunking on Markdown, a chunk size of $S = 2$ paragraphs without overlap achieved the highest score, outperforming both smaller ($S = 1$) and larger ($S = 3$) paragraph windows as well as configurations with paragraph overlap ($S = 2, O = 1$).
 
-When applied to linearized text (GM+LLM), Fixed Paragraph Chunking performed best at a smaller size of $S = 1$ paragraph (0.6605), with performance declining as the paragraph count or overlap increased. For Fixed Character Chunking on linearized text, a smaller chunk size with overlap ($S = 500, O = 50$) achieved the best result (0.6184). For Dynamic Token Chunking, a smaller context window with a 10\% overlap ($S = 150, O = 15$) proved optimal, attaining an answer correctness of 0.6386. Finally, for Max-Min Chunking, tuning the hard threshold ($\tau$) and dampening parameter ($c$) confirmed that higher threshold values were necessary to prevent degenerate chunking behavior; the combination of $\tau = 0.75$ and $c = 1.3$ achieved the highest score of 0.5861 for this strategy.
+When applied to linearized text (GM+LLM), Fixed Paragraph Chunking performed best at a smaller size of $S = 1$ paragraph, with performance declining as the paragraph count or overlap increased. For Fixed Character Chunking on linearized text, a smaller chunk size with overlap ($S = 500, O = 50$) achieved the best result.
+For Dynamic Token Chunking, a smaller context window with a 10\% overlap ($S = 150, O = 15$) proved optimal.
+Finally, for Max-Min Chunking, tuning the hard threshold ($\tau$) and dampening parameter ($c$), $\tau = 0.75$ and $c = 1.3$ achieved the best results for this strategy. Both values stand in the middle of the ranges for their respective parameter and thus confirm the testing range.
 
 \begin{table}[htbp]
     \centering
@@ -214,7 +217,7 @@ Conversely, for standard Paragraph and Character chunkers across both Markdown a
                                & Whole Table      & 0.645                                            & \textbf{0.647} & 0.544          \\
                                & Split Table      & 0.579                                            & 0.549          & \textbf{0.591} \\
         \midrule
-        \multirow{5}{*}{Direct}
+        \multirow{5}{*}{Linearized}
                                & Paragraph        & \textbf{0.598}                                   & 0.592          & 0.524          \\
                                & Character        & \textbf{0.600}                                   & 0.568          & 0.579          \\
                                & Dynamic          & 0.630                                            & \textbf{0.639} & 0.518          \\
@@ -248,7 +251,7 @@ Furthermore, query expansion exhibited a higher overall impact when applied to M
                                & Whole Table      & 0.620                                        & 0.640          & \textbf{0.647} \\
                                & Split Table      & \textbf{0.551}                               & 0.514          & 0.459          \\
         \midrule
-        \multirow{5}{*}{Direct}
+        \multirow{5}{*}{Linearized}
                                & Paragraph        & 0.639                                        & 0.588          & \textbf{0.646} \\
                                & Character        & 0.612                                        & 0.579          & \textbf{0.677} \\
                                & Dynamic          & \textbf{0.636}                               & 0.624          & 0.629          \\
@@ -260,13 +263,18 @@ Furthermore, query expansion exhibited a higher overall impact when applied to M
 \FloatBarrier
 
 \subsection{Main Experiment}
-\begin{itemize}
-    \item Answer correctness for all preprocessing and chunking strategies between 0.51 and 0.57, all better than no chunking baseline (0.485)
-    \item for Markdown: whole table and paragraph with very similar results in all metrics, both with good answer correctness and high context recall, whole table even highest context recall among all nine strategies
-    \item for Markdown: split table and character chunking also similar results, low answer correctness and low context recall
-    \item best performing chunkers: Character and Max-Min Chunking on linearized text
-    \item
-\end{itemize}
+The main experiment demonstrates the clear advantage of employing proper preprocessing and chunking strategies. As shown in Table \ref{tab:rag_all_metrics_eval}, the baseline without any preprocessing or chunking achieved an answer correctness of only 0.423. Introducing preprocessing to create linearized text without chunking improved the results solidly to an answer correctness of 0.485. However, combining preprocessing with chunking yielded the best outcomes, with all tested combinations achieving an answer correctness between 0.51 and 0.57, outperforming both baselines.
+
+Within the Markdown preprocessing configurations, the Whole Table and Paragraph chunkers demonstrated very similar and strong results across all metrics. Both achieved good answer correctness and high context recall, with the Whole Table strategy reaching the highest context recall (0.902) among all nine evaluated strategies. Conversely, the Split Table and Character chunking methods performed similarly poorly on Markdown documents, yielding both low answer correctness and low context recall.
+
+For linearized text preprocessing, Character and Max-Min Chunking emerged as the best-performing chunkers overall. Character chunking on linearized text achieved the highest answer correctness (0.577) and the highest faithfulness (0.740), alongside a slightly above-average context recall. Max-Min Chunking also performed very well, pairing high faithfulness with the highest answer relevancy across all experiments (0.711), though its context recall remained mid-range. In contrast, LLM chunking showed generally poor performance on linearized text, resulting in low answer correctness (0.517) and very low context recall. Furthermore, while the Paragraph chunker on linearized text achieved high context recall and faithfulness, this did not translate to strong final generation quality, resulting in an answer correctness of only 0.533.
+
+Comparing the two preprocessing paradigms, faithfulness was generally higher for linearized text than for Markdown. With the exception of the underperforming LLM chunker, all linearized text strategies achieved higher faithfulness scores than all tested Markdown strategies.
+
+Another notable observation is the behavior of the Dynamic Token chunker on linearized text. It achieved high context recall but relatively low faithfulness, leading to a mid-range answer correctness (0.544). However, it managed by far the highest negative rejection rate (0.929).
+
+More broadly, the negative rejection rate appeared to be quite independent of answer correctness. For instance, Character chunking on Markdown had very low answer correctness but a very high negative rejection rate (0.857). Conversely, Character chunking on linearized text achieved the highest answer correctness but the lowest negative rejection rate (0.643). Among all configurations, Max-Min Chunking stood out as the only strategy that effectively balanced both high answer correctness and a strong negative rejection rate.
+
 \begin{table}[htbp]
     \centering
     \footnotesize
@@ -278,13 +286,15 @@ Furthermore, query expansion exhibited a higher overall impact when applied to M
         \toprule
         \textbf{Preprocessing} & \textbf{Chunker} & \textbf{CR}    & \textbf{Faith.} & \textbf{AR}    & \textbf{AC}    & \textbf{NRR}   \\
         \midrule
+        No Preprocessing       & No Chunking      &                &                 &                & 0.423          & 0.571          \\
+        \midrule
         \multirow{4}{*}{Markdown}
                                & Paragraph        & 0.856          & 0.683           & 0.658          & 0.553          & 0.786          \\
                                & Character        & 0.775          & 0.672           & 0.689          & 0.515          & 0.857          \\
                                & Whole Table      & \textbf{0.902} & 0.663           & 0.636          & 0.556          & 0.786          \\
                                & Split Table      & 0.749          & 0.687           & 0.688          & 0.515          & 0.714          \\
         \midrule
-        \multirow{6}{*}{Direct}
+        \multirow{6}{*}{Linearized}
                                & No chunking      &                &                 &                & 0.485          & 0.643          \\
                                & Paragraph        & 0.862          & 0.737           & 0.656          & 0.533          & 0.786          \\
                                & Character        & 0.839          & \textbf{0.740}  & 0.666          & \textbf{0.577} & 0.643          \\
@@ -300,9 +310,20 @@ Furthermore, query expansion exhibited a higher overall impact when applied to M
 
 \FloatBarrier
 \section{Discussion}
+\subsection{Preprocessing}
 The first part of the preprocessing experiment hints to the fact that LLMs can outperform elaborate frameworks at complicated tasks. Docling was specifically designed for converting documents containing tables to markdown. Still, Gemini performed better with a simple one line prompt.\\
 The good results of the text linearization technique from \textcite{min2024exploring} could not be reproduced. Instead, also here, a custom prompt using the Markdown documents as input achieved a better answer correctness. One explanation for this could be the direct translation of the table transformation prompt from the paper into German, which might not have been understood properly by the model. Another possible explanation is that the prompt was highly fitted to the datasets used in the paper. As the university documents look significantly different, the combination of pdf-to-text and prompt from the paper might just not work here.\\
 
+\subsection{Chunking Parameters}
+The grid search results reveal a clear divergence in optimal chunking strategies depending on the preprocessing format, highlighting the different ways Small Language Models (SLMs) process structured versus dense text.
+
+For Markdown documents, applying zero overlap proved to be the most effective approach. Introducing overlap in Markdown duplicates unnecessary structural syntax (such as table delimiters and formatting tokens) across chunks. This not only wastes the limited context window but also feeds the SLM redundant structural noise that is difficult to process. Furthermore, Fixed Paragraph Chunking on Markdown performed best with a chunk size of two paragraphs. With a size of one, a table's explanatory header or introductory paragraph is always separated from the table itself. A chunk size of two often prepends some necessary context to the table. For Fixed Character Chunking, a large chunk size was important to limit table fragmentation.
+
+In contrast, when using linearized text, Fixed Paragraph Chunking peaked with a chunk size of just one paragraph. The custom prompt utilized by the \texttt{DirectLLMProcessor} explicitly enforces "high entity density" and explicit contextual relationships. Consequently, a single paragraph is already heavily saturated with information. Feeding multiple data-dense paragraphs to the 2B-parameter generator overloads its context processing capabilities, triggering the "lost-in-the-middle" phenomenon where the model fails to isolate the correct facts.
+
+For deterministic, sub-paragraph chunkers operating on linearized text—namely Fixed Character and Dynamic Token chunking—smaller chunk sizes consistently yielded better results. Smaller sizes generate more specialized, targeted chunks, allowing the retriever to supply the SLM with highly specific facts. However, because these chunkers are fundamentally blind to natural semantic boundaries (lacking paragraph or Markdown notation cues), their cuts are highly arbitrary. Therefore, an overlap is strictly necessary to act as a semantic bridge. This is particularly crucial for Character chunking, where the inherent risk of mid-word or mid-sentence text fragmentation makes an overlap essential for maintaining contextual coherence.
+
+Finally, the optimization of the Max-Min Chunker confirmed the initial hypothesis regarding the algorithm's threshold parameters. Due to the high thematic homogeneity of the administrative documents, utilizing the low dampening factor ($c$) and hard threshold from the original paper led to degenerate chunking behavior, where the algorithm grouped vast sections of text into unusable, oversized chunks. Conversely, setting these parameters too high triggered the opposite degeneration: almost every sentence was isolated into its own chunk, entirely defeating the purpose of semantic aggregation. The grid search successfully identified the algorithmic sweet spot, with RAG performance declining predictably when the thresholds were set either too high or too low.
 \section{Limitations and Future Research}
 As this work focuses on preprocessing, chunking and query expansion, the optimization of other pipeline components is neglected. Especially the online part of the pipeline has a lot more potential for optimization. Even the maximum context size and the factor between top\_k and top\_n are optimizable in context of the rest of the pipeline. This could be done in an independent experiment or as part of a bigger grid search.\\
 For the embedder, reranker, and generator, other models can be compared. For this work, only a few models were tested superficially, leaving this question open for future work. The retriever can even be combined with a sparse BM25 retriever. In previous work, this has outperformed a pure dense retriever. However, especially (but not exclusively) when switching to hybrid retrieval, the results for chunking and preprocessing might have to be re-evaluated. \\
@@ -313,6 +334,11 @@ Future research could investigate all of the suggested improvement
 For chatbot deployment, the repository can be made more performant using lazy imports, i. e., moving imports into methods. Thus, imports are only triggered when really needed. By using vllm with a locally saved model instead of HuggingFace, there is an even greater potential gain in performance.
 
 \section{Conclusion}
+
+\section{Use of AI Tools}
+During this thesis, Google Gemini was used for finding literature (checked afterwards) and sharpening ideas for the RAG pipeline. It was also used to convert bullet points into text for some sections of the thesis.
+
+Claude Sonnet 4.6 was used for code generation, prompting it with the intended architecture and content of the code, and the model implementing and documenting.
 
 \printbibliography[title={References}]
 
