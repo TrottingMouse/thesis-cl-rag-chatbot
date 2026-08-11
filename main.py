@@ -50,9 +50,9 @@ def main():
         json.dump(negative_qa_pairs, f, indent=4)
     logging.info(f"Offline pipeline completed. Results saved to {positive_save_path} and {negative_save_path}")
 
-    # evaluator_positive = Evaluator(positive_save_path)
-    # evaluation_df_positive = evaluator_positive.evaluate()
-    # print(evaluation_df_positive)
+    evaluator_positive = Evaluator(positive_save_path)
+    evaluation_df_positive = evaluator_positive.evaluate_minimal()
+    print(evaluation_df_positive)
     # evaluator_negative = Evaluator(negative_save_path)
     # evaluation_df_negative = evaluator_negative.evaluate_rejection()
     # print(evaluation_df_negative)
