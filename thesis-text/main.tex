@@ -179,6 +179,28 @@ To ensure a comprehensive benchmark, the dataset intentionally balances question
     \end{tabular}
 \end{table}
 
+In order to measure how well the pipeline copes with questions that can not be answered from the documents, another dataset with 14 unrelated questions was created (see Table \ref{tab:negative_rejection_samples} for examples). These questions span from questions related to administrative topics of Computational Linguistics (Sample pair 1) over subject-related questions (Sample pair 2) and university-related questions (Sample pair 3) to questions completely out of context (Sample pair 4).
+\begin{table}[htbp]
+    \centering
+    \small
+    \caption{Sample Question-Answer Pairs from the Negative Rejection Dataset}
+    \label{tab:negative_rejection_samples}
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{p{0.05\textwidth} p{0.42\textwidth} p{0.45\textwidth}}
+        \toprule
+        \textbf{\#} & \textbf{User Question}                                                                  & \textbf{Gold Answer}                                               \\
+        \midrule
+        1           & Welche Fristen gelten für die Prüfungsanmeldung der Klausur in Morphologie und Syntax?  & Dazu enthalten die bereitgestellten Dokumente keine Informationen. \\
+        \midrule
+        2           & In welchem Jahr wurde die Chomsky-Hierarchie zum ersten Mal publiziert?                 & Dazu enthalten die bereitgestellten Dokumente keine Informationen. \\
+        \midrule
+        3           & Wie hoch ist der aktuelle Semesterbeitrag an der Heinrich-Heine-Universität Düsseldorf? & Dazu enthalten die bereitgestellten Dokumente keine Informationen. \\
+        \midrule
+        4           & Wie viele Kilometer ist die Sonne durchschnittlich von der Erde entfernt?               & Dazu enthalten die bereitgestellten Dokumente keine Informationen. \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
 
 
 \section{RAG pipeline}
@@ -263,7 +285,7 @@ Instead, two other metrics from the RAGAS package are used. The first is context
 $$\text{F1 Score} = \frac{|\text{TP}|}{(|\text{TP}| + 0.5 \times (|\text{FP}| + |\text{FN}|))}$$
 TP (true positives) are facts extracted from the generated answer that are present in the reference answer. FP (false positives) are facts present in the generated answer that are not present in the reference answer. FN (false negatives) are facts present in the reference answer that are not present in the generated answer.
 Answer correctness is the main metric for evaluating the pipeline. The goal of this paper is to find a pipeline configuration that works well in combination with the SLM and answer correctness tests the overall result. However, the other metrics can help to identify problems with certain pipeline configurations.\\
-An important attribute of RAG pipelines which cannot be captured by the previous four metrics is negative rejection. This is the ability to reject questions which cannot be answered with the given context. In order to measure negative rejection, a second dataset containing 15 unanswerable questions was created. Some of these questions are thematically closely related to the documents and some are very distant. For the RAGAS framework, a metric with a custom prompt was implemented to measure negative rejection (see Listing \ref{lst:neg_rejection_prompt}).\\
+An important attribute of RAG pipelines which cannot be captured by the previous four metrics is negative rejection. This is the ability to reject questions which cannot be answered with the given context. For the RAGAS framework, a metric with a custom prompt was implemented to measure negative rejection (see Listing \ref{lst:neg_rejection_prompt}). This metric was used for the second dataset containing unanswerable queries.\\
 
 \begin{lstlisting}[breaklines=true, basicstyle=\ttfamily, caption={Negative Rejection Prompt}, label={lst:neg_rejection_prompt}]
     Did the model reject the query as not answerable from the given context?
@@ -376,24 +398,24 @@ Conversely, for standard Paragraph and Character chunkers across both Markdown a
     \renewcommand{\arraystretch}{1.1}
     \caption{Comparison of Reranking Thresholds for each Preprocessor/Chunker Combination}
     \label{tab:rag_correctness_eval_compact}
-    \begin{tabular}{llccc}
+    \begin{tabular}{llcccc}
         \toprule
-                               &                  & \multicolumn{3}{c}{\textbf{Reranking Threshold}}                                   \\
-        \cmidrule(lr){3-5}
-        \textbf{Preprocessing} & \textbf{Chunker} & \textbf{0.00}                                    & \textbf{0.05}  & \textbf{0.10}  \\
+                               &                  &                      & \multicolumn{3}{c}{\textbf{Reranking Threshold}}                                   \\
+        \cmidrule(lr){4-6}
+        \textbf{Preprocessing} & \textbf{Chunker} & \textbf{Avg. Tokens} & \textbf{0.00}                                    & \textbf{0.05}  & \textbf{0.10}  \\
         \midrule
         \multirow{4}{*}{Markdown}
-                               & Paragraph        & \textbf{0.627}                                   & 0.593          & 0.601          \\
-                               & Character        & \textbf{0.649}                                   & 0.584          & 0.580          \\
-                               & Whole Table      & 0.645                                            & \textbf{0.647} & 0.544          \\
-                               & Split Table      & 0.579                                            & 0.549          & \textbf{0.591} \\
+                               & Paragraph        & 221.9                & \textbf{0.627}                                   & 0.593          & 0.601          \\
+                               & Character        & 385.2                & \textbf{0.649}                                   & 0.584          & 0.580          \\
+                               & Whole Table      & 97.4                 & 0.645                                            & \textbf{0.647} & 0.544          \\
+                               & Split Table      & 40.4                 & 0.579                                            & 0.549          & \textbf{0.591} \\
         \midrule
         \multirow{5}{*}{Linearized}
-                               & Paragraph        & \textbf{0.598}                                   & 0.592          & 0.524          \\
-                               & Character        & \textbf{0.600}                                   & 0.568          & 0.579          \\
-                               & Dynamic          & 0.630                                            & \textbf{0.639} & 0.518          \\
-                               & LLM Chunker      & 0.504                                            & \textbf{0.526} & 0.516          \\
-                               & Max-Min          & 0.576                                            & \textbf{0.584} & 0.578          \\
+                               & Paragraph        & 375.6                & \textbf{0.598}                                   & 0.592          & 0.524          \\
+                               & Character        & 121.6                & \textbf{0.600}                                   & 0.568          & 0.579          \\
+                               & Dynamic          & 217.5                & 0.630                                            & \textbf{0.639} & 0.518          \\
+                               & LLM Chunker      & 752.2                & 0.504                                            & \textbf{0.526} & 0.516          \\
+                               & Max-Min          & 77.2                 & 0.576                                            & \textbf{0.584} & 0.578          \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -495,6 +517,16 @@ In contrast, when using linearized text, Fixed Paragraph Chunking peaked with a 
 For deterministic, sub-paragraph chunkers operating on linearized text—namely Fixed Character and Dynamic Token chunking—smaller chunk sizes consistently yielded better results. Smaller sizes generate more specialized, targeted chunks, allowing the retriever to supply the SLM with highly specific facts. However, because these chunkers are fundamentally blind to natural semantic boundaries (lacking paragraph or Markdown notation cues), their cuts are highly arbitrary. Therefore, an overlap is strictly necessary to act as a semantic bridge. This is particularly crucial for Character chunking, where the inherent risk of mid-word or mid-sentence text fragmentation makes an overlap essential for maintaining contextual coherence.
 
 Finally, the optimization of the Max-Min Chunker confirmed the initial hypothesis regarding the algorithm's threshold parameters. Due to the high thematic homogeneity of the administrative documents, utilizing the low dampening factor ($c$) and hard threshold from the original paper led to degenerate chunking behavior, where the algorithm grouped vast sections of text into unusable, oversized chunks. Conversely, setting these parameters too high triggered the opposite degeneration: almost every sentence was isolated into its own chunk, entirely defeating the purpose of semantic aggregation. The grid search successfully identified the algorithmic sweet spot, with RAG performance declining predictably when the thresholds were set either too high or too low.
+
+\subsection{Reranking Threshold}
+The empirical results largely confirm the initial hypothesis regarding cross-encoder similarity thresholding: chunkers characterized by a low average token count per chunk profit most from a dynamic cutoff score. Smaller, fine-grained chunks offer greater retrieval flexibility, as the system can retrieve varying numbers of highly targeted segments depending on query complexity. When paired with an appropriate similarity threshold, the retriever effectively filters out weakly scoring distractors, passing only high-confidence contexts to the Small Language Model (SLM) without forcing low-relevance chunks to fill an arbitrary context budget.
+
+Across the evaluated strategies, a threshold benefit boundary emerges between 100 and 200 tokens per chunk. Chunking methods producing average sizes below this threshold generally benefited from filtering at a 0.05 similarity cutoff. However, slight nuances were observed near this boundary. Dynamic Token chunking (averaging 217.5 tokens per chunk) achieved slightly higher answer correctness with a low threshold of 0.05, whereas Character chunking on linearized text (averaging 121.6 tokens per chunk) performed marginally better without thresholding (0.00).
+
+The primary exception to this pattern was the LLM chunker, which did not align with the general trend. Characterized by unusually large average chunk sizes that typically resulted in retrieving only a single chunk per query, its sensitivity to threshold adjustments was unpredicted. Rather than signaling a genuine structural interaction, this behavior likely highlights the inherent variance and evaluation noise associated with conducting preliminary hyperparameter tuning on the smaller 15-item subset.
+
+\subsection{Query Expansion}
+The results partly confirm the results from \textcite{jagerman2023query}. Chain of Thought performs best for more configurations than HyDE. However, also the approach without query preprocessing achieves good results, hinting to the fact that modern embedding models have improved coping with the query/document asymmetry.
 \section{Limitations and Future Research}
 As this work focuses on preprocessing, chunking and query expansion, the optimization of other pipeline components is neglected. Especially the online part of the pipeline has a lot more potential for optimization. Even the maximum context size and the factor between top\_k and top\_n are optimizable in context of the rest of the pipeline. This could be done in an independent experiment or as part of a bigger grid search.\\
 For the embedder, reranker, and generator, other models can be compared. For this work, only a few models were tested superficially, leaving this question open for future work. Especially for the generator, German-only models can be tested. Also larger models with a low quantization are an option. The retriever can even be combined with a sparse BM25 retriever. In previous work, this has outperformed a pure dense retriever. However, especially (but not exclusively) when switching to hybrid retrieval, the results for chunking and preprocessing might have to be re-evaluated. \\
