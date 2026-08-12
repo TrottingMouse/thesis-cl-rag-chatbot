@@ -70,19 +70,10 @@ class HyDEQueryProcessor(BaseQueryProcessor):
 
     def _build_messages(self, query: str) -> list[dict]:
         return [
-            {
-                "role": "system",
-                "content": (
-                    "Du bist ein hilfreicher Assistent. "
-                    "Schreibe einen kurzen, sachlichen Textabschnitt (2–4 Sätze), "
-                    "der die folgende Frage beantwortet. "
-                    "Antworte ausschließlich mit dem Textabschnitt – ohne Einleitung, "
-                    "Überschrift oder sonstige Erklärungen."
-                ),
-            },
+            
             {
                 "role": "user",
-                "content": f"Frage: {query}\n\nHypothetischer Antwortabschnitt:",
+                "content": f"Bitte schreibe einen Textabschnitt, um die folgende Frage zu beantworten: {query}",
             },
         ]
 
