@@ -7,16 +7,16 @@ a :class:`~src.online.reranking.BaseReranker`, and a
 :class:`~src.online.generation.BaseGenerator` into a single callable
 query-time pipeline.
 
-Usage example (skeleton – components not yet implemented)::
+Usage example::
 
     pipeline = OnlinePipeline(
-        query_processor=MyQueryProcessor(),
-        retriever=MyRetriever(index=my_index, top_k=20),
-        reranker=MyReranker(top_n=5),
-        generator=MyGenerator(),
+        query_processor=NoProcessingProcessor(),
+        retriever=FaissRetriever(index_builder, top_k=20),
+        reranker=JinaReranker(top_n=5),
+        generator=HuggingfaceGenerator(model_name="..."),
     )
     results = pipeline.query("What are the admission requirements?")
-    print(results.generation_result.answer)
+    print(results.generation_result)
 """
 
 from __future__ import annotations
@@ -146,10 +146,7 @@ class OnlinePipeline:
         list[OnlinePipelineResult]
             Contains the augmented query, raw retrieval candidates, the final reranked chunks, and the generated answer string for each query.
         """
-        results = []
-        for raw_query in raw_queries:
-            results.append(self.query(raw_query))
-        return results
+        return [self.query(q) for q in raw_queries]
 
     def batch_query(self, raw_queries: list[str]) -> list[OnlinePipelineResult]:
         """

@@ -1,35 +1,5 @@
 """
 Factory helpers for building RAG pipeline components and running experiments.
-
-Public API
-----------
-load_yaml_config(file_path)
-    Load a YAML file and return it as a dict.
-
-build_preprocessors(names)
-    Instantiate a list of preprocessors from registry names.
-
-build_chunker(name, **kwargs)
-    Instantiate a chunker from a registry name.
-
-build_index_builder(name, storage_path, embedding_model)
-    Instantiate an index builder from a registry name.
-
-build_online_pipeline(cfg, index_builder, top_k, top_n, generation_model)
-    Assemble a fully-wired OnlinePipeline from a pipeline config dict.
-
-build_offline_pipeline(preprocessor_names, chunker_name, index_builder_name,
-                       storage_path, embedding_model, **chunker_kwargs)
-    Assemble a fully-wired OfflinePipeline.
-
-run_queries(online_pipeline, queries, qa_pairs_template)
-    Execute multiple_queries and attach results to a deep copy of the QA template.
-
-write_summary_csv(summary_path, rows)
-    Write a list of result dicts to a CSV, collecting all keys dynamically.
-
-build_pipelines_from_config(yaml_path)
-    Legacy convenience wrapper – builds both pipelines from a YAML config file.
 """
 
 from __future__ import annotations
@@ -252,7 +222,7 @@ def write_summary_csv(summary_path: Path, rows: list[dict]) -> None:
 
 
 # ---------------------------------------------------------------------------
-# Legacy convenience wrapper (kept for backward-compatibility)
+# Convenience wrapper
 # ---------------------------------------------------------------------------
 
 def build_pipelines_from_config(yaml_path: str):

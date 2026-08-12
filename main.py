@@ -10,14 +10,11 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 load_dotenv()
 
 def main():
-    # 1. Build everything from the config file
     offline_pipeline, online_pipeline, config, pipeline_name = build_pipelines_from_config("config/config.yaml")
 
-    # 2. Run Offline Pipeline
     document_paths = config["documents"]
     offline_result = offline_pipeline.run(document_paths)
 
-    # 3. Run Online Pipeline
     positive_eval_file = "storage/evaluation/qa_pairs.json"
     negative_eval_file = "storage/evaluation/negative_qa_pairs.json"
     with open(positive_eval_file) as f:
@@ -57,13 +54,7 @@ def main():
     evaluation_df_negative = evaluator_negative.evaluate_rejection()
     print(evaluation_df_negative)
     
-    
-    
-    
-
-        
-        
-        
+            
 
 if __name__ == "__main__":
     main()

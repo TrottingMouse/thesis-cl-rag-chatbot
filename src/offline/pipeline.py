@@ -10,17 +10,12 @@ Usage example::
 
     pipeline = OfflinePipeline(
         preprocessors=[RawTextProcessor(), MyLLMProcessor()],
-        chunker=MyChunker(),
-        index_builder=MyIndexBuilder(storage_path=Path("storage/my_index")),
+        chunker=MaxMinChunker(embedding_model_name="..."),
+        index_builder=FaissIndexBuilder(storage_path=Path("storage/index"), model_name="..."),
     )
-    pipeline.run(raw_document_paths)
+    pipeline.run(document_paths)
 """
 from __future__ import annotations
-
-from src.config import OfflineConfig
-from src.offline.indexing import FaissIndexBuilder
-from src.offline.chunking import FixedCharacterChunker
-from src.offline.preprocessing import RawTextProcessor
 
 import logging
 from dataclasses import dataclass

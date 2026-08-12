@@ -13,6 +13,9 @@ class FixedCharacterChunker(BaseChunker):
     Splits a document into fixed-size chunks based on a character count.
     Supports overlapping chunks to preserve context across boundaries.
     """
+    # TODO: the chunk_size/overlap validation logic is duplicated across
+    # FixedCharacterChunker, DynamicTokenChunker, and FixedParagraphChunker;
+    # consider extracting it to BaseChunker or a shared helper.
 
     def __init__(self, chunk_size: int = 1000, overlap: int = 200):
         """
@@ -331,23 +334,3 @@ class FixedParagraphChunker(BaseChunker):
 
         return chunks
 
-
-def main():
-    fix = DynamicTokenChunker()
-    with open("storage/cached_documents/MHB_paper_llm_processor.txt", "r") as f:
-        text = f.read()
-    doc = Document(
-        source_path="storage/cached_documents/MHB_paper_llm_processor.txt",
-        doc_id="test",
-        text=text
-    )
-
-    chunks = fix.chunk(doc)
-
-    for chunk in chunks:
-        print(chunk.text)
-        print("\n" + "="*50 + "\n")
-            
-        
-if __name__ == "__main__":
-    main()

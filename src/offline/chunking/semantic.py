@@ -96,7 +96,6 @@ def _process_sentences(
             pairwise_min = float(sim[0])
             new_sentence_similarity = init_constant * pairwise_min
         # Extend current cluster or start a new one.
-        print(new_sentence_similarity, adjusted_threshold, fixed_threshold)
         if new_sentence_similarity > max(adjusted_threshold, fixed_threshold):
             current_paragraph.append(sentences[i])
             cluster_end += 1
@@ -261,28 +260,3 @@ class MaxMinChunker(BaseChunker):
             len(chunks),
         )
         return chunks
-
-def main():
-    chunker = MaxMinChunker(
-        embedding_model_name="jinaai/jina-embeddings-v5-text-nano", 
-        fixed_threshold=0.8, 
-        c=0.9, 
-        init_constant=1.5
-    )
-    with open("storage/cached_documents/PO_markdown_gemini_direct_llm.txt") as f:
-        text = f.read()
-
-    document = Document(
-        source_path="",
-        doc_id = "pdf_4",
-        text = text
-    )
-
-    chunks = chunker.chunk(document)
-    
-    print(f"Chunked {len(chunks)} chunks for document {document.doc_id}.")
-    
-    
-if __name__ == "__main__":
-    main()
-    

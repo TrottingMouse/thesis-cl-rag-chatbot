@@ -383,21 +383,21 @@ class LumberChunker(BaseChunker):
                 return interaction.output_text
 
             except (errors.ServerError, errors.APIError) as e:
-                # Safely extract the status code (503 for ServerError, 429 for APIError)
                 status_code = getattr(e, 'code', None)
-
-                # Check if the error is a temporary bottleneck we can wait out
                 if status_code in [503, 429] or "503" in str(e):
                     if attempt < max_retries - 1:
-                        # Exponential backoff: 2s, 4s, 8s, 16s + 1-3 seconds of random jitter
                         sleep_time = (base_delay * (2 ** attempt)) + random.uniform(1.0, 3.0)
-                        print(f"[API {status_code}] Backend stalled. Retrying in {sleep_time:.1f}s... (Attempt {attempt + 1}/{max_retries})")
+                        logger.warning(
+                            "[API %s] Backend stalled. Retrying in %.1fs... (Attempt %d/%d)",
+                            status_code, sleep_time, attempt + 1, max_retries
+                        )
                         time.sleep(sleep_time)
                     else:
-                        raise RuntimeError(f"LumberChunker: LLM call failed after {max_retries} attempts due to API limits. Last error: {e}")
+                        raise RuntimeError(
+                            f"LumberChunker: LLM call failed after {max_retries} attempts "
+                            f"due to API limits. Last error: {e}"
+                        )
                 else:
-                    # If it's a 400 Bad Request (e.g., token limit exceeded, bad JSON),
-                    # retrying won't fix it. Raise the error immediately.
                     raise e
 
         # Safety net – should not be reached due to the raise above
@@ -448,62 +448,3 @@ class LumberChunker(BaseChunker):
             prev = end
         return chunks
 
-
-# ---------------------------------------------------------------------------
-# Manual test
-# ---------------------------------------------------------------------------
-
-def _test_file(path: str, doc_id: str, chunker: "LumberChunker") -> None:
-    """Chunk *path*, print a summary and a short preview of every chunk."""
-    with open(path, "r", encoding="utf-8") as fh:
-        text = fh.read()
-
-    doc = Document(source_path=path, doc_id=doc_id, text=text)  # type: ignore[arg-type]
-
-    print(f"\n{'='*70}")
-    print(f"File   : {path}")
-    print(f"Doc-ID : {doc_id}")
-    print(f"Length : {len(text):,} chars")
-    print(f"{'='*70}")
-
-    chunks = chunker.chunk(doc)
-
-    print(f"Chunks produced: {len(chunks)}\n")
-    for i, chunk in enumerate(chunks):
-        preview = chunk.text[:200].replace("\n", "↵")
-        print(
-            f"  [{i:>3}] chars={len(chunk.text):>5}  "
-            f"para {chunk.metadata.get('para_start','?')}–{chunk.metadata.get('para_end','?')}"
-            f"  │ {preview!r}"
-        )
-
-
-def main() -> None:
-    import sys
-    from dotenv import load_dotenv
-
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s - %(levelname)s - %(message)s",
-        stream=sys.stdout,
-    )
-    load_dotenv()
-
-    chunker = LumberChunker()  # caching enabled by default
-
-    # Both files are DirectLLM-converted (single-newline format)
-    _test_file(
-        path="storage/cached_documents/PO_markdown_gemini_direct_llm.txt",
-        doc_id="PO_markdown_gemini_direct_llm",
-        chunker=chunker,
-    )
-
-    _test_file(
-        path="storage/cached_documents/MHB_markdown_gemini_direct_llm.txt",
-        doc_id="MHB_markdown_gemini_direct_llm",
-        chunker=chunker,
-    )
-
-
-if __name__ == "__main__":
-    main()

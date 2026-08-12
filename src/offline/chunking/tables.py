@@ -3,11 +3,27 @@ from src.models import Document, Chunk
 
 import re
 
+
+# ---------------------------------------------------------------------------
+# Abbreviation expansion map (PO tables)
+# ---------------------------------------------------------------------------
+
+_ABBREV_LEGEND = (
+    "**Abkürzungen im Studienverlaufsplan:**\n"
+    "* Modulprüfung = MP\n"
+    "* Studienleistung = SL\n"
+    "* ECTS-Leistungspunkte = LP\n"
+    "* Semesterwochenstunden = SWS\n"
+    "* Profilbildungsbereich = PBB\n"
+    "* Prüfungsnummer = Pnr.\n"
+)
+
+
 class WholeTableParagraphChunker(BaseChunker):
     """
     Chunks tables and MHB modules from markdown files as-is without splitting them.
     Text is split into paragraphs.
-    Tables from PO get a prefix of abbreviations prepended.
+    Tables from PO get the abbreviation legend prepended.
     """
 
     def __init__(self):
@@ -59,15 +75,7 @@ class WholeTableParagraphChunker(BaseChunker):
                 if previous_table:
                     chunks.append(Chunk(
                         chunk_id=f"{document.doc_id}_chunk_{len(chunks)}", 
-                        text="""**Abkürzungen im Studienverlaufsplan:**
-                            * Modulprüfung = MP
-                            * Studienleistung = SL
-                            * ECTS-Leistungspunkte = LP
-                            * Semesterwochenstunden = SWS
-                            * Profilbildungsbereich = PBB
-                            * Prüfungsnummer = Pnr.
-                            """
-                            + current_chunk, 
+                        text=_ABBREV_LEGEND + current_chunk, 
                         chunker_name=self.name
                     ))
                     previous_table = False
@@ -90,17 +98,7 @@ class WholeTableParagraphChunker(BaseChunker):
                     ))
                     current_chunk = paragraphs[n_paragraph]
             if n_paragraph == len(paragraphs) - 1:
-                if previous_table:
-                    text = """**Abkürzungen im Studienverlaufsplan:**
-* Modulprüfung = MP
-* Studienleistung = SL
-* ECTS-Leistungspunkte = LP
-* Semesterwochenstunden = SWS
-* Profilbildungsbereich = PBB
-* Prüfungsnummer = Pnr.
-""" + current_chunk
-                else:
-                    text = current_chunk
+                text = (_ABBREV_LEGEND + current_chunk) if previous_table else current_chunk
 
                 chunks.append(Chunk(
                     chunk_id=f"{document.doc_id}_chunk_{len(chunks)}", 
@@ -116,16 +114,6 @@ class WholeTableParagraphChunker(BaseChunker):
 # ---------------------------------------------------------------------------
 # Abbreviation expansion map (PO tables)
 # ---------------------------------------------------------------------------
-
-_ABBREV_LEGEND = (
-    "**Abkürzungen im Studienverlaufsplan:**\n"
-    "* Modulprüfung = MP\n"
-    "* Studienleistung = SL\n"
-    "* ECTS-Leistungspunkte = LP\n"
-    "* Semesterwochenstunden = SWS\n"
-    "* Profilbildungsbereich = PBB\n"
-    "* Prüfungsnummer = Pnr.\n"
-)
 
 # Ordered so that longer/more-specific tokens come first.
 _PO_ABBREVS: list[tuple[str, str]] = [
@@ -417,31 +405,3 @@ class SplitTableParagraphChunker(BaseChunker):
                     chunks.append(sentence)
 
         return chunks
-
-
-# ---------------------------------------------------------------------------
-# Manual test runner
-# ---------------------------------------------------------------------------
-
-if __name__ == "__main__":
-    # import sys
-
-    # target = sys.argv[1] if len(sys.argv) > 1 else "PO"
-
-    target = "MHB"
-
-    if target == "MHB":
-        path = "storage/cached_documents/MHB_markdown_gemini.txt"
-    else:
-        path = "storage/cached_documents/PO_markdown_gemini.txt"
-
-    with open(path) as f:
-        raw = f.read()
-
-    document = Document(doc_id="test", text=raw, source_path=path)
-    chunker = SplitTableParagraphChunker()
-    chunks = chunker.chunk(document)
-    print(f"Total chunks: {len(chunks)}\n")
-    for chunk in chunks:
-        print(chunk.text)
-        print("-" * 100)

@@ -22,14 +22,14 @@ from typing import Any
 class Document:
     """A single document flowing through the pipeline."""
 
-    # original nennen/entfernen?
+    # TODO: original nennen/entfernen?
     source_path: Path
     """Absolute path to the source file."""
 
     text: str = ""
     """Preprocessed plain-text content ready for chunking."""
 
-    # evtl entfernen
+    # TODO: consider whether preprocessor_name and doc_id should be merged
     preprocessor_name: str = ""
     """Name of the :class:`BasePreprocessor` that produced this document."""
 
@@ -54,12 +54,6 @@ class Chunk:
 
     chunker_name: str = ""
     """Name of the :class:`BaseChunker` that produced this chunk."""
-
-    # char_start: int | None = None
-    # """Character offset of the chunk's start within the source document text."""
-
-    # char_end: int | None = None
-    # """Character offset of the chunk's end within the source document text."""
 
     metadata: dict[str, Any] = field(default_factory=dict)
     """Arbitrary key-value pairs (page number, section heading, …)."""

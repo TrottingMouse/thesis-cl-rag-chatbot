@@ -1,10 +1,13 @@
 from .base import BasePreprocessor
 from google import genai
-import pdfplumber
-import os
-import time
-import random
 from google.genai import errors
+import logging
+import os
+import pdfplumber
+import random
+import time
+
+logger = logging.getLogger(__name__)
 
 _MODEL = "gemini-2.5-flash-lite"
 
@@ -93,13 +96,13 @@ Beschreibung:
             for t in tables
         ]
 
-        print(f"Submitting batch job with {len(inline_requests)} request(s)...")
+        logger.info("Submitting batch job with %d request(s)...", len(inline_requests))
         job = client.batches.create(
-            model=self.MODEL,
+            model=_MODEL,
             src=inline_requests,
             config={"display_name": "paper-llm-processor-tables"},
         )
-        print(f"Batch job created: {job.name}")
+        logger.info("Batch job created: %s", job.name)
 
         # Poll until the job reaches a terminal state
         terminal_states = {
@@ -110,11 +113,11 @@ Beschreibung:
         }
 
         while job.state not in terminal_states:
-            print(f"  Job state: {job.state}  — waiting {self.POLL_INTERVAL}s...")
+            logger.info("  Job state: %s — waiting %ds...", job.state, self.POLL_INTERVAL)
             time.sleep(self.POLL_INTERVAL)
             job = client.batches.get(name=job.name)
 
-        print(f"Batch job finished with state: {job.state}")
+        logger.info("Batch job finished with state: %s", job.state)
 
         if job.state != JobState.JOB_STATE_SUCCEEDED:
             raise RuntimeError(
@@ -129,14 +132,14 @@ Beschreibung:
         for i, resp in enumerate(responses):
             # Good practice: Check if this specific inline request failed
             if resp.error:
-                print(f"  Warning: Request {i} failed with error: {resp.error}")
+                logger.warning("  Request %d failed with error: %s", i, resp.error)
                 text = ""
             elif resp.response:
                 try:
                     # Use the SDK's built-in .text shortcut for cleaner extraction
                     text = resp.response.text.strip()
                 except AttributeError as exc:
-                    print(f"  Warning: could not extract text for request {i}: {exc}")
+                    logger.warning("  Could not extract text for request %d: %s", i, exc)
                     text = ""
             else:
                 text = ""
@@ -300,13 +303,10 @@ class DirectLLMProcessor(BasePreprocessor):
         with open(source_path, 'r') as f:
             text = f.read()
             
-        
-        # Build the prompt once outside the loop to save processing time
         prompt_contents = self._build_prompt(text)
-        
-        max_retries = 5
-        base_delay = 2.0  # Starts with a 2-second delay
 
+        max_retries = 5
+        base_delay = 2.0
         client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
         for attempt in range(max_retries):
@@ -317,29 +317,22 @@ class DirectLLMProcessor(BasePreprocessor):
                     service_tier='flex'
                 )
                 return interaction.output_text
-                                
+
             except (errors.ServerError, errors.APIError) as e:
-                # Safely extract the status code (503 for ServerError, 429 for APIError)
                 status_code = getattr(e, 'code', None)
-                
-                # Check if the error is a temporary bottleneck we can wait out
                 if status_code in [503, 429] or "503" in str(e):
                     if attempt < max_retries - 1:
-                        # Exponential backoff: 2s, 4s, 8s, 16s + 1-3 seconds of random jitter
+                        # TODO: the retry logic here is identical to LumberChunker._call_llm;
+                        # consider extracting a shared _gemini_call_with_retry() helper.
                         sleep_time = (base_delay * (2 ** attempt)) + random.uniform(1.0, 3.0)
-                        print(f"[API {status_code}] Backend stalled. Retrying in {sleep_time:.1f}s... (Attempt {attempt + 1}/{max_retries})")
+                        logger.warning(
+                            "[API %s] Backend stalled. Retrying in %.1fs... (Attempt %d/%d)",
+                            status_code, sleep_time, attempt + 1, max_retries
+                        )
                         time.sleep(sleep_time)
                     else:
-                        raise RuntimeError(f"Failed to process document after {max_retries} attempts due to API limits. Last error: {e}")
+                        raise RuntimeError(
+                            f"Failed to process document after {max_retries} attempts due to API limits. Last error: {e}"
+                        )
                 else:
-                    # If it's a 400 Bad Request (e.g., token limit exceeded, bad JSON), 
-                    # retrying won't fix it. Raise the error immediately.
                     raise e
-
-
-
-# tables, text_blocks = _extract_interleaved_content("documents/MHB.pdf")
-
-# print(tables[2]['caption'])
-# print(tables[2]['data'])
-# print(text_blocks)

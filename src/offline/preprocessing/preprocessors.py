@@ -2,55 +2,48 @@ from pathlib import Path
 
 from docling.document_converter import DocumentConverter, PdfFormatOption
 from docling.datamodel.pipeline_options import PdfPipelineOptions, TableFormerMode
-
 import pdfplumber
+import re
 
 from src.models import Document
 from .base import BasePreprocessor
-import re
-from google import genai
+
 
 class GeminiMarkdownProcessor(BasePreprocessor):
     """
-    A dummy preprocessor. Just loads the documents converted by Gemini 3.1 Pro.
+    Loads documents pre-converted to Markdown by Gemini (external conversion step).
+
+    Does not perform any conversion itself – :meth:`process_document` raises
+    ``FileNotFoundError`` to signal that the document must be in the cache.
     """
-    def __init__(self):
-        super().__init__()
 
     @property
     def name(self) -> str:
         return "markdown_gemini"
 
     def process_document(self, source_path: str) -> str:
-        # This preprocessor only works from cache; actual conversion is done externally.
         raise FileNotFoundError(
             f"Gemini markdown document not found in cache. "
             f"Run the external Gemini conversion first."
         )
 
+
 class DoclingMarkdownProcessor(BasePreprocessor):
     """
-    A preprocessor that uses Docling to convert raw documents (e.g. PDFs)
-    into Markdown.
+    Converts raw documents (e.g. PDFs) to Markdown using Docling.
 
-    The underlying Docling ``DocumentConverter`` (which loads heavyweight
-    TableFormer AI models) is initialised **lazily**: it is only created on
-    the first call to :meth:`process_document`.  Because the base-class
-    :meth:`~base.BasePreprocessor.preprocess` only calls
-    :meth:`process_document` on a cache miss, instantiating this preprocessor
-    when all documents are already cached does not pay any model-loading cost.
+    The Docling ``DocumentConverter`` (which loads heavyweight TableFormer AI
+    models) is initialised **lazily** on the first cache miss, so instantiating
+    this preprocessor when all documents are already cached is free.
     """
 
     def __init__(self):
-        super().__init__()
         self._converter = None  # lazy – initialised on first cache miss
 
     def _build_converter(self):
         """Construct and return a configured Docling DocumentConverter."""
         pipeline_options = PdfPipelineOptions(do_table_structure=True)
-        # Force the high-accuracy TableFormer variant
         pipeline_options.table_structure_options.mode = TableFormerMode.ACCURATE
-        # Rely on visual prediction rather than messy PDF text cells
         pipeline_options.table_structure_options.do_cell_matching = False
         return DocumentConverter(
             format_options={
@@ -69,14 +62,8 @@ class DoclingMarkdownProcessor(BasePreprocessor):
         return result.document.export_to_markdown()
 
 
-
 class RawTextProcessor(BasePreprocessor):
-    """
-    A preprocessor that converts PDF documents to raw text documents.
-    """
-
-    def __init__(self):
-        super().__init__()
+    """Extracts plain text from PDF documents using pdfplumber."""
 
     @property
     def name(self) -> str:
