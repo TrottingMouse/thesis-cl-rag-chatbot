@@ -193,8 +193,26 @@ Finally, the architecture is designed for easy maintenance of the knowledge base
 \subsection{Document preprocessing}
 As two of the documents contain tables, a direct conversion to raw, unformatted text is not sensible. \textcite{min2024exploring} identified four methods to handle tables for RAG. First, the table can be converted to Markdown. Second, it can be converted to simple sentences using automatic templates.
 Third, traditional (non-generative) language models can be finetuned for this task. Fourth, LLMs can be used to convert the tables to linearized text. In a comparison of the four strategies, LLM-based conversion performed best, followed by Markdown, which still gave good generation results.
-Thus, for the RAG pipeline, both Markdown and LLM-based conversion are used. For conversion to Markdown, Docling \parencite{Docling} and conversion by an LLM are tested. Docling is a framework based on pre-trained lightweight vision models and a deep learning model specialized on table conversion. The prompt for the conversion via LLM can be found in appendix \ref{sec:preprocessing_prompts}. \\
-For conversion to text by an LLM, the technique from Min et al. and a self-written prompt are compared. In the paper, the table is first converted into a nested bracket structure and then converted to text by the LLM. The conversion prompt from the paper is translated into German. The self-written prompt (see appendix~\ref{sec:preprocessing_prompts}) takes the documents in Markdown and converts them directly to text.\footnote{Parts of this section have been taken from the previous literature review}
+Thus, for the RAG pipeline, both Markdown and LLM-based conversion are used. For conversion to Markdown, Docling \parencite{Docling} and conversion by an LLM are tested. Docling is a framework based on pre-trained lightweight vision models and a deep learning model specialized on table conversion. The prompt for the conversion via LLM can be found in Listing \ref{lst:markdown_prompt}. \\
+\begin{lstlisting}[breaklines=true, basicstyle=\ttfamily,caption={Prompt for conversion to Markdown}, label=lst:markdown_prompt]
+Convert this document to markdown. Pay attention to table structure and the separation of tables and modules.
+\end{lstlisting}
+For conversion to text by an LLM, the technique from Min et al. and a self-written prompt are compared. In the paper, the table is first converted into a nested bracket structure and then converted to text by the LLM. The conversion prompt from the paper is translated into German. The self-written prompt (see Listing~\ref{lst:direct_llm}) takes the documents in Markdown and converts them directly to text.\footnote{Parts of this section have been taken from the previous literature review}
+\begin{lstlisting}[breaklines=true, basicstyle=\ttfamily,caption={Prompt for Linearization from Markdown to Text}, label=lst:direct_llm]
+Wandle das folgende Markdown-Dokument in klaren, informationsdichten Fließtext um, der für eine semantische Suchmaschine (RAG-Pipeline) optimiert ist.
+
+Befolge dabei strikt diese Regeln:
+1. Informationserhalt: Übernimm ausnahmslos jede Information, jede Zahl und jedes Detail.
+2. Hohe Entitätsdichte (WICHTIG): Vermeide Pronomen (er, sie, es, diese) über Absatzgrenzen hinweg. Wiederhole stattdessen immer wieder die konkreten Eigennamen, Produktnamen oder Fachbegriffe, damit jeder Absatz auch isoliert verständlich bleibt.
+3. Tabellen & Listen: Wandle Tabellen und Aufzählungen in zusammenhängende Textabsätze um. Formuliere die Beziehungen zwischen Spalten/Zeilen in ganzen Sätzen aus.
+4. Überschriften als Kontext: Nutze Überschriften, um den darauffolgenden Absatz mit einem klaren Kontext-Satz zu beginnen (z. B. statt nur "Spezifikationen:" -> "Die technischen Spezifikationen des Geräts X umfassen...").
+5. Formatierung: Entferne alle Markdown-Zeichen (*, #, -, |). Behalte klare Absatzumbrüche bei, um logische Trennungen beizubehalten.
+
+Input Text:
+---
+{text}
+---
+\end{lstlisting}
 \subsection{Chunking}
 With early transformer models and the first RAG systems, chunking was only done in a fixed size of tokens, words or characters \parencite{dai2019transformer, lewis2020retrieval}. For this thesis, Fixed Character Chunking was implemented as a baseline chunker. With Dynamic Token Chunking and Fixed Paragraph Chunking, two other simple deterministic Chunkers were implemented. Dynamic Token Chunking sets a maximum number of tokens and cuts off at the last sentence ending before the limit. Fixed Character Chunking packs a fixed number of paragraphs into one chunk. Fixed Character Chunking and Fixed Paragraph Chunking are used in combination with both preprocessing techniques, while Dynamic Token Chunking is only used with linearized text, as it needs sentences for splitting and does not work with Markdown tables.\\
 A big problem of chunking in general, and especially fixed-size chunking, is the splitting of contexts (context problem). A word or a sentence in one chunk can reference parts of the previous chunk or even a more distant one. This information gets lost in the chunking process. The first solution to this problem, which was derived from the training of BERT \parencite{devlin2019bert}, was overlapping chunks. Overlap is a certain number of tokens or characters that two adjacent chunks share, giving the beginning and the end of a chunk more context. For Fixed Character Chunking, Fixed Paragraph Chunking, and Dynamic Token Chunking, an overlap is tested in the experiments.\\
@@ -202,7 +220,24 @@ Another solution to the context problem is semantic chunking. This method embeds
 An alternative approach to deal with the context problem is improving the workflow of chunking. Contextual Retrieval addresses it by prepending contextual text to every chunk, situating it inside the bigger document. This significantly reduces the retrieval failure rate \parencite{anthropic2024contextual}. JinaAI proposed a more profound change to the retrieval pipeline. Late Chunking embeds all tokens first so the word embeddings have the context of the whole text. Only then are the documents chunked using any chunking algorithm. In the end, mean pooling is done on the vectors in each chunk \parencite{gunther2024late}. However, both methods are more sensible for in-corpus retrieval, meaning retrieval from a big, thematically heterogenous corpus. For this thesis, there are only three, thematically homogenous documents included, making the task more similar to in-document retrieval (retrieval from one long, homogenous document). Here, contextualized chunking with standard methods is not advised \parencite{zhou2026beyond}. Instead, two structure-based methods enriching table chunks with context were implemented specifically for the documents.\\
 The first one, Whole Table Paragraph Chunker, splits the structured Markdown documents into entire tables (for fPO) or modules (for MH). Each table chunk receives the abbreviation legend and its heading as contextualization. The unstructured text in the Markdown documents is split into paragraphs.\\
 The second one, the Split Table Paragraph Chunker, splits semester tables at module boundaries. It also divides module descriptions by individual field lines. This makes retrieval more precise and reduces the context for the LLM. Because context gets lost here, the relevant semester or module headings are prepended to each chunk. Additionally, abbreviations are replaced by their full words, and sub-course letter references are resolved to their actual names.\\
-With transformer-based LLMs getting more reliable, the models were used for more mechanical tasks like chunking. LumberChunker successfully implemented this approach \parencite{duarte2024lumberchunker}. The document is split into paragraphs. Iteratively, all paragraphs up to a certain token length are fed to an LLM to decide where the content changes, which is where the current chunk is cut. The resulting chunks align closely with manually created chunks and thus perform quite well. For in-document retrieval, LumberChunker performed particularly well in a comparative study \parencite{zhou2026beyond}. Thus, LumberChunker was selected as one of the chunkers for the chunking experiments for linearized text.\footnote{Parts of this section have been taken from the previous literature review}
+With transformer-based LLMs getting more reliable, the models were used for more mechanical tasks like chunking. LumberChunker successfully implemented this approach \parencite{duarte2024lumberchunker}.
+The document is split into paragraphs. Iteratively, all paragraphs up to a certain token length are fed to an LLM to decide where the content changes, which is where the current chunk is cut. The resulting chunks align closely with manually created chunks and thus perform quite well.
+For in-document retrieval, LumberChunker performed particularly well in a comparative study \parencite{zhou2026beyond}. Thus, LumberChunker was selected as one of the chunkers for the chunking experiments for linearized text. The prompt from the original LumberChunker paper was translated into German (Listing \ref{lst:lumberchunker_prompt_de}).\footnote{Parts of this section have been taken from the previous literature review}
+\begin{lstlisting}[breaklines=true, basicstyle=\ttfamily, label=lst:lumberchunker_prompt_de, caption={LumberChunker translated Prompt},]
+    Du wirst als Eingabe ein deutsches Dokument mit Paragraphen erhalten, die durch 'ID XXXX: <text>' identifiziert werden.
+
+    Aufgabe: Finde den ersten Paragraphen (nicht der erste), bei dem sich der Inhalt im Vergleich zu den vorherigen Paragraphen deutlich ändert.
+
+    Ausgabe: Gib die ID des Paragraphen mit dem Inhaltswechsel im Format zurück: 'Answer: ID XXXX'.
+
+    WICHTIGE REGELN:
+    1. Erkläre NICHT deine Gedankengänge.
+    2. Gib NUR die ID des Paragraphen mit dem Inhaltswechsel im Format zurück: 'Answer: ID XXXX'.
+    3. Vermeide sehr lange Gruppen von Paragraphen. Strebe ein gutes Gleichgewicht zwischen der Identifizierung von Inhaltswechseln und der Beibehaltung handhabbarer Gruppen an.
+
+    Dokument:
+    {window_text}
+\end{lstlisting}
 \subsection{Indexing and Retrieval}
 After chunking, the chunks are embedded using a sentence transformer model. The model used is jinaai/jina-embeddings-v5-nano, a cutting-edge embedding model with only 239M parameters \parencite{akram2026jina}. A particularly small model was chosen in order to keep resource usage limited, also for indexing and retrieval. FAISS was used for vector storage \parencite{douze2024faiss}.\\
 \subsection{Query expansion}
@@ -218,6 +253,8 @@ Several RAG frameworks created by previous papers were tested or considered but 
 TableRAG \parencite{chen2024tablerag} uses an LLM to create queries for pandas. However, this does not take mixed documents into consideration, where there are both text and tables. Another TableRAG framework based on SQL \parencite{yu2025tablerag} takes both into account. However, the integration for the experiments and especially for later deployment was too complex due to database connections and a complex architecture.\\
 TabRAG \parencite{si2025tabrag} separates and includes both text and tables into RAG using a vision learning model. This was tested on the faculty GPU server, but the model turned out to be too large for the resources available on the server.\\
 MiniRAG \parencite{fan2025minirag} is a graph-based framework specifically designed for SLMs. It extracts entities and relationships from the documents and links entities to context. With the university documents, this method was hardly functionable. Some entities could be extracted, but the algorithm detected no relationships between them. Thus, the elaborate retrieval algorithm could did work and the generation results were worse than even for simple chunkers.
+
+
 \section{Experiments}
 \subsection{Evaluation Setup}
 Due to the large variety in preprocessing and chunking techniques, the retrieved chunks of different experiments are very different in structure and content. Thus, classic retrieval evaluation techniques like determining precision and recall from token spans fail here or would come with a huge manual overhead. Instead, an LLM is used to evaluate retrieval and generation results (LLM-as-a-judge). Previous studies using GPT-4 have shown that LLMs achieve an agreement rate on par with the inter-annotator agreement for this task \parencite{liu2023g,zheng2023judging}. In order to counter the problem of LLMs favoring their own answers \parencite{chen2025llm}, GPT 4o-mini is used for evaluation, as most of the preprocessed chunks were generated by Google Gemini.\\
@@ -226,7 +263,11 @@ Instead, two other metrics from the RAGAS package are used. The first is context
 $$\text{F1 Score} = \frac{|\text{TP}|}{(|\text{TP}| + 0.5 \times (|\text{FP}| + |\text{FN}|))}$$
 TP (true positives) are facts extracted from the generated answer that are present in the reference answer. FP (false positives) are facts present in the generated answer that are not present in the reference answer. FN (false negatives) are facts present in the reference answer that are not present in the generated answer.
 Answer correctness is the main metric for evaluating the pipeline. The goal of this paper is to find a pipeline configuration that works well in combination with the SLM and answer correctness tests the overall result. However, the other metrics can help to identify problems with certain pipeline configurations.\\
-An important attribute of RAG pipelines which cannot be captured by the previous four metrics is negative rejection. This is the ability to reject questions which cannot be answered with the given context. In order to measure negative rejection, a second dataset containing 15 unanswerable questions was created. Some of these questions are thematically closely related to the documents and some are very distant. For the RAGAS framework, a metric with a custom prompt was implemented to measure negative rejection (see appendix \ref{sec:eval_prompts}).\\
+An important attribute of RAG pipelines which cannot be captured by the previous four metrics is negative rejection. This is the ability to reject questions which cannot be answered with the given context. In order to measure negative rejection, a second dataset containing 15 unanswerable questions was created. Some of these questions are thematically closely related to the documents and some are very distant. For the RAGAS framework, a metric with a custom prompt was implemented to measure negative rejection (see Listing \ref{lst:neg_rejection_prompt}).\\
+
+\begin{lstlisting}[breaklines=true, basicstyle=\ttfamily, caption={Negative Rejection Prompt}, label={lst:neg_rejection_prompt}]
+    Did the model reject the query as not answerable from the given context?
+\end{lstlisting}
 
 \subsection{Pipeline Configuration}
 The RAG pipeline encompasses numerous configurable components and hyperparameters. Because evaluation using LLM-as-a-judge is computationally and resource-intensive, exhaustive grid searches across the entire parameter space are impractical. To address this, four preliminary sequential experiments are conducted to independently optimize document preprocessing, chunking hyperparameters, context size, and query expansion prior to the main evaluation. In each stage, the optimal parameters identified in preceding steps are adopted. For instance, following the preprocessing benchmark, only the top-performing preprocessors are evaluated in subsequent pipeline stages. To conserve computational resources during parameter tuning, these preliminary experiments are executed on a representative, thematically balanced subset of 15 question-answer pairs drawn from the primary evaluation dataset.
@@ -487,47 +528,6 @@ For chatbot deployment, the repository can be made more performant using lazy im
 \printbibliography[title={References}]
 
 \appendix
-\section{Prompts}
-\subsection{Preprocessing}
-\label{sec:preprocessing_prompts}
-GeminiMarkdownProcessor:
-\begin{lstlisting}[breaklines=true, basicstyle=\ttfamily]
-Convert this document to markdown. Pay attention to table structure and the separation of tables and modules.
-\end{lstlisting}
-DirectLLMProcessor:
-\begin{lstlisting}[breaklines=true, basicstyle=\ttfamily]
-Wandle das folgende Markdown-Dokument in klaren, informationsdichten Fließtext um, der für eine semantische Suchmaschine (RAG-Pipeline) optimiert ist.
-
-Befolge dabei strikt diese Regeln:
-1. Informationserhalt: Übernimm ausnahmslos jede Information, jede Zahl und jedes Detail.
-2. Hohe Entitätsdichte (WICHTIG): Vermeide Pronomen (er, sie, es, diese) über Absatzgrenzen hinweg. Wiederhole stattdessen immer wieder die konkreten Eigennamen, Produktnamen oder Fachbegriffe, damit jeder Absatz auch isoliert verständlich bleibt.
-3. Tabellen & Listen: Wandle Tabellen und Aufzählungen in zusammenhängende Textabsätze um. Formuliere die Beziehungen zwischen Spalten/Zeilen in ganzen Sätzen aus.
-4. Überschriften als Kontext: Nutze Überschriften, um den darauffolgenden Absatz mit einem klaren Kontext-Satz zu beginnen (z. B. statt nur "Spezifikationen:" -> "Die technischen Spezifikationen des Geräts X umfassen...").
-5. Formatierung: Entferne alle Markdown-Zeichen (*, #, -, |). Behalte klare Absatzumbrüche bei, um logische Trennungen beizubehalten.
-
-Input Text:
----
-{text}
----
-\end{lstlisting}
-\subsection{Chunking}
-\label{sec:chunking_promts}
-LumberChunker:
-\begin{lstlisting}[breaklines=true, basicstyle=\ttfamily]
-    Du wirst als Eingabe ein deutsches Dokument mit Paragraphen erhalten, die durch 'ID XXXX: <text>' identifiziert werden.
-
-    Aufgabe: Finde den ersten Paragraphen (nicht der erste), bei dem sich der Inhalt im Vergleich zu den vorherigen Paragraphen deutlich ändert.
-
-    Ausgabe: Gib die ID des Paragraphen mit dem Inhaltswechsel im Format zurück: 'Answer: ID XXXX'.
-
-    WICHTIGE REGELN:
-    1. Erkläre NICHT deine Gedankengänge.
-    2. Gib NUR die ID des Paragraphen mit dem Inhaltswechsel im Format zurück: 'Answer: ID XXXX'.
-    3. Vermeide sehr lange Gruppen von Paragraphen. Strebe ein gutes Gleichgewicht zwischen der Identifizierung von Inhaltswechseln und der Beibehaltung handhabbarer Gruppen an.
-
-    Dokument:
-    {window_text}
-\end{lstlisting}
 \subsection{Query Expansion}
 \label{sec:query_expansion_prompts}
 HyDE:
@@ -544,10 +544,6 @@ Query2Doc:
     {query}
     Gib die Begründung an, bevor du antwortest.
 \end{lstlisting}
-\subsection{Evaluation}
-\label{sec:eval_prompts}
-Context Rejection:
-\begin{lstlisting}[breaklines=true, basicstyle=\ttfamily]
-    Did the model reject the query as not answerable from the given context?
-\end{lstlisting}
+
+
 \end{document}
