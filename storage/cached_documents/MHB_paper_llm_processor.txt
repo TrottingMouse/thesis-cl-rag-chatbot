@@ -1,0 +1,356 @@
+Modulhandbuch BA Computerlinguistik (integrativ) PO 2025
+Modulhandbuch für den Studiengang
+Computerlinguistik (integrativ)
+im Bachelorstudium der Philosophischen Fakultät der Heinrich-Heine-Universität Düsseldorf
+Stand: 20.01.2026
+PO 2025
+Inhalt
+Ziele des Studiums 2
+Aufbau des Studiums 2
+Modul: Basismodul – Mathematische und logische Grundlagen 4
+Modul: Basismodul – Grundlagen der Computerlinguistik und formale Grammatikbeschreibung 6
+Modul: Basismodul – Python-Programmierung 8
+Modul: Basiswissen Linguistik – Morphologie und Syntax 10
+Modul: Basiswissen Linguistik – Semantik und Pragmatik 12
+Modul: Basismodul – Statistische Methoden in der Computerlinguistik 14
+Modul: Aufbaumodul – Maschinelles Lernen 16
+Modul: Aufbaumodul – Mathematische Linguistik 18
+Modul: Aufbaumodul – Parsing 20
+Modul: Aufbaumodul – Logische Programmierung 22
+Modul: Aufbaumodul – Objektorientierte Programmierung 24
+Modul: Praktikum & Orientierung 26
+Modul: Vertiefungsmodul – Interdisziplinär 28
+Modul: Vertiefungsmodul – Computerlinguistik 1 30
+Modul: Vertiefungsmodul – Computerlinguistik 2 32
+Modul: Abschlussarbeit und Forschungskolloquium 34
+Modulhandbuch BA Computerlinguistik (integrativ) PO 2025
+Ziele des Studiums
+Der integrative Bachelorstudiengang Computerlinguistik leistet eine breite computerlinguistische Ausbil-
+dung. Die Studierenden erwerben im Rahmen der ersten beiden Jahre Wissen über die Komplexität
+sprachlicher Erscheinungen, Methodenkenntnisse und -fertigkeiten sowohl im Bereich der symbolischen
+Sprachverarbeitung als auch im Bereich des maschinellen Lernens und der künstlichen Intelligenz, und
+Programmierkenntnisse auf hohem Niveau. Dieses Wissen wird im dritten Jahr weiter ausgebaut und im
+Rahmen eines Praktikums und der Abschlussarbeit im Kontext konkreter Fragestellungen angewendet.
+Damit sind die Absolventen des Studiengangs optimal vorbereitet auf eine berufliche Tätigkeit z.B. in den
+Bereichen elektronische Informationsverarbeitung, Sprachressourcenmanagement, maschinelle Sprach-
+verarbeitung und Sprachtechnologie.
+Die Studierenden erwerben außerdem besonders in den Aufbau- und Vertiefungsmodulen die Fähigkeit,
+relevante Informationen im Bereich der Computerlinguistik zu sammeln, zu bewerten und zu interpretieren
+und daraus wissenschaftlich fundierte Urteile abzuleiten, z.B. auch über gesellschaftsrelevante Aspekte
+von Sprachtechnologien wie etwa den Einsatz von Methoden der künstlichen Intelligenz in großen Sprach-
+modellen. Die Absolventen können sich selbständig in neue Themengebiete einarbeiten und neue Fähig-
+keiten lernen. Sie können sich mit Informatikern, Sprachwissenschaftlern und Laien über Informationen,
+Ideen, Probleme und Lösungen austauschen. Dank der Interdisziplinarität des Faches lernen sie außer-
+dem, über Fachgrenzen hinweg zwischen unterschiedlichen Standpunkten zu vermitteln und multidiszip-
+linäre Zusammenarbeit zu gestalten. Damit sind sie optimal auf einen anschließenden Masterstudiengang,
+z.B. im Bereich Sprachtechnologie oder Künstliche Intelligenz oder im Bereich Linguistik vorbereitet.
+Aufbau des Studiums
+Grob lässt sich das Studium in drei Phasen einteilen: Die ersten zwei Semester sind dem Erwerb von
+Basiswissen gewidmet, Semester 3 und 4 dem Aufbau weiterer Fachkompetenzen und die letzten beiden
+Semester der weiteren Spezialisierung und dem Studienabschluss.
+Phase 1 Erwerb von Basiswissen für die Computerlinguistik: Hierzu gehört die Vermittlung mathema-
+tischer und logischer Konzepte und Methoden, die für die Computerlinguistik wesentlich sind, eine Einfüh-
+rung in die Computerlinguistik, die einen Überblick über zentrale computerlinguistische Fragestellungen
+und gängige Methoden in diesen Bereichen gibt, der Erwerb von Kenntnissen über Formalismen und Me-
+thoden der Grammatikmodellierung und eine Einführung in die Statistik. Dies wird ergänzt durch Einfüh-
+rungen in die für die Computerlinguistik zentralen sprachwissenschaftlichen Bereiche Morphologie/Syntax
+und Semantik/Pragmatik. Desweiteren sieht der Studienplan für das erste Jahr einen Einstieg in compu-
+terlinguistische Programmierung mit Python vor, die neben Grundlagen auch aktuelle Methoden der
+Sprachtechnologie vermittelt.
+Phase 2 Aufbau von Fachkompetenzen für die Computerlinguistik Methodisch lernt man in dieser
+zweiten Phase die für die datengetriebene Computerlinguistik so zentralen Bereiche des Maschinellen
+Lernens und des Deep Learnings (also maschinelles Lernen mit künstlichen neuronalen Netzen) kennen,
+aufbauend auf dem Wissen über Fragestellungen und Repräsentationen der Computerlinguistik und auf
+soliden Kenntnissen der Programmiersprache Python (siehe Phase 1). Parallel dazu gewinnen die Stu-
+dierenden Einblick in linguistische Ressourcen. Daneben werden in dieser Phase weitere Paradigma von
+Programmiersprachen vermittelt, nämlich objektorientiertes Programmieren und, im Kontext von Themen
+der computationellen Semantik, entweder logische oder funktionale Programmierung. Außerdem werden
+die Bereiche syntaktische Verarbeitung und Automatentheorie und formale Sprachen in Hinblick auf com-
+puterlinguistische Problemstellungen vertieft. Als Übergang zur Phase 3 ist zudem eine Orientierung in
+Hinblick auf mögliche Spezialisierungen vorgesehen.
+Phase 3 Spezialisierung und Berufsorientierung Im letzten Studienjahr geht es darum, aufbauend auf
+den vorher erworbenen Grundlagen und Methoden, Fachkompetenzen weiter auszubauen und sich (1)
+über die Wahl der Bereiche, in denen im letzten Jahr APs abgelegt werden, (2) über die Durchführung
+eines Praktikums und (3) über das Thema der Abschlussarbeit weiter zu spezialisieren und in Richtung
+möglicher anschließender Tätigkeitsfelder zu orientieren. Zum einen werden im Rahmen der beiden com-
+puterlinguistischen Vertiefungsmodule regelmäßig eine Reihe von unterschiedlichen thematischen Semi-
+naren angeboten werden, aus denen die Studierenden frei wählen können. In einem der Seminare, im
+2
+Modulhandbuch BA Computerlinguistik (integrativ) PO 2025
+Vertiefungsmodul 2, muss eine MP angelegt werden. Themen dieser Seminare sind z.B. Vektorsemantik,
+große Sprachmodelle, Transformer-Architekturen in computerlinguistischen Anwendungen, Advanced
+Constituency Parsing, Dependency Parsing, Finite-State Morphology, Semantic Role Labeling, Discourse
+Representation Theory, Fuzzy Logic usw. Daneben gibt es das interdisziplinäre Vertiefungsmodul, in dem
+den Studierenden ermöglicht wird, neben Veranstaltungen aus der Computerlinguistik auch Veranstaltun-
+gen aus Linguistik und Informatik zu belegen, die nicht notwendig dezidiert computerlinguistisch sind. Im
+Rahmen dieses Moduls muss mindestens eine Veranstaltung aus der Informatik belegt werden. Neben
+diesen Modulen, die relativ flexibel Spezialisierungen in Computerlinguistik, Linguistik und Informatik er-
+lauben, ist im letzten Jahr ein Praktikum zur Berufsorientierung und die Anfertigung der Bachelorarbeit
+vorgesehen. Letztere wird in der Regel im letzten Semester durchgeführt, wobei parallel das Forschungs-
+kolloquium der Computerlinguistik besucht wird, wodurch interessante Einblicke in aktuelle Forschungs-
+themen geboten werden und Anregungen und Inspiration für die Bachelorarbeit gewonnen werden kann.
+Das 5. Semester kann als Mobilitätssemester gewählt werden, da in den Vertiefungsmodulen auch
+Kurse aus anderen Universitäten anerkannt werden können.
+3
+Die Tabelle liefert Informationen zum Modul "Basismodul – Mathematische und logische Grundlagen" des Modulhandbuchs für BA Computerlinguistik (integrativ) PO 2025. Das Modul hat die Modulnummer 2100 und erfordert 12 ECTS-Leistungspunkte mit einem Workload von 360 Stunden, verteilt über ein Semester. Es besteht aus zwei Lehrveranstaltungen: "Einführung in die computationelle Logik" (Seminar & Übung, 2101) und "Mathematische Grundlagen" (Seminar, 2102). Beide Lehrveranstaltungen werden im 1. Fachsemester (Wintersemester) jedes Wintersemesters angeboten und sind für jeweils ca. 60 Studierende geplant. Die Kontaktzeit für jede Lehrveranstaltung beträgt 4 SWS / 60 Stunden / 2 ECTS-Leistungspunkte, und das Selbststudium ist für jede ebenfalls mit 60 Stunden / 2 ECTS-Leistungspunkten angegeben. Die Modulprüfung erfordert 4 ECTS-Leistungspunkte.
+
+Die Inhalte des Moduls umfassen die Aufbereitung und Vertiefung mathematischer Schulkenntnisse für den Einsatz formaler Methoden, einschließlich Mengenlehre, Vektorrechnung und Beweisführung. Des Weiteren werden die Bedeutung der Logik, der Unterschied zwischen menschlicher und formaler Sprache, sowie Aussagenlogik, Prädikatenlogik, Modelle, Wahrheitswerte und formale Beweise behandelt. Die angestrebten Lernergebnisse beinhalten das Beherrschen wesentlicher logischer und mathematischer Verfahren und deren Anwendung, um die wichtigsten Methoden der formalen Linguistik und Computerlinguistik zu verstehen.
+
+Es gibt keine formalen oder inhaltlichen Teilnahmevoraussetzungen. Die Prüfungsform ist ein Portfolio (Pnr. 2110). Für die Zulassung zur Modulprüfung und die Vergabe von ECTS-Leistungspunkten sind erbrachte Studienleistungen in den Lehrveranstaltungen (a) und (b) sowie eine bestandene Modulprüfung erforderlich.
+4
+Modulhandbuch BA Computerlinguistik (integrativ) PO 2025
+Sonstige Informationen
+-keine-
+5
+Das Modulhandbuch beschreibt das Modul "Basismodul – Grundlagen der Computerlinguistik und formale Grammatikbeschreibung" (Modul-Nummer 2200) für den BA Computerlinguistik (integrativ) PO 2025. Es umfasst 12 ECTS-Leistungspunkte und hat einen Workload von 360 Stunden über 2 Semester.
+
+Das Modul besteht aus folgenden Lehrveranstaltungen:
+*   **a: Einführung in die Computerlinguistik (Seminar)** (Modul-Nummer 2201)
+*   **b: Einführung in die Computerlinguistik (Übung)** (Modul-Nummer 2202)
+*   **c: Grammatikformalismen (Seminar)** (Modul-Nummer 2203)
+*   **d: Grammatikformalismen (Übung)** (Modul-Nummer 2204)
+
+Die Belegung erfordert die Teilnahme am Seminar (a) mit Übung (b) sowie am Seminar (c) mit Übung (d). Die empfohlenen Studiensemester sind das 1. Fachsemester (Wintersemester) für (a) und (b) sowie das 2. Fachsemester (Sommersemester) für (c) und (d). Die Prüfung findet im 2. Fachsemester (Sommersemester) statt.
+
+Die Lehrveranstaltungen werden jedes Wintersemester (a und b) bzw. jedes Sommersemester (c und d) angeboten. Geplant ist eine Gruppengröße von ca. 60 Studierenden pro Lehrveranstaltung.
+
+Die Kontaktzeit beträgt für jede Lehrveranstaltung 2 SWS, was 30 Stunden und 1 ECTS-Leistungspunkt entspricht. Das Selbststudium für jede Lehrveranstaltung beträgt 30 Stunden und ebenfalls 1 ECTS-Leistungspunkt. Für die Modulprüfung werden 4 ECTS-Leistungspunkte vergeben.
+
+Die Inhalte des Seminars "Einführung in die Computerlinguistik" umfassen Ziele, Methoden und theoretische Ansätze der Computerlinguistik, einschließlich symbolischer Repräsentationen und datengetriebener Methoden. Das Seminar "Grammatikformalismen" führt in Methoden und Probleme der syntaktischen Modellierung mit Formalismen wie HPSG, TAG und CCG ein.
+
+Die angestrebten Lernergebnisse beinhalten Wissen über die Ziele der Computerlinguistik sowie Kenntnisse grundlegender formaler und probabilistischer Methoden und gängiger computerlinguistischer Formalismen zur Implementierung von Grammatiken.
+
+Es gibt keine formalen oder inhaltlichen Teilnahmevoraussetzungen. Die Prüfungsform ist eine Klausur (Pnr. 2210). Es gibt keine Voraussetzungen für die Zulassung zur Modulprüfung oder für die Vergabe von ECTS-Leistungspunkten, außer erbrachten Studienleistungen in den Lehrveranstaltungen und einer bestandenen Modulprüfung.
+
+Das Modul hat den englischen Titel "Basis module – introduction to computational linguistics and grammar formalisms".
+Voraussetzungen für die Zulassung zur Modulprüfung
+6
+Modulhandbuch BA Computerlinguistik (integrativ) PO 2025
+7
+Das Modulhandbuch für BA Computerlinguistik (integrativ) PO 2025 beschreibt das Basismodul "Python-Programmierung". Das Modul hat die Modulnummer 2300 und umfasst 12 ECTS-Leistungspunkte bei einem Workload von 360 Stunden über 2 Semester. Es besteht aus vier Lehrveranstaltungen: zwei Seminaren und zwei Übungen zur Einführung in die Programmierung mit Python (2301, 2302) sowie zwei Seminaren und zwei Übungen zur fortgeschrittenen Python-Programmierung mit NLP-Anwendungen (2303, 2304).
+
+Die Kurse sind wie folgt empfohlen:
+- Einführung in die Programmierung mit Python (Seminar und Übung) im 1. Fachsemester (Wintersemester).
+- Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar und Übung) im 2. Fachsemester (Sommersemester).
+
+Die Lehrveranstaltungen werden jedes Wintersemester (a, b) bzw. jedes Sommersemester (c, d) angeboten. Für alle Kurse ist eine geplante Gruppengröße von ca. 60 Studierenden vorgesehen. Die Kontaktzeit beträgt für jede Lehrveranstaltung 2 SWS (30 Stunden / 1 ECTS-Leistungspunkt). Das Selbststudium für jede Lehrveranstaltung ist auf 30 Stunden / 1 ECTS-Leistungspunkt angesetzt. Für die Modulprüfung sind 4 ECTS-Leistungspunkte (120 Stunden) vorgesehen.
+
+Die Inhalte des Moduls umfassen im Wintersemester die Grundlagen der Python-Programmierung, Datentypen, Programmkonstrukte und elementare Textverarbeitung. Im Sommersemester werden objektorientierte und funktionale Programmierung mit Python, der Einsatz von Programm-Bibliotheken in den Bereichen Data Science und NLP sowie Grundzüge der Software-Entwicklung behandelt.
+
+Die angestrebten Lernergebnisse beinhalten grundlegende und fortgeschrittene Programmierfähigkeiten in Python, Kenntnisse im Einsatz von Python für Data Science und NLP sowie die Fähigkeit zur Durchführung und Präsentation eines kleinen Software-Projekts.
+
+Es gibt keine formalen oder inhaltlichen Teilnahmevoraussetzungen. Die Prüfungsform ist eine Projektarbeit (Pnr. 2310). Für die Zulassung zur Modulprüfung sind keine Voraussetzungen erforderlich. Die Vergabe von ECTS-Leistungspunkten hängt von erbrachten Studienleistungen in den Lehrveranstaltungen (a, b und c, d) sowie der bestandenen Modulprüfung ab. Sonstige Informationen sind nicht vorhanden.
+8
+Modulhandbuch BA Computerlinguistik (integrativ) PO 2025
+9
+Das Modulhandbuch BA Computerlinguistik (integrativ) PO 2025 beschreibt das Modul "Basiswissen Linguistik – Morphologie und Syntax". Dieses Modul hat die Modul-Nummer 1300 und umfasst 9 ECTS-Leistungspunkte, mit einem Workload von 270 Stunden über ein Semester. Die Lehrveranstaltungen bestehen aus einer Vorlesung (a) und einem Tutorium (b), beide im ersten Fachsemester des Wintersemesters angeboten. Die Vorlesung wird jedes Wintersemester für ca. 150 Studierende angeboten und umfasst 4 SWS (60 Stunden / 2 ECTS-Leistungspunkte). Das Tutorium richtet sich an ca. 30 Studierende pro Gruppe und umfasst 2 SWS (30 Stunden / 1 ECTS-Leistungspunkt). Die Selbststudiumzeit beträgt 90 Stunden (3 ECTS-Leistungspunkte). Für die Modulprüfung werden 3 ECTS-Leistungspunkte vergeben.
+
+Die Inhalte der Vorlesung (a) konzentrieren sich auf syntaktische und morphologische Strukturen, insbesondere auf verbreitete Muster im Sprachvergleich und die Verbreitung sprachübergreifender Trends. Das Tutorium (b) dient der Übung der Vorlesungsinhalte und der Unterstützung bei Hausaufgaben und Klausurvorbereitung. Angestrebte Lernergebnisse sind grundlegende Kenntnisse in Morphologie und Syntax, die Fähigkeit zur Analyse morphologischer und syntaktischer Strukturen sowie die Klassifikation von Wortklassen, Satzgliedern, syntaktischen Funktionen, Morphemtypen und morphologischen Prozessen. Studierende sollen grundlegende Fragestellungen der Morphosyntax und verschiedene Erklärungsansätze kennenlernen. Es gibt keine Teilnahmevoraussetzungen oder Voraussetzungen für die Zulassung zur Modulprüfung. Die Prüfungsform ist eine Klausur (Pnr. 1310). Für die Vergabe von ECTS-Leistungspunkten sind erbrachte Studienleistungen in allen Lehrveranstaltungen und eine bestandene Modulprüfung erforderlich.
+10
+Modulhandbuch BA Computerlinguistik (integrativ) PO 2025
+Sonstige Informationen
+-keine-
+11
+Das Modulhandbuch BA Computerlinguistik (integrativ) PO 2025 beschreibt das Modul "Basiswissen Linguistik – Semantik und Pragmatik" mit dem englischen Titel "Basic expertise in linguistics – semantics and pragmatics". Die Modulnummer lautet 1400 und es werden 9 ECTS-Leistungspunkte vergeben, was einem Workload von 270 Stunden entspricht und über 1 Semester läuft.
+
+Das Modul besteht aus zwei Lehrveranstaltungen: "Semantik und Pragmatik (Vorlesung)" (1401) und "Tutorium zu Semantik und Pragmatik (Tutorium)" (1402). Beide Lehrveranstaltungen sind für die Belegung vorgesehen und werden im 2. Fachsemester im Sommersemester angeboten. Die geplante Gruppengröße für die Vorlesung beträgt ca. 150 Studierende, für das Tutorium ca. 30 Studierende pro Gruppe.
+
+Die Kontaktzeit für die Vorlesung beträgt 4 SWS (60 Stunden, 2 ECTS-Leistungspunkte) und für das Tutorium 2 SWS (30 Stunden, 1 ECTS-Leistungspunkt). Hinzu kommen 90 Stunden Selbststudium, die 3 ECTS-Leistungspunkte für die Modulprüfung ergeben.
+
+Die Inhalte des Moduls umfassen in der Semantik Grundlagen der Wort- und Satzsemantik, Bedeutungsbegriffe, semantische Relationen und theoretische Ansätze wie die Wahrheitsbedingungssemantik. In der Pragmatik werden die Sprechakttheorie, die Theorie der konversationellen Implikaturen und ihre Anwendungen, Presuppositions, Modelle kontextueller Informationen und Anaphora behandelt.
+
+Nach erfolgreichem Abschluss des Moduls sollen die Studierenden grundlegende Fachbegriffe aus Semantik und Pragmatik nennen und anwenden, Analysemethoden vergleichen, Sprache als Kommunikationsmittel verstehen und analysieren, sich selbstständig mit Lernmaterialien versorgen, Erkenntnisse strukturieren und präzise darstellen sowie ihre eigenständige Arbeit durch Hausaufgaben strukturieren können.
+
+Es gibt keine Teilnahmevoraussetzungen. Die Prüfungsform ist eine Klausur (Pnr. 1410). Ebenso gibt es keine Voraussetzungen für die Zulassung zur Modulprüfung. Für die Vergabe von ECTS-Leistungspunkten sind erbrachte Studienleistungen in allen Lehrveranstaltungen und die bestandene Modulprüfung erforderlich. Es gibt keine weiteren besonderen Informationen zu diesem Modul.
+12
+Modulhandbuch BA Computerlinguistik (integrativ) PO 2025
+13
+Das Modul "Basismodul – Statistische Methoden in der Computerlinguistik" mit der Modul-Nummer 2400 ist Teil des Modulhandbuchs BA Computerlinguistik (integrativ) PO 2025. Das Modul hat einen Workload von 180 Stunden über eine Dauer von 2 Semestern und vergibt 6 ECTS-Leistungspunkte. Die Lehrveranstaltungen umfassen "Wahrscheinlichkeitstheorie und Statistik" (Seminar und Übung, Modulnummer 2401) sowie "Linguistische Ressourcen" (Seminar, Modulnummer 2402).
+
+Die Belegung erfordert die Teilnahme an beiden Lehrveranstaltungen. Die empfohlene Belegung ist im 2. Fachsemester (Sommersemester) für die Wahrscheinlichkeitstheorie und Statistik und im 3. Fachsemester (Wintersemester) für Linguistische Ressourcen. Wahrscheinlichkeitstheorie und Statistik wird jedes Wintersemester angeboten, während Linguistische Ressourcen jedes Sommersemester angeboten wird. Die geplante Gruppengröße für beide Veranstaltungen beträgt jeweils etwa 60 Studierende.
+
+Die Kontaktzeit für Wahrscheinlichkeitstheorie und Statistik beträgt 4 SWS / 60 Stunden / 2 ECTS-Leistungspunkte, und für Linguistische Ressourcen 2 SWS / 30 Stunden / 1 ECTS-Leistungspunkt. Das Selbststudium für Wahrscheinlichkeitstheorie und Statistik beträgt 60 Stunden / 2 ECTS-Leistungspunkte, und für Linguistische Ressourcen 30 Stunden / 1 ECTS-Leistungspunkt. Es gibt keine ECTS-Leistungspunkte für die Modulprüfung und keine spezifischen Prüfungsformen oder Voraussetzungen für die Zulassung zur Modulprüfung.
+
+Die Inhalte des Moduls umfassen grundlegende Kenntnisse in Wahrscheinlichkeitstheorie und statistischen Methoden der Computerlinguistik sowie deren Anwendung mittels Korpora und Datensätzen. Behandelt werden Statistik und statistische Programmierung in einer geeigneten Programmiersprache (z.B. R) sowie der Aufbau und die Pflege linguistischer Ressourcen wie Korpora und Datenbanken. Die angestrebten Lernergebnisse beinhalten Kenntnisse der Grundlagen der Wahrscheinlichkeitstheorie und Grundbegriffe der Statistik, die Fähigkeit, statistische Analysen selbst zu konzipieren und zu implementieren, sowie die Fähigkeit, Korpora zu erstellen und für Experimente und Analysen durchzuführen.
+
+Die formalen Teilnahmevoraussetzungen sind keine, inhaltlich wird das Basismodul Mathematische und logische Grundlagen empfohlen.
+14
+Modulhandbuch BA Computerlinguistik (integrativ) PO 2025
+Voraussetzungen für die Vergabe von ECTS-Leistungspunkten
+Erbrachte Studienleistungen (SL) oder Hausaufgaben in allen Lehrveranstaltungen
+Sonstige Informationen
+-keine-
+15
+Die Tabelle gibt Auskunft über das Modulhandbuch BA Computerlinguistik (integrativ) PO 2025, speziell das Aufbaumodul Maschinelles Lernen.
+
+Das Modul trägt die Nummer 4100 und erfordert 12 ECTS-Leistungspunkte mit einem Workload von 360 Stunden über 2 Semester.
+
+Die Lehrveranstaltungen teilen sich auf in:
+a: Grundlagen des maschinellen Lernens (Seminar und Übung) mit der Modulnummer 4101
+b: Deep Learning (Seminar) mit der Modulnummer 4102
+
+Beide Lehrveranstaltungen werden als "Seminar mit Übung" bzw. "Seminar" belegt.
+Das empfohlene Studiensemester ist das 3. Fachsemester (Wintersemester) für a und das 4. Fachsemester (Sommersemester) für b. Die Prüfung findet im 4. Fachsemester statt.
+Das Modul wird jedes Wintersemester (a) und jedes Sommersemester (b) angeboten.
+Die geplante Gruppengröße beträgt jeweils ca. 60 Studierende.
+
+Die Kontaktzeit für a beträgt 4 SWS / 60 Stunden / 2 ECTS-Leistungspunkte und für b ebenfalls 4 SWS / 60 Stunden / 2 ECTS-Leistungspunkte.
+Das Selbststudium für a beträgt 60 Stunden / 2 ECTS-Leistungspunkte und für b ebenfalls 60 Stunden / 2 ECTS-Leistungspunkte.
+Für die Modulprüfung werden 4 ECTS-Leistungspunkte vergeben.
+
+Die Inhalte umfassen Methoden des modernen maschinellen Lernens, basierend auf Vektorrepräsentationen. Teil a behandelt grundlegende, meist lineare Methoden wie lineare/logistische Regression und Support Vector Machines, theoretisch und implementiert. Teil b erklärt und implementiert neuronale Netze und deren Anwendung im Natural Language Processing (NLP).
+
+Die angestrebten Lernergebnisse sind, dass die Teilnehmer selbstständig lineare Modelle und neuronale Netze zur Lösung von NLP-Aufgaben implementieren können. Sie sollen mit Methoden der Modellevaluation und Problemen wie Overfitting und Replizierbarkeit vertraut sein.
+
+Die formalen Teilnahmevoraussetzungen sind keine, inhaltlich wird das Basismodul – Statistische Methoden in der Computerlinguistik empfohlen.
+
+Als Prüfungsformen sind eine Hausarbeit (mit Programmierprojekt) (Pnr. 4110) oder eine Studienarbeit (mit Programmierprojekt) (Pnr. 4120) vorgesehen.
+Es gibt keine Voraussetzungen für die Zulassung zur Modulprüfung.
+16
+Modulhandbuch BA Computerlinguistik (integrativ) PO 2025
+Voraussetzungen für die Vergabe von ECTS-Leistungspunkten
+Erbrachte Studienleistungen (SL) in allen Lehrveranstaltungen und bestandene Modulprüfung.
+Sonstige Informationen
+-keine-
+17
+Die Tabelle enthält Informationen zum Modulhandbuch für den Studiengang BA Computerlinguistik (integrativ) PO 2025. Das Modul heißt "Aufbaumodul – Mathematische Linguistik" und trägt den englischen Titel "Advanced module – mathematical linguistics". Die Modul-Nummer ist 4200. Für dieses Modul werden 6 ECTS-Leistungspunkte vergeben, und der Workload beträgt 180 Stunden über eine Dauer von einem Semester.
+
+Das Modul besteht aus zwei Lehrveranstaltungen: "Automatentheorie & Formale Sprachen" (Seminar, Nummer 4201) und "Übung zu Automatentheorie & Formale Sprachen" (Übung, Nummer 4202). Beide Veranstaltungen müssen belegt werden.
+
+Die empfohlenen Studiensemester für beide Veranstaltungen sind das 3. Fachsemester, sowohl im Wintersemester für das Seminar (a) als auch für die Übung (b). Das Modul wird jedes Wintersemester angeboten. Die geplante Gruppengröße für beide Veranstaltungen beträgt ca. 60 Studierende.
+
+Die Kontaktzeit für jede Veranstaltung beträgt 2 SWS / 30 Stunden / 1 ECTS-Leistungspunkt. Das Selbststudium beläuft sich auf 60 Stunden / 2 ECTS-Leistungspunkte pro Veranstaltung. Für die Modulprüfung werden keine ECTS-Leistungspunkte vergeben.
+
+Die Inhalte des Moduls umfassen:
+* Sprachklassen basierend auf der Chomsky-Hierarchie (Automaten, Grammatiken)
+* Sprachen und Relationen, rationale Relationen und Finite-State-Methoden
+* Komplexitätstheorie und Lernbarkeitstheorie
+* Abschlusseigenschaften und Entscheidungsprobleme wichtiger Sprachklassen
+
+Die angestrebten Lernergebnisse und Studieninhalte beinhalten die Vertrautheit mit den mathematischen und informatischen Grundlagen der Linguistik und Computerlinguistik, das Verständnis von Beweisverfahren sowie die Fähigkeit, Sprachen, Grammatiken und Automaten aufeinander zu beziehen und passende Entsprechungen zu konstruieren.
+
+Die Teilnahmevoraussetzungen sind formal keine, inhaltlich jedoch das Basismodul – Mathematische und logische Grundlagen sowie das Basismodul – Grundlagen der Computerlinguistik und formale Grammatikbeschreibung. Es gibt keine spezifischen Prüfungsformen oder Voraussetzungen für die Zulassung zur Modulprüfung oder die Vergabe von ECTS-Leistungspunkten, abgesehen von erbrachten Studienleistungen in allen Lehrveranstaltungen. Es gibt keine weiteren besonderen Informationen.
+18
+Modulhandbuch BA Computerlinguistik (integrativ) PO 2025
+19
+Das Modul "Aufbaumodul – Parsing" ist Teil des Modulhandbuchs BA Computerlinguistik (integrativ) PO 2025. Das Modul hat die Nummer 4300 und umfasst 6 ECTS-Leistungspunkte bei einem Workload von 180 Stunden über ein Semester. Es wird empfohlen, das Modul im 4. Fachsemester (Sommersemester) zu belegen.
+
+Das Modul gliedert sich in zwei Lehrveranstaltungen: "Parsing (Seminar)" (Modulnummer 4301) und "Übung zu Parsing (Übung)" (Modulnummer 4302). Beide Veranstaltungen werden jedes Sommersemester angeboten und sind für eine Gruppengröße von ca. 60 Studierenden pro Veranstaltung geplant. Die Kontaktzeit für jede Lehrveranstaltung beträgt 2 SWS (Semesterwochenstunden) bzw. 30 Stunden, was jeweils 1 ECTS-Leistungspunkt entspricht. Das Selbststudium beträgt jeweils 60 Stunden, was 2 ECTS-Leistungspunkten entspricht.
+
+Die Inhalte des Moduls umfassen Parsing, die automatische syntaktische Analyse von Text, und die Repräsentation von Syntax durch Konstituenten- oder Dependenzstrukturen. Behandelt werden verschiedene Algorithmen und Techniken für das automatische Erstellen dieser Strukturen, sowohl symbolische als auch datengetriebene Ansätze.
+
+Die angestrebten Lernergebnisse beinhalten Kenntnisse gängiger Parsingalgorithmen im Bereich des grammatikbasierten Parsings, Techniken des datengetriebenen Konstituentenparsings und verschiedene Ansätze des Dependenparsing. Studierende sollen auch in der Lage sein, Beschreibungen von Parsern, beispielsweise aus Forschungsartikeln, einzuordnen und zu verstehen.
+
+Als formale Teilnahmevoraussetzungen gibt es keine. Inhaltlich werden Kenntnisse aus den Basismodulen "Mathematische und logische Grundlagen", "Grundlagen der Computerlinguistik und formale Grammatikbeschreibung" sowie Basiswissen in Linguistik (Morphologie und Syntax) vorausgesetzt.
+
+Es gibt keine Modulprüfung und keine Voraussetzungen für die Zulassung zur Modulprüfung. ECTS-Leistungspunkte werden für erbrachte Studienleistungen in allen Lehrveranstaltungen vergeben. Sonstige Informationen sind nicht angegeben.
+Basiswissen Linguistik – Morphologie und Syntax
+20
+Modulhandbuch BA Computerlinguistik (integrativ) PO 2025
+21
+Die Tabelle liefert Details zum Modul "Aufbaumodul – Logische Programmierung" im Modulhandbuch für den Bachelor Computerlinguistik (integrativ) PO 2025. Das Modul hat die Nummer 4400, umfasst 6 ECTS-Leistungspunkte und erfordert einen Workload von 180 Stunden über ein Semester.
+
+Es besteht aus zwei Lehrveranstaltungen: "Einführung in Prolog" (Seminar, Modulnummer 4401) und "Übung Prolog" (Übung, Modulnummer 4402). Beide Lehrveranstaltungen werden im 4. Fachsemester als Sommersemester angeboten und haben eine geplante Gruppengröße von ca. 60 Studierenden.
+
+Die Kontaktzeit für jede Lehrveranstaltung beträgt 2 SWS / 30 Stunden / 1 ECTS-Leistungspunkt, während das Selbststudium jeweils 60 Stunden / 2 ECTS-Leistungspunkte umfasst. Die Inhalte des Seminars behandeln das deklarative Programmierparadigma und die logische Programmiersprache Prolog, einschließlich Themen wie Beweisverfahren, Rekursion, Listenverarbeitung und kontextfreie Grammatiken. Die Übung vertieft die im Seminar behandelten Inhalte.
+
+Die angestrebten Lernergebnisse beinhalten, dass die Studierenden Probleme mit dem deklarativen Programmierparadigma in Prolog lösen und ihre Kenntnisse in Logik, Semantik und formalen Sprachen vertiefen.
+
+Die formalen Teilnahmevoraussetzungen sind keine, inhaltlich wird das Basismodul – Mathematische und logische Grundlagen empfohlen. Für die Modulprüfung gibt es keine Prüfungsformen oder Voraussetzungen für die Zulassung. ECTS-Leistungspunkte werden für erbrachte Studienleistungen in den Lehrveranstaltungen (a) und (b) vergeben. Es gibt keine weiteren Informationen oder Prüfungsleistungen.
+22
+Modulhandbuch BA Computerlinguistik (integrativ) PO 2025
+23
+Die Tabelle liefert Details zum Modulhandbuch BA Computerlinguistik (integrativ) PO 2025, speziell für das Modul "Aufbaumodul – Objektorientierte Programmierung". Das Modul hat die Nummer 4500 und umfasst 12 ECTS-Leistungspunkte bei einem Workload von 360 Stunden über ein Semester. Es besteht aus drei Lehrveranstaltungen: einer Vorlesung (a) mit der Nummer 4501, einer Übung zur Vorlesung (b) mit der Nummer 4502 und einer praktischen Übung zur Vorlesung (c) mit der Nummer 4503. Die Belegung erfordert die Teilnahme an allen drei Lehrveranstaltungen. Die Lehrveranstaltungen werden im 3. Fachsemester (Wintersemester) angeboten und das Modul wird jedes Wintersemester angeboten. Die geplante Gruppengröße beträgt für die Vorlesung (a) unbegrenzt und für die Übungen (b) und (c) jeweils ca. 30 Studierende.
+
+Die Kontaktzeit pro Lehrveranstaltung beträgt:
+- Vorlesung (a): 4 SWS / 60 Stunden / 2 ECTS-Leistungspunkte
+- Übung (b): 2 SWS / 30 Stunden / 1 ECTS-Leistungspunkt
+- Praktische Übung (c): 2 SWS / 30 Stunden / 1 ECTS-Leistungspunkt
+
+Das Selbststudium ist wie folgt aufgeteilt:
+- Vorlesung (a): 60 Stunden / 2 ECTS-Leistungspunkte
+- Übung (b): 30 Stunden / 1 ECTS-Leistungspunkt
+- Praktische Übung (c): 30 Stunden / 1 ECTS-Leistungspunkt
+
+Für die Modulprüfung werden 4 ECTS-Leistungspunkte vergeben.
+
+Die Inhalte des Moduls umfassen grundlegende Programmierkenntnisse in einer objektorientierten Programmiersprache, einführende Aspekte von Algorithmen und Datenstrukturen, grundlegende Begriffe der Informatik, primitive Datentypen und Variablen, Kontrollstrukturen, eigene Datentypen (Klassen) und Arrays, Programmstrukturen im Speicher (Heap, Stack), Konzepte der Objektorientierung (Polymorphie, Schnittstellen), Rekursion, Fehlerbehandlung, dynamische Datenstrukturen (Listen, Binärbäume, Hashing), Suchen und Sortieren (ausgewählte Algorithmen) sowie Datenströme (Standard-Eingabe und -Ausgabe, einfache 2D-Grafik, Dateien).
+
+Die angestrebten Lernergebnisse beinhalten, dass Studierende nach Absolvierung der Lehrveranstaltungen in der Lage sein sollen, Begriffe der Informatik und Programmierung zu nennen und zu erläutern, einfache Algorithmen zu verstehen und zu erstellen, eigene Datentypen zu konzipieren und anzuwenden, sowie einfache objektorientierte Programme mit Polymorphie, Vererbung und Schnittstellen zu entwickeln und behandelte dynamische Datenstrukturen anzuwenden.
+
+Die Teilnahmevoraussetzungen sind formal keine und inhaltlich das Basismodul – Mathematische und logische Grundlagen sowie das Basismodul – Python-Programmierung. Die Prüfungsform ist eine Klausur (Pnr. 4510). Es gibt keine Voraussetzungen für die Zulassung zur Modulprüfung. Für die Vergabe von ECTS-Leistungspunkten sind erbrachte Studienleistungen (SL) in den Lehrveranstaltungen (b) und (c) sowie eine bestandene Modulprüfung erforderlich. Sonstige Informationen sind nicht vorhanden.
+24
+Modulhandbuch BA Computerlinguistik (integrativ) PO 2025
+25
+Dieses Modulhandbuch beschreibt das Modul "Praktikum & Orientierung" für den Bachelorstudiengang Computerlinguistik (integrativ) mit Studienordnung von 2025. Das Modul trägt die Modulnummer 3000 und ist mit 12 ECTS-Leistungspunkten bewertet. Der geschätzte Workload beträgt 360 Stunden und die Dauer des Moduls erstreckt sich über 2 Semester.
+
+Das Modul besteht aus zwei Lehrveranstaltungen: einem Orientierungsseminar (a) und einem Praktikum (b). Das Orientierungsseminar findet im Sommersemester statt und richtet sich an Studierende im 4. Fachsemester. Die geplante Gruppengröße liegt bei ca. 60 Studierenden. Es umfasst 30 Stunden Kontaktzeit (2 SWS) und 60 Stunden Selbststudium, was 1 ECTS-Leistungspunkt für die Kontaktzeit und 2 ECTS-Leistungspunkte für das Selbststudium ergibt.
+
+Das Praktikum (b) ist in der Regel 6 Wochen in Vollzeit zu absolvieren und wird jedes Semester angeboten. Es richtet sich an Studierende im 5. Fachsemester (Wintersemester) und hat ebenfalls eine geplante Gruppengröße von ca. 60 Studierenden. Hierbei ist keine Kontaktzeit vorgesehen, jedoch sind 270 Stunden Selbststudium mit 9 ECTS-Leistungspunkten angesetzt.
+
+Die Inhalte des Orientierungsseminars umfassen die Orientierung für die zweite Studienphase, insbesondere in Bezug auf Studienorganisation, Abschlussarbeiten, Berufsperspektiven und Anschlussstudiengänge. Das Praktikum dient der berufsorientierten Anwendung der im Studium erworbenen Qualifikationen.
+
+Die angestrebten Lernergebnisse für die Studierenden beinhalten die Entwicklung von Entwicklungszielen, die Erlangung von Orientierung für den weiteren Studienverlauf und den beruflichen Werdegang, sowie eine realistischere Beurteilung beruflicher Wünsche und Möglichkeiten. Sie erwerben erweiterte Methodenkenntnisse, gewinnen Selbstvertrauen durch Praxiserprobung und vertiefen ihre Kenntnisse zum wissenschaftlichen Arbeiten, einschließlich der Formulierung von Forschungsfragen und der Planung von Lösungsstrategien.
+
+Voraussetzungen für die Teilnahme sind formal das 4. Fachsemester oder höher sowie inhaltlich abgeschlossene Basismodule in mathematischen und logischen Grundlagen, Grundlagen der Computerlinguistik und formaler Grammatikbeschreibung sowie Python-Programmierung.
+
+Es gibt keine Prüfungsformen und somit auch keine Voraussetzungen für die Zulassung zur Modulprüfung oder für die Vergabe von ECTS-Leistungspunkten, mit Ausnahme der erbrachten Studienleistungen in (a) und dem nachgewiesenen 6-wöchigen Praktikum inklusive Praktikumsnachweis und -bericht.
+
+Das Modul hat den englischen Titel "Internship & orientation". Es sind keine sonstigen Informationen hinterlegt.
+Basismodul – Python-Programmierung
+26
+Modulhandbuch BA Computerlinguistik (integrativ) PO 2025
+27
+Die Tabelle enthält Informationen zum Modulhandbuch BA Computerlinguistik (integrativ) PO 2025. Es handelt sich um ein Vertiefungsmodul mit dem englischen Titel "Specialization module – interdisciplinary" und der Modulnummer 5100. Das Modul umfasst 12 ECTS-Leistungspunkte und hat einen Workload von 360 Stunden über eine Dauer von 2 Semestern.
+
+Die Lehrveranstaltungen und Lehrformen umfassen zwei Vorlesungen oder Seminare aus Linguistik oder Informatik. Konkret werden folgende Vorlesungen und Seminare angeboten:
+*   **Vorlesung Linguistik:** 5101, 5105
+*   **Vorlesung Informatik:** 5102, 5106
+*   **Seminar Linguistik:** 5103, 5107
+*   **Seminar Informatik:** 5104, 5108
+
+Die Belegung und die geplante Gruppengröße erfolgen nach Vorgabe der gewählten Veranstaltungen. Die empfohlene Belegung ist im 4. Fachsemester (Sommersemester) und 5. Fachsemester (Wintersemester). Das Modul wird jedes Semester angeboten.
+
+Die Kontaktzeit, das Selbststudium und die ECTS-Leistungspunkte für die Modulprüfung variieren ebenfalls nach Vorgabe der gewählten Veranstaltungen.
+
+Die Inhalte des Moduls können Themen der Linguistik und Informatik umfassen. Mögliche relevante Themen in der Linguistik sind Phonetik und Phonologie, Psycho- und Neurolinguistik sowie historische Linguistik. Es müssen Veranstaltungen im Umfang von mindestens 4 SWS in der Informatik belegt werden, wobei Doppelungen von Inhalten der Module aus der Computerlinguistik vermieden werden müssen. Für die Computerlinguistik relevante mögliche Themen in der Informatik sind professionelle Softwareentwicklung, Datenbanksysteme, nichtkooperative Spieltheorie, Komplexitätstheorie, numerische Optimierung, Dialogsysteme und ein Überblick über Künstliche Intelligenz.
+
+Die angestrebten Lernergebnisse und Studieninhalte zielen auf vertiefte Kenntnisse in Spezialgebieten von Linguistik, Computerlinguistik und Informatik ab.
+
+Die Prüfungsformen können eine mündliche Prüfung (Pnr. 5110), eine Klausur (Pnr. 5120), eine Hausarbeit (Pnr. 5130), eine Studienarbeit (Pnr. 5140) oder eine Projektarbeit (Pnr. 5150) sein.
+
+Es gibt keine Voraussetzungen für die Zulassung zur Modulprüfung. Für die Vergabe von ECTS-Leistungspunkten sind eine bestandene Modulprüfung sowie eine aktive und erfolgreiche Mitwirkung in den Seminaren und theoretischen und praktischen Übungen erforderlich. Es gibt keine sonstigen Informationen.
+28
+Modulhandbuch BA Computerlinguistik (integrativ) PO 2025
+Teilnahmevoraussetzungen
+Formal: keine
+29
+Diese Tabelle beschreibt das Modul "Vertiefungsmodul – Computerlinguistik 1" des Modulhandbuchs BA Computerlinguistik (integrativ) PO 2025. Das Modul hat die Nummer 5200 und umfasst 12 ECTS-Leistungspunkte bei einem Workload von 360 Stunden über ein Semester. Es besteht aus zwei Seminaren, "Seminar Computerlinguistik (Seminar)" mit den Nummern 5201 und 5202, die beide im 5. Fachsemester eines Wintersemesters angeboten werden. Die geplante Gruppengröße für jedes Seminar beträgt ca. 30 Studierende. Die Kontaktzeit für jedes Seminar beträgt 4 SWS / 30 Stunden / 2 ECTS-Leistungspunkte. Das Selbststudium im 5. Fachsemester beträgt 240 Stunden / 8 ECTS-Leistungspunkte. Es gibt keine ECTS-Leistungspunkte für die Modulprüfung. Mögliche Inhalte des Moduls sind Themen der Computerlinguistik wie nichtklassische Logiken, besondere Grammatikformalismen und Vertiefungsseminare im Bereich maschinelles Lernen und Deep Learning. Die Zulassung zu Veranstaltungen, die nicht im Vorlesungsverzeichnis aufgeführt sind, entscheiden die Modulverantwortlichen. Die angestrebten Lernergebnisse beinhalten vertiefte Kenntnisse in Spezialgebieten der Computerlinguistik. Formale Teilnahmevoraussetzungen sind das Basismodul – Mathematische und logische Grundlagen, das Basismodul – Grundlagen der Computerlinguistik und formale Grammatikbeschreibung sowie das Aufbaumodul – Maschinelles Lernen. Inhaltlich hängt dies vom Thema ab. Es gibt keine Voraussetzungen für die Zulassung zur Modulprüfung, aber aktive und erfolgreiche Mitwirkung im Forschungsseminar ist Voraussetzung für die Vergabe von ECTS-Leistungspunkten. Es gibt keine sonstigen Informationen.
+Inhaltlich: Je nach Thema
+30
+Modulhandbuch BA Computerlinguistik (integrativ) PO 2025
+Prüfungsformen
+-keine-
+31
+Das Modulhandbuch BA Computerlinguistik (integrativ) PO 2025 beschreibt das Vertiefungsmodul – Computerlinguistik 2. Der englische Titel lautet Specialization module – computational linguistics 2. Die Modul-Nummer ist 5300. Das Modul umfasst 9 ECTS-Leistungspunkte und hat einen Workload von 270 Stunden über eine Dauer von 1 Semester.
+
+Das Modul beinhaltet das thematische Seminar in der Computerlinguistik (Seminar) unter der Nummer 5301. Die Belegung erfolgt über das Seminar (a). Es wird empfohlen, das Modul im 6. Fachsemester (Sommersemester) zu belegen, wobei auch die Prüfung im 6. Fachsemester stattfindet. Das Seminar wird jedes Sommersemester angeboten und ist für eine Gruppengröße von ca. 30 Studierenden geplant. Die Kontaktzeit beträgt 4 SWS / 60 Stunden / 2 ECTS-Leistungspunkte. Das Selbststudium beläuft sich auf 90 Stunden / 3 ECTS-Leistungspunkte. Für die Modulprüfung werden 4 ECTS-Leistungspunkte vergeben.
+
+Die Inhalte des Moduls können Themen der Computerlinguistik umfassen, wie nichtklassische Logiken, besondere Grammatikformalismen (Kategorialgrammatik) und Vertiefungsseminare im Bereich maschinelles Lernen und Deep Learning. Die angestrebten Lernergebnisse sind vertiefte Kenntnisse in Spezialgebieten der Computerlinguistik.
+
+Die Teilnahmevoraussetzungen sind formal: Basismodul – Mathematische und logische Grundlagen, Basismodul – Grundlagen der Computerlinguistik und formale Grammatikbeschreibung, und Aufbaumodul – Maschinelles Lernen. Inhaltlich sind die Voraussetzungen je nach Thema.
+
+Die Prüfungsformen können eine mündliche Prüfung (Pnr. 5310), eine Klausur (Pnr. 5320), eine Hausarbeit (Pnr. 5330) oder eine Studienarbeit (Pnr. 5340) sein. Es gibt keine Voraussetzungen für die Zulassung zur Modulprüfung. Für die Vergabe von ECTS-Leistungspunkten sind eine aktive und erfolgreiche Mitwirkung im Forschungsseminar sowie eine bestandene Modulprüfung erforderlich. Es gibt keine sonstigen Informationen zu diesem Modul.
+Studienarbeit (Pnr. 5340) oder
+32
+Modulhandbuch BA Computerlinguistik (integrativ) PO 2025
+Projektarbeit (Pnr. 5350)
+33
+Die Tabelle liefert Informationen zum Modulhandbuch BA Computerlinguistik (integrativ) PO 2025, speziell zum Modul "Abschlussarbeit und Forschungskolloquium". Das Modul hat die Nummer 5900 und umfasst 15 ECTS-Leistungspunkte bei einem Workload von 450 Stunden über ein Semester. Es gibt zwei Lehrveranstaltungen: "Forschungskolloquium Computerlinguistik (Kolloquium)" (5901) und "Seminar (Seminar)" (5902). Die Belegung ist entweder Forschungskolloquium (a) oder Seminar (b). Beide Lehrveranstaltungen werden im 6. Fachsemester im Sommersemester angeboten und sind für ca. 30 Studierende geplant. Die Kontaktzeit beträgt für beide 2 SWS / 30 Stunden / 1 ECTS-Leistungspunkt. Das Selbststudium im 6. Fachsemester umfasst 60 Stunden, was 2 ECTS-Leistungspunkten entspricht. Für die Modulprüfung werden 12 ECTS-Leistungspunkte vergeben. Die Inhalte umfassen das Vortragen und Diskutieren aktueller Forschungsarbeiten im Bereich Computerlinguistik sowie die freie Themenwahl für die Bachelorarbeit. Die angestrebten Lernergebnisse sind das Kennenlernen aktueller Forschung und das Erlernen selbstständigen wissenschaftlichen Arbeitens. Formale Teilnahmevoraussetzungen sind alle Basis- und Aufbaumodule. Die Prüfungsform ist die Bachelorarbeit (Pnr. 6000) und es gibt keine Voraussetzungen für die Zulassung zur Prüfung.
+34
+Modulhandbuch BA Computerlinguistik (integrativ) PO 2025
+Voraussetzungen für die Vergabe von ECTS-Leistungspunkten
+Aktive und erfolgreiche Mitwirkung im Forschungsseminar, bestandene Bachelorarbeit.
+Sonstige Informationen
+-keine-
+35

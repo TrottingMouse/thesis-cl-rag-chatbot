@@ -1,0 +1,94 @@
+
+Die Tabelle gibt einen Überblick über den Bachelorstudiengang Computerlinguistik, der im Wintersemester beginnt und 180 ECTS-Leistungspunkte umfasst. Vorkenntnisse im Englischen auf Niveau B1 sind erforderlich. Es gibt insgesamt 9 Modulprüfungen zuzüglich der Bachelorarbeit.
+
+Die Module umfassen:
+*   **Basismodul – Mathematische und logische Grundlagen**: 8 SWS, 1 Modulprüfung, 12 LP
+*   **Basismodul – Grundlagen der Computerlinguistik und formale Grammatikbeschreibung**: 8 SWS, 1 Modulprüfung, 12 LP
+*   **Basismodul – Python-Programmierung**: 8 SWS, 1 Modulprüfung, 12 LP
+*   **Basiswissen Linguistik – Morphologie und Syntax**: 6 SWS, 1 Modulprüfung, 9 LP
+*   **Basiswissen Linguistik – Semantik und Pragmatik**: 6 SWS, 1 Modulprüfung, 9 LP
+*   **Basismodul – Statistische Methoden in der Computerlinguistik**: 6 SWS, 6 LP
+*   **Aufbaumodul – Maschinelles Lernen**: 8 SWS, 1 Modulprüfung, 12 LP
+*   **Aufbaumodul – Mathematische Linguistik**: 4 SWS, 6 LP
+*   **Aufbaumodul – Parsing**: 4 SWS, 6 LP
+*   **Aufbaumodul – Logische Programmierung**: 4 SWS, 6 LP
+*   **Aufbaumodul – Objektorientierte Programmierung**: 8 SWS, 1 Modulprüfung, 12 LP
+*   **Praktikum und Orientierung**: 2 SWS, 12 LP
+*   **Vertiefungsmodul – interdisziplinär**: 8 SWS, 1 Modulprüfung, 12 LP
+*   **Vertiefungsmodul – Computerlinguistik 1**: 8 SWS, 12 LP
+*   **Vertiefungsmodul – Computerlinguistik 2**: 4 SWS, 1 Modulprüfung, 9 LP
+*   **Abschlussarbeit und Forschungskolloquium**: 2 SWS, 15 LP
+*   **Profilbildungsbereich**: 18 LP
+
+Für Prüfungen sind keine spezifischen Voraussetzungen aufgeführt. Eine Besonderheit ist, dass die zweite Wiederholung einer Modulprüfung als mündliche Prüfung erfolgen darf. Die Bachelorarbeit zählt dreifach für die Gesamtnote, alle anderen Modulprüfungen einfach. Ein Auslandsaufenthalt ist im 5. Semester optional möglich. Nach dem vierten oder fünften Semester ist ein mindestens sechs-wöchiges Berufsfeldpraktikum oder eine Projektarbeit mit computerlinguistischem Inhalt obligatorisch. Ein kurzer Bericht und ein Zeugnis der Praktikumsstelle sind erforderlich.
+Die Wahl des Praktikumsplatzes erfolgt im Einvernehmen mit dem/der
+BA Computerlinguistik PO 2025
+Vorläufige Lesefassung Stand 26.09.2025
+Exemplarischer Studienverlaufsplan Bachelor Computerlinguistik
+Bei dieser Darstellung handelt es sich um einen exemplarischen Studienverlaufsplan, der nicht
+verpflichtend ist. Dieser Plan strebt eine möglichst gleichmäßige Arbeitsverteilung in Form von ECTS-
+Leistungspunkten pro Semester beziehungsweise Studienjahr an.
+Das bedeutet, dass hier eine Möglichkeit unter vielen dargestellt ist, wie Studierende ihr Studium
+strukturieren können. Es ist möglich, dass die Studienberatung dieses Faches aufgrund von
+didaktischen Überlegungen individuell zu anderen Studienverläufen rät.
+Bitte informieren Sie sich bei der Studienberatung, in welcher Reihenfolge Sie welche Pflichtmodule
+und Wahlpflichtmodule studieren können.
+Abkürzungen im Studienverlaufsplan:
+Modulprüfung = MP
+Studienleistung =SL
+ECTS-Leistungspunkte = LP
+Semesterwochenstunden = SWS
+Profilbildungsbereich = PBB
+Prüfungsnummer = Pnr.
+Die Tabelle gibt einen Überblick über die Prüfungsnummern und Moduldetails für das 1. Semester des Bachelorstudiums Computerlinguistik. Insgesamt gibt es 4 Module mit 2 Modulprüfungen (MP), 8 Veranstaltungen und 22 SWS. Die Module umfassen insgesamt 30 LP, davon 1 LP im Profilbildungsbereich.
+
+Die Module sind:
+*   **Basismodul – Mathematische und logische Grundlagen:** Dieses Modul umfasst 1 MP, 2 SL, 12 LP und 8 SWS. Es beinhaltet die Veranstaltungen "Einführung in die computationelle Logik (Seminar mit Übung)" (Pnr. 2101, 4 LP, 4 SWS) und "Mathematische Grundlagen (Seminar)" (Pnr. 2102, 4 LP, 4 SWS). Die Modulprüfung ist ein Portfolio (Pnr. 2110) und zählt 4 LP.
+*   **Basismodul – Grundlagen der Computerlinguistik und formale Grammatikbeschreibung [1/2]:** Dieses Modul ist mit 1 MP, 2 SL, 4 LP und 4 SWS aufgeführt. Es besteht aus "Einführung in die Computerlinguistik (Seminar)" (Pnr. 2201, 2 LP, 2 SWS) und "Einführung in die Computerlinguistik (Übung)" (Pnr. 2202, 2 LP, 2 SWS).
+*   **Basismodul – Python-Programmierung [1/2]:** Dieses Modul umfasst 1 MP, 2 SL, 4 LP und 4 SWS. Es beinhaltet "Einführung in die Programmierung mit Python (Seminar)" (Pnr. 2301, 2 LP, 2 SWS) und "Einführung in die Programmierung mit Python (Übung)" (Pnr. 2302, 2 LP, 2 SWS).
+*   **Basiswissen Linguistik – Morphologie und Syntax:** Dieses Modul ist mit 1 MP, 2 SL, 9 LP und 6 SWS angegeben. Es beinhaltet eine "Vorlesung" (Pnr. 1301, 2 LP, 4 SWS) und ein "Tutorium" (Pnr. 1302, 2 LP, 2 SWS). Die Modulprüfung ist eine Klausur (Pnr. 1310) und zählt 3 LP. Hier gibt es zusätzlich 1 LP im Profilbildungsbereich.
+*   **Basismodul – Grundlagen der Computerlinguistik und formale Grammatikbeschreibung [2/2]:** Dieses Modul hat 1 MP, 2 SL, 8 LP und 4 SWS. Es beinhaltet die Veranstaltungen "Grammatikformalismen (Seminar)" (Pnr. 2203, 2 LP, 2 SWS) und "Grammatikformalismen (Übung)" (Pnr. 2204, 2 LP, 2 SWS). Die Modulprüfung ist eine Klausur (Pnr. 2210) und zählt 4 LP.
+*   **Basismodul – Python-Programmierung [2/2]:** Dieses Modul umfasst 1 MP, 2 SL, 8 LP und 4 SWS. Es beinhaltet "Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar)" (Pnr. 2303, 2 LP, 2 SWS) und "Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Übung)" (Pnr. 2304, 2 LP, 2 SWS). Die Modulprüfung ist eine Klausur (Pnr. 2310) und zählt 4 LP.
+*   **Basiswissen Linguistik – Semantik und Pragmatik:** Dieses Modul ist mit 1 MP, 2 SL, 9 LP und 6 SWS aufgeführt. Es besteht aus einer "Vorlesung" (Pnr. 1401, 4 LP, 4 SWS) und einem "Tutorium" (Pnr. 1402, 2 LP, 2 SWS). Die Modulprüfung ist eine Klausur (Pnr. 1410) und zählt 3 LP.
+*   **Basismodul – Statistische Methoden in der Computerlinguistik [1/2]:** Dieses Modul ist mit 0 MP, 1 SL, 4 LP und 4 SWS angegeben. Es beinhaltet die Veranstaltung "Wahrscheinlichkeitstheorie und Statistik (Seminar und Übung)" (Pnr. 2401, 4 LP, 4 SWS). Hier gibt es zusätzlich 1 LP im Profilbildungsbereich.
+Profilbilungsbereich 1 LP
+BA Computerlinguistik PO 2025
+Vorläufige Lesefassung Stand 26.09.2025
+2. Semester Bachelor Computerlinguistik
+Summe: 4 Module, 3 MP, 7 Veranstaltungen, 18 SWS, 30 LP, davon 1 LP im PBB
+Die Tabelle zeigt Informationen zum Profilbildungsbereich 1 LP für das 3. Semester des Bachelorstudiums Computerlinguistik. Insgesamt umfasst der Bereich 4 Module, 1 MP (Modulprüfung), 7 Veranstaltungen, 18 SWS (Semesterwochenstunden) und 30 LP (Leistungspunkte), davon 6 LP im PBB (Profilbildungsbereich).
+
+Die einzelnen Module sind wie folgt aufgeführt:
+*   **Basismodul – Statistische Methoden in der Computerlinguistik [2/2]**: Enthält 1 SL (Selbstlernstunden), 2 LP und 2 SWS.
+*   **Linguistische Ressourcen (Seminar)**: Beinhaltet Pnr. 2402, 2 LP und 2 SWS.
+*   **Aufbaumodul – Maschinelles Lernen [1/2]**: Umfasst 1 SL, 4 LP und 4 SWS.
+*   **Grundlagen des maschinellen Lernens (Seminar und Übung)**: Hierzu gehört Pnr. 4101, 4 LP und 4 SWS.
+*   **Aufbaumodul – Mathematische Linguistik**: Dieses Modul hat 2 SL, 6 LP und 4 SWS.
+*   **Automatentheorie & Formale Sprachen (Seminar)**: Beinhaltet Pnr. 4201, 3 LP und 2 SWS.
+*   **Automatentheorie & Formale Sprachen (Übung)**: Hierzu gehört Pnr. 4202, 3 LP und 2 SWS.
+*   **Aufbaumodul – Objektorientierte Programmierung**: Dieses Modul ist als 1 MP gekennzeichnet, hat 3 SL, 12 LP und 8 SWS.
+    *   Innerhalb dieses Moduls gibt es die Veranstaltung **Programmierung (Vorlesung)** mit Pnr. 4501, 4 LP und 4 SWS.
+    *   Die **Programmierung (Übung)** hat Pnr. 4502, 2 LP und 2 SWS.
+    *   Die **Praktische Übung zur Vorlesung** ist unter Pnr. 4503 mit 2 LP und 2 SWS gelistet.
+    *   Die **Modulprüfung (Klausur)** trägt die Pnr. 4510 und umfasst 4 LP.
+*   **Profilbildungsbereich**: Dieser Bereich ist mit 6 LP ausgewiesen.
+Profilbildungsbereich 6 LP
+BA Computerlinguistik PO 2025
+Diese Tabelle gibt einen Überblick über die Module und Veranstaltungen im 4. Semester des Bachelorstudiengangs Computerlinguistik, Stand 26.09.2025. Insgesamt sind 5 Module, 1 Modulprüfung (MP), 7 Veranstaltungen, 18 SWS (Semesterwochenstunden), 30 LP (Leistungspunkte) und davon 3 LP im Profilbildungsbereich (PBB) aufgeführt.
+
+Die Module umfassen "Aufbaumodul – Maschinelles Lernen" mit 1 MP, 1 SL (Seminarlabor) und 8 LP bei 4 SWS. Darin enthalten ist "Deep Learning (Seminar)" mit 4 LP und 4 SWS sowie eine "Modulprüfung" mit 4 LP.
+
+Das "Aufbaumodul – Parsing" umfasst 2 SL und 6 LP bei 4 SWS. Es besteht aus dem "Parsing (Seminar)" mit 3 LP und 2 SWS sowie der "Parsing (Übung)" mit 3 LP und 2 SWS.
+
+Das "Aufbaumodul – Logische Programmierung" beinhaltet 2 SL und 6 LP bei 4 SWS. Hierzu gehören die "Einführung in Prolog (Seminar)" mit 3 LP und 2 SWS sowie die "Prolog (Übung)" mit 3 LP und 2 SWS.
+
+Das "Vertiefungsmodul – Interdisziplinär" umfasst 1 SL und 4 LP bei 4 SWS, einschließlich eines "Seminars nach Wahl" mit 4 LP und 4 SWS.
+
+Das "Praktikum & Orientierung" beinhaltet 1 SL und 3 LP bei 2 SWS. Darin ist das "Orientierungsseminar (Seminar)" mit 3 LP und 2 SWS enthalten.
+
+Für den Profilbildungsbereich sind 3 LP ausgewiesen.
+
+Die Tabelle zeigt den Profilbildungsbereich für das 5. Semester im Bachelor Computerlinguistik. Insgesamt umfasst dies 3 Module mit 30 LP, davon 1 LP im PBB. Es gibt 1 MP, 3 Veranstaltungen und insgesamt 12 SWS. Das Praktikum & Orientierung hat 9 LP und 1 SL. Das Praktikum selbst dauert in der Regel 6 Wochen Vollzeit und ist unter Pnr. 3010 zu finden, ebenso mit 9 LP. Das Vertiefungsmodul – Interdisziplinär hat 8 LP und 4 SWS und beinhaltet 1 MP und 1 SL. Darunter ist ein Seminar nach Wahl (Pnr. 5103) mit 4 LP und 4 SWS. Die Modulprüfung (Pnr. 5110) bringt 4 LP. Das Vertiefungsmodul – Computerlinguistik 1 hat 12 LP und 8 SWS, bestehend aus 2 SL. Hierzu gibt es zwei Seminare nach Wahl im Bereich Computerlinguistik, beide mit jeweils 6 LP und 4 SWS, Pnr. 5201 und Pnr. 5202. Der Profilbildungsbereich selbst trägt 1 LP bei.
+
+Das 6. Semester des Bachelorstudiengangs Computerlinguistik umfasst im Profilbildungsbereich 1 insgesamt 30 LP. Davon sind 1 LP im Profilbildungsbereich angesiedelt. Es gibt insgesamt 3 Module, 1 MP, eine Bachelorarbeit sowie 2 Veranstaltungen mit zusammen 8 SWS. Das Vertiefungsmodul Computerlinguistik 2 zählt 9 LP, 1 MP, 1 SL und 4 SWS. Ein Seminar nach Wahl im Bereich Computerlinguistik hat 5 LP und 4 SWS, unter der Pnr. 5301. Die Modulprüfung hat 4 LP und die Pnr. 5310. Die Abschlussarbeit und das Forschungskolloquium umfassen 15 LP, 1 SL und 4 SWS. Das Forschungskolloquium oder Seminar hat 3 LP und 2 SWS, unter der Pnr. 5901. Die Bachelorarbeit hat 12 LP und die Pnr. 6000. Der Profilbildungsbereich umfasst 6 LP.
+Profilbildungsbereich 6 LP

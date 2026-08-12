@@ -1,0 +1,62 @@
+[
+  {
+    "user_input": "Welche Kurse sollte ich im ersten Semester belegen?",
+    "reference": "Laut dem exemplarischen Studienverlaufsplan solltest du im ersten Semester folgende Kurse belegen: Mathematische Grundlagen, Einführung in die computationelle Logik, Einführung in die Computerlinguistik, Einführung in die Programmierung mit Python, Morphologie und Syntax."
+  },
+  {
+    "user_input": "Kann ich auch im Sommersemester anfangen?",
+    "reference": "Nein, das Studium ist für einen Beginn im Wintersemester ausgelegt."
+  },
+  {
+    "user_input": "Muss ich fließend Englisch sprechen können um Computerlinguistik zu studieren?",
+    "reference": "Fließendes Englisch wird nicht vorausgesetzt, jedoch benötigst du Englischkenntnisse auf dem Niveau B1. Dies entspricht vergleichsweise einem erfolgreichen vierjährigen Schulunterricht an einer weiterführenden Schule."
+  },
+  {
+    "user_input": "Muss ich für den Python-Kurs Vorkenntnisse haben?",
+    "reference": "Nein, für das Modul \"Python-Programmierung\" werden weder formale noch inhaltliche Vorkenntnisse vorausgesetzt."
+  },
+  {
+    "user_input": "Gibt es eine Übung für den Kurs Mathematische Grundlagen?",
+    "reference": "Nein, für den Kurs \"Mathematische Grundlagen\" gibt es keine begleitende Übung. Es handelt sich dabei ausschließlich um ein Seminar."
+  },
+  {
+    "user_input": "Wann soll ich das Praktikum machen?",
+    "reference": "Es wird empfohlen, das Berufsfeldpraktikum nach dem vierten oder fünften Semester zu absolvieren."
+  },
+  {
+    "user_input": "Gibt es eine generelle Anwesenheitspflicht für Vorlesungen?",
+    "reference": "Nein, bei Vorlesungen kann keine Anwesenheitspflicht festgelegt werden."
+  },
+  {
+    "user_input": "Wann gilt die Anwesenheitspflicht in einer Lehrveranstaltung als erfüllt?",
+    "reference": "Die Anwesenheitspflicht ist erfüllt, wenn ein Studierender oder eine Studierende 80% der Veranstaltungszeit beigewohnt hat."
+  },
+  {
+    "user_input": "Gibt es eine Klausur in Wahrscheinlichkeitstheorie?",
+    "reference": "Nein, im \"Basismodul - Statistische Methoden in der Computerlinguistik\", zu dem die Wahrscheinlichkeitstheorie gehört, gibt es gar keine Modulprüfung und somit auch keine Klausur. Es müssen lediglich Studienleistungen erbracht werden."
+  },
+  {
+    "user_input": "Wie lang dauert eine Klausur?",
+    "reference": "Die Dauer einer Klausurarbeit beträgt in der Regel 90 Minuten."
+  },
+  {
+    "user_input": "Wie oft darf ich eine nicht bestandene Modulprüfung wiederholen?",
+    "reference": "Eine nicht bestandene Modulprüfung kann insgesamt zweimal wiederholt werden."
+  },
+  {
+    "user_input": "Wie stark zählt die Bachelorarbeit für meine Abschlussnote?",
+    "reference": "Die Note der Bachelorarbeit wird bei der Ermittlung der Gesamtnote dreifach gewichtet. Im Vergleich dazu gehen alle anderen Modulprüfungen nur einfach in die Gesamtnote ein."
+  },
+  {
+    "user_input": "Was passiert, wenn ich in einer Präsenzprüfung generative Künstliche Intelligenz benutze?",
+    "reference": "Der Einsatz generativer Künstlicher Intelligenz im Rahmen von Präsenzprüfungen ist unzulässig. Dies gilt als Täuschungsversuch."
+  },
+  {
+    "user_input": "Muss ich Kurse aus der Linguistik für das interdisziplinäre Vertiefungsmodul belegen?",
+    "reference": "Nein, Linguistik-Kurse sind keine Pflicht. Das Modul sieht vor, dass du zwei Vorlesungen oder Seminare aus der Linguistik oder der Informatik wählst, wobei lediglich der Informatik-Anteil von 4 SWS vorgeschrieben ist."
+  },
+  {
+    "user_input": "Wie lang ist die offizielle Bearbeitungszeit für die Bachelorarbeit?",
+    "reference": "Die Bearbeitungszeit für die Bachelorarbeit beträgt maximal drei Monate."
+  }
+]

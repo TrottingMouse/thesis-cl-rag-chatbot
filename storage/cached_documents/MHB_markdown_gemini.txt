@@ -1,0 +1,365 @@
+# Modulhandbuch BA Computerlinguistik (integrativ) PO 2025
+**Stand: 20.01.2026**
+
+## Ziele des Studiums
+Der integrative Bachelorstudiengang Computerlinguistik leistet eine breite computerlinguistische Ausbildung. Die Studierenden erwerben im Rahmen der ersten beiden Jahre Wissen über die Komplexität sprachlicher Erscheinungen, Methodenkenntnisse und -fertigkeiten sowohl im Bereich der symbolischen Sprachverarbeitung als auch im Bereich des maschinellen Lernens und der künstlichen Intelligenz, und Programmierkenntnisse auf hohem Niveau. Dieses Wissen wird im dritten Jahr weiter ausgebaut und im Rahmen eines Praktikums und der Abschlussarbeit im Kontext konkreter Fragestellungen angewendet. Damit sind die Absolventen des Studiengangs optimal vorbereitet auf eine berufliche Tätigkeit z.B. in den Bereichen elektronische Informationsverarbeitung, Sprachressourcenmanagement, maschinelle Sprachverarbeitung und Sprachtechnologie. Die Studierenden erwerben außerdem besonders in den Aufbau- und Vertiefungsmodulen die Fähigkeit, relevante Informationen im Bereich der Computerlinguistik zu sammeln, zu bewerten und zu interpretieren und daraus wissenschaftlich fundierte Urteile abzuleiten, z.B. auch über gesellschaftsrelevante Aspekte von Sprachtechnologien wie etwa den Einsatz von Methoden der künstlichen Intelligenz in großen Sprachmodellen. Die Absolventen können sich selbständig in neue Themengebiete einarbeiten und neue Fähigkeiten lernen. Sie können sich mit Informatikern, Sprachwissenschaftlern und Laien über Informationen, Ideen, Probleme und Lösungen austauschen. Dank der Interdisziplinarität des Faches lernen sie außerdem, über Fachgrenzen hinweg zwischen unterschiedlichen Standpunkten zu vermitteln und multidisziplinäre Zusammenarbeit zu gestalten. Damit sind sie optimal auf einen anschließenden Masterstudiengang. z.B. im Bereich Sprachtechnologie oder Künstliche Intelligenz oder im Bereich Linguistik vorbereitet.
+
+## Aufbau des Studiums
+Grob lässt sich das Studium in drei Phasen einteilen: Die ersten zwei Semester sind dem Erwerb von Basiswissen gewidmet, Semester 3 und 4 dem Aufbau weiterer Fachkompetenzen und die letzten beiden Semester der weiteren Spezialisierung und dem Studienabschluss.
+**Phase 1 Erwerb von Basiswissen für die Computerlinguistik:** Hierzu gehört die Vermittlung mathematischer und logischer Konzepte und Methoden, die für die Computerlinguistik wesentlich sind, eine Einführung in die Computerlinguistik, die einen Überblick über zentrale computerlinguistische Fragestellungen und gängige Methoden in diesen Bereichen gibt, der Erwerb von Kenntnissen über Formalismen und Methoden der Grammatikmodellierung und eine Einführung in die Statistik. Dies wird ergänzt durch Einführungen in die für die Computerlinguistik zentralen sprachwissenschaftlichen Bereiche Morphologie/Syntax und Semantik/Pragmatik. Desweiteren sieht der Studienplan für das erste Jahr einen Einstieg in computerlinguistische Programmierung mit Python vor, die neben Grundlagen auch aktuelle Methoden der Sprachtechnologie vermittelt.
+**Phase 2 Aufbau von Fachkompetenzen für die Computerlinguistik:** Methodisch lernt man in dieser zweiten Phase die für die datengetriebene Computerlinguistik so zentralen Bereiche des Maschinellen Lernens und des Deep Learnings (also maschinelles Lernen mit künstlichen neuronalen Netzen) kennen, aufbauend auf dem Wissen über Fragestellungen und Repräsentationen der Computerlinguistik und auf soliden Kenntnissen der Programmiersprache Python (siehe Phase 1). Parallel dazu gewinnen die Studierenden Einblick in linguistische Ressourcen. Daneben werden in dieser Phase weitere Paradigma von Programmiersprachen vermittelt, nämlich objektorientiertes Programmieren und, im Kontext von Themen der computationellen Semantik, entweder logische oder funktionale Programmierung. Außerdem werden die Bereiche syntaktische Verarbeitung und Automatentheorie und formale Sprachen in Hinblick auf computerlinguistische Problemstellungen vertieft. Als Übergang zur Phase 3 ist zudem eine Orientierung in Hinblick auf mögliche Spezialisierungen vorgesehen.
+**Phase 3 Spezialisierung und Berufsorientierung:** Im letzten Studienjahr geht es darum, aufbauend auf den vorher erworbenen Grundlagen und Methoden, Fachkompetenzen weiter auszubauen und sich (1) über die Wahl der Bereiche, in denen im letzten Jahr APs abgelegt werden, (2) über die Durchführung eines Praktikums und (3) über das Thema der Abschlussarbeit weiter zu spezialisieren und in Richtung möglicher anschließender Tätigkeitsfelder zu orientieren. Zum einen werden im Rahmen der beiden computerlinguistischen Vertiefungsmodule regelmäßig eine Reihe von unterschiedlichen thematischen Seminaren angeboten werden, aus denen die Studierenden frei wählen können. In einem der Seminare, im Vertiefungsmodul 2, muss eine MP angelegt werden. Themen dieser Seminare sind z.B. Vektorsemantik, große Sprachmodelle, Transformer-Architekturen in computerlinguistischen Anwendungen, Advanced Constituency Parsing, Dependency Parsing, Finite-State Morphology, Semantic Role Labeling, Discourse Representation Theory, Fuzzy Logic usw. Daneben gibt es das interdisziplinäre Vertiefungsmodul, in dem den Studierenden ermöglicht wird, neben Veranstaltungen aus der Computerlinguistik auch Veranstaltungen aus Linguistik und Informatik zu belegen, die nicht notwendig dezidiert computerlinguistisch sind. Im Rahmen dieses Moduls muss mindestens eine Veranstaltung aus der Informatik belegt werden. Neben diesen Modulen, die relativ flexibel Spezialisierungen in Computerlinguistik, Linguistik und Informatik erlauben, ist im letzten Jahr ein Praktikum zur Berufsorientierung und die Anfertigung der Bachelorarbeit vorgesehen. Letztere wird in der Regel im letzten Semester durchgeführt, wobei parallel das Forschungskolloquium der Computerlinguistik besucht wird, wodurch interessante Einblicke in aktuelle Forschungsthemen geboten werden und Anregungen und Inspiration für die Bachelorarbeit gewonnen werden kann. Das 5. Semester kann als Mobilitätssemester gewählt werden, da in den Vertiefungsmodulen auch Kurse aus anderen Universitäten anerkannt werden können.
+
+## Module
+
+### Modul: Basismodul - Mathematische und logische Grundlagen
+**Englischer Titel:** Basis module - mathematical and logical foundations<br>
+**Modul-Nummer:** 2100<br>
+**ECTS-Leistungspunkte:** 12 ECTS-Leistungspunkte<br>
+**Workload:** 360 Stunden<br>
+**Dauer:** 1 Semester<br>
+**Lehrveranstaltungen und Lehrformen:** a: Einführung in die computationelle Logik (Seminar & Übung) / 2101 | b: Mathematische Grundlagen (Seminar) / 2102<br>
+**Belegung:** Seminar und Übung (a) und Seminar (b)<br>
+**Empfohlenes Studiensemester:** a: 1. Fachsemester (Wintersemester) | b: 1. Fachsemester (Wintersemester) | Prüfung im 1. Fachsemester (Wintersemester)<br>
+**Häufigkeit des Angebots:** a: Jedes Wintersemester | b: Jedes Wintersemester<br>
+**Geplante Gruppengröße:** a: Ca. 60 Studierende | b: Ca. 60 Studierende<br>
+**Kontaktzeit:** a: 4 SWS/60 Stunden / 2 ECTS-Leistungspunkte | b: 4 SWS/60 Stunden / 2 ECTS-Leistungspunkte<br>
+**Selbststudium:** a: 60 Stunden / 2 ECTS-Leistungspunkte | b: 60 Stunden/2 ECTS-Leistungspunkte<br>
+**ECTS-Leistungspunkte für die Modulprüfung:** 4 ECTS-Leistungspunkte<br>
+**Inhalte:** Aufbereitung der mathematischen Schulkenntnisse und deren Vertiefung, um formale Methoden der Mathematik einsetzen zu können wie z.B. Mengenlehre, Vektorrechnung oder Beweisführung. Bedeutung der Logik; menschliche Sprache und formale Sprache; Einführung in die Aussagenlogik und Prädikatenlogik; Modelle, Wahrheitswerte und formale Beweise.<br>
+**Angestrebte Lernergebnisse und Studieninhalte:** Die Studierenden beherrschen wesentliche logische und mathematische Verfahren und haben Verständnis von grundlegenden logischen und mathematischen Methoden sowie deren Anwendung in spezifischen Fällen. Sie haben das formale Rüstzeug, um die wichtigsten Methoden der formalen Linguistik und Computerlinguistik zu verstehen.<br>
+**Teilnahmevoraussetzungen:** Formal: Keine | Inhaltlich: Keine<br>
+**Prüfungsformen:** Portfolio (Pnr. 2110)<br>
+**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine-<br>
+**Voraussetzungen für die Vergabe von ECTS-Leistungspunkten:** Erbrachte Studienleistungen (SL) in den Lehrveranstaltungen (a) und (b) und bestandene Modulprüfung.<br>
+**Sonstige Informationen:** -keine-
+
+### Modul: Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung
+**Englischer Titel:** Basis module - introduction to computational linguistics and grammar formalisms<br>
+**Modul-Nummer:** 2200<br>
+**ECTS-Leistungspunkte:** 12 ECTS-Leistungspunkte<br>
+**Workload:** 360 Stunden<br>
+**Dauer:** 2 Semester<br>
+**Lehrveranstaltungen und Lehrformen:** a: Einführung in die Computerlinguistik (Seminar) / 2201 | b: Einführung in die Computerlinguistik (Übung) / 2202 | c: Grammatikformalismen (Seminar) / 2203 | d: Grammatikformalismen (Übung) / 2204<br>
+**Belegung:** Seminar (a) mit Übung (b) und Seminar (c) mit Übung (d)<br>
+**Empfohlenes Studiensemester:** a: 1. Fachsemester (Wintersemester) | b: 1. Fachsemester (Wintersemester) | c: 2. Fachsemester (Sommersemester) | d: 2. Fachsemester (Sommersemester) | Prüfung im 2. Fachsemester (Sommersemester)<br>
+**Häufigkeit des Angebots:** a: Jedes Wintersemester | b: Jedes Wintersemester | c: Jedes Sommersemester | d: Jedes Sommersemester<br>
+**Geplante Gruppengröße:** a: Ca. 60 Studierende | b: Ca. 60 Studierende | c: Ca. 60 Studierende | d: Ca. 60 Studierende<br>
+**Kontaktzeit:** a: 2 SWS / 30 Stunden / 1 ECTS-Leistungspunkt | b: 2 SWS/30 Stunden/1 ECTS-Leistungspunkt | c: 2 SWS/30 Stunden / 1 ECTS-Leistungspunkt | d: 2 SWS/30 Stunden / 1 ECTS-Leistungspunkt<br>
+**Selbststudium:** a: 30 Stunden / 1 ECTS-Leistungspunkt | b: 30 Stunden / 1 ECTS-Leistungspunkt | c: 30 Stunden / 1 ECTS-Leistungspunkt | d: 30 Stunden/1 ECTS-Leistungspunkt<br>
+**ECTS-Leistungspunkte für die Modulprüfung:** 4 ECTS-Leistungspunkte<br>
+**Inhalte:** Das Seminar "Einführung in die Computerlinguistik" gibt einen Überblick über Ziele, Methoden und theoretische Ansätze der Computerlinguistik, ergänzt durch Beispiele aus relevanten Anwendungsgebieten. Es werden sowohl symbolische Repräsentationen als auch datengetrieben Methoden behandelt. Das Seminar "Grammatikformalismen" führt in Methoden und Probleme der syntaktischen Modellierung mithilfe von Formalismen wie z.B. HPSG, TAG, CCG usw. ein.<br>
+**Angestrebte Lernergebnisse und Studieninhalte:** Wissen über Ziele der Computerlinguistik sowie Vertrautheit mit den grundlegenden formalen und probabilistischen Methoden der Computerlinguistik. Kenntnisse über gängige computerlinguistische Formalismen zur Implementierung von Grammatiken.<br>
+**Teilnahmevoraussetzungen:** Formal: Keine | Inhaltlich: Keine<br>
+**Prüfungsformen:** Klausur (Pnr. 2210)<br>
+**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine-<br>
+**Voraussetzungen für die Vergabe von ECTS-Leistungspunkten:** Erbrachte Studienleistungen (SL) in den Lehrveranstaltungen (a) und (b): 4 ECTS-Leistungspunkte | Erbrachte Studienleistungen (SL) in den Lehrveranstaltungen (c) und (d): 4 ECTS-Leistungspunkte | Bestandene Modulprüfung: 4 ECTS-Leistungspunkte<br>
+**Sonstige Informationen:** -keine-
+
+### Modul: Basismodul - Python-Programmierung
+**Englischer Titel:** Basis module - Python programming<br>
+**Modul-Nummer:** 2300<br>
+**ECTS-Leistungspunkte:** 12 ECTS-Leistungspunkte<br>
+**Workload:** 360 Stunden<br>
+**Dauer:** 2 Semester<br>
+**Lehrveranstaltungen und Lehrformen:** a: Einführung in die Programmierung mit Python (Seminar) / 2301 | b: Einführung in die Programmierung mit Python (Übung) / 2302 | c: Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar) / 2303 | d: Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Übung) / 2304<br>
+**Belegung:** Seminar (a) mit Übung (b) und Seminar (c) mit Übung (d)<br>
+**Empfohlenes Studiensemester:** a: 1. Fachsemester (Wintersemester) | b: 1. Fachsemester (Wintersemester) | c: 2. Fachsemester (Sommersemester) | d: 2. Fachsemester (Sommersemester) | Prüfung im 2. Fachsemester (Sommersemester)<br>
+**Häufigkeit des Angebots:** a: Jedes Wintersemester | b: Jedes Wintersemester | c: Jedes Sommersemester | d: Jedes Sommersemester<br>
+**Geplante Gruppengröße:** a: Ca. 60 Studierende | b: Ca. 60 Studierende | c: Ca. 60 Studierende | d: Ca. 60 Studierende<br>
+**Kontaktzeit:** a: 2 SWS / 30 Stunden / 1 ECTS-Leistungspunkt | b: 2 SWS/30 Stunden / 1 ECTS-Leistungspunkt | c: 2 SWS/30 Stunden / 1 ECTS-Leistungspunkt | d: 2 SWS/30 Stunden / 1 ECTS-Leistungspunkt<br>
+**Selbststudium:** a: 30 Stunden / 1 ECTS-Leistungspunkt | b: 30 Stunden / 1 ECTS-Leistungspunkt | c: 30 Stunden / 1 ECTS-Leistungspunkt | d: 30 Stunden/1 ECTS-Leistungspunkt<br>
+**ECTS-Leistungspunkte für die Modulprüfung:** 4 ECTS-Leistungspunkte (120 Stunden)<br>
+**Inhalte:** Wintersemester: Grundlagen der Python-Programmierung; Datentypen in Python; gängige Programmkonstrukte; elementare Textverarbeitung. Sommersemester: Objektorientierte und funktionale Programmierung mit Python; Einsatz von Programm-Bibliotheken in den Bereichen Data Science und NLP; Grundzüge der Sorftware-Entwicklung.<br>
+**Angestrebte Lernergebnisse und Studieninhalte:** Die Studierenden erwerben grundlegende Fähigkeiten in der Programmierung mit der Programmiersprache Python sowie Kenntnisse über fortgeschrittene Konzepte der Python-Programmierung (objektorientierte und funktionale Programmierung). Außerdem werden Grundkenntnisse des Einsatzes von Python in den Bereichen Data Science und NLP (Natural Language Processing) erworben, sowie die Fähigkeit ein kleines Software-Projekt durchzuführen und zu präsentieren.<br>
+**Teilnahmevoraussetzungen:** Formal: Keine | Inhaltlich: Keine<br>
+**Prüfungsformen:** Projektarbeit (Pnr. 2310)<br>
+**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine-<br>
+**Voraussetzungen für die Vergabe von ECTS-Leistungspunkten:** Erbrachte Studienleistungen (SL) in den Lehrveranstaltungen (a) und (b): 4 ECTS-Leistungspunkte | Erbrachte Studienleistungen (SL) in den Lehrveranstaltungen (c) und (d): 4 ECTS-Leistungspunkte | Bestandene Modulprüfung: 4 ECTS-Leistungspunkte<br>
+**Sonstige Informationen:** -keine-
+
+### Modul: Basiswissen Linguistik - Morphologie und Syntax
+**Englischer Titel:** Basic expertise - morphology and syntax<br>
+**Modul-Nummer:** 1300<br>
+**ECTS-Leistungspunkte:** 9 ECTS-Leistungspunkte<br>
+**Workload:** 270 Stunden<br>
+**Dauer:** 1 Semester<br>
+**Lehrveranstaltungen und Lehrformen:** a: Morphologie und Syntax (Vorlesung) / 1301 | b: Tutorium zu Morphologie und Syntax (Tutorium) / 1302<br>
+**Belegung:** Vorlesung (a) und Tutorium (b)<br>
+**Empfohlenes Studiensemester:** a: 1. Fachsemester (Wintersemester) | b: 1. Fachsemester (Wintersemester) | Prüfung im 1. Fachsemester (Wintersemester)<br>
+**Häufigkeit des Angebots:** a: Jedes Wintersemester | b: Jedes Wintersemester<br>
+**Geplante Gruppengröße:** a: Ca. 150 Studierende | b: Ca. 30 Studierende pro Gruppe<br>
+**Kontaktzeit:** a: 4 SWS/60 Stunden/2 ECTS-Leistungspunkte | b: 2 SWS/30 Stunden / 1 ECTS-Leistungspunkt<br>
+**Selbststudium:** 90 Stunden / 3 ECTS-Leistungspunkte<br>
+**ECTS-Leistungspunkte für die Modulprüfung:** 3 ECTS-Leistungspunkte<br>
+**Inhalte:** Vorlesung a) befasst sich mit syntaktischen und morphologischen Strukturen. Sie legt den Fokus auf die Frage, welche Muster im Sprachvergleich stärker verbreitet sind, und wie sich sprachübergreifende Trends durch sprachinterne und kontaktbedingte Faktoren verbreiten. Das Tutorium b) übt die vorgestellten Inhalte ein und bietet Unterstützung bei den Hausaufgaben und der Klausurvorbereitung.<br>
+**Angestrebte Lernergebnisse und Studieninhalte:** In diesem Modul erwerben Studierende grundlegende Kenntnisse in den Bereichen Morphologie und Syntax. Sie werden an die Analyse morphologischer und syntaktischer Strukturen herangeführt und erlernen die Klassifikation von Wortklassen, Satzgliedern, syntaktischen Funktionen, Morphemtypen und verschiedenen morphologischen Prozessen. Sie lernen grundlegende Fragestellungen der Morphosyntax und unterschiedliche Erklärungsansätze kennen.<br>
+**Teilnahmevoraussetzungen:** Formal: -keine- | Inhaltlich: -keine-<br>
+**Prüfungsformen:** Klausur (Pnr. 1310)<br>
+**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine-<br>
+**Voraussetzungen für die Vergabe von ECTS-Leistungspunkten:** Erbrachte Studienleistungen (SL) in allen Lehrveranstaltungen und bestandene Modulprüfung.<br>
+**Sonstige Informationen:** -keine-
+
+### Modul: Basiswissen Linguistik - Semantik und Pragmatik
+**Englischer Titel:** Basic expertise in linguistics - semantics and pragmatics<br>
+**Modul-Nummer:** 1400<br>
+**ECTS-Leistungspunkte:** 9 ECTS-Leistungspunkte<br>
+**Workload:** 270 Stunden<br>
+**Dauer:** 1 Semester<br>
+**Lehrveranstaltungen und Lehrformen:** a: Semantik und Pragmatik (Vorlesung) / 1401 | b: Tutorium zu Semantik und Pragmatik (Tutorium) / 1402<br>
+**Belegung:** Vorlesung (a) und Tutorium (b)<br>
+**Empfohlenes Studiensemester:** a: 2. Fachsemester (Sommersemester) | b: 2. Fachsemester (Sommersemester) | Prüfung im 2. Fachsemester (Sommersemester)<br>
+**Häufigkeit des Angebots:** a: Jedes Sommersemester | b: Jedes Sommersemester<br>
+**Geplante Gruppengröße:** a: Ca. 150 Studierende | b: Ca. 30 Studierende pro Gruppe<br>
+**Kontaktzeit:** a: 4 SWS/60 Stunden/2 ECTS-Leistungspunkte | b: 2 SWS/30 Stunden / 1 ECTS-Leistungspunkt<br>
+**Selbststudium:** 90 Stunden / 3 ECTS-Leistungspunkte<br>
+**ECTS-Leistungspunkte für die Modulprüfung:** 3 ECTS-Leistungspunkte<br>
+**Inhalte:** Semantik: Grundlagen der Wortsemantik und Satzsemantik; Bedeutungsbegriff; deskriptive, soziale und expressive Bedeutung; semantische Relationen (z.B. Ambiguität, Vagheit, Polysemie, Synonymie); Prädikation; theoretische Ansätze: Wahrheitsbedingungssemantik. Pragmatik: Sprechakttheorie (Austin, Searle), Theorie der konversationellen Implikaturen (Grice) und ihre Anwendungen (z.B. Horn-Skalen); Presuppositions, Models of Contextual Information, Anaphora.<br>
+**Angestrebte Lernergebnisse und Studieninhalte:** Mit erfolgreichem Abschluss des Moduls können die Studierenden die grundlegenden Fachbegriffe aus den Bereichen Semantik und Pragmatik nennen, diese auf ausgewählte Beispiele anwenden, unterschiedliche Analysemethoden innerhalb der Semantik und innerhalb der Pragmatik miteinander vergleichen, menschliche Sprache als Kommunikationsmittel (Semantik) verstehen und den Einsatz dieses Kommunikationsmittels (Pragmatik) analysieren, sich nach Anleitung zuverlässig und systematisch mit dem zur Verfügung gestellten Lernmaterial (Unterrichtsmaterial, Online-Ressourcen) versorgen, Erkenntnisse strukturieren und sowohl mündlich als auch in der schriftlichen Ausarbeitung (wissenschaftliche Schreibkompetenz) präzise und terminologisch sicher darstellen, durch das wöchentliche Einreichen von Hausaufgaben mit Abgabeterminen umgehen und ihre eigenständige Arbeit dementsprechend strukturieren.<br>
+**Teilnahmevoraussetzungen:** Formal: -keine- | Inhaltlich: -keine-<br>
+**Prüfungsformen:** Klausur (Pnr. 1410)<br>
+**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine-<br>
+**Voraussetzungen für die Vergabe von ECTS-Leistungspunkten:** Erbrachte Studienleistungen (SL) in allen Lehrveranstaltungen und bestandene Modulprüfung.<br>
+**Sonstige Informationen:** -keine-
+
+### Modul: Basismodul - Statistische Methoden in der Computerlinguistik
+**Englischer Titel:** Basis module - statistical methods in computational linguistics<br>
+**Modul-Nummer:** 2400<br>
+**ECTS-Leistungspunkte:** 6 ECTS-Leistungspunkte<br>
+**Workload:** 180 Stunden<br>
+**Dauer:** 2 Semester<br>
+**Lehrveranstaltungen und Lehrformen:** a: Wahrscheinlichkeitstheorie und Statistik (Seminar und Übung) / 2401 | b: Linguistische Ressourcen (Seminar) / 2402<br>
+**Belegung:** Seminar mit Übung (a) und Seminar (b)<br>
+**Empfohlenes Studiensemester:** a: 2. Fachsemester (Sommersemester) | b: 3. Fachsemester (Wintersemester)<br>
+**Häufigkeit des Angebots:** a: Jedes Wintersemester | b: Jedes Sommersemester<br>
+**Geplante Gruppengröße:** a: Ca. 60 Studierende | b: Ca. 60 Studierende<br>
+**Kontaktzeit:** a: 4 SWS/60 Stunden / 2 ECTS-Leistungspunkte | b: 2 SWS/30 Stunden / 1 ECTS-Leistungspunkt<br>
+**Selbststudium:** a: 60 Stunden / 2 ECTS-Leistungspunkte | b: 30 Stunden / 1 ECTS-Leistungspunkt<br>
+**ECTS-Leistungspunkte für die Modulprüfung:** -keine-<br>
+**Inhalte:** Dieses Modul vermittelt grundlegende Kenntnisse in Wahrscheinlichkeitstheorie und in statistischen Methoden der Computerlinguistik, sowie deren Anwendung mittels Korpora und Datensätzen. Unter anderem werden folgende Bereiche abgedeckt: Statistik und statistische Programmierung in einer geeigneten Programmiersprache (z.B. R); Aufbau und Pflege linguistischer Ressourcen (Korpora, Datenbanken, ...).<br>
+**Angestrebte Lernergebnisse und Studieninhalte:** Kenntnisse der Grundlagen der Wahrscheinlichkeitstheorie und Grundbegriffe der Statistik. Fähigkeit, statistische Analysen selbst zu konzipieren und implementieren. Fähigkeit, Korpora zu erstellen und für Experimente und Analysen durchzuführen.<br>
+**Teilnahmevoraussetzungen:** Formal: keine | Inhaltlich: Basismodul Mathematische und logische Grundlagen<br>
+**Prüfungsformen:** -keine-<br>
+**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine-<br>
+**Voraussetzungen für die Vergabe von ECTS-Leistungspunkten:** Erbrachte Studienleistungen (SL) oder Hausaufgaben in allen Lehrveranstaltungen<br>
+**Sonstige Informationen:** -keine-
+
+### Modul: Aufbaumodul - Maschinelles Lernen
+**Englischer Titel:** Advanced module - machine learning<br>
+**Modul-Nummer:** 4100<br>
+**ECTS-Leistungspunkte:** 12 ECTS-Leistungspunkte<br>
+**Workload:** 360 Stunden<br>
+**Dauer:** 2 Semester<br>
+**Lehrveranstaltungen und Lehrformen:** a: Grundlagen des maschinellen Lernens (Seminar und Übung) / 4101 | b: Deep Learning (Seminar) / 4102<br>
+**Belegung:** Seminar mit Übung (a) und Seminar (b)<br>
+**Empfohlenes Studiensemester:** a: 3. Fachsemester (Wintersemester) | b: 4. Fachsemester (Sommersemester) | Prüfung im 4. Fachsemester (Sommersemester)<br>
+**Häufigkeit des Angebots:** a: Jedes Wintersemester | b: Jedes Sommersemester<br>
+**Geplante Gruppengröße:** a: Ca. 60 Studierende | b: Ca. 60 Studierende<br>
+**Kontaktzeit:** a: 4 SWS/60 Stunden / 2 ECTS-Leistungspunkte | b: 4 SWS/60 Stunden / 2 ECTS-Leistungspunkte<br>
+**Selbststudium:** a: 60 Stunden/2 ECTS-Leistungspunkte | b: 60 Stunden/2 ECTS-Leistungspunkte<br>
+**ECTS-Leistungspunkte für die Modulprüfung:** 4 ECTS-Leistungspunkte<br>
+**Inhalte:** Methoden des modernen maschinellen Lernens, die auf Vektorrepräsentationen basieren. In a werden die grundlegenden, meist linearen Methoden wie lineare/logistische Regression, Support Vector Machines etc. theoretisch besprochen und implementiert. In b werden neuronale Netze und deren Anwendung im Natural Language Processing (NLP) erklärt und implementiert.<br>
+**Angestrebte Lernergebnisse und Studieninhalte:** Die Teilnehmer können selbständig lineare Modelle und neuronale Netze implementieren, um Aufgaben im NLP zu lösen. Sie sind vertraut mit Methoden der Evaluation von Modellen und Problemen wie Overfitting und Replizierbarkeit.<br>
+**Teilnahmevoraussetzungen:** Formal: Keine | Inhaltlich: Basismodul - Statistische Methoden in der Computerlinguistik<br>
+**Prüfungsformen:** Hausarbeit (mit Programmierprojekt) (Pnr. 4110) oder Studienarbeit (mit Programmierprojekt) (Pnr. 4120)<br>
+**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine-<br>
+**Voraussetzungen für die Vergabe von ECTS-Leistungspunkten:** Erbrachte Studienleistungen (SL) in allen Lehrveranstaltungen und bestandene Modulprüfung.<br>
+**Sonstige Informationen:** -keine-
+
+### Modul: Aufbaumodul - Mathematische Linguistik
+**Englischer Titel:** Advanced module - mathematical linguistics<br>
+**Modul-Nummer:** 4200<br>
+**ECTS-Leistungspunkte:** 6 ECTS-Leistungspunkte<br>
+**Workload:** 180 Stunden<br>
+**Dauer:** 1 Semester<br>
+**Lehrveranstaltungen und Lehrformen:** a: Automatentheorie & Formale Sprachen (Seminar) / 4201 | b: Übung zu Automatentheorie & Formale Sprachen (Übung) / 4202<br>
+**Belegung:** Seminar (a) und Übung (b)<br>
+**Empfohlenes Studiensemester:** a: 3. Fachsemester (Wintersemester) | b: 3. Fachsemester (Wintersemester)<br>
+**Häufigkeit des Angebots:** a: Jedes Wintersemester | b: Jedes Wintersemester<br>
+**Geplante Gruppengröße:** a: Ca. 60 Studierende | b: Ca. 60 Studierende<br>
+**Kontaktzeit:** a: 2 SWS / 30 Stunden / 1 ECTS-Leistungspunkt | b: 2 SWS/30 Stunden / 1 ECTS-Leistungspunkt<br>
+**Selbststudium:** a: 60 Stunden / 2 ECTS-Leistungspunkte | b: 60 Stunden/2 ECTS-Leistungspunkte<br>
+**ECTS-Leistungspunkte für die Modulprüfung:** -keine-<br>
+**Inhalte:** Sprachklassen basierend auf der Chomsky-Hierarchie (Automaten, Grammatiken); Sprachen und Relationen, rationale Relationen und Finite-State-Methoden; Komplexitätstheorie und Lernbarkeitstheorie; Abschlusseigenschaften und Entscheidungsprobleme wichtiger Sprachklassen.<br>
+**Angestrebte Lernergebnisse und Studieninhalte:** Vertrautheit mit den mathematischen und informatischen Grundlagen der Linguistik und Computerlinguistik. Verständnis von Beweisverfahren. Fähigkeit, Sprachen, Grammatiken und Automaten aufeinander zu beziehen und passende Entsprechungen zu konstruieren.<br>
+**Teilnahmevoraussetzungen:** Formal: keine | Inhaltlich: Basismodul - Mathematische und logische Grundlagen, Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung<br>
+**Prüfungsformen:** -keine-<br>
+**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine-<br>
+**Voraussetzungen für die Vergabe von ECTS-Leistungspunkten:** Erbrachte Studienleistungen (SL) in allen Lehrveranstaltungen<br>
+**Sonstige Informationen:** -keine-
+
+### Modul: Aufbaumodul - Parsing
+**Englischer Titel:** Advanced module - parsing<br>
+**Modul-Nummer:** 4300<br>
+**ECTS-Leistungspunkte:** 6 ECTS-Leistungspunkte<br>
+**Workload:** 180 Stunden<br>
+**Dauer:** 1 Semester<br>
+**Lehrveranstaltungen und Lehrformen:** a: Parsing (Seminar) / 4301 | b: Übung zu Parsing (Übung) / 4302<br>
+**Belegung:** Seminar (a) und Übung (b)<br>
+**Empfohlenes Studiensemester:** a: 4. Fachsemester (Sommersemester) | b: 4. Fachsemester (Sommersemester)<br>
+**Häufigkeit des Angebots:** a: Jedes Sommersemester | b: Jedes Sommersemester<br>
+**Geplante Gruppengröße:** a: Ca. 60 Studierende | b: Ca. 60 Studierende<br>
+**Kontaktzeit:** a: 2 SWS / 30 Stunden / 1 ECTS-Leistungspunkt | b: 2 SWS/30 Stunden / 1 ECTS-Leistungspunkt<br>
+**Selbststudium:** a: 60 Stunden / 2 ECTS-Leistungspunkte | b: 60 Stunden/2 ECTS-Leistungspunkte<br>
+**ECTS-Leistungspunkte für die Modulprüfung:** -keine-<br>
+**Inhalte:** Parsing, also die automatische syntaktische Analyse von Text, ist ein zentraler Bestandteil vieler computerlinguistischer Systeme. Gängige Formate für die Repräsentation von Syntax sind entweder Konstituentenstrukturen oder Dependenzstrukturen. In diesem Modul werden verschiedene Algorithmen und Techniken für das automatische Erstellen derartiger Strukturen über bestehendem Text (= Parsing) eingeführt. Es werden sowohl symbolische also auch datengetriebene Ansätze behandelt, und es werden Konstituenten- und Dependenzstrukturen berücksichtigt.<br>
+**Angestrebte Lernergebnisse und Studieninhalte:** Kenntnisse gängiger Parsingalgorithmen im Bereich des grammatikbasierten Parsings. Kenntnisse gängiger Techniken des datengetriebenen Konstituentenparsings. Kenntnisse verschiedener Ansätze des Dependenparsing. Fähigkeit, Beschreibungen von Parsern, z.B. aus Forschungsartikeln, einordnen und verstehen zu können.<br>
+**Teilnahmevoraussetzungen:** Formal: keine | Inhaltlich: Basismodul - Mathematische und logische Grundlagen, Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung, Basiswissen Linguistik - Morphologie und Syntax<br>
+**Prüfungsformen:** -keine-<br>
+**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine-<br>
+**Voraussetzungen für die Vergabe von ECTS-Leistungspunkten:** Erbrachte Studienleistungen (SL) in allen Lehrveranstaltungen<br>
+**Sonstige Informationen:** -keine-
+
+### Modul: Aufbaumodul - Logische Programmierung
+**Englischer Titel:** Advanced module - logical programming<br>
+**Modul-Nummer:** 4400<br>
+**ECTS-Leistungspunkte:** 6 ECTS-Leistungspunkte<br>
+**Workload:** 180 Stunden<br>
+**Dauer:** 1 Semester<br>
+**Lehrveranstaltungen und Lehrformen:** a: Einführung in Prolog (Seminar) / 4401 | b: Übung Prolog (Übung) / 4402<br>
+**Belegung:** Seminar (a) mit Übung (b)<br>
+**Empfohlenes Studiensemester:** a: 4. Fachsemester (Sommersemester) | b: 4. Fachsemester (Sommersemester)<br>
+**Häufigkeit des Angebots:** a: Jedes Sommersemester | b: Jedes Sommersemester<br>
+**Geplante Gruppengröße:** a: Ca. 60 Studierende | b: Ca. 60 Studierende<br>
+**Kontaktzeit:** a: 2 SWS/30 Stunden/1 ECTS-Leistungspunkt | b: 2 SWS/30 Stunden / 1 ECTS-Leistungspunkt<br>
+**Selbststudium:** a: 60 Stunden / 2 ECTS-Leistungspunkte | b: 60 Stunden/2 ECTS-Leistungspunkte<br>
+**ECTS-Leistungspunkte für die Modulprüfung:** -keine-<br>
+**Inhalte:** a: Einführung in das logische Programmierparadigma anhand der logischen Programmiersprache Prolog. Prolog ist eine logische Programmiersprache, die auf der mathematischen Logik beruht. Insbesondere werden die Themen Beweisverfahren, Rekursion, Listenverarbeitung und kontextfreie Grammatiken behandelt. | b: Übungen zu (a)<br>
+**Angestrebte Lernergebnisse und Studieninhalte:** Die Studierenden lernen Probleme nach dem deklarativen Programmierparadigma in der logischen Programmiersprache Prolog zu lösen. Sie vertiefen dabei ihre bisher erworbenen Kenntnisse im Bereich Logik, Semantik und formale Sprachen.<br>
+**Teilnahmevoraussetzungen:** Formal: keine | Inhaltlich: Basismodul - Mathematische und logische Grundlagen<br>
+**Prüfungsformen:** -keine-<br>
+**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine-<br>
+**Voraussetzungen für die Vergabe von ECTS-Leistungspunkten:** Erbrachte Studienleistungen (SL) in den Lehrveranstaltungen (a) und (b).<br>
+**Sonstige Informationen:** -keine-
+
+### Modul: Aufbaumodul - Objektorientierte Programmierung
+**Englischer Titel:** Advanced module - object-oriented programming<br>
+**Modul-Nummer:** 4500<br>
+**ECTS-Leistungspunkte:** 12 ECTS-Leistungspunkte<br>
+**Workload:** 360 Stunden<br>
+**Dauer:** 1 Semester<br>
+**Lehrveranstaltungen und Lehrformen:** a: Programmierung (Vorlesung) / 4501 | b: Übung zur Vorlesung (Übung) / 4502 | c: Praktische Übung zur Vorlesung (Praktische Übung) / 4503<br>
+**Belegung:** Vorlesung (a) mit Übung (b) und praktischer Übung (c)<br>
+**Empfohlenes Studiensemester:** a: 3. Fachsemester (Wintersemester) | b: 3. Fachsemester (Wintersemester) | c: 3. Fachsemester (Wintersemester)<br>
+**Häufigkeit des Angebots:** a: Jedes Wintersemester | b: Jedes Wintersemester | c: Jedes Wintersemester<br>
+**Geplante Gruppengröße:** a: Unbegrenzt | b: Ca. 30 Studierende | c: Ca. 30 Studierende<br>
+**Kontaktzeit:** a: 4 SWS/60 Stunden/2 ECTS-Leistungspunkte | b: 2 SWS/30 Stunden/1 ECTS-Leistungspunkt | c: 2 SWS / 30 Stunden/1 ECTS-Leistungspunkt<br>
+**Selbststudium:** a: 60 Stunden / 2 ECTS-Leistungspunkte | b: 30 Stunden/1 ECTS-Leistungspunkt | c: 30 Stunden / 1 ECTS-Leistungspunk<br>
+**ECTS-Leistungspunkte für die Modulprüfung:** 4 ECTS-Leistungspunkte<br>
+**Inhalte:** Dieses Modul vermittelt grundlegende Programmierkenntnisse in einer objektorientierten Programmiersprache. Darüber hinaus werden einführend Aspekte von Algorithmen und Datenstrukturen behandelt. Es wird keine Programmiererfahrung vorausgesetzt. Grundlegende Begriffe der Informatik; Primitive Datentypen und Variablen; Kontrollstrukturen; Eigene Datentypen (Klassen) und Arrays; Programmstrukturen im Speicher (Heap, Stack); Konzepte der Objektorientierung (Polymorphie, Schnittstellen); Rekursion; Fehlerbehandlung; Dynamische Datenstrukturen (Listen, Binärbäume, Hashing); Suchen und Sortieren (ausgewählte Algorithmen, u.a. binäre Suche, BubbleSort, QuickSort); Datenströme (Standard-Eingabe und -Ausgabe, einfache 2D-Grafik, Dateien)<br>
+**Angestrebte Lernergebnisse und Studieninhalte:** Studierende sollen nach Absolvierung der Lehrveranstaltungen in der Lage sein, Begriffe der Informatik und der Programmierung zu nennen und zu erläutern; einfache Algorithmen (iterativ und rekursiv) zu verstehen, deren Ablauf zu beschreiben, sowie selbst zu erstellen; eigene Datentypen zu konzipieren und anzuwenden; einfache objektorientierte Programme mit Polymorphie, Vererbung und Schnittstellen zu entwickeln; die behandelten dynamischen Datenstrukturen anzuwenden.<br>
+**Teilnahmevoraussetzungen:** Formal: Keine | Inhaltlich: Basismodul - Mathematische und logische Grundlagen, Basismodul - Python-Programmierung<br>
+**Prüfungsformen:** Klausur (Pnr. 4510)<br>
+**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine-<br>
+**Voraussetzungen für die Vergabe von ECTS-Leistungspunkten:** Erbrachte Studienleistungen (SL) in den Lehrveranstaltungen (b) und (c) | Bestandene Modulprüfung: 4 ECTS-Leistungspunkte<br>
+**Sonstige Informationen:** -keine-
+
+### Modul: Praktikum & Orientierung
+**Englischer Titel:** Internship & orientation<br>
+**Modul-Nummer:** 3000<br>
+**ECTS-Leistungspunkte:** 12 ECTS-Leistungspunkte<br>
+**Workload:** 360 Stunden<br>
+**Dauer:** 2 Semester<br>
+**Lehrveranstaltungen und Lehrformen:** a: Orientierungsseminar (Seminar) / 3001 | b: Praktikum (in der Regel 6 Wochen in Vollzeit) / 3010<br>
+**Belegung:** Seminar (a)<br>
+**Empfohlenes Studiensemester:** a: 4. Fachsemester (Sommersemester) | b: 5. Fachsemester (Wintersemester)<br>
+**Häufigkeit des Angebots:** a: Jedes Sommersemester | b: Jedes Semester<br>
+**Geplante Gruppengröße:** a: Ca. 60 Studierende | b: Ca. 60 Studierende<br>
+**Kontaktzeit:** a: 2 SWS / 30 Stunden / 1 ECTS-Leistungspunkt | b: keine<br>
+**Selbststudium:** a: 60 Stunden / 2 ECTS-Leistungspunkte | b: 270 Stunden/9 ECTS-Leistungspunkte<br>
+**ECTS-Leistungspunkte für die Modulprüfung:** -keine-<br>
+**Inhalte:** a: Das Seminar bietet Orientierung für die zweite Studienphase insbesondere in Bezug auf Studienorganisation (Schwerpunktsetzung, Auslandsaufenthalt, Praktikum, ...); Abschlussarbeit (Themenwahl, wissenschaftliches Arbeiten, ...); Berufsperspektiven (Bewerbungsverfahren, Berufsfeldorientierung, ...); Anschlussstudiengänge (wissenschaftliche Karriere, ...). | b: Berufsorientierte Anwendung der im Studium vermittelten Qualifikationen<br>
+**Angestrebte Lernergebnisse und Studieninhalte:** Die Studierenden entwickeln Entwicklungsziele für ihre Zukunft und lernen, welche Schritte sie zur Realisierung ergreifen können. Sie erlangen Orientierung sowohl für den weiteren Studienaufbau als auch für ihren beruflichen Werdegang. Berufliche Wünsche und Möglichkeiten können sie realistischer beurteilen. Sie erwerben erweiterte Methodenkenntnis aus der beruflichen Praxis und gewinnen ein verstärktes Selbstvertrauen durch Praxiserprobung des bisher erworbenen Wissens. Sie vertiefen ihre Kenntnisse zum wissenschaftlichen Arbeiten, können eigene Forschungsfragen formulieren, diese angemessen einengen und die zur Beantwortung notwendigen Schritte planen und umsetzen.<br>
+**Teilnahmevoraussetzungen:** Formal: 4. Fachsemester oder höher | Inhaltlich: Basismodul - Mathematische und logische Grundlagen, Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung, Basismodul - Python-Programmierung<br>
+**Prüfungsformen:** -keine-<br>
+**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine-<br>
+**Voraussetzungen für die Vergabe von ECTS-Leistungspunkten:** Erbrachte Studienleistungen (SL) in (a) und 6-wöchiges Praktikum nachgewiesen über Praktikumsnachweis und Praktikumsbericht.<br>
+**Sonstige Informationen:** -keine-
+
+### Modul: Vertiefungsmodul - Interdisziplinär
+**Englischer Titel:** Specialization module - interdisciplinary<br>
+**Modul-Nummer:** 5100<br>
+**ECTS-Leistungspunkte:** 12 ECTS-Leistungspunkte<br>
+**Workload:** 360 Stunden<br>
+**Dauer:** 2 Semester<br>
+**Lehrveranstaltungen und Lehrformen:** Zwei Vorlesungen oder Seminare aus Linguistik oder Informatik | Vorlesung Linguistik: 5101, 5105 | Vorlesung Informatik: 5102, 5106 | Seminar Linguistik: 5103, 5107 | Seminar Informatik: 5104, 5108<br>
+**Belegung:** Nach Vorgabe der gewählten Veranstaltungen<br>
+**Empfohlenes Studiensemester:** 4. Fachsemester (Sommersemester) | 5. Fachsemester (Wintersemester)<br>
+**Häufigkeit des Angebots:** Jedes Semester<br>
+**Geplante Gruppengröße:** Nach Vorgabe der gewählten Veranstaltungen<br>
+**Kontaktzeit:** Nach Vorgabe der gewählten Veranstaltungen<br>
+**Selbststudium:** Nach Vorgabe der gewählten Veranstaltungen<br>
+**ECTS-Leistungspunkte für die Modulprüfung:** Nach Vorgabe der gewählten Veranstaltungen<br>
+**Inhalte:** Mögliche Inhalte sind Themen der Linguistik und Informatik. Relevante mögliche Themen in der Linguistik sind z.B.: Phonetik und Phonologie, Psycho- und Neurolinguistik, historische Linguistik. Es müssen Veranstaltungen im Umfang von mindestens 4 SWS in der Informatik belegt werden. Dabei darf keine Doppelung von Inhalten der Module aus der Computerlinguistik entstehen. Für die Computerlinguistik relevante mögliche Themen in der Informatik sind z.B.: Professionelle Softwareentwicklung, Datenbanksysteme, Nichtkooperative Spieltheorie, Komplexitätstheorie, Numerische Optimierung, Dialogsysteme, Überblick Künstliche Intelligenz.<br>
+**Angestrebte Lernergebnisse und Studieninhalte:** Vertiefte Kenntnisse in Spezialgebieten von Linguistik/Computerlinguistik/Informatik<br>
+**Teilnahmevoraussetzungen:** Formal: keine<br>
+**Prüfungsformen:** Mündliche Prüfung (Pnr. 5110) oder Klausur (Pnr. 5120) oder Hausarbeit (Pnr. 5130) oder Studienarbeit (Pnr. 5140) oder Projektarbeit (Pnr. 5150)<br>
+**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine<br>
+**Voraussetzungen für die Vergabe von ECTS-Leistungspunkten:** Bestandene Modulprüfung, aktive und erfolgreiche Mitwirkung in den Seminaren und theoretischen und praktischen Übungen.<br>
+**Sonstige Informationen:** -keine-
+
+### Modul: Vertiefungsmodul - Computerlinguistik 1
+**Englischer Titel:** Specialization module - computational linguistics 1<br>
+**Modul-Nummer:** 5200<br>
+**ECTS-Leistungspunkte:** 12 ECTS-Leistungspunkte<br>
+**Workload:** 360 Stunden<br>
+**Dauer:** 1 Semester<br>
+**Lehrveranstaltungen und Lehrformen:** a: Seminar Computerlinguistik (Seminar) / 5201 | b: Seminar Computerlinguistik (Seminar) / 5202<br>
+**Belegung:** Seminar (a) und Seminar (b)<br>
+**Empfohlenes Studiensemester:** a: 5. Fachsemester (Wintersemester) | b: 5. Fachsemester (Wintersemester)<br>
+**Häufigkeit des Angebots:** Jedes Wintersemester<br>
+**Geplante Gruppengröße:** a: Ca. 30 Studierende | b: Ca. 30 Studierende<br>
+**Kontaktzeit:** a: 4 SWS/30 Stunden / 2 ECTS-Leistungspunkte | b: 4 SWS/30 Stunden / 2 ECTS-Leistungspunkte<br>
+**Selbststudium:** Im 5. Fachsemester: 240 Stunden / 8 ECTS-Leistungspunkte<br>
+**ECTS-Leistungspunkte für die Modulprüfung:** -keine-<br>
+**Inhalte:** Mögliche Inhalte sind Themen der Computerlinguistik. Das können sein: Nichtklassische (modale, fuzzy oder substrukturelle) Logiken; besondere Grammatikformalismen (Kategorialgrammatik); Vertiefungsseminare im Bereich maschinelles Lernen und Deep Learning. Über die Zulassung von nicht im Vorlesungsverzeichnis zugeordneten Veranstaltungen zu diesem Modul entscheiden die Modulverantwortlichen.<br>
+**Angestrebte Lernergebnisse und Studieninhalte:** Studierende lernen vertiefte Kenntnisse in Spezialgebieten der Computerlinguistik.<br>
+**Teilnahmevoraussetzungen:** Formal: Basismodul - Mathematische und logische Grundlagen, Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung, Aufbaumodul - Maschinelles Lernen | Inhaltlich: Je nach Thema<br>
+**Prüfungsformen:** -keine-<br>
+**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine-<br>
+**Voraussetzungen für die Vergabe von ECTS-Leistungspunkten:** Aktive und erfolgreiche Mitwirkung im Forschungsseminar<br>
+**Sonstige Informationen:** -keine-
+
+### Modul: Vertiefungsmodul - Computerlinguistik 2
+**Englischer Titel:** Specialization module computational linguistics 2<br>
+**Modul-Nummer:** 5300<br>
+**ECTS-Leistungspunkte:** 9 ECTS-Leistungspunkte<br>
+**Workload:** 270 Stunden<br>
+**Dauer:** 1 Semester<br>
+**Lehrveranstaltungen und Lehrformen:** a: thematisches Seminar in der Computerlinguistik (Seminar) / 5301<br>
+**Belegung:** Seminar (a)<br>
+**Empfohlenes Studiensemester:** a: 6. Fachsemester (Sommersemester) | Prüfung im 6. Fachsemester (Sommersemester)<br>
+**Häufigkeit des Angebots:** a: Jedes Sommersemester<br>
+**Geplante Gruppengröße:** a: Ca. 30 Studierende<br>
+**Kontaktzeit:** a: 4 SWS/60 Stunden / 2 ECTS-Leistungspunkte<br>
+**Selbststudium:** a: 90 Stunden / 3 ECTS-Leistungspunkte<br>
+**ECTS-Leistungspunkte für die Modulprüfung:** 4 ECTS-Leistungspunkte<br>
+**Inhalte:** Mögliche Inhalte sind Themen der Computerlinguistik. Das können sein: Nichtklassische (modale, fuzzy oder substrukturelle) Logiken; besondere Grammatikformalismen (Kategorialgrammatik); Vertiefungsseminare im Bereich maschinelles Lernen und Deep Learning.<br>
+**Angestrebte Lernergebnisse und Studieninhalte:** Studierende lernen vertiefte Kenntnisse in Spezialgebieten der Computerlinguistik.<br>
+**Teilnahmevoraussetzungen:** Formal: Basismodul - Mathematische und logische Grundlagen, Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung, Aufbaumodul - Maschinelles Lernen | Inhaltlich: Je nach Thema<br>
+**Prüfungsformen:** Mündliche Prüfung (Pnr. 5310) oder Klausur (Pnr. 5320) oder Hausarbeit (Pnr. 5330) oder Studienarbeit (Pnr. 5340) oder Projektarbeit (Pnr. 5350)<br>
+**Voraussetzungen für die Zulassung zur Modulprüfung:** -keine-<br>
+**Voraussetzungen für die Vergabe von ECTS-Leistungspunkten:** Aktive und erfolgreiche Mitwirkung im Forschungsseminar, bestandene Modulprüfung<br>
+**Sonstige Informationen:** -keine-
+
+### Modul: Abschlussarbeit und Forschungskolloquium
+**Englischer Titel:** Thesis and research colloquium<br>
+**Modul-Nummer:** 5900<br>
+**ECTS-Leistungspunkte:** 15 ECTS-Leistungspunkte<br>
+**Workload:** 450 Stunden<br>
+**Dauer:** 1 Semester<br>
+**Lehrveranstaltungen und Lehrformen:** a: Forschungskolloquium Computerlinguistik (Kolloquium) / 5901 | b: Seminar (Seminar) / 5902<br>
+**Belegung:** Forschungskolloquium (a) oder Seminar (b)<br>
+**Empfohlenes Studiensemester:** a: 6. Fachsemester (Sommersemester) | b: 6. Fachsemester (Sommersemester)<br>
+**Häufigkeit des Angebots:** a: Jedes Sommersemester | b: Jedes Sommersemester<br>
+**Geplante Gruppengröße:** a: Ca. 30 Studierende | b: Ca. 30 Studierende<br>
+**Kontaktzeit:** a: 2 SWS/30 Stunden / 1 ECTS-Leistungspunkt | b: 2 SWS/30 Stunden / 1 ECTS-Leistungspunkt<br>
+**Selbststudium:** Im 6. Fachsemester: 60 Stunden / 2 ECTS-Leistungspunkte<br>
+**ECTS-Leistungspunkte für die Modulprüfung:** 12 ECTS-Leistungspunkte<br>
+**Inhalte:** Im Forschungskolloquium tragen jede zweite Woche (meist auswärtige) Gäste ihre aktuelle Forschungsarbeit vor. Die Woche davor werden die Inhalte der Vorträge anhand von Artikeln besprochen und vorbereitet. Das Thema der Bachelorarbeit darf frei gewählt werden, muss aber im Bereich Computerlinguistik liegen.<br>
+**Angestrebte Lernergebnisse und Studieninhalte:** Studierende lernen aktuelle Forschungsarbeit der Computerlinguistik kennen, und lernen weiterhin selbständig wissenschaftlich zu arbeiten.<br>
+**Teilnahmevoraussetzungen:** Formal: Alle Basis- und Aufbaumodule<br>
+**Prüfungsformen:** Bachelorarbeit (Pnr. 6000)<br>
+**Voraussetzungen für die Zulassung zur Prüfung:** -keine-<br>
+**Voraussetzungen für die Vergabe von ECTS-Leistungspunkten:** Aktive und erfolgreiche Mitwirkung im Forschungsseminar, bestandene Bachelorarbeit.<br>
+**Sonstige Informationen:** -keine-

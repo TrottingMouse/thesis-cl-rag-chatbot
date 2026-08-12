@@ -1,0 +1,838 @@
+OrdnungfürdiePrüfunginStudiengängenderPhilosophischenFakultätder
+Heinrich-Heine-UniversitätDüsseldorf
+mitdemAbschluss
+BachelorofArtsvom20.01.2026
+Aufgrund des § 2 Absatz 4 und des § 64 Absatz 1 des Gesetzes über die Hochschulen des Landes
+Nordrhein-Westfalen (Hochschulgesetz – HG) vom 16.09.2014 (GV. NRW. S. 547), zuletzt geändert
+durch das Gesetz zur Änderung des Hochschulgesetzes vom 19.12.2024 (GV. NRW. S. 1222) hat die
+Heinrich-Heine-UniversitätDüsseldorffolgendeOrdnungerlassen:
+Inhaltsverzeichnis
+INHALTSVERZEICHNIS 1
+1. ALLGEMEINES 2
+§1ZieldesStudiums 2
+§2ECTS-Leistungspunkte 2
+§3Regelstudienzeit,StudienumfangundStudienmodule 2
+§4Studiengänge,StudienfächerundFächerkombinationen 3
+§5Profilbildungsbereich 4
+2. STUDIUMUNDLEHRE 4
+§6AnforderungendesStudiums 4
+§7Studienleistungen 5
+§8Anwesenheitspflicht 5
+§9ObligatorischesBerufsfeldpraktikum 5
+3. PRÜFUNGEN 6
+§10UmfangundArtderBachelorprüfung 6
+§11ModulprüfungenundPrüfungsfristen 6
+§12ZulassungzuModulprüfungen 7
+§13MündlicheModulprüfungen 8
+§14SchriftlicheModulprüfungen 8
+§15Bachelorarbeit 11
+§16AnnahmeundBewertungderBachelorarbeit 12
+§17Versäumnis,Rücktritt,Täuschung,Ordnungsverstoß 13
+§18BewertungderPrüfungsleistungenundGesamtnote 14
+§19Bestehen,NichtbestehenundWiederholungvonPrüfungen 15
+§20UngültigkeitderBachelorprüfung 16
+§21BachelorzeugnisundBachelorurkunde 17
+§22Bachelorgrad 17
+§23AberkennungdesBachelorgrades 18
+4.ZUSTÄNDIGESTELLENIMPRÜFUNGSWESEN 18
+§24Prüfungsausschüsse 18
+§25PrüferinnenundPrüfer,BeisitzerinnenundBeisitzer 19
+§26VerlängerungvonPrüfungsfristen 20
+§27Nachteilsausgleich 20
+§28AnerkennungvonStudien-undPrüfungsleistungen,EinstufunginhöhereFachsemester 20
+§29Studiengangverantwortliche 22
+§30EinsichtindiePrüfungsakten 22
+§31Studienberatung 22
+5.SCHLUSSBESTIMMUNGEN 22
+§32InkrafttretenundVeröffentlichung 22
+ANHANG1:FÄCHERSPEZIFISCHERANHANG 23
+1. Allgemeines
+§1 Ziel des Studiums
+(1) Das Studium vermittelt Grundlagen und wesentliche Forschungsergebnisse in den
+studiertenFächernundbildetinderAnwendungfachwissenschaftlicherMethodenaus.
+Die Studierenden sollen die selbstständige Aneignung und kritische Beurteilung
+wissenschaftlicherTheorienundMethodenlernenundzueigenverantwortlicherArbeit
+auf theoretischem, empirischem und praktischem Gebiet befähigt werden. Darüber
+hinaus ist ein Hauptziel des Bachelorstudiengangs die Förderung der Urteils-,
+Ausdrucks-,Kommunikations-undTeamfähigkeitder Studierenden.
+(2) Durch die Bachelorprüfung soll festgestellt werden, ob die Kandidatin oder der
+Kandidat die für den Übergang in die Berufspraxis beziehungsweise in den
+MasterstudiengangnotwendigenFachkenntnisseundSchlüsselkompetenzenerworben
+hat und die Fähigkeit besitzt, wissenschaftliche Erkenntnisse und Methoden
+selbstständig anzuwenden. Die Bachelorprüfung ist eine kumulative Prüfung und wird
+studienbegleitendabgelegt.
+§2 ECTS-Leistungspunkte
+(1) Ein ECTS-Leistungspunkt(abgekürzt LP) im Sinne dieser Prüfungsordnung(European
+CreditTransferSystem)wirdfüreineLeistungvergeben,wennderErfolgdieserArbeit
+im Umfang von durchschnittlich 30 Stunden durch eine Prüfung oder eine
+Studienleistung nachgewiesen ist.
+(2) Die im Studium erbrachten Studien- und Prüfungsleistungen werden in einem
+akkumulierenden KreditpunktesystemmitECTS-Leistungspunkten (LP)dokumentiert.
+(3) DieECTS-Leistungspunktewerden nach Erbringen der Leistung gutgeschrieben.
+§3 Regelstudienzeit,Studienumfang undStudienmodule
+(1) DieRegelstudienzeitbiszumvollständigenAbschlussderBachelorprüfungbeträgtdrei
+oder ausnahmsweise vier Studienjahre. Ausnahmen sind im fächerspezifischen
+Anhang beschrieben. Ein Studienjahr besteht aus zwei Semestern. Der
+Bachelorstudiengang ist so konzipiert, dass er mit einem durchschnittlichen
+Arbeitsaufwand (workload) von 900 Stunden pro Semester abgeschlossen werden
+kann.
+(2) Das Studium kann folgenden Umfang in Studienjahren und ECTS-Leistungspunkten
+(LP)haben:
+• 3 Studienjahre, insgesamt 180 LP, Kernfach 108 LP, Ergänzungsfach 54 LP,
+Profilbildungsbereich 18 LP oder
+• 4 Studienjahre, insgesamt 240 LP, Kernfach 168 LP, Ergänzungsfach 54 LP,
+Profilbildungsbereich 18 LP.
+(3) Die Vermittlung der Lehrinhalte und Kompetenzen findet in Studienmodulen statt. In
+Modulen werden thematisch, methodisch oder systematisch zusammenhängende
+Lehrveranstaltungen gebündelt. Ein Modulumfasstmindestens 5 LP.
+(4) Obligatorische Berufsfeldpraktika werden mit mindestens 5 ECTS-Leistungspunkten
+für je4 Wochen Praktikumsdauer gewertet.
+(5) DieBachelorarbeitwird mit12 ECTS-Leistungspunkten gewertet.
+§4 Studiengänge,Studienfächer undFächerkombinationen
+(1) Im Bachelorstudium werden integrierte Studiengänge sowie Kern- und
+Ergänzungsfachstudiengänge angeboten.
+(2) Das Bachelorstudium in einem integrierten Studiengang besteht aus einem Studium,
+zu dem mehrere Fächer beitragen, sowie gegebenenfalls des Profilbildungsbereiches.
+Das Bachelorstudium im Kern- und Ergänzungsfachstudiengang besteht aus dem
+Studiumeines Kernfachs,eines Ergänzungsfachsunddes Profilbildungsbereiches.
+(3) Zu den integrierten Studiengängen, an denen mehrere Fächer beteiligt sind, gehören
+dieBachelorstudiengänge:
+ Computerlinguistik,
+ Linguistik (integrativ),
+ Philosophie(integrativ),
+ Sozialwissenschaften –Medien,Politik,Gesellschaft,
+(4) Als Kern- oder Ergänzungsfach können diefolgenden Fächer gewähltwerden:
+• Anglistik undAmerikanistik,
+• Germanistik. Sprache– Literatur – Kultur,
+• Geschichte,
+• JüdischeStudien,
+• Kunstgeschichte,
+• Modernes Japan,
+• Philosophie.
+(5) Als Ergänzungsfachkönnen zusätzlich diefolgenden Fächer gewähltwerden:
+• JiddischeKultur,SpracheundLiteratur,
+• Kommunikations-undMedienwissenschaft,
+• Linguistik,
+• Musikwissenschaft,
+• Politikwissenschaft,
+• Romanistik: Sprachen, Literaturen,Medien (Spanisch,Französisch)
+• Soziologie.
+ImKern-undErgänzungsfachstudiengangkannjedesKernfachmitjedemErgänzungsfach
+(außer mitsich selbst)kombiniertwerden.
+§5 Profilbildungsbereich
+(1) DerProfilbildungsbereichdientdemErwerbvonSchlüsselqualifikationen,Grundlagen
+wissenschaftlicher Arbeitstechniken undvon Kompetenzen über diein den gewählten
+Fächern erworbenenFachkompetenzen hinaus.Ergibtden Studierenden Gelegenheit,
+dasStudiumnachihrenpersönlichenNeigungenundFähigkeitenzugestaltenundden
+Arbeitsaufwandflexibelauf dieStudiensemester zu verteilen.
+(2) Der Profilbildungsbereich umfasst in der Regel 18 LP. In integrierten Studiengängen
+kann der Umfang des Profilbildungsbereiches reduziert werden; die Details sind im
+fächerspezifischenAnhanganzugeben.DieLPdesProfilbildungsbereichesentfallenin
+der Regel auf eine Auswahl aus den folgenden Arten von Angeboten:
+• Studienleistungen, Prüfungen und Module im Rahmen fachwissenschaftlicher
+Propädeutika (pro Studienfach maximal 6 LP),
+• Studienleistungen,PrüfungenundModulederStudierendenakademiederHeinrich-
+Heine-Universität,
+• Studienleistungen, Prüfungen und Module zum Erwerb von
+Schlüsselqualifikationen und zur Vorbereitung auf die Berufswelt, die von der
+Fakultätoder einemihrer Fächer,auch demeigenen,angeboten werden,
+• Studienleistungen, Prüfungen und Module in anderen als den gewählten
+beziehungsweiseamStudiengangbeteiligtenFächern,auchausanderenFakultäten
+undzentralen Einrichtungen,
+• weitereStudienleistungen,PrüfungenundModuleaus demErgänzungsfach,
+• ein fakultatives Berufsfeldpraktikum.
+(3) Die Angebote des Profilbildungsbereiches werden in gleicher Weise angekündigt wie
+dieanderen Angeboteinnerhalb des Curriculums.
+2. StudiumundLehre
+§6 Anforderungen des Studiums
+Die Lehre ist als Präsenzstudium organisiert. Im Studium müssen die Studierenden nach
+den Bestimmungen dieser Prüfungsordnung Pflicht- und Wahlpflichtveranstaltungen
+einschließlich des Profilbildungsbereiches belegen.
+§7 Studienleistungen
+(1) In allen Lehrveranstaltungen sind Studienleistungen obligatorisch. Studienleistungen
+im Sinne dieser Prüfungsordnung werden durch die aktive Teilnahme an
+Lehrveranstaltungen erbracht. Studienleistungen sind auf die in der
+ModulbeschreibungdefiniertenInhalteundKompetenzenausgerichtet.DerWorkload
+von Studienleistungen ist durch die Modulbeschreibung begrenzt. Studienleistungen
+sind unbenotet und können als Prüfungsvoraussetzung bestimmt werden. Näheres
+regeltder fächerspezifische Anhang.
+(2) Die konkreten Anforderungen für Studienleistungen sind in der
+Veranstaltungsankündigung im elektronischen Campus Management System der
+Heinrich-Heine-Universität Düsseldorf spätestens zu Beginn der Belegfrist für
+Studierendebekanntzu geben.
+(3) Mit der Anmeldung zu Lehrveranstaltungen und Studienleistungen legen die
+StudierendeneineverbindlicheModul-bzw.BereichszuordnunginihremStudiengang
+fest. Eine nachträgliche Umbuchung ist nicht möglich. Die Verbindlichkeit gilt
+unabhängigdavon,obdieLeistungbestandenodernichtbestandenwurdeoderobsie
+imweiterenStudienverlaufangerechnetwird.AusnahmenzudieserRegelungkönnen
+imfächerspezifischen Anhang getroffen werden.
+(4) IsteinModuloderBereichdesStudiumserfolgreichabgeschlossen,könnendortkeine
+weiteren Lehrveranstaltungen oder Studienleistungen mehr angemeldetwerden.
+(5) Für dieNutzung von E-Learning-Angeboten gelten analoge Regeln.
+§8 Anwesenheitspflicht
+Eine Pflicht zur Anwesenheit in Lehrveranstaltungen kann in allen Modulen oder
+Modulteilenvorgeschriebenwerden,indenendieregelmäßigeAnwesenheitunddieaktive
+Teilnahme für das Erreichen des Lernziels erforderlich ist. Generell gilt dies für
+Exkursionen, Forschungsprojekte, Praktika, Sprachkurse und Übungen. Seminare sind
+grundsätzlichaufdiekontinuierlicheBeteiligungallerStudierendenamDialogausgerichtet
+und können mit einer Anwesenheitspflicht belegt werden, sofern nicht mehr als 25
+Personen teilnehmen. Bei Vorlesungen kann keine Anwesenheitspflicht festgelegt werden.
+Für andere Lehrveranstaltungen gilt eine Anwesenheitspflicht nur dann, wenn sie im
+jeweiligen fächerspezifischen Anhang explizit festgelegt ist. Die Anwesenheitspflicht ist
+erfüllt,wenn ein/eStudierende/r 80% der Veranstaltungszeitbeigewohnthat.
+§9 Obligatorisches Berufsfeldpraktikum
+(1) In einigen Studiengängen ist ein obligatorisches Berufsfeldpraktikum zu absolvieren,
+dasvonvierWochenbiszudreiMonatendauernkann.DasBerufsfeldpraktikumkann
+auch in Abschnitten absolviert werden. Einschlägige Berufstätigkeiten und
+Praxiserfahrungen können im Einzelfall auf das Berufsfeldpraktikum angerechnet
+werden. Für je vier Wochen Berufsfeldpraktikum werden mindestens 5 LP
+angerechnet.
+(2) Das Berufsfeldpraktikum gibt einen Einblick in einschlägige Berufsfelder und die
+Berufspraxis und ermöglicht eine Erprobung von Fachkenntnissen in der Praxis. Auf
+diese Weise sollen den Studierenden konkrete berufsqualifizierende Fähigkeiten und
+Handlungskompetenzen vermittelt und der Übergang in die Berufswelt erleichtert
+werden.
+(3) Die Beratung bei der Vermittlung von Praktikumsplätzen und die fachliche Betreuung
+während des Praktikums werden durch die Studiengangbeauftragte beziehungsweise
+den Studiengangbeauftragten des jeweiligen Studiengangs koordiniert.
+(4) Das BerufsfeldpraktikumwirdmiteinemPraktikumsberichtabgeschlossen.
+(5) Näheres regeln diePraktikumsordnungen der einzelnen Studiengänge.
+3. Prüfungen
+§10 Umfang undArtder Bachelorprüfung
+Die Bachelorprüfung besteht aus studienbegleitenden Prüfungen. Diese sind die
+Bachelorarbeit und nach Maßgabe des fächerspezifischen Anhangs die dort genannten
+Modulprüfungen.
+§11 Modulprüfungen undPrüfungsfristen
+(1) Modulprüfungen beziehen sich auf die in der jeweiligen Modulbeschreibung
+vorgegebenenKompetenzzieledesModulsunterexemplarischerBezugnahmeaufeine
+oder mehrere Lehrveranstaltungen beziehungsweise Themenschwerpunkte des
+Moduls. Eine nachträgliche Umbuchung ist nicht möglich. Die Verbindlichkeit gilt
+unabhängigdavon,obdiePrüfungbestandenodernichtbestandenwurdeoderobsie
+imweiterenStudienverlaufangerechnetwird.AusnahmenzudieserRegelungkönnen
+imfächerspezifischen Anhang getroffen werden.
+(2) Werden Modulprüfungen im Kontext von Lehrveranstaltungen nach § 11 Absatz 1
+abgelegt, steht den Studierenden die Wahl der Lehrveranstaltung beziehungsweise
+Lehrveranstaltungen unter Berücksichtigung der Bestimmungen des
+fächerspezifischen Anhangs frei.
+(3) Grundsätzlich istjedemModul genau eine Modulprüfung zugeordnet. In begründeten
+Ausnahmefällen können einem Modul auch mehrere Modulprüfungen zugordnet
+werden. Näheres regeltder jeweiligefächerspezifischeAnhang.
+(4) Zu jeder einzelnen Modulprüfung ist eine gesonderte Meldung erforderlich. Zur
+Prüfung wirdnur zugelassen, wer die Zulassungsvoraussetzungen gemäß §12 erfüllt.
+DieMeldetermine werden imelektronischen CampusManagementSystem undinder
+jeweiligen Lehrveranstaltung bekanntgegeben. Abmeldung und Rücktritt von
+Prüfungen sindin §17 geregelt.
+(5) Modulprüfungen erfolgen als Klausur, auch in elektronischer Form, in Form einer
+mündlichen Prüfung, Studienarbeit, Hausarbeit, Portfolio oder Projektarbeit mit
+individuell zurechenbarer Prüfungsleistung. Hierbei soll die Kandidatin oder der
+Kandidat nachweisen, dass sie oder er in begrenzter Zeit und mit begrenzten
+Hilfsmitteln ein Problem aus dem Stoffgebiet einer oder mehrerer
+Lehrveranstaltungen mit den in diesem Gebiet geläufigen Methoden erkennen und
+Wege zu seiner Lösung finden kann, die aus der Modulbeschreibung ersichtlichen
+LernergebnisseundKompetenzen also erreichthat.
+(6) Mindestens eine Modulabschlussprüfung muss in der Form einer Hausarbeit oder
+Studienarbeit,mindestenseineModulabschlussprüfunginderFormeinermündlichen
+Prüfung abgelegtwerden.
+(7) Über Form, Umfang, Dauer und Terminierung einer Modulabschlussprüfung
+entscheiden die Prüferin oder der Prüfer unter Berücksichtigung der Wünsche der
+Kandidatin beziehungsweise des Kandidaten und der Vorgaben des Modulhandbuchs
+undder Prüfungsordnung.
+(8) Die Prüfungen werden in der Regel in deutscher Sprache abgenommen, in Absprache
+mitden Prüferinnen undPrüfernauch in einer anderen Sprache. DiePrüfungssprache
+in den Fremdsprachenphilologien istimfächerspezifischen Anhang geregelt.
+(9) Die Bewertung von Prüfungen ist den Studierenden jeweils nach spätestens acht
+Wochen bekanntzugeben
+§12 Zulassung zu Modulprüfungen
+(1) Zu Modulprüfungen wird zugelassen, wer an der Heinrich-Heine-Universität für den
+betreffenden Bachelorstudiengang eingeschrieben oder gemäß § 52 Absatz 2 HG als
+ZweithörerinoderZweithörerzugelassenistunddiefachbezogenenVoraussetzungen
+nach Maßgabe des fächerspezifischen Anhangs erfüllt. Ausgenommen von der
+Einschreibungsverpflichtung sind Studierende ausländischer Hochschulen, die in bi-,
+tri-odermultinationalenStudiengängenihrStudiumanderHeinrich-Heine-Universität
+abschließenundan ihrerHeimatuniversitäteingeschrieben sind.
+(2) ZuModulprüfungenwirdebenfallszugelassen,wereineZugangsprüfungfürberuflich
+Qualifizierte gemäß § 49 Absatz 6 HG in Verbindung mit der Ordnung zur
+Weitergeltung von Vorschriften über den Hochschulzugang in Studiengängen der
+Philosophischen Fakultät der Heinrich-Heine-Universität Düsseldorf vom 12.05.2010
+(Weitergeltungsordnung) erfolgreich bestanden hat. Prüfung im Sinne von § 2 der
+Weitergeltungsordnung sind eine Klausurarbeit von zwei Zeitstunden und eine
+mündliche Prüfung von 20 bis 30 Minuten Dauer, in denen die Kandidatin oder der
+Kandidat ihre oder seine fachlichen und methodischen Voraussetzungen für ein
+Bachelorstudium nachweist. Die Anforderungen an die Durchführung und Bewertung
+der Klausurarbeit und der mündlichen Prüfung entsprechen den Anforderungen an
+Klausuren und mündliche Prüfungen im Sinne von § 13 Absatz 1 und § 14 Absatz 3
+dieser Ordnung. Die Note errechnet sich als arithmetisches Mittel der einzelnen
+Prüfungsteilleistungen, wobei jede Teilleistung mindestens als bestanden gewertet
+seinmuss.NachderBerechnungdesarithmetischenMittelswerdenalleDezimalstellen
+außer der ersten ohne Rundung gestrichen. Ein Probestudium gemäß § 5
+Berufsbildungshochschulzugangsverordnung dauert in allen Studiengängen zwei
+Semester. Ein Test im Sinne von § 10 Absatz 2
+Berufsbildungshochschulzugangsverordnung ist der mündliche Prüfungsteil gemäß
+Absatz 2 dieser Ordnung. Der Antrag ist über die Studierenden- und
+Prüfungsverwaltungan den Prüfungsausschuss zustellen.
+(3) Der Zulassungsantrag zu Modulprüfungen ist über das elektronische Campus-
+Management-Systemder Heinrich-Heine-UniversitätDüsseldorf zustellen.
+(4) Über eine Zulassung entscheidet die oder der Vorsitzende des Prüfungsausschusses
+oderderenoderdessenStellvertretung.DieEntscheidungwirddenKandidatinnenund
+Kandidaten bekanntgegeben.
+(5) EineZulassung darf nurabgelehntwerden,wenn
+• diein Absatz 1 und2 genannten Voraussetzungen nichterfülltsindoder
+• die im fächerspezifischen Anhang aufgeführten Zulassungsbedingungen nicht
+erfülltsindoder
+• dieKandidatin oder der Kandidateine Bachelorprüfung in demselben Studiengang
+an einer Hochschule im Geltungsbereich des Hochschulrahmengesetzes endgültig
+nichtbestanden hat.
+§13 MündlicheModulprüfungen
+(1) Die Dauer einer mündlichen Prüfung beträgt mindestens 15 und höchstens 30
+Minuten. Mündliche Prüfungen werden als Einzelprüfung vor einer Prüferin oder
+einem Prüfer in Gegenwart einer sachkundigen Beisitzerin oder eines sachkundigen
+Beisitzers gemäß § 25 Absatz 5 abgelegt. In der Regel führt die Beisitzerin oder der
+Beisitzer das Protokoll. In dem Protokoll werden die wesentlichen Gegenstände und
+Ergebnisse der Prüfung festgehalten. Vor der Festsetzung der Note hört die Prüferin
+oder der Prüfer die Beisitzerin oder den Beisitzer. Die Bewertung ist der Kandidatin
+oder demKandidaten unmittelbar nach Endeder Prüfung bekanntzu machen.
+(2) Mündliche Prüfungen können im Einvernehmen mit den Kandidatinnen oder
+Kandidaten auch in Form einer Gruppenprüfung mit bis zu 3 Teilnehmerinnen und
+Teilnehmern durchgeführt werden. Die Dauer einer Gruppenprüfung beträgt pro
+Kandidatin oder Kandidatmindestens 15 undhöchstens 20 Minuten.
+§14 Schriftliche Modulprüfungen
+(1) SchriftlicheModulprüfungenkönnenalsKlausurenoderdokumentierteEinzelberichte
+ausgestaltet werden. Klausuren können Aufgaben enthalten, bei denen mehrere
+Antworten zur Wahl stehen (Antwort-Wahl beziehungsweise Multiple-Choice-
+Aufgaben).
+(2) Falls diese Prüfungsverfahren mit elektronischen Mitteln durchgeführt und
+ausgewertet werden, sind die Authentizität und die Integrität der Prüfungsergebnisse
+sicherzustellen. Besteht eine Klausur aus Antwort-Wahl-(Multiple-Choice-)Aufgaben,
+so wird die Bestehensgrenze von dem Prüfer oder der Prüferin bei der Korrektur der
+Klausur nach fachlichen Kriterien als Vomhundertsatz der geforderten Antworten
+unter Berücksichtigung des Mittelwerts und der Verteilung der erzielten Leistungen
+aller Klausurteilnehmer festgelegt.
+(3) Die Dauer einer Klausurarbeit beträgt in der Regel 90 Minuten. Ausnahmsweise kann
+dieBearbeitungszeitabhängigvomWorkloaddesModulsaufhöchstens180Minuten
+verlängert oder auf mindestens 45 Minuten verkürzt werden. Die Bewertung einer
+Klausur wird durch die Dozentinnen und Dozenten vorgenommen. Die Bewertung ist
+der Kandidatin oder dem Kandidaten nach spätestens acht Wochen bekannt zu
+machen. Näheres regeltder fächerspezifischeAnhang.
+(4) Eine Studienarbeit besteht aus der mündlichen Präsentation und schriftlichen
+Ausarbeitung einer Thematik aus dem Stoffgebiet einer oder mehrerer
+Lehrveranstaltungen.AlternativkanneineKlausurvon45MinutenDauerandieStelle
+der schriftlichen Ausarbeitung treten. Die Dauer der mündlichen Präsentation beträgt
+mindestens 15 Minuten. Der Umfang der schriftlichen Ausarbeitung soll mindestens
+1500 Wörter (circa 5 Seiten) und höchstens 4500 Wörter (circa 15 Seiten) betragen.
+Die Bewertung einer Studienarbeit wird durch die Dozentin oder den Dozenten
+vorgenommen. Die Bewertung ist der Kandidatin oder dem Kandidaten nach
+spätestens acht Wochen nach Abgabe der schriftlichen Ausarbeitung bekannt zu
+machen.
+(5) Eine Hausarbeit besteht aus der schriftlichen Ausarbeitung einer Thematik aus dem
+Stoffgebiet einer oder mehrerer Lehrveranstaltungen. Der Umfang einer Hausarbeit
+soll mindestens 3000 Wörter (circa 10 Seiten) und höchstens 6000 Wörter (circa 20
+Seiten) betragen. Die Bewertung einer Hausarbeit wird durch die Dozentin oder den
+Dozentenvorgenommen.DieBewertungistderKandidatinoderdemKandidatennach
+spätestens achtWochennach Abgabeder Hausarbeitbekanntzu machen.
+(6) Eine Projektarbeit besteht in der selbstständigen Anwendung fachspezifischer
+Methoden auf Untersuchungsgegenstände aus dem Stoffgebiet einer oder mehrerer
+Lehrveranstaltungen sowie der mündlichen Präsentation und schriftlichen
+Ausarbeitung der Ergebnisse. Zu einer Projektarbeit kann auch ein schriftlicher Test
+gehören. Die Dauer der mündlichen Präsentation beträgt mindestens 15 Minuten und
+höchstens 45 Minuten. Der Umfang der schriftlichen Ausarbeitung soll mindestens
+1500 Wörter (circa 5 Seiten) und höchstens 7500 Wörter (circa 25 Seiten) betragen.
+Dieser Umfang darf bei der Darstellung von Tabellen, Schaubildern und Abbildungen
+überschritten werden. Die Dauer eines schriftlichen Tests beträgt in der Regel 60
+Minuten. Art und Umfang der Aufgabenstellung können eine im Einzelfall
+abweichende Dauer erfordern. Die Bewertung einer Projektarbeit wird durch die
+Veranstalterin oder den Veranstalter der Lehrveranstaltung beziehungsweise die
+Betreuerin oder den Betreuer vorgenommen. Die Bewertung ist der Kandidatin oder
+dem Kandidaten spätestens acht Wochen nach der Abgabe der schriftlichen
+Ausarbeitung beziehungsweisedes Tests bekanntzu machen.
+(7) Ein Portfolio ist eine über die Modulveranstaltungen hinweg systematisch angelegte
+Zusammenstellung verschiedener studentischer Arbeitsergebnisse, die je nach Fach
+oderThemaunterschiedlichenCharakterhabenund/oderverschiedenenMedien(zum
+Beispiel Text, Bild, Film) zuzuordnen sind. Ein Portfolio kann auch in elektronischer
+Formaufgebautsein(e-Portfolio).EinPortfoliosolldieLernprozessederStudierenden
+zurErreichungderLernergebnisseundKompetenzeneinesModulswiderspiegeln.Die
+Bewertung des Portfolios orientiert sich an der strukturierten, begründeten und
+reflektierten Auswahl der in ihm enthaltenen Materialien, die von den Studierenden
+hinsichtlich der im Modul angestrebten Lernergebnisse und Kompetenzen
+dokumentiert und reflektiert werden. Ein Portfolio umfasst mindestens zwei
+unterschiedliche, in sich abgeschlossene Objekte. Mögliche Bestandteile eines
+Portfolios können sein: Reviews, Essays, Präsentationen, Videobeiträge, Protokolle,
+Recherchen, Auszüge aus Lesetagebüchern et cetera. Der Umfang wird von den
+Lehrenden des Moduls festgelegtundkommtim Workloadeiner Hausarbeitgleich.
+(8) Studienarbeiten, Hausarbeiten und Projektarbeiten können auch in Form einer
+Gruppenarbeit durchgeführt werden, wenn der als Prüfungsleistung zu bewertende
+Beitrag der einzelnen Kandidatinnen und Kandidaten aufgrund der Angabe von
+Abschnitten, Seitenzahlen oder anderen objektiven Kriterien, die eine eindeutige
+Abgrenzung ermöglichen, deutlich unterscheidbar und bewertbar ist und die
+Anforderungen nach §11Absatz 5 und§14 Absatz 4 bis 6 erfüllt.
+(9) Studienarbeiten, Hausarbeiten, Projektarbeiten und Portfolios ist eine Versicherung
+der Kandidatinnen und Kandidaten beizufügen, dass sie die Arbeit – bei einer
+Gruppenarbeit den entsprechend gekennzeichneten Anteil an der Arbeit –
+selbstständig verfasstund keine anderen als die angegebenen Quellen benutzt haben.
+Die Stellen der Arbeit, die anderen Werken dem Wortlaut oder dem Sinn nach
+entnommen sind, müssen unter Angabe der Quelle als Entlehnung kenntlich gemacht
+werden.SoferngenerativeKünstlicheIntelligenzimRahmenderArbeitgenutztwurde,
+ist die Verwendung in einem entsprechenden Absatz methodisch zu reflektieren und
+in einer Form zu dokumentieren, die den Prüfenden die wissenschaftliche
+Eigenleistung nachvollziehbar macht. Die Versicherung selbständiger Abfassung ist
+auch für gelieferteZeichnungen,Skizzen,Ton- undVideoaufnahmen oder graphische
+Darstellungen abzugeben. Die Arbeiten sind in digitaler Form in einem gängigen
+Textverarbeitungsformat einzureichen. Es wird empfohlen für die elektronische
+Übermittlung die HHU-Mailadressen und nach Möglichkeit eine Verschlüsselung zu
+verwenden. Bei begründetem Verdacht kann eine Überprüfung mittels einer
+Plagiatssoftwareerfolgen.DasUrheberrechtderVerfasserinoderdesVerfassersbleibt
+dabeigewahrt.
+(10)Die Bearbeitungszeit für Studienarbeiten endet zwei Monate nach Abschluss der
+mündlichen Leistung, spätestens zum Vorlesungsbeginn des darauffolgenden
+Semesters. Die Bearbeitungszeit für Hausarbeiten beträgt in der Regel zwei Monate.
+Sie kann vom zuständigen Prüfungsausschuss um bis zu einen Monat verlängert
+werden, wenn die Aufgabenstellung dies zwingend erfordert. Die Themen werden im
+laufenden Semester vergeben. Die Bearbeitungszeit für den schriftlichen Bericht bei
+Projektarbeiten endet in der Regel zwei Monate nach dem Abschluss der praktischen
+Projektarbeit. Sie kann vom zuständigen Prüfungsausschuss um bis zu einen Monat
+verlängertwerden,wenndieAufgabenstellungdieszwingenderfordert.Verzögertsich
+die Bearbeitung durch von der Kandidatin oder dem Kandidaten nicht zu vertretende
+Umstände, kann sowohl für Hausarbeiten als auch für Projektarbeiten eine Nachfrist
+von bis zu 4 Wochen eingeräumtwerden.
+§15 Bachelorarbeit
+(1) DieAnfertigung der Bachelorarbeiterfolgtin der Regel imsechsten Studiensemester.
+(2) Die Bachelorarbeit bezieht sich in der Regel auf den Inhalt eines Aufbaumoduls des
+Abschlussjahrs, in den Kern- und Ergänzungsfachstudiengängen auf den Inhalt eines
+Aufbaumoduls des betreffenden Kernfachs. Näheres kann im fächerspezifischen
+Anhang geregelt sein. Mit Zustimmung der Kandidatin oder des Kandidaten kann das
+Thema auch aus einem anderen Themenbereich gestellt werden, sofern im
+fächerspezifischen Anhang nichts anderes bestimmt ist. Die Kandidatinnen und
+Kandidaten können den Themenbereich für dieBachelorarbeitvorschlagen.
+(3) Die oder der Vorsitzende des Prüfungsausschusses oder deren oder dessen
+Stellvertretung bestelltauf Antrag der Kandidatin oder des Kandidaten die Betreuerin
+oder den Betreuer, die oder der das Thema der Arbeit formuliert, und genehmigt das
+Thema. Das Thema ist in digitaler Form von der Studierenden- und
+Prüfungsverwaltung über das Elektronische Campus-Management-System der
+Heinrich-Heine-Universität Düsseldorf auszuhändigen. Der Zeitpunkt der Ausgabe ist
+aktenkundig zu machen.
+(4) Die Bearbeitungszeit beträgt maximal drei Monate. Auf begründeten Antrag der
+Kandidatin oder des Kandidaten kann ausnahmsweise eine Nachfrist von bis zu vier
+Wochen gewährt werden. Verzögert sich die Bearbeitung innerhalb der Nachfrist
+durchErkrankungdesKandidatenbeziehungsweisederKandidatin,kannnachVorlage
+eines Attestes eine weitere Nachfristvon bis zu zweiWochen gewährtwerden.
+(5) Das Thema der Bachelorarbeit kann bis vier Wochen nach Ausgabe des Themas
+zurückgegeben werden. Von dieser Möglichkeit darf nur einmal Gebrauch gemacht
+werden.
+(6) Die Kandidatinnen und Kandidaten sollen in der Bachelorarbeit nachweisen, dass sie
+imstande sind, eine Fragestellung des Fachs selbstständig nach wissenschaftlichen
+MethodenzubearbeitenunddieErgebnissesachgerechtdarzustellen.DasThemadarf
+nichtmitdemThemaeinerbereitsabgelegtenAbschlussprüfungdeckungsgleichsein.
+Es muss nach Inhalt und Umfang so begrenzt sein, dass es bei angemessener
+Betreuung innerhalb dervorgesehenen Fristbehandeltwerden kann.
+(7) Die Bachelorarbeit kann wahlweise in deutscher oder englischer Sprache abgefasst
+werden. Im Bachelorstudiengang Germanistik muss sie in deutscher, im
+Bachelorstudiengang Anglistik und Amerikanistik in englischer Sprache abgefasst
+werden. WeitereAusnahmen kann dieoder der Vorsitzendedes Prüfungsausschusses
+oderderenoderdessenStellvertretungaufAntragderKandidatinoderdesKandidaten
+undnach Anhörung derBetreuerin oder des Betreuers gestatten.
+(8) Die Bachelorarbeit kann auch in Form einer Gruppenarbeit zugelassen werden, wenn
+der als Prüfungsleistung zu bewertende Beitrag der einzelnen Kandidatinnen und
+Kandidaten aufgrund der Angabe von Abschnitten, Seitenzahlen oder anderen
+objektiven Kriterien, die eine eindeutige Abgrenzung ermöglichen, deutlich
+unterscheidbar undbewertbar istunddieAnforderungen nach Absatz 6 erfüllt.
+(9) Der Bachelorarbeit ist eine Versicherung der Kandidatin oder des Kandidaten
+beizufügen, dass sie oder er die Arbeit – bei einer Gruppenarbeit den entsprechend
+gekennzeichneten Anteil an der Arbeit – selbstständig verfasst und keine anderen als
+dieangegebenenQuellenbenutzthat.DieStellenderArbeit,dieanderenWerkendem
+Wortlaut oder dem Sinn nach entnommen sind, müssen in jedem Fall unter Angabe
+derQuellealsEntlehnungkenntlichgemachtwerden.DieVersicherungselbstständiger
+AbfassungistauchfürgelieferteZeichnungen,SkizzenodergraphischeDarstellungen
+abzugeben.
+(10)Der Umfang der Bachelorarbeit, beziehungsweise bei Gruppenarbeiten der einzelnen
+Beiträge zur Abschlussarbeit, muss 9.000 bis 15.000 Wörter (circa 30 bis 50 Seiten)
+betragen. Falls imfächerspezifischen Anhang derUmfang in Zeichen stattin Wörtern
+angegeben ist, gilt diese Angabe. Enthält die Bachelorarbeit unter anderem auch
+experimentelle oder gestalterische Leistungen, verringert sich der Textumfang
+entsprechend um5 Seiten.
+§16 AnnahmeundBewertung der Bachelorarbeit
+(1) Die Bachelorarbeit ist in elektronischer Form (PDF-Dokument) fristgemäß, das heißt
+spätestensmitAblaufderBearbeitungsfrist,abzuliefern.DieAblieferungerfolgtdurch
+das Hochladen des PDF-Dokuments im elektronischen Campus-Management-System
+der Heinrich-Heine-Universität Düsseldorf. Das Datum der Abgabe wird von der
+Studierenden-undPrüfungsverwaltungaktenkundiggemacht.WirddieBachelorarbeit
+nicht fristgemäß abgegeben, gilt sie als mit "nicht ausreichend" (5,0) bewertet. Auf
+Verlangen der oder des Vorsitzenden des Prüfungsausschusses reicht die Kandidatin
+oderderKandidatfristgerechtzusätzlichzweigebundeneExemplarederArbeitbeider
+Erstprüferin oder demErstprüfer ein.
+(2) Die Bachelorarbeit wird von zwei Prüferinnen oder Prüfern beziehungsweise einer
+Prüferin und einem Prüfer gemäß § 25 Absatz 2 bis 4 unabhängig voneinander
+begutachtet und nach Maßgabe des § 18 Absatz 1 bewertet. Die Prüferinnen oder
+Prüfer werden von der oder dem Vorsitzenden des Prüfungsausschusses oder deren
+oder dessen Stellvertretung bestellt. Erstgutachterin oder Erstgutachter ist die
+BetreuerinoderderBetreuerderArbeit.DieZweitgutachterinoderderZweitgutachter
+zeichnetbeiÜbereinstimmungdasErstgutachtengegenodererstelltbeiabweichender
+Beurteilung ein zusätzliches Gutachten. Auf Verlangen des oder der Vorsitzenden des
+Prüfungsausschusses ist auch vom Zweitgutachter beziehungsweise der
+Zweitgutachterin ein ausführliches Gutachten einzureichen. Die Endnote ergibt sich
+nach §18 Absatz 2.
+(3) Die Bewertung der Bachelorarbeit ist der Kandidatin oder dem Kandidaten nach
+spätestens achtWochenmitzuteilen.
+§17 Abmeldung,Versäumnis,Rücktritt,Täuschung,Ordnungsverstoß
+(1) Von einer Modulprüfung in Form einer Klausur oder mündlichen Prüfung kann sich
+die Kandidatin oder der Kandidat bis spätestens eine Woche vor dem jeweiligen
+Prüfungstermin abmelden.
+(2) Wenn dieKandidatin oder der Kandidatnach dieser Fristvon der Prüfungzurücktritt,
+nicht zum Prüfungstermin erscheint, nach Beginn der Prüfung zurücktritt oder eine
+schriftliche Prüfungsleistung nicht innerhalb der vorgegebenen Bearbeitungszeit
+erbringt, müssen triftige Gründe geltend gemacht werden. Sonst gilt die
+Prüfungsleistung als mit "nicht ausreichend" (5,0) bewertet. Als triftige Gründe gelten
+insbesondereKrankheit,Mutterschutz,KinderbetreuungimRahmenderElternzeitund
+die notwendige Pflege naher Angehöriger. Krankheiten während einer Prüfung sind
+unverzüglich den Prüfenden unddemPrüfungsausschussanzuzeigen.
+(3) Die im Fall von Absatz 2 geltend gemachten Gründe müssen dem Prüfungsausschuss
+unverzüglich in Textform angezeigt und glaubhaft gemacht werden. Bei Krankheit
+musseinärztlichesAttestvorgelegtwerden.WenndieGründeanerkanntwerden,wird
+dies schriftlich mitgeteilt und ein neuer Termin festgesetzt. Die bereits vorliegenden
+Prüfungsergebnissesindin diesemFall anzurechnen.
+(4) Ärztliche Atteste sind per Email über die Studierenden- und Prüfungsverwaltung an
+den Prüfungsausschuss zu richten. Das Verfahren ist auf der Internetseite der HHU
+bekanntgegeben.
+(5) VersuchenKandidatinnenoderKandidaten,dasErgebniseinerPrüfungsleistungdurch
+Täuschung, zum Beispiel Benutzung nicht zugelassener Hilfsmittel, zu beeinflussen,
+gilt die betreffende Prüfungsleistung als mit "nicht ausreichend" (5,0) bewertet. Der
+Einsatz generativer Künstlicher Intelligenz im Rahmen von Präsenzprüfungen ist
+unzulässig. Als Täuschungsversuch gelten auch nicht als Solche gekennzeichnete
+Zitate aus Internetquellen. Wer als Kandidatin oder Kandidat den ordnungsgemäßen
+Ablauf der Prüfung stört, kann von den jeweiligen Prüfenden oder Aufsichtführenden
+nach Abmahnung von der Fortsetzung der Prüfungsleistung ausgeschlossen werden;
+in diesem Fall gilt die betreffende Prüfungsleistung als mit "nicht ausreichend" (5,0)
+bewertet. Die Gründe für den Ausschluss sind aktenkundig zu machen. Wer von der
+weiterenErbringungeinerPrüfungsleistungausgeschlossenwird,kannverlangen,dass
+dieseEntscheidungvomPrüfungsausschussüberprüftwird.Diesgiltentsprechendbei
+der Feststellung einer Täuschung imSinnevon Satz 1.
+(6) Belastende Entscheidungen des Prüfungsausschusses sind unverzüglich schriftlich
+mitzuteilen und zu begründen. Vor der Entscheidung ist der Kandidatin oder dem
+Kandidaten Gelegenheit zumrechtlichen Gehör zu geben.
+§18 Bewertung der Prüfungsleistungen undGesamtnote
+(1) Für die Bewertung der benoteten Prüfungsleistungen sind folgende Noten zu
+verwenden:
+1 = sehr gut(für eine hervorragendeLeistung);
+2 = gut (für eine Leistung, die erheblich über den durchschnittlichen
+Anforderungen liegt);
+3 = befriedigend (für eine Leistung, die den durchschnittlichen
+Anforderungen entspricht);
+4 = ausreichend (für eine Leistung, die trotz ihrer Mängel noch den
+Anforderungen genügt);
+5 = nichtausreichend(für eine Leistung, diewegen erheblicher Mängel den
+Anforderungen nichtmehr genügt).
+Durch Erniedrigen oder Erhöhen der einzelnen Noten um 0,3 können zur
+differenzierten Bewertung Zwischenwerte gebildet werden; die Noten 0,7; 4,3; 4,7
+und5,3 sinddabei ausgeschlossen.
+(2) EinebenotetePrüfungistbestanden,wenndieNotemindestens"ausreichend"(bis4,0)
+ist. Eine unbenotete Prüfung ist bestanden, wenn die in der Modulbeschreibung
+festgelegten Anforderungen erfülltsind.
+(3) Die der Bachelorarbeit ergibt sich wie folgt. Wenn die Noten beider Gutachten
+mindestens "ausreichend" (4,0) sind und nicht mehr als 2,0 auseinander liegen,
+errechnetsich die Endnoteals der Durchschnittder beiden Noten. Wenn beide Noten
+"nichtausreichend"(5,0)sind,istdieEndnote"nichtausreichend"(5,0).Wenneineder
+beidenNoten"nichtausreichend"(5,0)unddieanderemindestens"ausreichend"(4,0)
+istoderwenndieNotenderbeidenGutachtenmehrals2,0auseinanderliegen,bestellt
+die oder der Vorsitzende des Prüfungsausschusses beziehungsweise ihre oder seine
+Stellvertretung eine dritte Gutachterin oder einen dritten Gutachter. Die Endnote
+errechnet sich dann als der Durchschnitt der beiden besseren Noten, falls sie
+mindestens"ausreichend"(4,0)sind.AlleDezimalstellenaußerdererstenwerdenohne
+Rundunggestrichen.SindzweiderdreiNoten"nichtausreichend"(5,0),istdieEndnote
+"nichtausreichend" (5,0).
+(4) In Modulen mit genau einer benoteten Prüfung entspricht die Modulnote der
+Prüfungsnote. In Modulen mit mehr als einer benoteten Prüfung errechnet und in
+PrüfungenmitmehralseinerBewertung(Fällevon§65Abs.2HG)sichdieModulnote
+aus dem arithmetischen Mittel aller benoteten Prüfungen des Moduls und es werden
+alleDezimalstellen außer der ersten ohneRundung gestrichen.
+(5) Die Gesamtnote der Bachelorprüfung bei integrierten Studiengängen errechnet sich
+alsgewichtetesarithmetischesMittelausdenModulnotenundderBachelorarbeit.Alle
+Dezimalstellen außer der ersten werden ohneRundung gestrichen. Die Bachelorarbeit
+wirdnachMaßgabedesfächerspezifischenAnhangsdreifachodervierfachgewichtet.
+DieGewichtung der Modulnoten istimfächerspezifischen Anhangangegeben.
+(6) Die Gesamtnote der Bachelorprüfung bei Kern- und Ergänzungsfachstudiengängen
+errechnet sich zu 20 Prozent aus der Note der Bachelorarbeit, zu 50 Prozent aus dem
+gewichteten arithmetischen Mittel aller Modulnoten des Kernfaches, und zu 30
+Prozent aus dem gewichteten arithmetischen Mittel aller Modulnoten des
+Ergänzungsfaches. Modulnoten können nach Maßgabe des fächerspezifischen
+Anhangsdoppeltoderdreifachgewichtetwerden.AlleDezimalstellenaußerderersten
+werden ohneRundung gestrichen.
+(7) Im Bachelorprüfungszeugnis und auf den Leistungsübersichten werden alle Noten
+(auch ggf. die von Modulen und Bereichen) sowie die Gesamtnote angegeben. Alle
+Dezimalstellen außer der ersten werden ohneRundung gestrichen.
+DieEndnotelautet dann beieinemWert:
+bis 1,5: sehr gut
+von 1,6 bis 2,5: gut
+von 2,6 bis 3,5: befriedigend
+von 3,6 bis 4,0: ausreichend
+(8) Bei Vorliegen einer ausreichend großen Datenbasis werden die Noten zusätzlich als
+ECTS-Noten ausgewiesen.
+§19 Bestehen,Nichtbestehen undWiederholung von Prüfungen
+(1) DieBachelorprüfung istbestanden unddas Studiumabgeschlossen,wenn
+• dieBachelorarbeitbestanden ist,
+• allenotwendigen Modulprüfungen bestanden sind,
+• allenotwendigen Studienleistungen vorliegen,
+• der Nachweis des Besuchs von gegebenenfalls vorgesehenen Praktika vorliegt,
+• insgesamt 180 beziehungsweise bei vierjährigen Studiengängen 240 ECTS-
+Leistungspunkteerreicht worden sind.
+(2) Prüfungen werden bescheinigt.
+(3) EinebestandenePrüfungkann nichtwiederholtwerden.
+(4) Ist eine Prüfung nicht bestanden, oder gilt sie im Sinne von § 17 Absatz 2 oder 4
+beziehungsweise § 16 Absatz 1 als nicht bestanden, erteilt die oder der Vorsitzende
+des Prüfungsausschusses beziehungsweise ihre oder seine Stellvertretung der
+Kandidatin oder dem Kandidaten hierüber einen schriftlichen Bescheid, der auch
+darüberAuskunftgibt,obdiePrüfungwiederholtwerdenkann.DerBescheidüberdie
+nichtbestandene Prüfung istmiteiner Rechtsbehelfsbelehrung zu versehen.
+(5) Eine nicht bestandene Modulprüfung, beziehungsweise eine mit weniger als
+"ausreichend" bewertete Prüfungsleistung als Teil der Gruppenarbeit, kann zweimal
+wiederholtwerden.
+(6) Eine mit weniger als "ausreichend" bewertete Bachelorarbeit, beziehungsweise bei
+einer Gruppenarbeit ein mit weniger als "ausreichend" bewerteter individueller Teil
+einer Bachelorarbeit, können jeweils einmal wiederholt werden. Bei einer
+Wiederholung der Bachelorarbeit ist eine Rückgabe des Themas nach §15 Absatz 5
+jedoch nur zulässig, wenn bei der Anfertigung der ersten Bachelorarbeit nicht von
+dieser MöglichkeitGebrauch gemachtwurde.
+(7) Die Wiederholungsprüfung soll innerhalb eines Jahres nach Abschluss der nicht
+bestandenen Prüfungabgeschlossen sein.
+(8) Prüfungsleistungen in Wiederholungsprüfungen, bei deren endgültigem
+Nichtbestehen keine Ausgleichsmöglichkeitvorgesehen ist,sindvon zwei Prüferinnen
+oder Prüfern gemäß § 25 Absatz 2 bis 4 zu begutachten und zu bewerten, von denen
+im Fall einer mündlichen Prüfung eine beziehungsweise einer zugleich das Protokoll
+führt.DieNoteergibtsichausdemarithmetischenMittelderEinzelbewertungen.Nach
+der Berechnung des arithmetischen Mittels werden alle Dezimalstellen außer der
+ersten ohneRundung gestrichen.
+(9) DieBachelorprüfung istendgültig nichtbestanden,wenn
+• dieBachelorarbeitnicht bestanden istundnichtmehr wiederholtwerden darf,
+• eine verpflichtende Modulprüfung nicht bestanden ist und nicht mehr wiederholt
+werden darf oder
+• eine Modulprüfung in einem Wahlpflichtbereich nicht bestanden ist, nicht mehr
+wiederholt werden darf und es nicht möglich ist, die notwendige Bestehensgrenze
+des Wahlpflichtbereiches durch alternativeModulprüfungen zu erreichen.
+(10)Das endgültige Nichtbestehen der Bachelorprüfung wird bescheinigt. Der Bescheid
+über die endgültig nicht bestandene Bachelorprüfung ist mit einer
+Rechtsbehelfsbelehrungzu versehen.
+§20 Ungültigkeitder Bachelorprüfung
+(1) Hat die Kandidatin oder der Kandidat bei einer Prüfung getäuscht und wird diese
+Tatsache erst nach der Aushändigung des Zeugnisses bekannt, kann der
+Prüfungsausschuss nachträglich die Noten für diejenigen Prüfungsleistungen, bei
+deren Erbringung die Kandidatin oder der Kandidat getäuscht hat, entsprechend
+berichtigen unddiePrüfung ganz oder teilweisefür nichtbestanden erklären.
+(2) WarendieVoraussetzungenfürdieZulassungzueinerPrüfungnichterfüllt,ohnedass
+die Kandidatin oder der Kandidat hierüber täuschen wollte, und wird diese Tatsache
+erst nach Aushändigung des Zeugnisses bekannt, wird dieser Mangel durch das
+Bestehen der Prüfung geheilt. Hat die Kandidatin oder der Kandidat die Zulassung
+vorsätzlich zu Unrecht erwirkt, entscheidet der Prüfungsausschuss unter Beachtung
+des Verwaltungsverfahrensgesetzes für das Land Nordrhein-Westfalen über die
+Rechtsfolgen.
+(3) Der Kandidatin oder dem Kandidaten ist vor einer Entscheidung Gelegenheit zur
+Äußerung zu geben.
+(4) Das unrichtige Prüfungszeugnis wird eingezogen; gegebenenfalls wird ein neues
+erteilt. Eine Entscheidung nach Absatz 1 und Absatz 2 Satz 2 ist nach einer Frist von
+fünf Jahren ab demDatumdes Prüfungszeugnisses ausgeschlossen.
+§21 Bachelorzeugnis undBachelorurkunde
+(1) Sobald eine Kandidatin oder ein Kandidat alle Abschlussprüfungen bestanden, alle
+Studienleistungen erbracht und 180 ECTS-Leistungspunkte, bei vierjährigen
+Studiengängen 240 ECTS-Leistungspunkte, erworben hat, stellt sie oder er bei der
+Studierenden- und Prüfungsverwaltung den Antrag auf Ausstellung des
+Bachelorzeugnisses und der Bachelorurkunde. Dazu sind alle Nachweise gemäß § 19
+Absatz 1 vorzulegen.
+(2) Das Bachelorzeugnis ist unverzüglich, möglichst innerhalb von vier Wochen,
+auszustellen und enthält die Noten der Prüfungen, das Thema und die Note der
+Bachelorarbeit sowie die Gesamtnote. Die Noten werden in Ziffern genannt. Neben
+dem Zeugnis wird ein Diploma Supplement ausgehändigt, das eine allgemeine
+Beschreibung des Studiengangs enthält, sowie ein Transcript of Records, in dem die
+Module und zugeordneten Lehrveranstaltungen aufgeführt sind, in denen Prüfungen
+oder Studienleistungen erbracht worden sind. Für das Diploma Supplement ist
+grundsätzlich die aktuelle Fassung zu verwenden. Das Zeugnis wird von der
+Studierenden- und Prüfungsverwaltung im Auftrag der oder des Vorsitzenden des
+PrüfungsausschussesbeziehungsweiseihreroderseinerStellvertretungunterzeichnet.
+EsträgtdasAusstellungsdatumsowiedasDatumdesTages,andemdieletzteStudien-
+oder Prüfungsleistung erbrachtworden ist.
+(3) Zusätzlich zum Zeugnis wird der Kandidatin oder dem Kandidaten eine
+Bachelorurkunde mit dem Datum des Zeugnisses ausgehändigt. Darin wird die
+Verleihung des akademischen Grades "Bachelor ofArts",abgekürzt"B.A." beurkundet.
+(4) Die Bachelorurkunde wird von der Dekanin oder dem Dekan der Philosophischen
+Fakultät unterzeichnet und mit dem Siegel der Heinrich-Heine-Universität Düsseldorf
+versehen.
+§22 Bachelorgrad
+IstdieBachelorprüfung bestanden,verleihtdiePhilosophischeFakultätden akademischen
+Gradeines „Bachelor ofArts“,abgekürzt„B.A.“.
+§23 Aberkennung des Bachelorgrades
+Die Aberkennung des Bachelorgrades kann erfolgen, wenn sich nachträglich herausstellt,
+dass er durch Täuschung erworben ist oder wenn wesentliche Voraussetzungen für die
+Verleihung irrtümlich als gegeben angesehen worden sind. § 21 gilt entsprechend.
+Zuständig für dieEntscheidung istder Prüfungsausschuss.
+4. Zuständige StellenimPrüfungswesen
+§24 Prüfungsausschüsse
+(1) FürdieOrganisationderdurchdiesePrüfungsordnungzugewiesenenAufgabenbildet
+die Philosophische Fakultät Prüfungsausschüsse. Ein Prüfungsausschuss ist zuständig
+für die Kern- und Ergänzungsfächer und ein Prüfungsausschuss ist zuständig für die
+integrierten Studiengänge. Ein Prüfungsausschuss besteht aus der oder dem
+Vorsitzenden,zweistellvertretenden Vorsitzenden undfünfweiteren Mitgliedern. Die
+oder der Vorsitzende und deren oder dessen Stellvertretungen und ein weiteres
+Mitglied werden aus der Gruppe der Professorinnen und Professoren (die daher
+insgesamtdurchvierMitgliedervertretenist),zweiMitgliederwerdenausderGruppe
+der wissenschaftlichen Mitarbeiterinnen und Mitarbeiter und zwei Mitglieder werden
+ausderGruppederStudierendengewählt.FüralleMitgliederwirdeineStellvertreterin
+oder ein Stellvertreter gewählt. Die Amtszeit der studentischen Mitglieder beträgt ein
+Jahr, dieder übrigen vier Jahre. Wiederwahl istzulässig
+(2) Der Prüfungsausschuss achtet darauf, dass die Bestimmungen der Prüfungsordnung
+eingehalten werden, legt die Einzelheiten des Prüfungsverfahrens fest, sorgt für die
+ordnungsgemäßeDurchführungderPrüfungenundentscheidetinZweifelsfällenüber
+die Auslegung der Prüfungsordnung. Er ist insbesondere zuständig für die
+Entscheidung über Widersprüche gegen in Prüfungsverfahren getroffene
+Entscheidungen. Alle Regelfälle erledigt die oder der Vorsitzende des
+Prüfungsausschusses oder deren oder dessen Stellvertretung. Dies gilt nicht für
+Entscheidungen über Widersprüche. Mindestens einmal jährlich gibt der
+PrüfungsausschussdemFakultätsrateinenBerichtüberdieEntwicklungderPrüfungen
+und Studienzeiten und die Verteilung der Fachnoten und unterbreitet gegebenenfalls
+Vorschläge zur Reformder Bachelorprüfungsordnung.
+(3) Der Prüfungsausschuss ist beschlussfähig, wenn neben der oder dem Vorsitzenden
+oder ihrer oder seiner Stellvertretung und zwei weiteren Professorinnen oder
+Professoren mindestens zwei weitere stimmberechtigte Mitglieder anwesend sind. Er
+beschließtmiteinfacherMehrheit.BeiStimmengleichheitentscheidetdieStimmeder
+oder des Vorsitzenden. Entscheidungen können nicht gegen die Mehrheit der
+Professorinnen und Professoren getroffen werden. Die studentischen Mitglieder des
+Prüfungsausschusses wirken bei pädagogisch-wissenschaftlichen Entscheidungen,
+insbesondere bei der Beurteilung, Anerkennung oder Anrechnung von Studien- und
+Prüfungsleistungen undder Festlegung von Prüfungsaufgaben,nichtmit.
+(4) DieMitgliederdesPrüfungsausschusseshabendasRecht,anPrüfungenteilzunehmen.
+(5) Die Sitzungen des Prüfungsausschusses sind nicht öffentlich. Die Mitglieder des
+Prüfungsausschusses unterliegen der Amtsverschwiegenheit. Sofern sie nicht im
+öffentlichen Dienst stehen, sind sie durch die Vorsitzende oder den Vorsitzenden zur
+Verschwiegenheitzu verpflichten.
+(6) DiePrüfungsausschussvorsitzenden stellen diePrüfungsunfähigkeitfest.
+§25 Prüferinnen undPrüfer,Beisitzerinnen undBeisitzer
+(1) PrüferinnenundPrüfersindinihrerPrüfungstätigkeitunabhängigvonWeisungen.Sie
+und gegebenenfalls die Beisitzerinnen und Beisitzer unterliegen der
+Amtsverschwiegenheit. Sofern sie nicht im öffentlichen Dienst stehen, sind sie durch
+die Vorsitzende oder den Vorsitzenden des Prüfungsausschusses zur
+Verschwiegenheitzu verpflichten.
+(2) Für die Bestellung von Prüferinnen und Prüfern und für ihren Einsatz bei
+Modulprüfungen ist der Prüfungsausschuss zuständig. Die in Veranstaltungen, in
+denen Prüfungen vorgesehen sind, lehrenden Personen sind Prüferinnen und Prüfer
+gemäß § 65 Absatz 1 HG, ohne dass es der ausdrücklichen Bestellung bedarf. Für
+Abschlussarbeiten erfolgt die Bestellung der Gutachtenden aus der Gruppe der
+Hochschullehrerinnen und Hochschullehrer sowieaus dem Kreis der Personen gemäß
+§65 Absatz 1 HG durchden Prüfungsausschuss.
+(3) Für die Bachelorarbeit können die Kandidatinnen und Kandidaten eine Prüferin oder
+einen Prüfer vorschlagen. Auf die Vorschläge soll nach Möglichkeit Rücksicht
+genommen werden. Eine der Prüferinnen oder einer der Prüfer für die Bachelorarbeit
+muss aus dem Kreis der in dem Studiengang hauptamtlich lehrenden Professorinnen
+und Professoren, Juniorprofessorinnen und Juniorprofessoren, außerplanmäßigen
+Professorinnen und Professoren, Honorarprofessorinnen und -professoren,
+Privatdozentinnen und-dozenten sein,in demdie Bachelorarbeitgeschrieben wird.
+(4) AufbegründetenAntragkönnengemäß§65Absatz1HGauchanderealsdieinAbsatz
+2 und3 genannten Personen zu Prüferinnenoder Prüfern bestelltwerden.
+(5) Beisitzerinnen oder Beisitzer von mündlichen Abschlussprüfungen müssen ihre
+Sachkenntnis durch Bestehen einer entsprechenden oder vergleichbaren Prüfung
+nachgewiesen haben. Sofern sie nicht im öffentlichen Dienst stehen, sind sie zur
+Verschwiegenheitzu verpflichten.
+(6) Für die Bachelorprüfung bestellt die oder der Vorsitzende des Prüfungsausschusses
+oderderenoderdessenStellvertretungdiePrüferinnenundPrüfer,Beisitzerinnenund
+Beisitzer. Prüfungsberechtigte können nach ihrem Ausscheiden aus der Heinrich-
+Heine-Universität noch innerhalb von zwei Jahren zu Prüferinnen und Prüfern bestellt
+werden. Auf Antrag kanndieseFristin besonderen Fällen verlängertwerden.
+§26 Verlängerung vonPrüfungsfristen
+Auf Antrag der Kandidatin oder des Kandidaten hat der Prüfungsausschuss darüber zu
+entscheiden, ob einzelne Prüfungsleistungen gemäß § 14 Absatz 10 oder § 15 Absatz 4
+nach Ablauf vorgesehener Fristen innerhalb einer festzusetzenden Nachfrist abgelegt
+werden können. In dem Antrag sinddieGründedarzulegen undglaubhaftzu machen.
+§27 Nachteilsausgleich
+(1) Macht die Kandidatin beziehungsweise der Kandidat durch ärztliches Zeugnis
+glaubhaft, dass sie beziehungsweise er wegen länger andauernder Krankheit oder
+ständiger seelischer oder körperlicher Behinderung nicht in der Lage ist, die
+Prüfungsleistung ganz oder teilweise in der vorgeschriebenen Form abzulegen, ist ihr
+beziehungsweiseihmdurchdenPrüfungsausschussimSinnedesNachteilsausgleiches
+zuermöglichen,gleichwertigePrüfungsleistungenineineranderenFormzuerbringen.
+Vor Entscheidungen des Prüfungsausschusses kann die oder der Beauftragte für
+StudierendemitBehinderungoderchronischerErkrankungaufAntragderKandidatin
+oder des Kandidaten um ein Votum gebeten werden. Der Antrag auf
+Nachteilsausgleich istvor Anmeldung zur Prüfung zu stellen.
+(2) Entsprechendes giltfür Studienleistungen.
+(3) Der Antrag auf Nachteilsausgleich per ist Email über die Studierenden- und
+Prüfungsverwaltungan den Prüfungsausschuss zurichten.
+§28 Anerkennung von Studien- undPrüfungsleistungen,Einstufung in höhereFachsemester
+(1) Studienzeiten in denselben Studiengängen an anderen wissenschaftlichen
+Hochschulen im Geltungsbereich des Grundgesetzes und dabei erbrachte
+Studienleistungen werden von Amts wegen angerechnet.
+(2) Anerkennungen von Studienzeiten und Studienleistungen erfolgen grundsätzlich nur
+imRahmen des Curriculums für den eingeschriebenen Studiengang.
+(3) Studienzeiten in anderen Studiengängen oder an anderen als wissenschaftlichen
+Hochschulen im Geltungsbereich des Grundgesetzes sowie dabei erbrachte
+Studienleistungen werden von Amts wegen angerechnet, sofern hinsichtlich der
+erworbenen Kompetenzen kein wesentlicher Unterschied zu den Leistungen besteht,
+die ersetzt werden (das heißt Gleichwertigkeit besteht). Studienzeiten sowie Studien-
+und Prüfungsleistungen, die an Hochschulen in Staaten erbracht wurden, die dem
+Übereinkommen über die Anerkennung von Qualifikationen im Hochschulbereich in
+der Europäischen Region vom 11.04.1997 – sogenannte Lissabonner
+Anrechnungskonvention – beigetreten sind, werden auf Antrag angerechnet, sofern
+hinsichtlich der erworbenen Kompetenzen kein wesentlicher Unterschied zu den
+Leistungen besteht, die ersetzt werden (das heißt Gleichwertigkeit besteht). Studien-
+und Prüfungsleistungen, die an Hochschulen weiterer Staaten erbracht wurden,
+werdenaufAntragangerechnet,sofernhinsichtlichdererworbenenKompetenzenkein
+wesentlicher Unterschied zu den Leistungen besteht, die ersetzt werden (das heißt
+Gleichwertigkeit besteht). Soweit die Gleichwertigkeit nicht aufgrund der
+bescheinigten ECTS-Leistungspunkte nach dem ECTS-System festgestellt werden
+kann, sind für die Gleichwertigkeit von Studienzeiten und Studienleistungen an
+ausländischen Hochschulen die von der Kultusministerkonferenz und der
+Hochschulrektorenkonferenz gebilligten Äquivalenzvereinbarungen maßgebend. Im
+Übrigen kann bei Zweifeln an der Gleichwertigkeit die Zentralstelle für ausländisches
+Bildungswesen gehörtwerden.
+(4) Bescheinigungen über einzelne Prüfungsleistungen, die die Kandidatin oder der
+Kandidat an wissenschaftlichen Hochschulen im Geltungsbereich des Grundgesetzes
+in demselben Studiengang bestanden hat, werden von Amts wegen angerechnet.
+BescheinigungenübereinzelnePrüfungsleistungeninanderenStudiengängenoderan
+anderen als wissenschaftlichen Hochschulen im Geltungsbereich des
+Hochschulrahmengesetzes werden von Amts wegen angerechnet, soweit die
+Gleichwertigkeitfestgestelltwird.
+(5) In staatlich anerkannten Fernstudien oder in vom Land Nordrhein-Westfalen in
+Zusammenarbeit mit den anderen Ländern und dem Bund entwickelten
+Fernstudieneinheiten erworbene Leistungsnachweise werden, soweit sie gleichwertig
+sind, als Studien- oder Prüfungsleistungen von Amts wegen angerechnet. Bei der
+Feststellung der Gleichwertigkeit sind gemeinsame Beschlüsse der
+Kultusministerkonferenzundder Hochschulrektorenkonferenz zu beachten.
+(6) Studienbewerberinnen und Studienbewerbern, die aufgrund einer
+Einstufungsprüfung gemäß §49 Absatz 12HG berechtigtsind,das Studiumin einem
+höheren Fachsemester aufzunehmen, werden die in der Einstufungsprüfung
+nachgewiesenen Kenntnisse und Fähigkeiten als Studienleistungen, nicht aber als
+Prüfungsleistungen angerechnet. Die Feststellungen im Zeugnis über die
+Einstufungsprüfung sindfür den Prüfungsausschuss bindend.
+(7) Sollte bereits an der Heinrich-Heine-Universität Düsseldorf eine Prüfung in einem zur
+Anrechnung beantragten Modul abgelegt worden sein, ist eine Anerkennung einer
+andernorts absolvierten Studien- oder Prüfungsleistung für dieses Modul
+ausgeschlossen.
+(8) Zuständig für die Anrechnungen nach Absatz 1 bis 5 ist der Prüfungsausschuss. Vor
+Feststellungen über die Gleichwertigkeit sind die zuständigen Fachvertreterinnen und
+Fachvertreter zu hören.
+(9) Könnengleichwertige,außerhalbdesHochschulbereichserworbeneKompetenzenund
+Fähigkeiten nachgewiesen werden, so können diese bis zu maximal der Hälfte der
+vorgesehenen ECTS-Leistungspunkte für den Bachelor-Studiengang angerechnet
+werden. Der Prüfungsausschuss entscheidet in diesem Fall über die
+Gleichwertigkeitsprüfung.
+§29 Studiengangverantwortliche
+Für die fachspezifischen Aufgaben der Studien- und Prüfungsorganisation werden vom
+Prüfungsausschuss für je einen Studiengang je eine Studiengangverantwortliche oder ein
+Studiengangverantwortlicher sowie je ein Stellvertreter oder eine Stellvertreterin bestellt.
+Diebestellten Personen sollen unbefristetbeschäftigtsein.
+§30 Einsichtin diePrüfungsakten
+Studierende können nach vorheriger Terminabsprache bei der Studierenden- und
+Prüfungsverwaltung Einsicht in ihre Prüfungsakten nehmen. Fotografien dürfen von den
+Studierenden angefertigt werden.
+§31 Studienberatung
+(1) Die Hochschule berät ihre Studierenden sowie Studieninteressentinnen und
+Studieninteressenten, Studienbewerberinnen und Studienbewerber in allen Fragen
+des Studiums. Die Fachstudienberatung wird von den jeweiligen
+Studiengangverantwortlichen organisiert.
+(2) ECTS-Statistiken werden durch die Studierenden- und Prüfungsverwaltung zur
+AdressierungvonStudierendenmitspezifischenBeratungsbedarfengenutzt,umdiese
+Gruppeauf entsprechendeAngeboteaufmerksamzu machen.
+5. Schlussbestimmungen
+§32 Inkrafttreten undVeröffentlichung
+Diese Ordnung tritt am Tage nach ihrer Veröffentlichung in den Amtlichen
+Bekanntmachungen der Heinrich-Heine-UniversitätDüsseldorf in Kraft.
+AusgefertigtaufgrunddesBeschlussesdesFakultätsratsderPhilosophischenFakultätvom
+08.07.2025.
+Düsseldorf,den 20.01.2026
+DieRektorin
+der Heinrich-Heine-Universität
+Düsseldorf
+Anja Steinbeck
+(Univ.-Prof. Dr. iur.)
