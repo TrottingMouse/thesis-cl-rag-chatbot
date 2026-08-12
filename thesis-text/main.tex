@@ -25,13 +25,47 @@
     backend=biber,
     style=authoryear,      % Fixed: Changed from 'unified' to standard 'authoryear' to prevent engine crash
     maxcitenames=3,    
-    maxbibnames=99
-]{biblatex}
+    maxbibnames=99,
+    uniquename=init,            
+    uniqueprimaryauthor=true]{biblatex}
 \addbibresource{literature.bib}
+\DeclareNameFormat{labelname}{%
+  % Schalte die Unterscheidung (uniquename) temporär ab (auf 0), wenn:
+  % 1. der Autor ein Co-Autor ist (listcount > 1) ODER
+  % 2. der Nachname des Erstautors unter allen Erstautoren eindeutig ist.
+  \ifboolexpr{test {\ifnumcomp{\value{listcount}}{>}{1}} or test {\ifuniqueprimaryauthor}}
+    {\setcounter{uniquename}{0}}
+    {}%
+  \ifcase\value{uniquename}%
+    \usebibmacro{name:family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
+  \or
+    \ifuseprefix
+      {\usebibmacro{name:given-family}
+        {\namepartfamily}
+        {\namepartgiveni}
+        {\namepartprefix}
+        {\namepartsuffix}}
+      {\usebibmacro{name:given-family}
+        {\namepartfamily}
+        {\namepartgiveni}
+        {\namepartprefixi}
+        {\namepartsuffix}}%
+  \else
+    \usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
+  \fi
+  \usebibmacro{name:andothers}}
 
 \usepackage{amsmath}
 
-\title{Optimizing RAG Pipelines for Small Language Models:\\[0.3cm]
+\title{Optimizing RAG Pipelines for Small Language Models\\[0.3cm]
        \large Evaluating Document Preprocessing, Chunking, and Query Expansion on Structured Administrative Data}
 
 \author{Daniel Gelderblom}
@@ -39,27 +73,93 @@
 
 \begin{document}
 
-\maketitle
+\begin{titlepage}
+    \begin{center}
+        % --- Header Information ---
+        {\large Bachelorarbeit im Studiengang Computerlinguistik (B.A.)\\[0.2cm]
+            an der Heinrich-Heine-Universität Düsseldorf}
+
+        \vfill
+
+        % --- Logo ---
+        \includegraphics[width=0.35\textwidth]{images/logo-hhu.png}
+
+        \vfill
+
+        % --- Title & Subtitle ---
+        {\Huge \bfseries Optimizing RAG Pipelines for Small Language Models}\\[0.4cm]
+        {\large Evaluating Document Preprocessing, Chunking, and Query Expansion\\[0.15cm]
+        on Structured Administrative Data}
+
+        \vfill
+        \vfill
+
+        % --- Author & Submission Details ---
+        \begin{tabular}{c}
+            \textbf{vorgelegt von:}        \\[0.2cm]
+            Daniel Gelderblom              \\
+            Otto-Hahn-Straße 118           \\
+            40591 Düsseldorf               \\
+            \url{Daniel.Gelderblom@hhu.de} \\
+            Matrikelnummer: 3131057
+        \end{tabular}
+
+        \vfill
+
+        % --- Advisors & Date ---
+        \begin{tabular}{rl}
+            \textbf{Abgabedatum:}     & 21. September 2026        \\[0.15cm]
+            \textbf{Erstgutachterin:} & Prof. Dr. Wiebke Petersen \\
+            \textbf{Zweitgutachter:}  & David Arps
+        \end{tabular}
+    \end{center}
+\end{titlepage}
+
+\newpage
+
+% set page number to 1
+\setcounter{page}{1}
+% Hier römisch zählen, unten ab 1
+\pagenumbering{roman}
+\pagestyle{plain}
+\tableofcontents
+\listoffigures
+
+\listoftables
+\newpage
+\pagenumbering{arabic}
 
 \section{Introduction}
-Since the publication of OpenAI's GPT-3, Large Language Models (LLMs) have gained immense importance. A major problem with LLMs, however, is their tendency to hallucinate. Especially in contexts like user queries on specific documents, factual correctness is vital.\\
+Since the publication of OpenAI's GPT-3 \parencite{gpt3_openai}, Large Language Models (LLMs) have gained immense importance. A major problem with LLMs, however, is their tendency to hallucinate. Especially in contexts like user queries on specific documents, factual correctness is vital.\\
 Before the rise of transformer-based LLMs, language models had received all the knowledge during training. \textcite{guu2020retrieval} first used retrieval from a knowledge base together with generation during training, thus not needing to train the model on all knowledge. \textcite{karpukhin2020dense}
 improved dense retrieval (retrieval based on similarity scores of text embeddings), making it better than keyword-based retrieval and thus completing the foundation for Retrieval Augmented Generation (RAG). RAG \parencite{lewis2020retrieval} combines a (most often dense) retriever with a generational model. The retriever takes documents from a knowledge base relevant to a query and feeds them to the text generator to answer the query.\\
-As context windows have increased to one million tokens, the need for RAG systems for cutting edge proprietary LLMs, while still present, has decreased. However, these LLMs cannot serve every use-case. When data is confidential, privacy is crucial, and only a locally running language model can be considered. In these settings, resource constraints often apply. Thus, only Small Language Models (SLMs) are an option here. SLMs have smaller context windows (262,144 tokens for the very current Qwen3.5-2B). Far more importantly, due to their small size, they suffer much more from lost-in-the-middle problems. Lost-in-the middle describes the phenomenon where transformer-based language models fail drastically when the answer to a question is placed in the middle of a long prompt \parencite{liu2024lost}. Thus, performance often drops far before reaching the context limit. For SLMs around 8B parameters, this happens as early as 4000 to 8000 input tokens \parencite{leng2024long}. This means that only a few short documents can be part of the prompt, increasing the importance of a well-designed RAG pipeline, and especially of the retrieval step. Improving this step, specifically through document preprocessing, chunking, and query expansion, is what this work focuses on.\\
+As context windows have increased to one million tokens, the need for RAG systems for cutting edge proprietary LLMs, while still present, has decreased. However, these LLMs cannot serve every use-case. When data is confidential, privacy is crucial, and only a locally running language model can be considered. In these settings, resource constraints often apply. Thus, only Small Language Models (SLMs) are an option here. SLMs have smaller context windows (262,144 tokens for the very current Qwen3.5-2B). Far more importantly, due to their small size, they suffer much more from lost-in-the-middle problems. Lost-in-the middle describes the phenomenon where transformer-based language models fail drastically when the answer to a question is placed in the middle of a long prompt \parencite{liu2024lost}. Thus, performance often drops far before reaching the context limit.
+For SLMs around 8B parameters, this happens as early as 4000 to 8000 input tokens \parencite{leng2024long}. This means that only a few short documents can be part of the prompt, increasing the importance of a well-designed RAG pipeline, and especially of the retrieval step. Improving this step, specifically through document preprocessing, chunking, and query expansion, is what this work focuses on.\\
 Preprocessing is the conversion of documents into a form that is easy for the LLM to understand. Chunking is the technique employed to split the documents, which are all larger than 8000 tokens, into smaller pieces. Query expansion means transforming the query into a form that is easier for the retriever to handle. Thus, the first two parts of the pipeline are only done once for all documents in the offline phase, while query expansion is done for every user input in the online phase (Figure 1).\\
-The task at hand is to create a chat-bot to answer administrative questions from students for the department of Computational Linguistics. The long-term goal is to have this chat-bot run locally on a small GPU. Therefore, only SLMs can be used as generators. Thus, a RAG system with administrative documents as knowledge base is needed. As these documents are in part structured in tables, document preprocessing is a crucial step.\\
+The task at hand is to create a chat-bot to answer administrative questions from students for the Department of Computational Linguistics. The long-term goal is to have this chat-bot run locally on a small GPU. Therefore, only SLMs can be used as generators. Thus, a RAG system with administrative documents as knowledge base is needed. As these documents are in part structured in tables, document preprocessing is a crucial step.\\
 Thus, there are several goals for this thesis. Firstly, a RAG pipeline is built. This pipeline should be modular, so new components can be easily added and existing components can be easily improved and changed. Secondly, the best set-up for preprocessing the structured documents is determined empirically. Thirdly, the benefits of query expansion are investigated. Fourthly, possible hyperparameters are evaluated for the chunking algorithms and the best chunking method is determined for the context at hand.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{images/ragpipeline.png}
     \caption{The RAG pipeline}
 \end{figure}
+\section{Data}
+\subsection{Documents}
+The RAG-chatbot is based on three administrative documents from the Department of Computational Linguistics at the University of Düsseldorf: Prüfungsordnung (PO), Modulhandbuch (MH) and fachspezifische Prüfungsordnung (fPO)\footnote{The abbreviations are chosen differently in the code due to legacy reasons (Prüfungsordnung was only added later on). In the code, Prüfungsordnung is POges and fachspezifische Prüfungsordnung is PO.}. PO is relatively easy to handle, as it contains all the general information about studying and exams and is structured in paragraphs. MH has to be preprocessed, as all the modules for Computational Linguistics are shown in table-like structures with two columns. For fPO, preprocessing is absolutely crucial as there is a table for every semester containing subjects and their credit points, time required, exams and administrative numbers.
+
+\subsection{Evaluation Dataset}
 
 
 \section{Methods}
-\subsection{The documents}
-The RAG-chatbot is based on three administrative documents from the department of Computational Linguistics at the University of Düsseldorf: Prüfungsordnung (PO), Modulhandbuch (MH) and fachspezifische Prüfungsordnung (fPO)\footnote{The abbreviations are chosen differently in the code due to legacy reasons (Prüfungsordnung was only added later on). In the code, Prüfungsordnung is POges and fachspezifische Prüfungsordnung is PO.}. PO is relatively easy to handle, as it contains all the general information about studying and exams and is structured in paragraphs. MH has to be preprocessed, as all the modules for Computational Linguistics are shown in table-like structures with two columns. For fPO, preprocessing is absolutely crucial as there is a table for every semester containing subjects and their credit points, time required, exams and administrative numbers.
 \subsection{RAG pipeline}
+\subsubsection{Code Architecture}
+To facilitate systematic experimentation and ensure future extensibility, the codebase of the RAG pipeline is built upon a strictly modular architecture. A fundamental architectural choice is the strict separation of the pipeline into offline and online execution phases. The offline phase handles the computationally expensive, one-time tasks of document preprocessing, chunking, and vector indexing. The online phase manages real-time interactions, encompassing query expansion, retrieval, reranking, and generation.
+
+Each distinct step of the pipeline is encapsulated within its own module using an object-oriented design approach. The architecture relies on abstract base classes for every pipeline component (e.g., preprocessors, chunkers, retrievers, and generators). Specific algorithms and models are implemented as subclasses that inherit from these base classes. This design pattern ensures that replacing an existing component or integrating a new one—such as introducing a hybrid retriever or a novel chunking algorithm—only requires writing a new implementation of the respective base class, leaving the overarching pipeline logic completely untouched.
+
+To manage the high number of possible pipeline configurations, component selection and hyperparameter choices are handled entirely via a central configuration file. A dedicated Python factory script reads this configuration file and dynamically builds the requested pipeline at runtime by instantiating the specified classes. This allows for rapid component switching and modifications of hyperparameters without the need to modify any source code.
+
+Finally, the architecture is designed for easy maintenance of the knowledge base. New PDF files can be seamlessly integrated into the RAG system by simply placing the raw files into a designated documents directory and registering the new document in the configuration file. The factory and offline modules will then automatically process, chunk, and index the new data during the next offline run.
 \subsubsection{Document preprocessing}
 As two of the documents contain tables, a direct conversion to raw, unformatted text is not sensible. \textcite{min2024exploring} identified four methods to handle tables for RAG. First, the table can be converted to Markdown. Second, it can be converted to simple sentences using automatic templates.
 Third, traditional (non-generative) language models can be finetuned for this task. Fourth, LLMs can be used to convert the tables to linearized text. In a comparison of the four strategies, LLM-based conversion performed best, followed by Markdown, which still gave good generation results.
@@ -82,9 +182,9 @@ HyDE (Hypothetical Document Embeddings) is one of the first and most used query 
 \subsubsection{Reranking}
 Reranking improves retrieval by retrieving $k$ documents, reranking the retrieved results and only returning the top-$n$ documents \parencite{nogueira2019passage}, thus $k > n$. The reranker is more computationally expensive than the retriever, as it uses cross-encoding instead of a simple vector similarity computation. Cross-encoding means processing the query and a retrieved document jointly through a transformer model. Afterwards, a classification token is returned to indicate the similarity between the query and the document. The reranker used here is jinaai/jina-reranker-v3.
 \subsubsection{Generation}
-Due to practical requirements for later deployment, a very small language model was chosen for generation. The model is Qwen/Qwen3.5-2B. Some early tests were done with Qwen/Qwen3.5-0.8B, but the output in German was too unreliable.
+Due to practical requirements for later deployment, a very small language model was chosen for generation. The model is Qwen/Qwen3.5-2B. This model was chosen due to its popularity and its good performance on multilingual benchmarks compared to its size \parencite{qwen3.5_2b}. Some early tests were done with Qwen/Qwen3.5-0.8B, but the output in German was too unreliable.
 \subsection{Evaluation}
-For evaluation, a dataset of 73 queries with gold answers was created in collaboration with a student representative from the department of Computational Linguistics. The questions are in part self-written and in part hand-selected from suggestions by Google Gemini.\\
+For evaluation, a dataset of 73 queries with gold answers was created in collaboration with a student representative from the Department of Computational Linguistics. The questions are in part self-written and in part hand-selected from suggestions by Google Gemini.\\
 Due to the large variety in preprocessing and chunking techniques, the retrieved chunks of different experiments are very different in structure and content. Thus, classic retrieval evaluation techniques like determining precision and recall from token spans do not work here. Instead, an LLM is used to evaluate retrieval and generation results (LLM-as-a-judge). Previous studies using GPT-4 have shown that LLMs achieve an agreement rate on par with the inter-annotator agreement for this task \parencite{liu2023g,zheng2023judging}. In order to counter the problem of LLMs favoring their own answers \parencite{chen2025llm}, GPT 4o-mini is used for evaluation, as most of the preprocessed chunks were generated by Google Gemini.\\
 The metrics in use stem from RAGAS \parencite{es2024ragas}. The original RAGAS paper introduced LLM-as-a-judge for RAG specifically with three metrics. Faithfulness judges, if the answer can be inferred from the context. This is done by splitting the answer into statements and dividing the number of grounded statements by the total number of statements. Answer relevancy judges, if the answer addresses the query. For this, questions are generated based on the LLM response and then embedded. The score is the average cosine similarity of the questions and the original query. Context Relevance judges if the context only contains relevant information, but is dependent on a sentence-based structure of the chunks and thus not used here.\\
 Instead, two other metrics from the RAGAS package are used. The first is context recall. This metric measures how many of the relevant chunks were successfully retrieved. It divides the number of claims in the reference supported by retrieved chunks by the total number of claims in the reference. The second is answer correctness. This measures the correctness of the final generated answer by combining a factual F1 score with embedding similarity. The F1 score is calculated as follows:\\
@@ -124,7 +224,8 @@ The two query expansion techniques—Hypothetical Document Embeddings (HyDE) and
 \subsubsection{Main Experiment: Preprocessor and Chunker Comparison}
 In the final experiment, all viable combinations of preprocessors and chunkers—configured with the optimal hyperparameters established in the preceding steps—are evaluated on the complete dataset of 73 question-answer pairs as well as the 15-item negative rejection dataset.
 Combinations that are structurally incompatible (such as applying table-aware chunkers to linearized text) are excluded from the main comparative benchmark.
-An experiment without chunking is run as a baseline for comparison. For this experiment, the SLM is given all three documents processed in linearized form by the optimized preprocessor setup (GeminiMarkdownProcessor+DirectLLMProcessor).
+Two experiments are run as baselines for comparison. The first one uses no preprocessing and no chunking. Thus, the SLM is given all three documents as raw text without any formatting.
+For the second baseline experiment, the documents are preprocessed to linearized text by the optimized preprocessor setup (GeminiMarkdownProcessor+DirectLLMProcessor), but are not chunked. These baseline experiments serve to make sure that the introduction of chunking and RAG has a measurable effect on generation results.
 \section{Results}
 \subsection{Preprocessing choices}
 GeminiMarkdownProcessor outperforms DoclingMarkdownProcessor for Markdown conversion. Together with DirectLLMProcessor, it also outperforms PaperLLMProcessor for text linearization (see table \ref{tab:preprocessor_comparison}).
@@ -146,9 +247,11 @@ GeminiMarkdownProcessor outperforms DoclingMarkdownProcessor for Markdown conver
 
 \subsection{Chunking Parameters}
 
-The results for the hyperparameter grid search across chunking strategies and preprocessors are presented in Table~\ref{tab:preprocessor_comparison}. For Fixed Character Chunking on Markdown documents (GM), larger chunk sizes without overlap yielded the highest performance, peaking at an answer correctness score of 0.6811 for a chunk size of $S = 1500$ characters. Introducing an overlap consistently degraded performance across all tested chunk sizes for Markdown, most noticeably at $S = 500$, where adding a 50-character overlap dropped accuracy from 0.6612 to 0.4191. For Fixed Paragraph Chunking on Markdown, a chunk size of $S = 2$ paragraphs without overlap achieved the highest score (0.6274), outperforming both smaller ($S = 1$) and larger ($S = 3$) paragraph windows as well as configurations with paragraph overlap ($S = 2, O = 1$).
+The results for the hyperparameter grid search across chunking strategies and preprocessors are presented in Table~\ref{tab:preprocessor_comparison}. For Fixed Character Chunking on Markdown documents (GM), larger chunk sizes without overlap yielded the highest performance, peaking for a chunk size of $S = 1500$ characters. Introducing an overlap consistently degraded performance across all tested chunk sizes for Markdown, most noticeably at $S = 500$, where adding a 50-character overlap dropped accuracy from 0.6612 to 0.4191. For Fixed Paragraph Chunking on Markdown, a chunk size of $S = 2$ paragraphs without overlap achieved the highest score, outperforming both smaller ($S = 1$) and larger ($S = 3$) paragraph windows as well as configurations with paragraph overlap ($S = 2, O = 1$).
 
-When applied to linearized text (GM+LLM), Fixed Paragraph Chunking performed best at a smaller size of $S = 1$ paragraph (0.6605), with performance declining as the paragraph count or overlap increased. For Fixed Character Chunking on linearized text, a smaller chunk size with overlap ($S = 500, O = 50$) achieved the best result (0.6184). For Dynamic Token Chunking, a smaller context window with a 10\% overlap ($S = 150, O = 15$) proved optimal, attaining an answer correctness of 0.6386. Finally, for Max-Min Chunking, tuning the hard threshold ($\tau$) and dampening parameter ($c$) confirmed that higher threshold values were necessary to prevent degenerate chunking behavior; the combination of $\tau = 0.75$ and $c = 1.3$ achieved the highest score of 0.5861 for this strategy.
+When applied to linearized text (GM+LLM), Fixed Paragraph Chunking performed best at a smaller size of $S = 1$ paragraph, with performance declining as the paragraph count or overlap increased. For Fixed Character Chunking on linearized text, a smaller chunk size with overlap ($S = 500, O = 50$) achieved the best result.
+For Dynamic Token Chunking, a smaller context window with a 10\% overlap ($S = 150, O = 15$) proved optimal.
+Finally, for Max-Min Chunking, tuning the hard threshold ($\tau$) and dampening parameter ($c$), $\tau = 0.75$ and $c = 1.3$ achieved the best results for this strategy. Both values stand in the middle of the ranges for their respective parameter and thus confirm the testing range.
 
 \begin{table}[htbp]
     \centering
@@ -214,7 +317,7 @@ Conversely, for standard Paragraph and Character chunkers across both Markdown a
                                & Whole Table      & 0.645                                            & \textbf{0.647} & 0.544          \\
                                & Split Table      & 0.579                                            & 0.549          & \textbf{0.591} \\
         \midrule
-        \multirow{5}{*}{Direct}
+        \multirow{5}{*}{Linearized}
                                & Paragraph        & \textbf{0.598}                                   & 0.592          & 0.524          \\
                                & Character        & \textbf{0.600}                                   & 0.568          & 0.579          \\
                                & Dynamic          & 0.630                                            & \textbf{0.639} & 0.518          \\
@@ -248,7 +351,7 @@ Furthermore, query expansion exhibited a higher overall impact when applied to M
                                & Whole Table      & 0.620                                        & 0.640          & \textbf{0.647} \\
                                & Split Table      & \textbf{0.551}                               & 0.514          & 0.459          \\
         \midrule
-        \multirow{5}{*}{Direct}
+        \multirow{5}{*}{Linearized}
                                & Paragraph        & 0.639                                        & 0.588          & \textbf{0.646} \\
                                & Character        & 0.612                                        & 0.579          & \textbf{0.677} \\
                                & Dynamic          & \textbf{0.636}                               & 0.624          & 0.629          \\
@@ -260,13 +363,18 @@ Furthermore, query expansion exhibited a higher overall impact when applied to M
 \FloatBarrier
 
 \subsection{Main Experiment}
-\begin{itemize}
-    \item Answer correctness for all preprocessing and chunking strategies between 0.51 and 0.57, all better than no chunking baseline (0.485)
-    \item for Markdown: whole table and paragraph with very similar results in all metrics, both with good answer correctness and high context recall, whole table even highest context recall among all nine strategies
-    \item for Markdown: split table and character chunking also similar results, low answer correctness and low context recall
-    \item best performing chunkers: Character and Max-Min Chunking on linearized text
-    \item
-\end{itemize}
+The main experiment demonstrates the clear advantage of employing proper preprocessing and chunking strategies. As shown in Table \ref{tab:rag_all_metrics_eval}, the baseline without any preprocessing or chunking achieved an answer correctness of only 0.423. Introducing preprocessing to create linearized text without chunking improved the results solidly to an answer correctness of 0.485. However, combining preprocessing with chunking yielded the best outcomes, with all tested combinations achieving an answer correctness between 0.51 and 0.57, outperforming both baselines.
+
+Within the Markdown preprocessing configurations, the Whole Table and Paragraph chunkers demonstrated very similar and strong results across all metrics. Both achieved good answer correctness and high context recall, with the Whole Table strategy reaching the highest context recall (0.902) among all nine evaluated strategies. Conversely, the Split Table and Character chunking methods performed similarly poorly on Markdown documents, yielding both low answer correctness and low context recall.
+
+For linearized text preprocessing, Character and Max-Min Chunking emerged as the best-performing chunkers overall. Character chunking on linearized text achieved the highest answer correctness (0.577) and the highest faithfulness (0.740), alongside a slightly above-average context recall. Max-Min Chunking also performed very well, pairing high faithfulness with the highest answer relevancy across all experiments (0.711), though its context recall remained mid-range. In contrast, LLM chunking showed generally poor performance on linearized text, resulting in low answer correctness (0.517) and very low context recall. Furthermore, while the Paragraph chunker on linearized text achieved high context recall and faithfulness, this did not translate to strong final generation quality, resulting in an answer correctness of only 0.533.
+
+Comparing the two preprocessing paradigms, faithfulness was generally higher for linearized text than for Markdown. With the exception of the underperforming LLM chunker, all linearized text strategies achieved higher faithfulness scores than all tested Markdown strategies.
+
+Another notable observation is the behavior of the Dynamic Token chunker on linearized text. It achieved high context recall but relatively low faithfulness, leading to a mid-range answer correctness (0.544). However, it managed by far the highest negative rejection rate (0.929).
+
+More broadly, the negative rejection rate appeared to be quite independent of answer correctness. For instance, Character chunking on Markdown had very low answer correctness but a very high negative rejection rate (0.857). Conversely, Character chunking on linearized text achieved the highest answer correctness but the lowest negative rejection rate (0.643). Among all configurations, Max-Min Chunking stood out as the only strategy that effectively balanced both high answer correctness and a strong negative rejection rate.
+
 \begin{table}[htbp]
     \centering
     \footnotesize
@@ -278,13 +386,15 @@ Furthermore, query expansion exhibited a higher overall impact when applied to M
         \toprule
         \textbf{Preprocessing} & \textbf{Chunker} & \textbf{CR}    & \textbf{Faith.} & \textbf{AR}    & \textbf{AC}    & \textbf{NRR}   \\
         \midrule
+        No Preprocessing       & No Chunking      &                &                 &                & 0.423          & 0.571          \\
+        \midrule
         \multirow{4}{*}{Markdown}
                                & Paragraph        & 0.856          & 0.683           & 0.658          & 0.553          & 0.786          \\
                                & Character        & 0.775          & 0.672           & 0.689          & 0.515          & 0.857          \\
                                & Whole Table      & \textbf{0.902} & 0.663           & 0.636          & 0.556          & 0.786          \\
                                & Split Table      & 0.749          & 0.687           & 0.688          & 0.515          & 0.714          \\
         \midrule
-        \multirow{6}{*}{Direct}
+        \multirow{6}{*}{Linearized}
                                & No chunking      &                &                 &                & 0.485          & 0.643          \\
                                & Paragraph        & 0.862          & 0.737           & 0.656          & 0.533          & 0.786          \\
                                & Character        & 0.839          & \textbf{0.740}  & 0.666          & \textbf{0.577} & 0.643          \\
@@ -300,12 +410,23 @@ Furthermore, query expansion exhibited a higher overall impact when applied to M
 
 \FloatBarrier
 \section{Discussion}
+\subsection{Preprocessing}
 The first part of the preprocessing experiment hints to the fact that LLMs can outperform elaborate frameworks at complicated tasks. Docling was specifically designed for converting documents containing tables to markdown. Still, Gemini performed better with a simple one line prompt.\\
 The good results of the text linearization technique from \textcite{min2024exploring} could not be reproduced. Instead, also here, a custom prompt using the Markdown documents as input achieved a better answer correctness. One explanation for this could be the direct translation of the table transformation prompt from the paper into German, which might not have been understood properly by the model. Another possible explanation is that the prompt was highly fitted to the datasets used in the paper. As the university documents look significantly different, the combination of pdf-to-text and prompt from the paper might just not work here.\\
 
+\subsection{Chunking Parameters}
+The grid search results reveal a clear divergence in optimal chunking strategies depending on the preprocessing format, highlighting the different ways Small Language Models (SLMs) process structured versus dense text.
+
+For Markdown documents, applying zero overlap proved to be the most effective approach. Introducing overlap in Markdown duplicates unnecessary structural syntax (such as table delimiters and formatting tokens) across chunks. This not only wastes the limited context window but also feeds the SLM redundant structural noise that is difficult to process. Furthermore, Fixed Paragraph Chunking on Markdown performed best with a chunk size of two paragraphs. With a size of one, a table's explanatory header or introductory paragraph is always separated from the table itself. A chunk size of two often prepends some necessary context to the table. For Fixed Character Chunking, a large chunk size was important to limit table fragmentation.
+
+In contrast, when using linearized text, Fixed Paragraph Chunking peaked with a chunk size of just one paragraph. The custom prompt utilized by the \texttt{DirectLLMProcessor} explicitly enforces "high entity density" and explicit contextual relationships. Consequently, a single paragraph is already heavily saturated with information. Feeding multiple data-dense paragraphs to the 2B-parameter generator overloads its context processing capabilities, triggering the "lost-in-the-middle" phenomenon where the model fails to isolate the correct facts.
+
+For deterministic, sub-paragraph chunkers operating on linearized text—namely Fixed Character and Dynamic Token chunking—smaller chunk sizes consistently yielded better results. Smaller sizes generate more specialized, targeted chunks, allowing the retriever to supply the SLM with highly specific facts. However, because these chunkers are fundamentally blind to natural semantic boundaries (lacking paragraph or Markdown notation cues), their cuts are highly arbitrary. Therefore, an overlap is strictly necessary to act as a semantic bridge. This is particularly crucial for Character chunking, where the inherent risk of mid-word or mid-sentence text fragmentation makes an overlap essential for maintaining contextual coherence.
+
+Finally, the optimization of the Max-Min Chunker confirmed the initial hypothesis regarding the algorithm's threshold parameters. Due to the high thematic homogeneity of the administrative documents, utilizing the low dampening factor ($c$) and hard threshold from the original paper led to degenerate chunking behavior, where the algorithm grouped vast sections of text into unusable, oversized chunks. Conversely, setting these parameters too high triggered the opposite degeneration: almost every sentence was isolated into its own chunk, entirely defeating the purpose of semantic aggregation. The grid search successfully identified the algorithmic sweet spot, with RAG performance declining predictably when the thresholds were set either too high or too low.
 \section{Limitations and Future Research}
 As this work focuses on preprocessing, chunking and query expansion, the optimization of other pipeline components is neglected. Especially the online part of the pipeline has a lot more potential for optimization. Even the maximum context size and the factor between top\_k and top\_n are optimizable in context of the rest of the pipeline. This could be done in an independent experiment or as part of a bigger grid search.\\
-For the embedder, reranker, and generator, other models can be compared. For this work, only a few models were tested superficially, leaving this question open for future work. The retriever can even be combined with a sparse BM25 retriever. In previous work, this has outperformed a pure dense retriever. However, especially (but not exclusively) when switching to hybrid retrieval, the results for chunking and preprocessing might have to be re-evaluated. \\
+For the embedder, reranker, and generator, other models can be compared. For this work, only a few models were tested superficially, leaving this question open for future work. Especially for the generator, German-only models can be tested. Also larger models with a low quantization are an option. The retriever can even be combined with a sparse BM25 retriever. In previous work, this has outperformed a pure dense retriever. However, especially (but not exclusively) when switching to hybrid retrieval, the results for chunking and preprocessing might have to be re-evaluated. \\
 For improved retrieval results, the embedding model can be fine-tuned. As the topic is very specific and the number of documents is very limited, this could boost retrieval quality by a great margin. Furthermore, the query preprocessing can be more precise with fine-tuned embeddings. Query2doc achieves a performance gain over HyDE by fine-tuning an embedding model on extended queries.\\
 Furthermore, the components optimized in the first four experiments (preprocessor, chunking parameters, context threshold and query expansion) can be further improved in a grid search. As the experiments were conducted sequentially due to evaluation resource constraints, there is no guarantee that this thesis found the best pipeline configuration. The best chunk size for RAG is for example heavily dependent on retrieval threshold, which was only investigated after the chunker experiment here.
 With more computational and monetary resources, future research could improve the outcome by finding a better combination of components and settings.\\
@@ -313,6 +434,25 @@ Future research could investigate all of the suggested improvement
 For chatbot deployment, the repository can be made more performant using lazy imports, i. e., moving imports into methods. Thus, imports are only triggered when really needed. By using vllm with a locally saved model instead of HuggingFace, there is an even greater potential gain in performance.
 
 \section{Conclusion}
+
+\section*{Declaration of AI usage}
+
+\noindent I, Daniel Gelderblom, Matrikelnummer 3131057, hereby confirm that I have read and acknowledged the AI policy of the Institute for Linguistics, HHU (June 2025).
+
+\vspace{0.3cm}
+
+\noindent I hereby declare that for my thesis with the title Optimizing RAG Pipelines for Small Language Models, supervised by Prof. Dr. Wiebke Peterse and David Arps, I have used AI. The following list contains all tools that I have used as well as a short description of how and for what purpose these tools were used.
+
+\vspace{0.5cm}
+
+\noindent
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|p{0.25\textwidth}|p{0.3\textwidth}|p{0.38\textwidth}|}
+    \hline
+    Name of the tools                     & version/date                        & Purpose                                                                                                                                               \\ \hline
+    Google Gemini                         & gemini 3.1 pro and 3.5 flash        & Finding literature (always checked and read thoroughly before use), sharpening ideas for the pipeline, suggesting qa-pairs for the evaluation dataset \\ \hline
+    Google Antigravity with Claude Sonnet & Antigravity IDE + Claude Sonnet 4.6 & Implementation and documentation of pipeline and experiments, prompted with intended architecture and exact content                                   \\ \hline
+\end{tabular}
 
 \printbibliography[title={References}]
 
