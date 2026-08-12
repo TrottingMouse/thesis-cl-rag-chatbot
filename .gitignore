@@ -126,4 +126,6 @@ thesis-text/main.fdb_latexmk
 thesis-text/main.fls
 thesis-text/main.run.xml
 thesis-text/main.synctex.gz
-thesis-text/main.pdf
+thesis-text/main.lof
+thesis-text/main.lot
+thesis-text/main.toc

@@ -25,13 +25,47 @@
     backend=biber,
     style=authoryear,      % Fixed: Changed from 'unified' to standard 'authoryear' to prevent engine crash
     maxcitenames=3,    
-    maxbibnames=99
-]{biblatex}
+    maxbibnames=99,
+    uniquename=init,            
+    uniqueprimaryauthor=true]{biblatex}
 \addbibresource{literature.bib}
+\DeclareNameFormat{labelname}{%
+  % Schalte die Unterscheidung (uniquename) temporär ab (auf 0), wenn:
+  % 1. der Autor ein Co-Autor ist (listcount > 1) ODER
+  % 2. der Nachname des Erstautors unter allen Erstautoren eindeutig ist.
+  \ifboolexpr{test {\ifnumcomp{\value{listcount}}{>}{1}} or test {\ifuniqueprimaryauthor}}
+    {\setcounter{uniquename}{0}}
+    {}%
+  \ifcase\value{uniquename}%
+    \usebibmacro{name:family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
+  \or
+    \ifuseprefix
+      {\usebibmacro{name:given-family}
+        {\namepartfamily}
+        {\namepartgiveni}
+        {\namepartprefix}
+        {\namepartsuffix}}
+      {\usebibmacro{name:given-family}
+        {\namepartfamily}
+        {\namepartgiveni}
+        {\namepartprefixi}
+        {\namepartsuffix}}%
+  \else
+    \usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
+  \fi
+  \usebibmacro{name:andothers}}
 
 \usepackage{amsmath}
 
-\title{Optimizing RAG Pipelines for Small Language Models:\\[0.3cm]
+\title{Optimizing RAG Pipelines for Small Language Models\\[0.3cm]
        \large Evaluating Document Preprocessing, Chunking, and Query Expansion on Structured Administrative Data}
 
 \author{Daniel Gelderblom}
@@ -39,10 +73,64 @@
 
 \begin{document}
 
-\maketitle
+\begin{titlepage}
+    \begin{center}
+        % --- Header Information ---
+        {\large Bachelorarbeit im Studiengang Computerlinguistik (B.A.)\\[0.2cm]
+            an der Heinrich-Heine-Universität Düsseldorf}
+
+        \vfill
+
+        % --- Logo ---
+        \includegraphics[width=0.35\textwidth]{images/logo-hhu.png}
+
+        \vfill
+
+        % --- Title & Subtitle ---
+        {\Huge \bfseries Optimizing RAG Pipelines for Small Language Models}\\[0.4cm]
+        {\large Evaluating Document Preprocessing, Chunking, and Query Expansion\\[0.15cm]
+        on Structured Administrative Data}
+
+        \vfill
+        \vfill
+
+        % --- Author & Submission Details ---
+        \begin{tabular}{c}
+            \textbf{vorgelegt von:}        \\[0.2cm]
+            Daniel Gelderblom              \\
+            Otto-Hahn-Straße 118           \\
+            40591 Düsseldorf               \\
+            \url{Daniel.Gelderblom@hhu.de} \\
+            Matrikelnummer: 3131057
+        \end{tabular}
+
+        \vfill
+
+        % --- Advisors & Date ---
+        \begin{tabular}{rl}
+            \textbf{Abgabedatum:}     & 21. September 2026        \\[0.15cm]
+            \textbf{Erstgutachterin:} & Prof. Dr. Wiebke Petersen \\
+            \textbf{Zweitgutachter:}  & David Arps
+        \end{tabular}
+    \end{center}
+\end{titlepage}
+
+\newpage
+
+% set page number to 1
+\setcounter{page}{1}
+% Hier römisch zählen, unten ab 1
+\pagenumbering{roman}
+\pagestyle{plain}
+\tableofcontents
+\listoffigures
+
+\listoftables
+\newpage
+\pagenumbering{arabic}
 
 \section{Introduction}
-Since the publication of OpenAI's GPT-3, Large Language Models (LLMs) have gained immense importance. A major problem with LLMs, however, is their tendency to hallucinate. Especially in contexts like user queries on specific documents, factual correctness is vital.\\
+Since the publication of OpenAI's GPT-3 \parencite{gpt3_openai}, Large Language Models (LLMs) have gained immense importance. A major problem with LLMs, however, is their tendency to hallucinate. Especially in contexts like user queries on specific documents, factual correctness is vital.\\
 Before the rise of transformer-based LLMs, language models had received all the knowledge during training. \textcite{guu2020retrieval} first used retrieval from a knowledge base together with generation during training, thus not needing to train the model on all knowledge. \textcite{karpukhin2020dense}
 improved dense retrieval (retrieval based on similarity scores of text embeddings), making it better than keyword-based retrieval and thus completing the foundation for Retrieval Augmented Generation (RAG). RAG \parencite{lewis2020retrieval} combines a (most often dense) retriever with a generational model. The retriever takes documents from a knowledge base relevant to a query and feeds them to the text generator to answer the query.\\
 As context windows have increased to one million tokens, the need for RAG systems for cutting edge proprietary LLMs, while still present, has decreased. However, these LLMs cannot serve every use-case. When data is confidential, privacy is crucial, and only a locally running language model can be considered. In these settings, resource constraints often apply. Thus, only Small Language Models (SLMs) are an option here. SLMs have smaller context windows (262,144 tokens for the very current Qwen3.5-2B). Far more importantly, due to their small size, they suffer much more from lost-in-the-middle problems. Lost-in-the middle describes the phenomenon where transformer-based language models fail drastically when the answer to a question is placed in the middle of a long prompt \parencite{liu2024lost}. Thus, performance often drops far before reaching the context limit.
@@ -55,12 +143,23 @@ Thus, there are several goals for this thesis. Firstly, a RAG pipeline is built.
     \includegraphics[width=\linewidth]{images/ragpipeline.png}
     \caption{The RAG pipeline}
 \end{figure}
+\section{Data}
+\subsection{Documents}
+The RAG-chatbot is based on three administrative documents from the Department of Computational Linguistics at the University of Düsseldorf: Prüfungsordnung (PO), Modulhandbuch (MH) and fachspezifische Prüfungsordnung (fPO)\footnote{The abbreviations are chosen differently in the code due to legacy reasons (Prüfungsordnung was only added later on). In the code, Prüfungsordnung is POges and fachspezifische Prüfungsordnung is PO.}. PO is relatively easy to handle, as it contains all the general information about studying and exams and is structured in paragraphs. MH has to be preprocessed, as all the modules for Computational Linguistics are shown in table-like structures with two columns. For fPO, preprocessing is absolutely crucial as there is a table for every semester containing subjects and their credit points, time required, exams and administrative numbers.
+
+\subsection{Evaluation Dataset}
 
 
 \section{Methods}
-\subsection{The documents}
-The RAG-chatbot is based on three administrative documents from the Department of Computational Linguistics at the University of Düsseldorf: Prüfungsordnung (PO), Modulhandbuch (MH) and fachspezifische Prüfungsordnung (fPO)\footnote{The abbreviations are chosen differently in the code due to legacy reasons (Prüfungsordnung was only added later on). In the code, Prüfungsordnung is POges and fachspezifische Prüfungsordnung is PO.}. PO is relatively easy to handle, as it contains all the general information about studying and exams and is structured in paragraphs. MH has to be preprocessed, as all the modules for Computational Linguistics are shown in table-like structures with two columns. For fPO, preprocessing is absolutely crucial as there is a table for every semester containing subjects and their credit points, time required, exams and administrative numbers.
 \subsection{RAG pipeline}
+\subsubsection{Code Architecture}
+To facilitate systematic experimentation and ensure future extensibility, the codebase of the RAG pipeline is built upon a strictly modular architecture. A fundamental architectural choice is the strict separation of the pipeline into offline and online execution phases. The offline phase handles the computationally expensive, one-time tasks of document preprocessing, chunking, and vector indexing. The online phase manages real-time interactions, encompassing query expansion, retrieval, reranking, and generation.
+
+Each distinct step of the pipeline is encapsulated within its own module using an object-oriented design approach. The architecture relies on abstract base classes for every pipeline component (e.g., preprocessors, chunkers, retrievers, and generators). Specific algorithms and models are implemented as subclasses that inherit from these base classes. This design pattern ensures that replacing an existing component or integrating a new one—such as introducing a hybrid retriever or a novel chunking algorithm—only requires writing a new implementation of the respective base class, leaving the overarching pipeline logic completely untouched.
+
+To manage the high number of possible pipeline configurations, component selection and hyperparameter choices are handled entirely via a central configuration file. A dedicated Python factory script reads this configuration file and dynamically builds the requested pipeline at runtime by instantiating the specified classes. This allows for rapid component switching and modifications of hyperparameters without the need to modify any source code.
+
+Finally, the architecture is designed for easy maintenance of the knowledge base. New PDF files can be seamlessly integrated into the RAG system by simply placing the raw files into a designated documents directory and registering the new document in the configuration file. The factory and offline modules will then automatically process, chunk, and index the new data during the next offline run.
 \subsubsection{Document preprocessing}
 As two of the documents contain tables, a direct conversion to raw, unformatted text is not sensible. \textcite{min2024exploring} identified four methods to handle tables for RAG. First, the table can be converted to Markdown. Second, it can be converted to simple sentences using automatic templates.
 Third, traditional (non-generative) language models can be finetuned for this task. Fourth, LLMs can be used to convert the tables to linearized text. In a comparison of the four strategies, LLM-based conversion performed best, followed by Markdown, which still gave good generation results.
@@ -83,7 +182,7 @@ HyDE (Hypothetical Document Embeddings) is one of the first and most used query 
 \subsubsection{Reranking}
 Reranking improves retrieval by retrieving $k$ documents, reranking the retrieved results and only returning the top-$n$ documents \parencite{nogueira2019passage}, thus $k > n$. The reranker is more computationally expensive than the retriever, as it uses cross-encoding instead of a simple vector similarity computation. Cross-encoding means processing the query and a retrieved document jointly through a transformer model. Afterwards, a classification token is returned to indicate the similarity between the query and the document. The reranker used here is jinaai/jina-reranker-v3.
 \subsubsection{Generation}
-Due to practical requirements for later deployment, a very small language model was chosen for generation. The model is Qwen/Qwen3.5-2B. Some early tests were done with Qwen/Qwen3.5-0.8B, but the output in German was too unreliable.
+Due to practical requirements for later deployment, a very small language model was chosen for generation. The model is Qwen/Qwen3.5-2B. This model was chosen due to its popularity and its good performance on multilingual benchmarks compared to its size \parencite{qwen3.5_2b}. Some early tests were done with Qwen/Qwen3.5-0.8B, but the output in German was too unreliable.
 \subsection{Evaluation}
 For evaluation, a dataset of 73 queries with gold answers was created in collaboration with a student representative from the Department of Computational Linguistics. The questions are in part self-written and in part hand-selected from suggestions by Google Gemini.\\
 Due to the large variety in preprocessing and chunking techniques, the retrieved chunks of different experiments are very different in structure and content. Thus, classic retrieval evaluation techniques like determining precision and recall from token spans do not work here. Instead, an LLM is used to evaluate retrieval and generation results (LLM-as-a-judge). Previous studies using GPT-4 have shown that LLMs achieve an agreement rate on par with the inter-annotator agreement for this task \parencite{liu2023g,zheng2023judging}. In order to counter the problem of LLMs favoring their own answers \parencite{chen2025llm}, GPT 4o-mini is used for evaluation, as most of the preprocessed chunks were generated by Google Gemini.\\
@@ -327,7 +426,7 @@ For deterministic, sub-paragraph chunkers operating on linearized text—namely 
 Finally, the optimization of the Max-Min Chunker confirmed the initial hypothesis regarding the algorithm's threshold parameters. Due to the high thematic homogeneity of the administrative documents, utilizing the low dampening factor ($c$) and hard threshold from the original paper led to degenerate chunking behavior, where the algorithm grouped vast sections of text into unusable, oversized chunks. Conversely, setting these parameters too high triggered the opposite degeneration: almost every sentence was isolated into its own chunk, entirely defeating the purpose of semantic aggregation. The grid search successfully identified the algorithmic sweet spot, with RAG performance declining predictably when the thresholds were set either too high or too low.
 \section{Limitations and Future Research}
 As this work focuses on preprocessing, chunking and query expansion, the optimization of other pipeline components is neglected. Especially the online part of the pipeline has a lot more potential for optimization. Even the maximum context size and the factor between top\_k and top\_n are optimizable in context of the rest of the pipeline. This could be done in an independent experiment or as part of a bigger grid search.\\
-For the embedder, reranker, and generator, other models can be compared. For this work, only a few models were tested superficially, leaving this question open for future work. The retriever can even be combined with a sparse BM25 retriever. In previous work, this has outperformed a pure dense retriever. However, especially (but not exclusively) when switching to hybrid retrieval, the results for chunking and preprocessing might have to be re-evaluated. \\
+For the embedder, reranker, and generator, other models can be compared. For this work, only a few models were tested superficially, leaving this question open for future work. Especially for the generator, German-only models can be tested. Also larger models with a low quantization are an option. The retriever can even be combined with a sparse BM25 retriever. In previous work, this has outperformed a pure dense retriever. However, especially (but not exclusively) when switching to hybrid retrieval, the results for chunking and preprocessing might have to be re-evaluated. \\
 For improved retrieval results, the embedding model can be fine-tuned. As the topic is very specific and the number of documents is very limited, this could boost retrieval quality by a great margin. Furthermore, the query preprocessing can be more precise with fine-tuned embeddings. Query2doc achieves a performance gain over HyDE by fine-tuning an embedding model on extended queries.\\
 Furthermore, the components optimized in the first four experiments (preprocessor, chunking parameters, context threshold and query expansion) can be further improved in a grid search. As the experiments were conducted sequentially due to evaluation resource constraints, there is no guarantee that this thesis found the best pipeline configuration. The best chunk size for RAG is for example heavily dependent on retrieval threshold, which was only investigated after the chunker experiment here.
 With more computational and monetary resources, future research could improve the outcome by finding a better combination of components and settings.\\
@@ -336,10 +435,24 @@ For chatbot deployment, the repository can be made more performant using lazy im
 
 \section{Conclusion}
 
-\section{Use of AI Tools}
-During this thesis, Google Gemini was used for finding literature (checked afterwards) and sharpening ideas for the RAG pipeline. It was also used to convert bullet points into text for some sections of the thesis.
+\section*{Declaration of AI usage}
 
-Claude Sonnet 4.6 was used for code generation, prompting it with the intended architecture and content of the code, and the model implementing and documenting.
+\noindent I, Daniel Gelderblom, Matrikelnummer 3131057, hereby confirm that I have read and acknowledged the AI policy of the Institute for Linguistics, HHU (June 2025).
+
+\vspace{0.3cm}
+
+\noindent I hereby declare that for my thesis with the title Optimizing RAG Pipelines for Small Language Models, supervised by Prof. Dr. Wiebke Peterse and David Arps, I have used AI. The following list contains all tools that I have used as well as a short description of how and for what purpose these tools were used.
+
+\vspace{0.5cm}
+
+\noindent
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|p{0.25\textwidth}|p{0.3\textwidth}|p{0.38\textwidth}|}
+    \hline
+    Name of the tools                     & version/date                        & Purpose                                                                                                                                               \\ \hline
+    Google Gemini                         & gemini 3.1 pro and 3.5 flash        & Finding literature (always checked and read thoroughly before use), sharpening ideas for the pipeline, suggesting qa-pairs for the evaluation dataset \\ \hline
+    Google Antigravity with Claude Sonnet & Antigravity IDE + Claude Sonnet 4.6 & Implementation and documentation of pipeline and experiments, prompted with intended architecture and exact content                                   \\ \hline
+\end{tabular}
 
 \printbibliography[title={References}]
 
