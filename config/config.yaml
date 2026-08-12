@@ -17,11 +17,11 @@ online_config:
 offline_pipeline:
   preprocessors:
     - "RawTextProcessor"
-  chunker: "PassthroughChunker"
-  index_builder: "PassthroughIndexBuilder"
+  chunker: "FixedParagraphChunker"
+  index_builder: "FaissIndexBuilder"
 
 online_pipeline:
   query_processor: "NoProcessingProcessor"
-  retriever: "PassthroughRetriever"
-  reranker: "PassthroughReranker"
+  retriever: "FaissRetriever"
+  reranker: "JinaReranker"
   generator: "HuggingfaceGenerator"
