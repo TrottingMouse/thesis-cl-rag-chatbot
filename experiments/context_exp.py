@@ -246,7 +246,6 @@ def _run_pipeline_with_threshold(
 # ---------------------------------------------------------------------------
 
 def context_experiment() -> None:
-    # Load configs
     base_cfg = load_yaml_config("config/config.yaml")
     document_paths: list[str] = base_cfg["documents"]
     online_pipeline_cfg: dict = base_cfg["online_pipeline"]
@@ -262,7 +261,6 @@ def context_experiment() -> None:
     logger.info("Loading tokenizer for '%s' …", generation_model)
     tokenizer = AutoTokenizer.from_pretrained(generation_model)
 
-    # QA evaluation dataset
     with open(QA_EVAL_FILE) as f:
         qa_pairs_template = json.load(f)
     queries: list[str] = [item["user_input"] for item in qa_pairs_template]
@@ -270,11 +268,9 @@ def context_experiment() -> None:
 
     summary_rows: list[dict] = []
 
-    # ======================================================================
     # Outer loop: (preprocessing_config × chunker_config)
     # Each combination builds its offline index once, then all threshold
     # variants share that index.
-    # ======================================================================
     for (
         preprocessing_label,
         preprocessor_names,
@@ -319,10 +315,7 @@ def context_experiment() -> None:
             "overlap":    chunker_kwargs.get("overlap", ""),
         }
 
-        # ------------------------------------------------------------------
-        # Inner loop: similarity thresholds (Strategy B)
-        # Threshold 0.0 is equivalent to Strategy A (no filtering).
-        # ------------------------------------------------------------------
+        # Inner loop: similarity thresholds (0.0 is equivalent to no filtering)
         for threshold in THRESHOLDS:
             run_name = f"{config_label}__thr{str(threshold).replace('.', '')}"
 
@@ -345,7 +338,6 @@ def context_experiment() -> None:
             )
             summary_rows.append(row)
 
-    # Write summary CSV
     if summary_rows:
         summary_path = RESULTS_DIR / "context_exp_summary.csv"
         write_summary_csv(summary_path, summary_rows)

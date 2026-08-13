@@ -72,7 +72,6 @@ def run_pipeline(
     """
     logger.info("=== Run: %s ===", run_name)
 
-    # Build and run the offline pipeline
     offline_pipeline = build_offline_pipeline(
         preprocessor_names=preprocessor_names,
         chunker_name="FixedParagraphChunker",
@@ -86,7 +85,6 @@ def run_pipeline(
     chunks = offline_result.chunks
     logger.info("Produced %d chunk(s).", len(chunks))
 
-    # Build and run the online pipeline, reusing the populated index builder
     online_pipeline = build_online_pipeline(
         cfg=online_pipeline_cfg,
         index_builder=offline_pipeline.index_builder,
@@ -97,14 +95,12 @@ def run_pipeline(
     )
     qa_pairs = run_queries(online_pipeline, queries, qa_pairs_template)
 
-    # Persist raw results
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     qa_save = RESULTS_DIR / f"{run_name}.json"
     with open(qa_save, "w") as f:
         json.dump(qa_pairs, f, indent=4)
     logger.info("Raw QA results saved to '%s'.", qa_save)
 
-    # Evaluate
     evaluator = Evaluator(str(qa_save))
     eval_df = evaluator.evaluate()
     metrics = eval_df.mean(numeric_only=True).to_dict()
@@ -130,7 +126,6 @@ def run_pipeline(
 # ---------------------------------------------------------------------------
 
 def preprocessing_experiment():
-    # Load base config
     base_cfg = load_yaml_config("config/config.yaml")
     document_paths: list[str] = base_cfg["documents"]
     online_pipeline_cfg: dict = base_cfg["online_pipeline"]
@@ -138,18 +133,13 @@ def preprocessing_experiment():
     offline_config = OfflineConfig(**base_cfg.get("offline_config", {}))
     online_config = OnlineConfig(**base_cfg.get("online_config", {}))
 
-    # Load QA evaluation dataset
     with open(QA_EVAL_FILE) as f:
         qa_pairs_template = json.load(f)
     queries = [item["user_input"] for item in qa_pairs_template]
 
     summary_rows: list[dict] = []
 
-    # ======================================================================
-    # PHASE 1 – Compare markdown preprocessors
-    #   Run A: DoclingMarkdownProcessor alone
-    #   Run B: GeminiMarkdownProcessor alone
-    # ======================================================================
+    # PHASE 1: DoclingMarkdownProcessor vs GeminiMarkdownProcessor
     logger.info("=" * 70)
     logger.info("PHASE 1: DoclingMarkdownProcessor vs GeminiMarkdownProcessor")
     logger.info("=" * 70)
@@ -192,11 +182,7 @@ def preprocessing_experiment():
         float(phase1_results[best_phase1_name].get(accuracy_key, 0.0)),
     )
 
-    # ======================================================================
-    # PHASE 2 – Compare LLM processors
-    #   Run C: <best_phase1> + DirectLLMProcessor  (chained — takes markdown)
-    #   Run D: PaperLLMProcessor alone              (standalone — takes raw PDFs)
-    # ======================================================================
+    # PHASE 2: <best_phase1> + DirectLLMProcessor vs PaperLLMProcessor
     logger.info("=" * 70)
     logger.info(
         "PHASE 2: %s+DirectLLMProcessor vs PaperLLMProcessor (standalone)",

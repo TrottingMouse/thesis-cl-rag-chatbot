@@ -219,9 +219,6 @@ def run_pipeline(
         reranking_score_threshold=reranking_threshold,
     )
 
-    # ------------------------------------------------------------------
-    # Positive evaluation (AnswerCorrectness on full QA set)
-    # ------------------------------------------------------------------
     logger.info("Running positive queries for '%s' …", run_name)
     qa_pairs = run_queries(online_pipeline, queries, qa_pairs_template)
 
@@ -236,9 +233,6 @@ def run_pipeline(
     pos_metrics = eval_df.mean(numeric_only=True).to_dict()
     logger.info("Positive metrics for '%s': %s", run_name, pos_metrics)
 
-    # ------------------------------------------------------------------
-    # Negative rejection evaluation
-    # ------------------------------------------------------------------
     logger.info("Running negative queries for '%s' …", run_name)
     neg_qa_pairs = run_queries(online_pipeline, negative_queries, negative_qa_pairs_template)
 
@@ -252,9 +246,6 @@ def run_pipeline(
     neg_metrics = {f"negative_{k}": v for k, v in neg_df.mean(numeric_only=True).to_dict().items()}
     logger.info("Negative metrics for '%s': %s", run_name, neg_metrics)
 
-    # ------------------------------------------------------------------
-    # Assemble summary row
-    # ------------------------------------------------------------------
     row = {
         "run_name":            run_name,
         "preprocessing":       preprocessing_label,
@@ -293,13 +284,11 @@ def main_experiment() -> None:
     logger.info("Loading tokenizer for '%s' …", generation_model)
     tokenizer = AutoTokenizer.from_pretrained(generation_model)
 
-    # Load positive QA evaluation dataset (full set)
     with open(QA_EVAL_FILE) as f:
         qa_pairs_template = json.load(f)
     queries: list[str] = [item["user_input"] for item in qa_pairs_template]
     logger.info("Loaded %d positive queries from '%s'.", len(queries), QA_EVAL_FILE)
 
-    # Load negative QA dataset
     with open(NEGATIVE_QA_EVAL_FILE) as f:
         negative_qa_pairs_template = json.load(f)
     negative_queries: list[str] = [item["user_input"] for item in negative_qa_pairs_template]
@@ -374,9 +363,6 @@ def main_experiment() -> None:
         )
         summary_rows.append(row)
 
-    # ------------------------------------------------------------------
-    # Write summary CSV
-    # ------------------------------------------------------------------
     if summary_rows:
         summary_path = RESULTS_DIR / "main_exp_summary.csv"
         write_summary_csv(summary_path, summary_rows)

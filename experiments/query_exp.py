@@ -88,12 +88,11 @@ TOKEN_LIMIT = 1500          # target context-window budget in tokens (matches co
 
 
 # Online components (hardcoded, except model names which come from config)
-# TODO: tidy up
 INDEX_BUILDER_NAME  = "FaissIndexBuilder"
 
 
 # ---------------------------------------------------------------------------
-# Helpers — identical to context_exp.py
+# Helpers
 # ---------------------------------------------------------------------------
 
 def _compute_avg_chunk_tokens(chunks, tokenizer: AutoTokenizer) -> float:
@@ -206,8 +205,6 @@ def run_pipeline(
     )
 
     qa_pairs = run_queries(online_pipeline, queries, qa_pairs_template)
-
-    # Persist raw results
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     qa_save = RESULTS_DIR / f"{run_name}.json"
     with open(qa_save, "w", encoding="utf-8") as f:
@@ -267,11 +264,9 @@ def query_experiment() -> None:
 
     summary_rows: list[dict] = []
 
-    # ======================================================================
     # Outer loop: (preprocessing_config × chunker_config)
     # Each combination builds its offline index once; the three query
     # processors then share that index.
-    # ======================================================================
     for (
         preprocessing_label,
         preprocessor_names,
@@ -338,9 +333,6 @@ def query_experiment() -> None:
             )
             summary_rows.append(row)
 
-    # ------------------------------------------------------------------
-    # Write summary CSV
-    # ------------------------------------------------------------------
     if summary_rows:
         summary_path = RESULTS_DIR / "query_exp_summary.csv"
         write_summary_csv(summary_path, summary_rows)

@@ -156,11 +156,8 @@ def _dynamic_configs() -> list[dict]:
 def _maxmin_configs() -> list[dict]:
     """
     MaxMinChunker grid.
-      fixed_threshold : 0.6, 0.7, 0.8  (≥ algorithm default of 0.6)
-      c               : 0.85, 0.9, 0.95 (≥ algorithm default of 0.9 — note 0.8
-                                         is included to explore a slightly
-                                         looser damping that may still outperform
-                                         the default on this homogenous corpus)
+      fixed_threshold : 0.7, 0.75, 0.8
+      c               : 1.2, 1.3, 1.4, 1.5  (ft + c must be in (1.9, 2.3))
     """
     configs = []
     for ft, c in itertools.product((0.7, 0.75, 0.8), (1.2, 1.3, 1.4, 1.5)):
@@ -268,9 +265,6 @@ def chunking_grid_search() -> None:
 
             index_path = INDEX_BASE / run_name
 
-            # ------------------------------------------------------------------
-            # Offline pipeline
-            # ------------------------------------------------------------------
             offline_pipeline = build_offline_pipeline(
                 preprocessor_names=prep_names,
                 chunker_name=chunker_name,
@@ -278,14 +272,10 @@ def chunking_grid_search() -> None:
                 storage_path=index_path,
                 embedding_model=EMBEDDING_MODEL,
                 **params,
-                # factory auto-injects embedding_model_name for MaxMinChunker
             )
             offline_result = offline_pipeline.run(DOCUMENT_PATHS)
             chunks = offline_result.chunks
 
-            # ------------------------------------------------------------------
-            # Derive dynamic retrieval parameters from avg chunk size
-            # ------------------------------------------------------------------
             avg_tokens = _compute_avg_chunk_size(chunks, tokenizer)
             top_k, top_n = _derive_retrieval_params(avg_tokens)
             logger.info(
@@ -293,9 +283,6 @@ def chunking_grid_search() -> None:
                 len(chunks), avg_tokens, top_n, top_k,
             )
 
-            # ------------------------------------------------------------------
-            # Online pipeline + query execution
-            # ------------------------------------------------------------------
             online_pipeline = build_online_pipeline(
                 cfg=ONLINE_PIPELINE_CFG,
                 index_builder=offline_pipeline.index_builder,
@@ -311,9 +298,6 @@ def chunking_grid_search() -> None:
                 json.dump(qa_pairs, f, indent=4, ensure_ascii=False)
             logger.info("  Raw QA results saved to '%s'.", qa_save)
 
-            # ------------------------------------------------------------------
-            # Evaluation
-            # ------------------------------------------------------------------
             evaluator = Evaluator(str(qa_save))
             eval_df   = evaluator.evaluate_minimal()
             metrics   = eval_df.mean(numeric_only=True).to_dict()
@@ -339,9 +323,6 @@ def chunking_grid_search() -> None:
             summary_rows.append(row)
             logger.info("  Run '%s' complete. Metrics: %s", run_name, metrics)
 
-    # --------------------------------------------------------------------------
-    # Summary CSV
-    # --------------------------------------------------------------------------
     if summary_rows:
         summary_path = RESULTS_DIR / "grid_search_summary.csv"
         write_summary_csv(summary_path, summary_rows)
