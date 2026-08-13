@@ -124,8 +124,6 @@ def generate_batch(self, queries: list[str], contexts: list[list]) -> list[str]:
             
             # 2. If a single item is OOMing, we can't split further
             if len(queries) == 1:
-                print(query)
-                print(context_str)
                 raise RuntimeError(
                     f"CUDA OOM occurred even with a batch size of 1. "
                     f"The context length or max_new_tokens is too large for your GPU memory."
