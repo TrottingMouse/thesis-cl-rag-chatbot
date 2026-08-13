@@ -6,22 +6,23 @@ documents:
 offline_config:
   embedding_model: "jinaai/jina-embeddings-v5-text-nano"
   chunking_params:
-    {}
+    {"fixed_threshold": 0.75, "c": 1.3}
 
 online_config:
-  top_k: 20
-  top_n: 5
-  reranking_score_threshold: 0.1
+  top_k: 57
+  top_n: 19
+  reranking_score_threshold: 0.05
   generation_model: "Qwen/Qwen3.5-2B"
 
 offline_pipeline:
   preprocessors:
-    - "RawTextProcessor"
-  chunker: "FixedParagraphChunker"
+    - "GeminiMarkdownProcessor"
+    - "DirectLLMProcessor"
+  chunker: "MaxMinChunker"
   index_builder: "FaissIndexBuilder"
 
 online_pipeline:
-  query_processor: "NoProcessingProcessor"
+  query_processor: "CoTQueryProcessor"
   retriever: "FaissRetriever"
   reranker: "JinaReranker"
   generator: "HuggingfaceGenerator"
