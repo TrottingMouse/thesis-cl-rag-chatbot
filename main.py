@@ -49,11 +49,11 @@ def main():
 
     evaluator_positive = Evaluator(positive_save_path)
     evaluation_df_positive = evaluator_positive.evaluate_minimal()
-    print(evaluation_df_positive)
     evaluator_negative = Evaluator(negative_save_path)
     evaluation_df_negative = evaluator_negative.evaluate_rejection()
-    print(evaluation_df_negative)
-    
+
+    evaluation_df_positive.to_csv(f"storage/results/positive/{pipeline_name}_evaluation.csv", index=False)
+    evaluation_df_negative.to_csv(f"storage/results/negative/{pipeline_name}_evaluation.csv", index=False)
             
 
 if __name__ == "__main__":
