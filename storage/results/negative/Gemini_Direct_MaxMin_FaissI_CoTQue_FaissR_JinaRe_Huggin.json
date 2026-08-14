@@ -1,0 +1,180 @@
+[
+    {
+        "user_input": "Gibt es einen Numerus Clausus (NC) oder einen Mindest-Abiturschnitt f\u00fcr den Studiengang?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [],
+        "reranking_scores": []
+    },
+    {
+        "user_input": "Wie hoch ist der aktuelle Semesterbeitrag an der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "Die Ordnung f\u00fcr die Pr\u00fcfung in Studieng\u00e4ngen der Philosophischen Fakult\u00e4t der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf mit dem Abschluss Bachelor of Arts vom 20.01.2026 regelt die Rahmenbedingungen f\u00fcr Bachelorpr\u00fcfungen. Diese Ordnung wurde aufgrund des \u00a7 2 Absatz 4 und des \u00a7 64 Absatz 1 des Gesetzes \u00fcber die Hochschulen des Landes Nordrhein-Westfalen (Hochschulgesetz - HG) vom 16.09.2014, zuletzt ge\u00e4ndert durch das Gesetz zur \u00c4nderung des Hochschulgesetzes vom 19.12.2024, erlassen.",
+            "Das Verfahren ist auf der Internetseite der HHU bekanntgegeben."
+        ],
+        "reranking_scores": [
+            0.0879552811384201,
+            0.06153442710638046
+        ]
+    },
+    {
+        "user_input": "Welche Fristen gelten f\u00fcr die Pr\u00fcfungsanmeldung der Klausur in Morphologie und Syntax?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Die Pr\u00fcfungsanmeldung der Klausur in Morphologie und Syntax kann bis sp\u00e4testens eine Woche vor dem jeweiligen Pr\u00fcfungstermin abgemeldet werden.",
+        "retrieved_contexts": [
+            "Das Modul Basiswissen Linguistik - Morphologie und Syntax (Modul-Nummer: 1300) hat einen Umfang von 9 ECTS-Leistungspunkten und einen Workload von 270 Stunden. Die Dauer dieses Basiswissensmoduls betr\u00e4gt 1 Semester. Die Lehrveranstaltungen f\u00fcr Basiswissen Linguistik - Morphologie und Syntax sind Morphologie und Syntax (Vorlesung) mit der Nummer 1301 und Tutorium zu Morphologie und Syntax (Tutorium) mit der Nummer 1302. Die Belegung f\u00fcr dieses Basiswissensmodul erfordert die Teilnahme an Vorlesung (a) und Tutorium (b). Das empfohlene Studiensemester f\u00fcr dieses Basiswissensmodul ist das 1. Fachsemester (Wintersemester) f\u00fcr beide Lehrveranstaltungen, mit einer Pr\u00fcfung im 1. Fachsemester (Wintersemester). Dieses Basiswissensmodul wird jedes Wintersemester angeboten. Die geplante Gruppengr\u00f6\u00dfe f\u00fcr die Vorlesung (a) von Basiswissen Linguistik - Morphologie und Syntax betr\u00e4gt ca. 150 Studierende, und f\u00fcr das Tutorium (b) ca. 30 Studierende pro Gruppe.",
+            "Von einer Modulpr\u00fcfung in Form einer Klausur oder m\u00fcndlichen Pr\u00fcfung kann sich die Kandidatin oder der Kandidat bis sp\u00e4testens eine Woche vor dem jeweiligen Pr\u00fcfungstermin abmelden. Bei R\u00fccktritt nach dieser Frist, Nichterscheinen, R\u00fccktritt nach Beginn der Pr\u00fcfung oder Nichterbringung einer schriftlichen Pr\u00fcfungsleistung innerhalb der Bearbeitungszeit m\u00fcssen triftige Gr\u00fcnde geltend gemacht werden, andernfalls gilt die Pr\u00fcfungsleistung als \"nicht ausreichend\" (5,0) bewertet.",
+            "Das Tutorium b) dient der \u00dcbung der vorgestellten Inhalte und bietet Unterst\u00fctzung bei Hausaufgaben und Klausurvorbereitung. Die angestrebten Lernergebnisse und Studieninhalte von Basiswissen Linguistik - Morphologie und Syntax bef\u00e4higen die Studierenden, grundlegende Kenntnisse in den Bereichen Morphologie und Syntax zu erwerben. Sie werden an die Analyse morphologischer und syntaktischer Strukturen herangef\u00fchrt und erlernen die Klassifikation von Wortklassen, Satzgliedern, syntaktischen Funktionen, Morphemtypen und verschiedenen morphologischen Prozessen. Sie lernen grundlegende Fragestellungen der Morphosyntax und unterschiedliche Erkl\u00e4rungsans\u00e4tze kennen. F\u00fcr die Teilnahme an Basiswissen Linguistik - Morphologie und Syntax sind keine formalen oder inhaltlichen Teilnahmevoraussetzungen erforderlich. Die Pr\u00fcfungsform von Basiswissen Linguistik - Morphologie und Syntax ist eine Klausur (Pnr.",
+            "Es gibt keine Voraussetzungen f\u00fcr die Zulassung zur Modulpr\u00fcfung. Die Voraussetzungen f\u00fcr die Vergabe von ECTS-Leistungspunkten f\u00fcr Basiswissen Linguistik - Morphologie und Syntax sind erbrachte Studienleistungen (SL) in allen Lehrveranstaltungen und eine bestandene Modulpr\u00fcfung.",
+            "Das Basiswissen Linguistik - Morphologie und Syntax besteht aus 1 MP, 2 SL, 9 LP und 6 SWS, inklusive Vorlesung (2 LP, 4 SWS, Pnr. 1301), Tutorium (2 LP, 2 SWS, Pnr. 1302) und Modulpr\u00fcfung (Klausur, 3 LP, Pnr."
+        ],
+        "reranking_scores": [
+            0.2939683496952057,
+            0.20197854936122894,
+            0.15987645089626312,
+            0.11995703727006912,
+            0.0561521090567112
+        ]
+    },
+    {
+        "user_input": "Kann ich den Bachelor Computerlinguistik auch als Teilzeitstudium absolvieren?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Ja, das Bachelorstudium in Computerlinguistik kann als Teilzeitstudium absolviert werden.",
+        "retrieved_contexts": [
+            "Der exemplarische Studienverlaufsplan f\u00fcr den Bachelor Computerlinguistik stellt eine m\u00f6gliche Strukturierung des Studiums dar und ist nicht verpflichtend. Dieser Plan des Bachelor Computerlinguistik zielt auf eine gleichm\u00e4\u00dfige Arbeitsverteilung von ECTS-Leistungspunkten pro Semester oder Studienjahr ab. Es ist eine von vielen M\u00f6glichkeiten, wie Studierende des Bachelor Computerlinguistik ihr Studium gestalten k\u00f6nnen.",
+            "Nach dem vierten oder f\u00fcnften Semester des Bachelor Computerlinguistik ist ein mindestens 6-w\u00f6chiges Berufsfeldpraktikum oder eine Projektarbeit mit einschl\u00e4gig computerlinguistischem Inhalt zu absolvieren. Dieses Praktikum im Bachelor Computerlinguistik dient dazu, Einblicke in die Berufspraxis zu vermitteln und den \u00dcbergang in die Berufswelt zu erleichtern. Die Wahl des Praktikumsplatzes f\u00fcr das Praktikum im Bachelor Computerlinguistik erfolgt im Einvernehmen mit dem/der Praktikumsbeauftragten der Abteilung f\u00fcr Computerlinguistik."
+        ],
+        "reranking_scores": [
+            0.2275918573141098,
+            0.1282762736082077
+        ]
+    },
+    {
+        "user_input": "Wie lautet die E-Mail-Adresse oder Telefonnummer der fachlichen Studienberatung?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "Einsicht in die Pr\u00fcfungsakten ist gem\u00e4\u00df \u00a7 30 nach vorheriger Terminabsprache bei der Studierenden- und Pr\u00fcfungsverwaltung m\u00f6glich. Die Studienberatung, wie in \u00a7 31 beschrieben, erfolgt durch die Hochschule f\u00fcr Studierende und Studieninteressierte. Die Fachstudienberatung wird von den jeweiligen Studiengangverantwortlichen organisiert. ECTS-Statistiken werden durch die Studierenden- und Pr\u00fcfungsverwaltung zur Adressierung von Studierenden mit spezifischen Beratungsbedarfen genutzt.",
+            "Das Verfahren ist auf der Internetseite der HHU bekanntgegeben."
+        ],
+        "reranking_scores": [
+            0.17308887839317322,
+            0.07849491387605667
+        ]
+    },
+    {
+        "user_input": "Welche Dozenten oder Professoren unterrichten das Aufbaumodul Maschinelles Lernen?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Basierend auf den bereitgestellten Dokumenten unterrichten folgende Dozenten oder Professoren das Aufbaumodul Maschinelles Lernen:\n\n*   **Grundlagen des maschinellen Lernens (Seminar und \u00dcbung):** Die Lehrveranstaltung ist nicht explizit mit einer Person benannt, sondern nur mit der Nummer 4101 gekennzeichnet.\n*   **Deep Learning (Seminar):** Die Lehrveranstaltung ist nicht explizit mit einer Person benannt, sondern nur mit der Nummer 4102 gekennzeichnet.\n*   **Automatentheorie & Formale Sprachen:** Die Lehrveranstaltung ist nicht explizit mit einer Person benannt, sondern nur mit der Nummer 4201 gekennzeichnet.\n*   **Programmierung:** Die Lehrveranstaltung ist nicht explizit mit einer Person benannt, sondern nur mit der Nummer 4501 gekennzeichnet.\n\nDa keine Namen der Dozenten oder Professoren in den vier Quellen genannt werden, ist die Antwort: 'Dazu enthalten die bereitgestellten Dokumente keine Informationen.'",
+        "retrieved_contexts": [
+            "Das Modul Aufbaumodul - Maschinelles Lernen (Modul-Nummer: 4100) erstreckt sich \u00fcber 2 Semester, hat einen Umfang von 12 ECTS-Leistungspunkten und einen Workload von 360 Stunden. Die Lehrveranstaltungen f\u00fcr dieses Aufbaumodul sind Grundlagen des maschinellen Lernens (Seminar und \u00dcbung) mit der Nummer 4101 und Deep Learning (Seminar) mit der Nummer 4102. Die Belegung f\u00fcr dieses Aufbaumodul erfordert die Teilnahme an Seminar mit \u00dcbung (a) und Seminar (b).",
+            "Die Dauer dieses Aufbaumoduls betr\u00e4gt 1 Semester. Die Lehrveranstaltungen f\u00fcr dieses Aufbaumodul sind Automatentheorie & Formale Sprachen (Seminar) mit der Nummer 4201 und \u00dcbung zu Automatentheorie & Formale Sprachen (\u00dcbung) mit der Nummer 4202. Die Belegung f\u00fcr dieses Aufbaumodul erfordert die Teilnahme an Seminar (a) und \u00dcbung (b). Das empfohlene Studiensemester f\u00fcr dieses Aufbaumodul ist das 3. Fachsemester (Wintersemester) f\u00fcr beide Lehrveranstaltungen. Dieses Aufbaumodul wird jedes Wintersemester angeboten.",
+            "Das empfohlene Studiensemester f\u00fcr Grundlagen des maschinellen Lernens (a) ist das 3. Fachsemester (Wintersemester), und f\u00fcr Deep Learning (b) das 4. Fachsemester (Sommersemester), mit einer Pr\u00fcfung im 4. Fachsemester (Sommersemester). Dieses Aufbaumodul wird jedes Wintersemester (a) und jedes Sommersemester (b) angeboten.",
+            "Die Dauer dieses Aufbaumoduls betr\u00e4gt 1 Semester. Die Lehrveranstaltungen f\u00fcr dieses Aufbaumodul sind Programmierung (Vorlesung) mit der Nummer 4501, \u00dcbung zur Vorlesung (\u00dcbung) mit der Nummer 4502 und Praktische \u00dcbung zur Vorlesung (Praktische \u00dcbung) mit der Nummer 4503. Die Belegung f\u00fcr dieses Aufbaumodul erfordert die Teilnahme an Vorlesung (a) mit \u00dcbung (b) und praktischer \u00dcbung (c)."
+        ],
+        "reranking_scores": [
+            0.4376356303691864,
+            0.09045881778001785,
+            0.06456160545349121,
+            0.05610257387161255
+        ]
+    },
+    {
+        "user_input": "Welche Mindest-Systemanforderungen muss mein privater Laptop f\u00fcr den Python-Kurs erf\u00fcllen?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "F\u00fcr die Teilnahme am Basismodul - Python-Programmierung sind keine formalen oder inhaltlichen Teilnahmevoraussetzungen erforderlich. Die Pr\u00fcfungsform des Basismoduls - Python-Programmierung ist eine Projektarbeit (Pnr.",
+            "Es gibt keine Voraussetzungen f\u00fcr die Zulassung zur Modulpr\u00fcfung. Die Voraussetzungen f\u00fcr die Vergabe von ECTS-Leistungspunkten f\u00fcr das Basismodul - Python-Programmierung sind erbrachte Studienleistungen (SL) in den Lehrveranstaltungen (a) und (b) f\u00fcr 4 ECTS-Leistungspunkte, erbrachte Studienleistungen (SL) in den Lehrveranstaltungen (c) und (d) f\u00fcr 4 ECTS-Leistungspunkte, sowie eine bestandene Modulpr\u00fcfung f\u00fcr 4 ECTS-Leistungspunkte.",
+            "Sonstige Informationen f\u00fcr das Basismodul - Python-Programmierung sind nicht vorhanden.",
+            "Das Basismodul Python-Programmierung [2/2] beinhaltet 1 MP, 2 SL, 8 LP und 4 SWS, mit den Veranstaltungen Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar, 2 LP, 2 SWS, Pnr. 2303), Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (\u00dcbung, 2 LP, 2 SWS, Pnr.",
+            "Es gibt keine Voraussetzungen f\u00fcr die Zulassung zur Modulpr\u00fcfung. Die Voraussetzungen f\u00fcr die Vergabe von ECTS-Leistungspunkten f\u00fcr das Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung sind erbrachte Studienleistungen (SL) in den Lehrveranstaltungen (a) und (b) f\u00fcr 4 ECTS-Leistungspunkte, erbrachte Studienleistungen (SL) in den Lehrveranstaltungen (c) und (d) f\u00fcr 4 ECTS-Leistungspunkte, sowie eine bestandene Modulpr\u00fcfung f\u00fcr 4 ECTS-Leistungspunkte."
+        ],
+        "reranking_scores": [
+            0.3715798556804657,
+            0.17644724249839783,
+            0.07888954132795334,
+            0.07282967120409012,
+            0.06405818462371826
+        ]
+    },
+    {
+        "user_input": "In welchem Jahr wurde die Chomsky-Hierarchie zum ersten Mal publiziert?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "Es gibt keine ECTS-Leistungspunkte f\u00fcr die Modulpr\u00fcfung dieses Aufbaumoduls. Die Inhalte dieses Aufbaumoduls umfassen Sprachklassen basierend auf der Chomsky-Hierarchie (Automaten, Grammatiken), Sprachen und Relationen, rationale Relationen und Finite-State-Methoden, Komplexit\u00e4tstheorie und Lernbarkeitstheorie, sowie Abschlusseigenschaften und Entscheidungsprobleme wichtiger Sprachklassen. Die angestrebten Lernergebnisse und Studieninhalte des Aufbaumoduls - Mathematische Linguistik umfassen Vertrautheit mit den mathematischen und informatischen Grundlagen der Linguistik und Computerlinguistik."
+        ],
+        "reranking_scores": [
+            0.10390061885118484
+        ]
+    },
+    {
+        "user_input": "Welche Programmiersprache hat eine schnellere Ausf\u00fchrungszeit: Python oder C++?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [],
+        "reranking_scores": []
+    },
+    {
+        "user_input": "Wo kann man auf dem Campus der Universit\u00e4t D\u00fcsseldorf am besten kostenlos parken?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "Das Verfahren ist auf der Internetseite der HHU bekanntgegeben."
+        ],
+        "reranking_scores": [
+            0.07808281481266022
+        ]
+    },
+    {
+        "user_input": "Wie viele Einwohner hat die Stadt D\u00fcsseldorf aktuell?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "5350).",
+            "4120)."
+        ],
+        "reranking_scores": [
+            0.12584972381591797,
+            0.07165317237377167
+        ]
+    },
+    {
+        "user_input": "Wie wird das Wetter am kommenden Wochenende in Nordrhein-Westfalen?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "2204) und Modulpr\u00fcfung (Klausur, 4 LP, Pnr. 2210)."
+        ],
+        "reranking_scores": [
+            0.06464137136936188
+        ]
+    },
+    {
+        "user_input": "Wer hat die Fu\u00dfball-Europameisterschaft der Herren im Jahr 2024 gewonnen?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [],
+        "reranking_scores": []
+    },
+    {
+        "user_input": "Wie viele Kilometer ist die Sonne durchschnittlich von der Erde entfernt?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Die Sonne ist durchschnittlich etwa 1410 Kilometer von der Erde entfernt.",
+        "retrieved_contexts": [
+            "5350).",
+            "1410).",
+            "6000).",
+            "4510)."
+        ],
+        "reranking_scores": [
+            0.07585478574037552,
+            0.06433597207069397,
+            0.05741562694311142,
+            0.05460638180375099
+        ]
+    }
+]

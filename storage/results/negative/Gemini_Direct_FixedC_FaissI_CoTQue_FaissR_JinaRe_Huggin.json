@@ -1,0 +1,238 @@
+[
+    {
+        "user_input": "Gibt es einen Numerus Clausus (NC) oder einen Mindest-Abiturschnitt f\u00fcr den Studiengang?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Nein, es gibt keinen Numerus Clausus (NC) oder einen Mindest-Abiturschnitt f\u00fcr den Studiengang.",
+        "retrieved_contexts": [
+            "Klausuren und m\u00fcndlichen Pr\u00fcfungen gem\u00e4\u00df \u00a7 13 Absatz 1 und \u00a7 14 Absatz 3. Die Note errechnet sich als arithmetisches Mittel, wobei jede Teilleistung mindestens als bestanden gewertet sein muss; alle Dezimalstellen au\u00dfer der ersten werden ohne Rundung gestrichen. Ein Probestudium gem\u00e4\u00df \u00a7 5 Berufsbildungshochschulzugangsverordnung dauert zwei Semester, und ein Test gem\u00e4\u00df \u00a7 10 Absatz 5 Satz 2 Berufsbildungshochschulzugangsverordnung ist der m\u00fcndliche Pr\u00fcfungsteil. Der Antrag ist \u00fcber die Studierend",
+            "i alle Dezimalstellen au\u00dfer der ersten ohne Rundung gestrichen werden. Die Bachelorpr\u00fcfung ist endg\u00fcltig nicht bestanden, wenn die Bachelorarbeit nicht bestanden und nicht wiederholbar ist, eine verpflichtende Modulpr\u00fcfung nicht bestanden und nicht wiederholbar ist, oder eine Modulpr\u00fcfung in einem Wahlpflichtbereich nicht bestanden, nicht wiederholbar ist und die notwendige Bestehensgrenze nicht erreicht werden kann. Das endg\u00fcltige Nichtbestehen der Bachelorpr\u00fcfung wird bescheinigt.\n\nDie Ung\u00fclti",
+            "sseren Noten, wenn sie mindestens \"ausreichend\" (4,0) sind. Alle Dezimalstellen au\u00dfer der ersten werden ohne Rundung gestrichen. Sind zwei der drei Noten \"nicht ausreichend\" (5,0), ist die Endnote \"nicht ausreichend\" (5,0). In Modulen mit genau einer benoteten Pr\u00fcfung entspricht die Modulnote der Pr\u00fcfungsnote. In Modulen mit mehr als einer benoteten Pr\u00fcfung errechnet sich die Modulnote aus dem arithmetischen Mittel aller benoteten Pr\u00fcfungen des Moduls. Die Gesamtnote der Bachelorpr\u00fcfung bei inte"
+        ],
+        "reranking_scores": [
+            0.09765804558992386,
+            0.07700283825397491,
+            0.07285726815462112
+        ]
+    },
+    {
+        "user_input": "Wie hoch ist der aktuelle Semesterbeitrag an der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "Die Ordnung f\u00fcr die Pr\u00fcfung in Studieng\u00e4ngen der Philosophischen Fakult\u00e4t der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf mit dem Abschluss Bachelor of Arts vom 20.01.2026 regelt die Rahmenbedingungen f\u00fcr Bachelorpr\u00fcfungen. Diese Ordnung wurde aufgrund des \u00a7 2 Absatz 4 und des \u00a7 64 Absatz 1 des Gesetzes \u00fcber die Hochschulen des Landes Nordrhein-Westfalen (Hochschulgesetz - HG) vom 16.09.2014, zuletzt ge\u00e4ndert durch das Gesetz zur \u00c4nderung des Hochschulgesetzes vom 19.12.2024, erlassen.\n\nDer allgemeine",
+            "h ihrer Ver\u00f6ffentlichung in den Amtlichen Bekanntmachungen der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf in Kraft. Ausgefertigt aufgrund des Beschlusses des Fakult\u00e4tsrats der Philosophischen Fakult\u00e4t vom 08.07.2025. D\u00fcsseldorf, den 20.01.2026, unterzeichnet von der Rektorin der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf, Anja Steinbeck (Univ.-Prof. Dr. iur.)."
+        ],
+        "reranking_scores": [
+            0.079021155834198,
+            0.06458842754364014
+        ]
+    },
+    {
+        "user_input": "Welche Fristen gelten f\u00fcr die Pr\u00fcfungsanmeldung der Klausur in Morphologie und Syntax?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Die Pr\u00fcfungsanmeldung f\u00fcr die Klausur in Morphologie und Syntax muss bis sp\u00e4testens eine Woche vor dem jeweiligen Pr\u00fcfungstermin abgemeldet werden.",
+        "retrieved_contexts": [
+            "dliche Erkl\u00e4rungsans\u00e4tze kennen. F\u00fcr die Teilnahme an Basiswissen Linguistik - Morphologie und Syntax sind keine formalen oder inhaltlichen Teilnahmevoraussetzungen erforderlich. Die Pr\u00fcfungsform von Basiswissen Linguistik - Morphologie und Syntax ist eine Klausur (Pnr. 1310). Es gibt keine Voraussetzungen f\u00fcr die Zulassung zur Modulpr\u00fcfung. Die Voraussetzungen f\u00fcr die Vergabe von ECTS-Leistungspunkten f\u00fcr Basiswissen Linguistik - Morphologie und Syntax sind erbrachte Studienleistungen (SL) in a",
+            "ung (a) und Tutorium (b). Das empfohlene Studiensemester f\u00fcr dieses Basiswissensmodul ist das 1. Fachsemester (Wintersemester) f\u00fcr beide Lehrveranstaltungen, mit einer Pr\u00fcfung im 1. Fachsemester (Wintersemester). Dieses Basiswissensmodul wird jedes Wintersemester angeboten. Die geplante Gruppengr\u00f6\u00dfe f\u00fcr die Vorlesung (a) von Basiswissen Linguistik - Morphologie und Syntax betr\u00e4gt ca. 150 Studierende, und f\u00fcr das Tutorium (b) ca. 30 Studierende pro Gruppe. Die Kontaktzeit f\u00fcr die Vorlesung (a) be",
+            "bis sp\u00e4testens eine Woche vor dem jeweiligen Pr\u00fcfungstermin abmelden. Bei R\u00fccktritt nach dieser Frist, Nichterscheinen, R\u00fccktritt nach Beginn der Pr\u00fcfung oder Nichterbringung einer schriftlichen Pr\u00fcfungsleistung innerhalb der Bearbeitungszeit m\u00fcssen triftige Gr\u00fcnde geltend gemacht werden, andernfalls gilt die Pr\u00fcfungsleistung als \"nicht ausreichend\" (5,0) bewertet. Als triftige Gr\u00fcnde gelten insbesondere Krankheit, Mutterschutz, Kinderbetreuung im Rahmen der Elternzeit und notwendige Pflege nahe",
+            " Modulpr\u00fcfung ist eine gesonderte Meldung erforderlich, wobei nur zugelassen wird, wer die Zulassungsvoraussetzungen gem\u00e4\u00df \u00a7 12 erf\u00fcllt. Meldetermine werden im elektronischen Campus Management System und in der jeweiligen Lehrveranstaltung bekannt gegeben. Abmeldung und R\u00fccktritt von Pr\u00fcfungen sind in \u00a7 17 geregelt. Modulpr\u00fcfungen erfolgen als Klausur (auch elektronisch), m\u00fcndliche Pr\u00fcfung, Studienarbeit, Hausarbeit, Portfolio oder Projektarbeit mit individuell zurechenbarer Pr\u00fcfungsleistung. Di",
+            "ter Ber\u00fccksichtigung der W\u00fcnsche der Kandidatin oder des Kandidaten und der Vorgaben des Modulhandbuchs und der Pr\u00fcfungsordnung. Die Pr\u00fcfungen werden in der Regel in deutscher Sprache abgenommen, in Absprache auch in einer anderen Sprache; die Pr\u00fcfungssprache in Fremdsprachenphilologien ist im f\u00e4cherspezifischen Anhang geregelt. Die Bewertung von Pr\u00fcfungen ist den Studierenden jeweils nach sp\u00e4testens acht Wochen bekannt zu geben.\n\nDie Zulassung zu Modulpr\u00fcfungen, wie in \u00a7 12 beschrieben, ist m\u00f6g",
+            "lt sind, die Zulassungsbedingungen im f\u00e4cherspezifischen Anhang nicht erf\u00fcllt sind oder die Kandidatin oder der Kandidat eine Bachelorpr\u00fcfung in demselben Studiengang an einer Hochschule im Geltungsbereich des Hochschulrahmengesetzes endg\u00fcltig nicht bestanden hat.\n\nM\u00fcndliche Modulpr\u00fcfungen, wie in \u00a7 13 dargelegt, dauern mindestens 15 und h\u00f6chstens 30 Minuten und werden als Einzelpr\u00fcfung vor einer Pr\u00fcferin oder einem Pr\u00fcfer in Anwesenheit einer sachkundigen Beisitzerin oder eines sachkundigen Bei",
+            "Jahren zu Pr\u00fcferinnen und Pr\u00fcfern bestellt werden; diese Frist kann verl\u00e4ngert werden.\n\nDie Verl\u00e4ngerung von Pr\u00fcfungsfristen wird in \u00a7 26 geregelt. Auf Antrag der Kandidatin oder des Kandidaten entscheidet der Pr\u00fcfungsausschuss \u00fcber die M\u00f6glichkeit, einzelne Pr\u00fcfungsleistungen nach Ablauf vorgesehener Fristen innerhalb einer festzusetzenden Nachfrist abzulegen. Im Antrag sind die Gr\u00fcnde darzulegen und glaubhaft zu machen.\n\nDer Nachteilsausgleich ist in \u00a7 27 beschrieben. Wenn die Kandidatin oder ",
+            "rt oder auf mindestens 45 Minuten verk\u00fcrzt werden. Die Bewertung einer Klausur erfolgt durch die Dozentinnen und Dozenten und wird der Kandidatin oder dem Kandidaten nach sp\u00e4testens acht Wochen bekannt gemacht. N\u00e4heres regelt der f\u00e4cherspezifische Anhang. Eine Studienarbeit besteht aus einer m\u00fcndlichen Pr\u00e4sentation und schriftlichen Ausarbeitung einer Thematik; alternativ kann eine Klausur von 45 Minuten Dauer an die Stelle der schriftlichen Ausarbeitung treten. Die Dauer der m\u00fcndlichen Pr\u00e4senta",
+            " Anhang. Die konkreten Anforderungen f\u00fcr Studienleistungen m\u00fcssen sp\u00e4testens zu Beginn der Belegfrist f\u00fcr Studierende in der Veranstaltungsank\u00fcndigung im elektronischen Campus Management System der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf bekannt gegeben werden. Mit der Anmeldung zu Lehrveranstaltungen und Studienleistungen legen die Studierenden eine verbindliche Modul- bzw. Bereichszuordnung in ihrem Studiengang fest, die nachtr\u00e4glich nicht mehr \u00e4nderbar ist. Diese Verbindlichkeit gilt unabh\u00e4ngig",
+            "nd Syntax (Modul-Nummer: 1300) hat einen Umfang von 9 ECTS-Leistungspunkten und einen Workload von 270 Stunden. Die Dauer dieses Basiswissensmoduls betr\u00e4gt 1 Semester. Die Lehrveranstaltungen f\u00fcr Basiswissen Linguistik - Morphologie und Syntax sind Morphologie und Syntax (Vorlesung) mit der Nummer 1301 und Tutorium zu Morphologie und Syntax (Tutorium) mit der Nummer 1302. Die Belegung f\u00fcr dieses Basiswissensmodul erfordert die Teilnahme an Vorlesung (a) und Tutorium (b). Das empfohlene Studiense",
+            "nen oder Beisitzer von m\u00fcndlichen Abschlusspr\u00fcfungen m\u00fcssen ihre Sachkenntnis durch Bestehen einer entsprechenden oder vergleichbaren Pr\u00fcfung nachgewiesen haben. F\u00fcr die Bachelorpr\u00fcfung bestellt die oder der Vorsitzende des Pr\u00fcfungsausschusses oder deren oder dessen Stellvertretung die Pr\u00fcferinnen und Pr\u00fcfer, Beisitzerinnen und Beisitzer. Pr\u00fcfungsberechtigte k\u00f6nnen nach ihrem Ausscheiden aus der Heinrich-Heine-Universit\u00e4t noch innerhalb von zwei Jahren zu Pr\u00fcferinnen und Pr\u00fcfern bestellt werden;"
+        ],
+        "reranking_scores": [
+            0.20003622770309448,
+            0.1622413545846939,
+            0.14324821531772614,
+            0.10075076669454575,
+            0.08959200233221054,
+            0.08272925764322281,
+            0.08169201016426086,
+            0.07611902058124542,
+            0.06630375981330872,
+            0.050027597695589066,
+            0.02845211885869503
+        ]
+    },
+    {
+        "user_input": "Kann ich den Bachelor Computerlinguistik auch als Teilzeitstudium absolvieren?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Ja, das Bachelor Computerlinguistik kann auch als Teilzeitstudium absolviert werden.",
+        "retrieved_contexts": [
+            "tsverteilung von ECTS-Leistungspunkten pro Semester oder Studienjahr ab. Es ist eine von vielen M\u00f6glichkeiten, wie Studierende des Bachelor Computerlinguistik ihr Studium gestalten k\u00f6nnen. Die Studienberatung des Bachelor Computerlinguistik kann aus didaktischen Gr\u00fcnden individuelle Empfehlungen f\u00fcr andere Studienverl\u00e4ufe geben. Es wird empfohlen, sich bei der Studienberatung des Bachelor Computerlinguistik nach der Reihenfolge der Pflicht- und Wahlpflichtmodule zu erkundigen.\n\nF\u00fcr den exemplari",
+            "n und einen Workload von 360 Stunden. Die Dauer dieses Vertiefungsmoduls betr\u00e4gt 1 Semester. Die Lehrveranstaltungen f\u00fcr dieses Vertiefungsmodul sind Seminar Computerlinguistik (Seminar) mit der Nummer 5201 und Seminar Computerlinguistik (Seminar) mit der Nummer 5202. Die Belegung f\u00fcr dieses Vertiefungsmodul erfordert die Teilnahme an Seminar (a) und Seminar (b). Das empfohlene Studiensemester f\u00fcr dieses Vertiefungsmodul ist das 5. Fachsemester (Wintersemester) f\u00fcr beide Lehrveranstaltungen. Die",
+            "Die vorliegende Lesefassung vom 26.09.2025 beschreibt die Studiengangs\u00fcbersicht f\u00fcr den Bachelor Computerlinguistik PO 2025. Der Studiengang Computerlinguistik ist ein integrierter Studiengang, der ausschlie\u00dflich im Wintersemester beginnt. Der gesamte Studienumfang betr\u00e4gt 180 ECTS-Leistungspunkte (LP). F\u00fcr die Zulassung zum Studium sind Kenntnisse des Englischen auf dem Niveau B1 erforderlich, was einem erfolgreichen vierj\u00e4hrigen Schulunterricht an einer weiterf\u00fchrenden Schule entspricht. Es gi",
+            "reifach gewichtet, w\u00e4hrend alle Modulpr\u00fcfungen einfach z\u00e4hlen. Es gibt keine Angabe zur Pr\u00fcfungssprache nach \u00a7 6 (4). Ein Auslandsaufenthalt ist optional und das Mobilit\u00e4tsfenster hierf\u00fcr ist das 5. Semester. Es gibt keine Angabe zu Exkursionen.\n\nNach dem vierten oder f\u00fcnften Semester des Bachelor Computerlinguistik ist ein mindestens 6-w\u00f6chiges Berufsfeldpraktikum oder eine Projektarbeit mit einschl\u00e4gig computerlinguistischem Inhalt zu absolvieren. Dieses Praktikum im Bachelor Computerlinguisti",
+            "sberatung und -begleitung f\u00fcr das Praktikum im Bachelor Computerlinguistik an. \u00dcber das absolvierte Praktikum ist ein kurzer Bericht von ca. 3-5 Seiten zu verfassen und ein Zeugnis der Praktikumsstelle einzureichen.\n\nDer exemplarische Studienverlaufsplan f\u00fcr den Bachelor Computerlinguistik stellt eine m\u00f6gliche Strukturierung des Studiums dar und ist nicht verpflichtend. Dieser Plan des Bachelor Computerlinguistik zielt auf eine gleichm\u00e4\u00dfige Arbeitsverteilung von ECTS-Leistungspunkten pro Semeste",
+            " Linguistik und Informatik erm\u00f6glichen, sind im letzten Studienjahr ein Praktikum zur Berufsorientierung und die Anfertigung der Bachelorarbeit vorgesehen. Die Bachelorarbeit wird in der Regel im letzten Semester durchgef\u00fchrt, parallel zum Besuch des Forschungskolloquiums der Computerlinguistik. Das Forschungskolloquium bietet interessante Einblicke in aktuelle Forschungsthemen und liefert Anregungen und Inspiration f\u00fcr die Bachelorarbeit. Das 5. Semester kann als Mobilit\u00e4tssemester gew\u00e4hlt werd",
+            "s zwei Semestern besteht. Der Bachelorstudiengang ist so konzipiert, dass er mit einem durchschnittlichen Arbeitsaufwand von 900 Stunden pro Semester abgeschlossen werden kann. Das Studium kann einen Umfang von 3 Studienjahren mit insgesamt 180 LP haben, wobei das Kernfach 108 LP, das Erg\u00e4nzungsfach 54 LP und der Profilbildungsbereich 18 LP umfasst. Alternativ ist ein Umfang von 4 Studienjahren mit insgesamt 240 LP m\u00f6glich, wobei das Kernfach 168 LP, das Erg\u00e4nzungsfach 54 LP und der Profilbildun",
+            " an einer weiterf\u00fchrenden Schule entspricht. Es gibt keine Angabe zu einem Prop\u00e4deutikum im Profilbildungsbereich. Insgesamt sind 9 Modulpr\u00fcfungen sowie die Bachelorarbeit zu absolvieren.\n\nDie Art und Inhalte der Module und Pr\u00fcfungen im Bachelor Computerlinguistik umfassen folgende Basismodule: Mathematische und logische Grundlagen mit 8 SWS, 1 MP und 12 LP; Grundlagen der Computerlinguistik und formale Grammatikbeschreibung mit 8 SWS, 1 MP und 12 LP; und Python-Programmierung mit 8 SWS, 1 MP un",
+            "zeit f\u00fcr Einf\u00fchrung in die Computerlinguistik (a) und (b) betr\u00e4gt jeweils 2 SWS / 30 Stunden und 1 ECTS-Leistungspunkt. Ebenso betr\u00e4gt die Kontaktzeit f\u00fcr Grammatikformalismen (c) und (d) jeweils 2 SWS / 30 Stunden und 1 ECTS-Leistungspunkt. Das Selbststudium f\u00fcr Einf\u00fchrung in die Computerlinguistik (a) und (b) betr\u00e4gt jeweils 30 Stunden und 1 ECTS-Leistungspunkt. Das Selbststudium f\u00fcr Grammatikformalismen (c) und (d) betr\u00e4gt ebenfalls jeweils 30 Stunden und 1 ECTS-Leistungspunkt. Die ECTS-Leist",
+            "er 2201, Einf\u00fchrung in die Computerlinguistik (\u00dcbung) mit der Nummer 2202, Grammatikformalismen (Seminar) mit der Nummer 2203 und Grammatikformalismen (\u00dcbung) mit der Nummer 2204. Die Belegung f\u00fcr das Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung erfordert die Teilnahme am Seminar (a) mit \u00dcbung (b) sowie am Seminar (c) mit \u00dcbung (d). Das empfohlene Studiensemester f\u00fcr die erste H\u00e4lfte (a, b) ist das 1. Fachsemester (Wintersemester), f\u00fcr die zweite H\u00e4lfte (c, d)",
+            "chluss des Studiums bilden die Abschlussarbeit und das Forschungskolloquium (2 SWS, 15 LP). Erg\u00e4nzend gibt es den Profilbildungsbereich mit insgesamt 18 LP.\n\nEs gibt keine Angabe zu den Voraussetzungen f\u00fcr Pr\u00fcfungen im Bachelor Computerlinguistik. Eine Besonderheit des Studiengangs ist, dass die zweite Wiederholung einer Modulpr\u00fcfung als m\u00fcndliche Pr\u00fcfung erfolgen darf. Bei der Gewichtung der Pr\u00fcfungen f\u00fcr die Gesamtnote wird die Bachelorarbeit dreifach gewichtet, w\u00e4hrend alle Modulpr\u00fcfungen ein",
+            "gew\u00e4hlt werden, muss aber im Bereich Computerlinguistik liegen. Die angestrebten Lernergebnisse und Studieninhalte dieses Moduls bef\u00e4higen die Studierenden, aktuelle Forschungsarbeit der Computerlinguistik kennenzulernen und selbst\u00e4ndig wissenschaftlich zu arbeiten. Teilnahmevoraussetzungen f\u00fcr das Modul Abschlussarbeit und Forschungskolloquium sind formal alle Basis- und Aufbaumodule. Die Pr\u00fcfungsform des Moduls Abschlussarbeit und Forschungskolloquium ist die Bachelorarbeit (Pnr. 6000). Es gib"
+        ],
+        "reranking_scores": [
+            0.1582312285900116,
+            0.1405181735754013,
+            0.11163822561502457,
+            0.06912636756896973,
+            0.06074582040309906,
+            0.05150024592876434,
+            0.039340417832136154,
+            0.038221463561058044,
+            0.038127314299345016,
+            0.03747939318418503,
+            0.0293615460395813,
+            0.009631738997995853
+        ]
+    },
+    {
+        "user_input": "Wie lautet die E-Mail-Adresse oder Telefonnummer der fachlichen Studienberatung?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "schrieben, erfolgt durch die Hochschule f\u00fcr Studierende und Studieninteressierte. Die Fachstudienberatung wird von den jeweiligen Studiengangverantwortlichen organisiert. ECTS-Statistiken werden durch die Studierenden- und Pr\u00fcfungsverwaltung zur Adressierung von Studierenden mit spezifischen Beratungsbedarfen genutzt.\n\nDie Schlussbestimmungen beginnen mit \u00a7 32, der das Inkrafttreten und die Ver\u00f6ffentlichung regelt. Diese Ordnung tritt am Tage nach ihrer Ver\u00f6ffentlichung in den Amtlichen Bekanntm",
+            "h ihrer Ver\u00f6ffentlichung in den Amtlichen Bekanntmachungen der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf in Kraft. Ausgefertigt aufgrund des Beschlusses des Fakult\u00e4tsrats der Philosophischen Fakult\u00e4t vom 08.07.2025. D\u00fcsseldorf, den 20.01.2026, unterzeichnet von der Rektorin der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf, Anja Steinbeck (Univ.-Prof. Dr. iur.).",
+            "in \u00a7 29 behandelt. F\u00fcr die fachspezifischen Aufgaben der Studien- und Pr\u00fcfungsorganisation werden vom Pr\u00fcfungsausschuss f\u00fcr je einen Studiengang je eine Studiengangverantwortliche oder ein Studiengangverantwortlicher sowie je ein Stellvertreter oder eine Stellvertreterin bestellt.\n\nEinsicht in die Pr\u00fcfungsakten ist gem\u00e4\u00df \u00a7 30 nach vorheriger Terminabsprache bei der Studierenden- und Pr\u00fcfungsverwaltung m\u00f6glich.\n\nDie Studienberatung, wie in \u00a7 31 beschrieben, erfolgt durch die Hochschule f\u00fcr Studie"
+        ],
+        "reranking_scores": [
+            0.17843784391880035,
+            0.058822449296712875,
+            0.0020659531001001596
+        ]
+    },
+    {
+        "user_input": "Welche Dozenten oder Professoren unterrichten das Aufbaumodul Maschinelles Lernen?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Basierend auf den bereitgestellten Dokumenten unterrichten folgende Dozenten oder Professoren das Aufbaumodul Maschinelles Lernen:\n\n*   **Prof. Dr. R. H.** (nachweislich in Source 1)\n*   **Prof. Dr. M. H.** (nachweislich in Source 2)\n*   **Prof. Dr. M. H.** (nachweislich in Source 3)\n*   **Prof. Dr. M. H.** (nachweislich in Source 5)\n*   **Prof. Dr. M. H.** (nachweislich in Source 6)\n*   **Prof. Dr. M. H.** (nachweislich in Source 8)\n*   **Prof. Dr. M. H.** (nachweislich in Source 10)\n*   **Prof. Dr. M. H.** (nachweislich in Source 11)\n*   **Prof. Dr. M. H.** (nachweislich in Source 12)",
+        "retrieved_contexts": [
+            "r, hat einen Umfang von 12 ECTS-Leistungspunkten und einen Workload von 360 Stunden. Die Lehrveranstaltungen f\u00fcr dieses Aufbaumodul sind Grundlagen des maschinellen Lernens (Seminar und \u00dcbung) mit der Nummer 4101 und Deep Learning (Seminar) mit der Nummer 4102. Die Belegung f\u00fcr dieses Aufbaumodul erfordert die Teilnahme an Seminar mit \u00dcbung (a) und Seminar (b). Das empfohlene Studiensemester f\u00fcr Grundlagen des maschinellen Lernens (a) ist das 3. Fachsemester (Wintersemester), und f\u00fcr Deep Learni",
+            "onen f\u00fcr das Aufbaumodul - Maschinelles Lernen sind nicht vorhanden.\n\nDas Modul Aufbaumodul - Mathematische Linguistik (Modul-Nummer: 4200) hat einen Umfang von 6 ECTS-Leistungspunkten und einen Workload von 180 Stunden. Die Dauer dieses Aufbaumoduls betr\u00e4gt 1 Semester. Die Lehrveranstaltungen f\u00fcr dieses Aufbaumodul sind Automatentheorie & Formale Sprachen (Seminar) mit der Nummer 4201 und \u00dcbung zu Automatentheorie & Formale Sprachen (\u00dcbung) mit der Nummer 4202. Die Belegung f\u00fcr dieses Aufbaumod",
+            "umfassen Methoden des modernen maschinellen Lernens, die auf Vektorrepr\u00e4sentationen basieren. In (a) werden die grundlegenden, meist linearen Methoden wie lineare/logistische Regression, Support Vector Machines etc. theoretisch besprochen und implementiert. In (b) werden neuronale Netze und deren Anwendung im Natural Language Processing (NLP) erkl\u00e4rt und implementiert. Die angestrebten Lernergebnisse und Studieninhalte des Aufbaumoduls - Maschinelles Lernen bef\u00e4higen die Teilnehmer, selbst\u00e4ndig ",
+            " ECTS-Leistungspunkten und einen Workload von 360 Stunden. Die Dauer dieses Aufbaumoduls betr\u00e4gt 1 Semester. Die Lehrveranstaltungen f\u00fcr dieses Aufbaumodul sind Programmierung (Vorlesung) mit der Nummer 4501, \u00dcbung zur Vorlesung (\u00dcbung) mit der Nummer 4502 und Praktische \u00dcbung zur Vorlesung (Praktische \u00dcbung) mit der Nummer 4503. Die Belegung f\u00fcr dieses Aufbaumodul erfordert die Teilnahme an Vorlesung (a) mit \u00dcbung (b) und praktischer \u00dcbung (c). Das empfohlene Studiensemester f\u00fcr dieses Aufbaumo",
+            "lles Lernen bef\u00e4higen die Teilnehmer, selbst\u00e4ndig lineare Modelle und neuronale Netze zu implementieren, um Aufgaben im NLP zu l\u00f6sen. Sie sind vertraut mit Methoden der Evaluation von Modellen und Problemen wie Overfitting und Replizierbarkeit. Formale Teilnahmevoraussetzungen f\u00fcr das Aufbaumodul - Maschinelles Lernen sind keine, inhaltliche Teilnahmevoraussetzungen sind das Basismodul - Statistische Methoden in der Computerlinguistik. Die Pr\u00fcfungsformen f\u00fcr das Aufbaumodul - Maschinelles Lernen",
+            "Fachsemester (Wintersemester), und f\u00fcr Deep Learning (b) das 4. Fachsemester (Sommersemester), mit einer Pr\u00fcfung im 4. Fachsemester (Sommersemester). Dieses Aufbaumodul wird jedes Wintersemester (a) und jedes Sommersemester (b) angeboten. Die geplante Gruppengr\u00f6\u00dfe f\u00fcr beide Lehrveranstaltungen des Aufbaumoduls - Maschinelles Lernen betr\u00e4gt ca. 60 Studierende. Die Kontaktzeit f\u00fcr Grundlagen des maschinellen Lernens (a) betr\u00e4gt 4 SWS/60 Stunden / 2 ECTS-Leistungspunkte. Die Kontaktzeit f\u00fcr Deep Le",
+            "] umfasst 1 MP, 1 SL, 8 LP und 4 SWS, mit den Veranstaltungen Deep Learning (Seminar, 4 LP, 4 SWS, Pnr. 4102) und Modulpr\u00fcfung (4 LP, Pnr. 4110). Das Aufbaumodul Parsing beinhaltet 2 SL, 6 LP und 4 SWS, mit den Veranstaltungen Parsing (Seminar, 3 LP, 2 SWS, Pnr. 4301) und Parsing (\u00dcbung, 3 LP, 2 SWS, Pnr. 4302). Das Aufbaumodul Logische Programmierung hat 2 SL, 6 LP und 4 SWS, mit den Veranstaltungen Einf\u00fchrung in Prolog (Seminar, 3 LP, 2 SWS, Pnr. 4401) und Prolog (\u00dcbung, 3 LP, 2 SWS, Pnr. 4402",
+            "t. Der Studienplan sieht f\u00fcr das erste Jahr zudem einen Einstieg in die computerlinguistische Programmierung mit Python vor, welche neben Grundlagen auch aktuelle Methoden der Sprachtechnologie lehrt.\n\nIn Phase 2 des Studiums der Computerlinguistik werden Fachkompetenzen aufgebaut. Methodisch lernen die Studierenden die f\u00fcr die datengetriebene Computerlinguistik zentralen Bereiche des Maschinellen Lernens und des Deep Learnings (maschinelles Lernen mit k\u00fcnstlichen neuronalen Netzen) kennen. Dies",
+            "nen [1/2] beinhaltet 1 SL, 4 LP und 4 SWS, mit der Veranstaltung Grundlagen des maschinellen Lernens (Seminar und \u00dcbung, 4 LP, 4 SWS, Pnr. 4101). Das Aufbaumodul Mathematische Linguistik hat 2 SL, 6 LP und 4 SWS, mit den Veranstaltungen Automatentheorie & Formale Sprachen (Seminar, 3 LP, 2 SWS, Pnr. 4201) und Automatentheorie & Formale Sprachen (\u00dcbung, 3 LP, 2 SWS, Pnr. 4202). Das Aufbaumodul Objektorientierte Programmierung besteht aus 1 MP, 3 SL, 12 LP und 8 SWS, inklusive Programmierung (Vorl",
+            "L, 12 LP und 8 SWS, inklusive Programmierung (Vorlesung, 4 LP, 4 SWS, Pnr. 4501), Programmierung (\u00dcbung, 2 LP, 2 SWS, Pnr. 4502), Praktische \u00dcbung zur Vorlesung (2 LP, 2 SWS, Pnr. 4503) und Modulpr\u00fcfung (Klausur, 4 LP, Pnr. 4510). Der Profilbildungsbereich liefert 6 LP.\n\nIm 4. Semester des Bachelor Computerlinguistik sind 5 Module mit 1 MP, 7 Veranstaltungen, 18 SWS und 30 LP vorgesehen, davon 3 LP im PBB. Das Aufbaumodul Maschinelles Lernen [2/2] umfasst 1 MP, 1 SL, 8 LP und 4 SWS, mit den Vera",
+            "gsformen f\u00fcr das Aufbaumodul - Maschinelles Lernen sind Hausarbeit (mit Programmierprojekt) (Pnr. 4110) oder Studienarbeit (mit Programmierprojekt) (Pnr. 4120). Es gibt keine Voraussetzungen f\u00fcr die Zulassung zur Modulpr\u00fcfung. Die Voraussetzungen f\u00fcr die Vergabe von ECTS-Leistungspunkten f\u00fcr das Aufbaumodul - Maschinelles Lernen sind erbrachte Studienleistungen (SL) in allen Lehrveranstaltungen und eine bestandene Modulpr\u00fcfung. Sonstige Informationen f\u00fcr das Aufbaumodul - Maschinelles Lernen sin",
+            " ECTS-Leistungspunkte. Die Kontaktzeit f\u00fcr Deep Learning (b) betr\u00e4gt 4 SWS/60 Stunden / 2 ECTS-Leistungspunkte. Das Selbststudium f\u00fcr Grundlagen des maschinellen Lernens (a) betr\u00e4gt 60 Stunden/2 ECTS-Leistungspunkte. Das Selbststudium f\u00fcr Deep Learning (b) betr\u00e4gt 60 Stunden/2 ECTS-Leistungspunkte. Die ECTS-Leistungspunkte f\u00fcr die Modulpr\u00fcfung des Aufbaumoduls - Maschinelles Lernen betragen 4 ECTS-Leistungspunkte. Die Inhalte dieses Aufbaumoduls umfassen Methoden des modernen maschinellen Lernen"
+        ],
+        "reranking_scores": [
+            0.2686214745044708,
+            0.11737862974405289,
+            0.08957003802061081,
+            0.08500851690769196,
+            0.06946953386068344,
+            0.06547196954488754,
+            0.04635827988386154,
+            0.04412008821964264,
+            0.041783738881349564,
+            0.041568152606487274,
+            0.03349539637565613,
+            0.02954736538231373
+        ]
+    },
+    {
+        "user_input": "Welche Mindest-Systemanforderungen muss mein privater Laptop f\u00fcr den Python-Kurs erf\u00fcllen?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "F\u00fcr den Python-Kurs m\u00fcssen folgende Mindest-Systemanforderungen erf\u00fcllt sein:\n\n*   Ein privater Laptop\n*   Die F\u00e4higkeit, ein kleines Software-Projekt durchzuf\u00fchren und zu pr\u00e4sentieren",
+        "retrieved_contexts": [
+            "LP erworben, sowie die F\u00e4higkeit, ein kleines Software-Projekt durchzuf\u00fchren und zu pr\u00e4sentieren. F\u00fcr die Teilnahme am Basismodul - Python-Programmierung sind keine formalen oder inhaltlichen Teilnahmevoraussetzungen erforderlich. Die Pr\u00fcfungsform des Basismoduls - Python-Programmierung ist eine Projektarbeit (Pnr. 2310). Es gibt keine Voraussetzungen f\u00fcr die Zulassung zur Modulpr\u00fcfung. Die Voraussetzungen f\u00fcr die Vergabe von ECTS-Leistungspunkten f\u00fcr das Basismodul - Python-Programmierung sind ",
+            "\u00fcr das Basismodul - Python-Programmierung erfordert die Teilnahme am Seminar (a) mit \u00dcbung (b) sowie am Seminar (c) mit \u00dcbung (d). Das empfohlene Studiensemester f\u00fcr die erste H\u00e4lfte (a, b) ist das 1. Fachsemester (Wintersemester), f\u00fcr die zweite H\u00e4lfte (c, d) das 2. Fachsemester (Sommersemester), mit einer Pr\u00fcfung im 2. Fachsemester (Sommersemester). Die Lehrveranstaltungen des Basismoduls - Python-Programmierung werden jedes Wintersemester (a, b) und jedes Sommersemester (c, d) angeboten. Die ",
+            "\u00fchrung in die Computerlinguistik (Seminar, 2 LP, 2 SWS, Pnr. 2201) und Einf\u00fchrung in die Computerlinguistik (\u00dcbung, 2 LP, 2 SWS, Pnr. 2202). Das Basismodul Python-Programmierung [1/2] hat ebenfalls 2 SL, 4 LP und 4 SWS, mit den Veranstaltungen Einf\u00fchrung in die Programmierung mit Python (Seminar, 2 LP, 2 SWS, Pnr. 2301) und Einf\u00fchrung in die Programmierung mit Python (\u00dcbung, 2 LP, 2 SWS, Pnr. 2302). Das Basiswissen Linguistik - Morphologie und Syntax besteht aus 1 MP, 2 SL, 9 LP und 6 SWS, inklu",
+            "TS-Leistungspunkte und hat einen Workload von 360 Stunden. Die Lehrveranstaltungen dieses Basismoduls sind Einf\u00fchrung in die Programmierung mit Python (Seminar) mit der Nummer 2301, Einf\u00fchrung in die Programmierung mit Python (\u00dcbung) mit der Nummer 2302, Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar) mit der Nummer 2303 und Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (\u00dcbung) mit der Nummer 2304. Die Belegung f\u00fcr das Basismodul - Python-Programmierung erforder"
+        ],
+        "reranking_scores": [
+            0.30092889070510864,
+            0.08492477238178253,
+            0.02593619003891945,
+            0.01341875921934843
+        ]
+    },
+    {
+        "user_input": "In welchem Jahr wurde die Chomsky-Hierarchie zum ersten Mal publiziert?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "umoduls umfassen Sprachklassen basierend auf der Chomsky-Hierarchie (Automaten, Grammatiken), Sprachen und Relationen, rationale Relationen und Finite-State-Methoden, Komplexit\u00e4tstheorie und Lernbarkeitstheorie, sowie Abschlusseigenschaften und Entscheidungsprobleme wichtiger Sprachklassen. Die angestrebten Lernergebnisse und Studieninhalte des Aufbaumoduls - Mathematische Linguistik umfassen Vertrautheit mit den mathematischen und informatischen Grundlagen der Linguistik und Computerlinguistik.",
+            "er 2201, Einf\u00fchrung in die Computerlinguistik (\u00dcbung) mit der Nummer 2202, Grammatikformalismen (Seminar) mit der Nummer 2203 und Grammatikformalismen (\u00dcbung) mit der Nummer 2204. Die Belegung f\u00fcr das Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung erfordert die Teilnahme am Seminar (a) mit \u00dcbung (b) sowie am Seminar (c) mit \u00dcbung (d). Das empfohlene Studiensemester f\u00fcr die erste H\u00e4lfte (a, b) ist das 1. Fachsemester (Wintersemester), f\u00fcr die zweite H\u00e4lfte (c, d)"
+        ],
+        "reranking_scores": [
+            0.11883879452943802,
+            0.010808734223246574
+        ]
+    },
+    {
+        "user_input": "Welche Programmiersprache hat eine schnellere Ausf\u00fchrungszeit: Python oder C++?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "formatik; primitive Datentypen und Variablen; Kontrollstrukturen; eigene Datentypen (Klassen) und Arrays; Programmstrukturen im Speicher (Heap, Stack); Konzepte der Objektorientierung (Polymorphie, Schnittstellen); Rekursion; Fehlerbehandlung; dynamische Datenstrukturen (Listen, Bin\u00e4rb\u00e4ume, Hashing); Suchen und Sortieren (ausgew\u00e4hlte Algorithmen, u.a. bin\u00e4re Suche, BubbleSort, QuickSort); Datenstr\u00f6me (Standard-Eingabe und -Ausgabe, einfache 2D-Grafik, Dateien). Die angestrebten Lernergebnisse un",
+            "wicklung behandelt. Die angestrebten Lernergebnisse und Studieninhalte des Basismoduls - Python-Programmierung bef\u00e4higen die Studierenden, grundlegende F\u00e4higkeiten in der Programmierung mit der Programmiersprache Python zu erwerben sowie Kenntnisse \u00fcber fortgeschrittene Konzepte der Python-Programmierung (objektorientierte und funktionale Programmierung). Au\u00dferdem werden Grundkenntnisse des Einsatzes von Python in den Bereichen Data Science und NLP erworben, sowie die F\u00e4higkeit, ein kleines Soft",
+            "on 120 Stunden entspricht. Die Inhalte des Basismoduls - Python-Programmierung umfassen im Wintersemester Grundlagen der Python-Programmierung, Datentypen in Python, g\u00e4ngige Programmkonstrukte und elementare Textverarbeitung. Im Sommersemester werden objektorientierte und funktionale Programmierung mit Python, der Einsatz von Programm-Bibliotheken in den Bereichen Data Science und NLP (Natural Language Processing) sowie Grundz\u00fcge der Software-Entwicklung behandelt. Die angestrebten Lernergebniss",
+            "en mit k\u00fcnstlichen neuronalen Netzen) kennen. Dies baut auf dem Wissen \u00fcber Fragestellungen und Repr\u00e4sentationen der Computerlinguistik sowie auf soliden Kenntnissen der Programmiersprache Python auf. Parallel dazu gewinnen die Studierenden Einblick in linguistische Ressourcen. Des Weiteren werden in dieser Phase weitere Paradigma von Programmiersprachen vermittelt: objektorientiertes Programmieren und, im Kontext von Themen der Computationellen Semantik, entweder logische oder funktionale Progr"
+        ],
+        "reranking_scores": [
+            0.04298984259366989,
+            0.02187401056289673,
+            0.02021949551999569,
+            0.01500670239329338
+        ]
+    },
+    {
+        "user_input": "Wo kann man auf dem Campus der Universit\u00e4t D\u00fcsseldorf am besten kostenlos parken?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            " Anhang. Die konkreten Anforderungen f\u00fcr Studienleistungen m\u00fcssen sp\u00e4testens zu Beginn der Belegfrist f\u00fcr Studierende in der Veranstaltungsank\u00fcndigung im elektronischen Campus Management System der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf bekannt gegeben werden. Mit der Anmeldung zu Lehrveranstaltungen und Studienleistungen legen die Studierenden eine verbindliche Modul- bzw. Bereichszuordnung in ihrem Studiengang fest, die nachtr\u00e4glich nicht mehr \u00e4nderbar ist. Diese Verbindlichkeit gilt unabh\u00e4ngig",
+            "h ihrer Ver\u00f6ffentlichung in den Amtlichen Bekanntmachungen der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf in Kraft. Ausgefertigt aufgrund des Beschlusses des Fakult\u00e4tsrats der Philosophischen Fakult\u00e4t vom 08.07.2025. D\u00fcsseldorf, den 20.01.2026, unterzeichnet von der Rektorin der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf, Anja Steinbeck (Univ.-Prof. Dr. iur.)."
+        ],
+        "reranking_scores": [
+            0.09491566568613052,
+            0.009749841876327991
+        ]
+    },
+    {
+        "user_input": "Wie viele Einwohner hat die Stadt D\u00fcsseldorf aktuell?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "h ihrer Ver\u00f6ffentlichung in den Amtlichen Bekanntmachungen der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf in Kraft. Ausgefertigt aufgrund des Beschlusses des Fakult\u00e4tsrats der Philosophischen Fakult\u00e4t vom 08.07.2025. D\u00fcsseldorf, den 20.01.2026, unterzeichnet von der Rektorin der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf, Anja Steinbeck (Univ.-Prof. Dr. iur.)."
+        ],
+        "reranking_scores": [
+            0.01884688064455986
+        ]
+    },
+    {
+        "user_input": "Wie wird das Wetter am kommenden Wochenende in Nordrhein-Westfalen?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "er 2201, Einf\u00fchrung in die Computerlinguistik (\u00dcbung) mit der Nummer 2202, Grammatikformalismen (Seminar) mit der Nummer 2203 und Grammatikformalismen (\u00dcbung) mit der Nummer 2204. Die Belegung f\u00fcr das Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung erfordert die Teilnahme am Seminar (a) mit \u00dcbung (b) sowie am Seminar (c) mit \u00dcbung (d). Das empfohlene Studiensemester f\u00fcr die erste H\u00e4lfte (a, b) ist das 1. Fachsemester (Wintersemester), f\u00fcr die zweite H\u00e4lfte (c, d)"
+        ],
+        "reranking_scores": [
+            0.03204168379306793
+        ]
+    },
+    {
+        "user_input": "Wer hat die Fu\u00dfball-Europameisterschaft der Herren im Jahr 2024 gewonnen?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [],
+        "reranking_scores": []
+    },
+    {
+        "user_input": "Wie viele Kilometer ist die Sonne durchschnittlich von der Erde entfernt?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [],
+        "reranking_scores": []
+    }
+]

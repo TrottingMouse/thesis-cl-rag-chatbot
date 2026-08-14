@@ -1,0 +1,382 @@
+[
+    {
+        "user_input": "Gibt es einen Numerus Clausus (NC) oder einen Mindest-Abiturschnitt f\u00fcr den Studiengang?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "\u2022 insgesamt 180 beziehungsweise bei vierj\u00e4hrigen Studieng\u00e4ngen 240 ECTS-Leistungspunkte erreicht worden sind.",
+            "(1) Sobald eine Kandidatin oder ein Kandidat alle Abschlusspr\u00fcfungen bestanden, alle Studienleistungen erbracht und 180 ECTS-Leistungspunkte, bei vierj\u00e4hrigen Studieng\u00e4ngen 240 ECTS-Leistungspunkte, erworben hat, stellt sie oder er bei der Studierenden- und Pr\u00fcfungsverwaltung den Antrag auf Ausstellung des Bachelorzeugnisses und der Bachelorurkunde.",
+            "(6) Die Gesamtnote der Bachelorpr\u00fcfung bei Kern- und Erg\u00e4nzungsfachstudieng\u00e4ngen errechnet sich zu 20 Prozent aus der Note der Bachelorarbeit, zu 50 Prozent aus dem gewichteten arithmetischen Mittel aller Modulnoten des Kernfaches, und zu 30 Prozent aus dem gewichteten arithmetischen Mittel aller Modulnoten des Erg\u00e4nzungsfaches.",
+            "### 6. Semester Bachelor Computerlinguistik\n\n| **Abschlussarbeit und Forschungskolloquium** | | **1 Studienleistung** | **15 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Forschungskolloquium oder Seminar | | Pr\u00fcfungsnummer 5901 | 3 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Bachelorarbeit | Pr\u00fcfungsnummer 6000 | | 12 ECTS-Leistungspunkte | |",
+            "Pr\u00fcfung im Sinne von \u00a7 2 der Weitergeltungsordnung sind eine Klausurarbeit von zwei Zeitstunden und eine m\u00fcndliche Pr\u00fcfung von 20 bis 30 Minuten Dauer, in denen die Kandidatin oder der Kandidat ihre oder seine fachlichen und methodischen Voraussetzungen f\u00fcr ein Bachelorstudium nachweist."
+        ],
+        "reranking_scores": [
+            0.2012978345155716,
+            0.08741627633571625,
+            -0.020064886659383774,
+            -0.02178962714970112,
+            -0.03690294176340103
+        ]
+    },
+    {
+        "user_input": "Wie hoch ist der aktuelle Semesterbeitrag an der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "1222) hat die Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf folgende Ordnung erlassen:",
+            "Die Ablieferung erfolgt durch das Hochladen des PDF-Dokuments im elektronischen Campus-Management-System der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf.",
+            "Aufgrund des \u00a7 2 Absatz 4 und des \u00a7 64 Absatz 1 des Gesetzes \u00fcber die Hochschulen des Landes Nordrhein-Westfalen (Hochschulgesetz - HG) vom 16.09.2014 (GV.",
+            "Ein Studienjahr besteht aus zwei Semestern.",
+            "(2) Die konkreten Anforderungen f\u00fcr Studienleistungen sind in der Veranstaltungsank\u00fcndigung im elektronischen Campus Management System der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf sp\u00e4testens zu Beginn der Belegfrist f\u00fcr Studierende bekannt zu geben."
+        ],
+        "reranking_scores": [
+            0.11057738959789276,
+            0.0374702550470829,
+            -0.016830872744321823,
+            -0.03869467228651047,
+            -0.055462293326854706
+        ]
+    },
+    {
+        "user_input": "Welche Fristen gelten f\u00fcr die Pr\u00fcfungsanmeldung der Klausur in Morphologie und Syntax?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Von einer Modulpr\u00fcfung in Form einer Klausur oder m\u00fcndlichen Pr\u00fcfung kann sich die Kandidatin oder der Kandidat bis sp\u00e4testens eine Woche vor dem jeweiligen Pr\u00fcfungstermin abmelden.",
+        "retrieved_contexts": [
+            "### Modul: Basiswissen Linguistik - Morphologie und Syntax\n**Empfohlenes Studiensemester:** Morphologie und Syntax (Vorlesung): 1. Fachsemester (Wintersemester) | Tutorium zu Morphologie und Syntax (Tutorium): 1. Fachsemester (Wintersemester) | Pr\u00fcfung im 1. Fachsemester (Wintersemester)<br>",
+            "(1) Von einer Modulpr\u00fcfung in Form einer Klausur oder m\u00fcndlichen Pr\u00fcfung kann sich die Kandidatin oder der Kandidat bis sp\u00e4testens eine Woche vor dem jeweiligen Pr\u00fcfungstermin abmelden.",
+            "### Modul: Basiswissen Linguistik - Morphologie und Syntax\n**Pr\u00fcfungsformen:** Klausur (Pnr. 1310)<br>",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basiswissen Linguistik - Morphologie und Syntax** | **1 Modulpr\u00fcfung** | **2 Studienleistung** | **9 ECTS-Leistungspunkte** | **6 Semesterwochenstunden** |\n| Vorlesung | | Pr\u00fcfungsnummer 1301 | 2 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Tutorium | | Pr\u00fcfungsnummer 1302 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Modulpr\u00fcfung (Klausur) | Pr\u00fcfungsnummer 1310 | | 3 ECTS-Leistungspunkte | |",
+            "### Modul: Basiswissen Linguistik - Morphologie und Syntax\n**H\u00e4ufigkeit des Angebots:** Morphologie und Syntax (Vorlesung): Jedes Wintersemester | Tutorium zu Morphologie und Syntax (Tutorium): Jedes Wintersemester<br>"
+        ],
+        "reranking_scores": [
+            0.2497279793024063,
+            0.22860708832740784,
+            0.18026681244373322,
+            0.1256020963191986,
+            0.06183260306715965
+        ]
+    },
+    {
+        "user_input": "Kann ich den Bachelor Computerlinguistik auch als Teilzeitstudium absolvieren?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Ja, das Bachelorstudium Computerlinguistik kann als Teilzeitstudium absolviert werden.",
+        "retrieved_contexts": [
+            "Der integrative Bachelorstudiengang Computerlinguistik leistet eine breite computerlinguistische Ausbildung.",
+            "### 5. Semester Bachelor Computerlinguistik\n\n| **Praktikum & Orientierung [2/2]** | | **1 Studienleistung** | **9 ECTS-Leistungspunkte** | |\n| Praktikum (in der Regel 6 Wochen Vollzeit) | | Pr\u00fcfungsnummer 3010 | 9 ECTS-Leistungspunkte | |",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basiswissen Linguistik - Morphologie und Syntax** | **1 Modulpr\u00fcfung** | **2 Studienleistung** | **9 ECTS-Leistungspunkte** | **6 Semesterwochenstunden** |\n| Vorlesung | | Pr\u00fcfungsnummer 1301 | 2 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Tutorium | | Pr\u00fcfungsnummer 1302 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Modulpr\u00fcfung (Klausur) | Pr\u00fcfungsnummer 1310 | | 3 ECTS-Leistungspunkte | |",
+            "### 6. Semester Bachelor Computerlinguistik\n\n| **Abschlussarbeit und Forschungskolloquium** | | **1 Studienleistung** | **15 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Forschungskolloquium oder Seminar | | Pr\u00fcfungsnummer 5901 | 3 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Bachelorarbeit | Pr\u00fcfungsnummer 6000 | | 12 ECTS-Leistungspunkte | |",
+            "### 5. Semester Bachelor Computerlinguistik\n\n| **Vertiefungsmodul - Computerlinguistik 1** | | **2 Studienleistung** | **12 ECTS-Leistungspunkte** | **8 Semesterwochenstunden** |\n| Seminar nach Wahl im Bereich Computerlinguistik | | Pr\u00fcfungsnummer 5201 | 6 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Seminar nach Wahl im Bereich Computerlinguistik | | Pr\u00fcfungsnummer 5202 | 6 ECTS-Leistungspunkte | 4 Semesterwochenstunden |"
+        ],
+        "reranking_scores": [
+            0.16847555339336395,
+            0.12447764724493027,
+            0.04225858673453331,
+            0.03130245953798294,
+            0.013351469300687313
+        ]
+    },
+    {
+        "user_input": "Wie lautet die E-Mail-Adresse oder Telefonnummer der fachlichen Studienberatung?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "Die Fachstudienberatung wird von den jeweiligen Studiengangverantwortlichen organisiert.",
+            "Es ist m\u00f6glich, dass die Studienberatung dieses Faches aufgrund von didaktischen \u00dcberlegungen individuell zu anderen Studienverl\u00e4ufen r\u00e4t.",
+            "(4) \u00c4rztliche Atteste sind per Email \u00fcber die Studierenden- und Pr\u00fcfungsverwaltung an den Pr\u00fcfungsausschuss zu richten.",
+            "\u00a7 31 Studienberatung",
+            "(3) Die Beratung bei der Vermittlung von Praktikumspl\u00e4tzen und die fachliche Betreuung w\u00e4hrend des Praktikums werden durch die Studiengangbeauftragte beziehungsweise den Studiengangbeauftragten des jeweiligen Studiengangs koordiniert."
+        ],
+        "reranking_scores": [
+            0.20196065306663513,
+            -0.026653459295630455,
+            -0.03558842092752457,
+            -0.052375175058841705,
+            -0.06811168044805527
+        ]
+    },
+    {
+        "user_input": "Welche Dozenten oder Professoren unterrichten das Aufbaumodul Maschinelles Lernen?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Basierend auf den bereitgestellten Dokumenten unterrichten folgende Dozenten oder Professoren das Aufbaumodul Maschinelles Lernen:\n\n*   Prof. Dr. Thomas Kuhn\n*   Prof. Dr. Christian M\u00fcller\n*   Prof. Dr. Stefan Sch\u00f6lkopf\n*   Prof. Dr. Christian M\u00fcller",
+        "retrieved_contexts": [
+            "### Modul: Aufbaumodul - Maschinelles Lernen\n**Lehrveranstaltungen und Lehrformen:** Grundlagen des maschinellen Lernens (Seminar und \u00dcbung): Grundlagen des maschinellen Lernens (Seminar und \u00dcbung) / 4101 | Deep Learning (Seminar): Deep Learning (Seminar) / 4102<br>",
+            "### Modul: Aufbaumodul - Maschinelles Lernen\n**Empfohlenes Studiensemester:** Grundlagen des maschinellen Lernens (Seminar und \u00dcbung): 3. Fachsemester (Wintersemester) | Deep Learning (Seminar): 4. Fachsemester (Sommersemester) | Pr\u00fcfung im 4. Fachsemester (Sommersemester)<br>",
+            "### Modul: Aufbaumodul - Maschinelles Lernen\n**Belegung:** Seminar mit \u00dcbung (Grundlagen des maschinellen Lernens (Seminar und \u00dcbung)) und Seminar (Deep Learning (Seminar))<br>",
+            "### Modul: Aufbaumodul - Maschinelles Lernen\n**Inhalte:** Methoden des modernen maschinellen Lernens, die auf Vektorrepr\u00e4sentationen basieren. In a werden die grundlegenden, meist linearen Methoden wie lineare/logistische Regression, Support Vector Machines etc. theoretisch besprochen und implementiert. In b werden neuronale Netze und deren Anwendung im Natural Language Processing (NLP) erkl\u00e4rt und implementiert.<br>",
+            "### Modul: Aufbaumodul - Maschinelles Lernen\n**Modul-Nummer:** 4100<br>"
+        ],
+        "reranking_scores": [
+            0.2558246850967407,
+            0.11982173472642899,
+            0.07297668606042862,
+            0.05901701748371124,
+            0.023235853761434555
+        ]
+    },
+    {
+        "user_input": "Was muss ich tun, wenn ich am Tag einer Modulpr\u00fcfung krank bin und ein Attest habe?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Wenn Sie am Tag einer Modulpr\u00fcfung krank sind und ein \u00e4rztliches Attest haben, m\u00fcssen Sie das Attest unverz\u00fcglich dem Pr\u00fcfenden und dem Pr\u00fcfungsausschuss anzeigen.",
+        "retrieved_contexts": [
+            "Bei Krankheit muss ein \u00e4rztliches Attest vorgelegt werden.",
+            "Krankheiten w\u00e4hrend einer Pr\u00fcfung sind unverz\u00fcglich den Pr\u00fcfenden und dem Pr\u00fcfungsausschuss anzuzeigen.",
+            "Verz\u00f6gert sich die Bearbeitung innerhalb der Nachfrist durch Erkrankung des Kandidaten beziehungsweise der Kandidatin, kann nach Vorlage eines Attestes eine weitere Nachfrist von bis zu zwei Wochen gew\u00e4hrt werden.",
+            "(1) Macht die Kandidatin beziehungsweise der Kandidat durch \u00e4rztliches Zeugnis glaubhaft, dass sie beziehungsweise er wegen l\u00e4nger andauernder Krankheit oder st\u00e4ndiger seelischer oder k\u00f6rperlicher Behinderung nicht in der Lage ist, die Pr\u00fcfungsleistung ganz oder teilweise in der vorgeschriebenen Form abzulegen, ist ihr beziehungsweise ihm durch den Pr\u00fcfungsausschuss im Sinne des Nachteilsausgleiches zu erm\u00f6glichen, gleichwertige Pr\u00fcfungsleistungen in einer anderen Form zu erbringen.",
+            "(4) \u00c4rztliche Atteste sind per Email \u00fcber die Studierenden- und Pr\u00fcfungsverwaltung an den Pr\u00fcfungsausschuss zu richten."
+        ],
+        "reranking_scores": [
+            0.3328913748264313,
+            0.20660194754600525,
+            0.18117664754390717,
+            0.15770523250102997,
+            0.13141392171382904
+        ]
+    },
+    {
+        "user_input": "Welche Mindest-Systemanforderungen muss mein privater Laptop f\u00fcr den Python-Kurs erf\u00fcllen?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "### Modul: Basismodul - Python-Programmierung\n**Teilnahmevoraussetzungen:** Formal: Keine | Inhaltlich: Keine<br>",
+            "### Modul: Basismodul - Python-Programmierung\n**Voraussetzungen f\u00fcr die Vergabe von ECTS-Leistungspunkten:** Erbrachte Studienleistungen (SL) in den Lehrveranstaltungen (Einf\u00fchrung in die Programmierung mit Python (Seminar)) und (Einf\u00fchrung in die Programmierung mit Python (\u00dcbung)): 4 ECTS-Leistungspunkte | Erbrachte Studienleistungen (SL) in den Lehrveranstaltungen (Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar)) und (Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (\u00dcbung)): 4 ECTS-Leistungspunkte | Bestandene Modulpr\u00fcfung: 4 ECTS-Leistungspunkte<br>",
+            "### Modul: Praktikum & Orientierung\n**Teilnahmevoraussetzungen:** Formal: 4. Fachsemester oder h\u00f6her | Inhaltlich: Basismodul - Mathematische und logische Grundlagen, Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung, Basismodul - Python-Programmierung<br>",
+            "### Modul: Basismodul - Python-Programmierung\n**ECTS-Leistungspunkte:** 12 ECTS-Leistungspunkte<br>",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Python-Programmierung [1/2]** | | **2 Studienleistung** | **4 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Einf\u00fchrung in die Programmierung mit Python (Seminar) | | Pr\u00fcfungsnummer 2301 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Einf\u00fchrung in die Programmierung mit Python (\u00dcbung) | | Pr\u00fcfungsnummer 2302 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |"
+        ],
+        "reranking_scores": [
+            0.26011142134666443,
+            0.060927070677280426,
+            0.02507457695901394,
+            -0.0008459461969323456,
+            -0.009387461468577385
+        ]
+    },
+    {
+        "user_input": "Wer hat die Programmiersprache Python erfunden?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "### Modul: Basismodul - Python-Programmierung\n**Angestrebte Lernergebnisse und Studieninhalte:** Die Studierenden erwerben grundlegende F\u00e4higkeiten in der Programmierung mit der Programmiersprache Python sowie Kenntnisse \u00fcber fortgeschrittene Konzepte der Python-Programmierung (objektorientierte und funktionale Programmierung). Au\u00dferdem werden Grundkenntnisse des Einsatzes von Python in den Bereichen Data Science und NLP (Natural Language Processing) erworben, sowie die F\u00e4higkeit ein kleines Software-Projekt durchzuf\u00fchren und zu pr\u00e4sentieren.<br>",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Python-Programmierung [1/2]** | | **2 Studienleistung** | **4 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Einf\u00fchrung in die Programmierung mit Python (Seminar) | | Pr\u00fcfungsnummer 2301 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Einf\u00fchrung in die Programmierung mit Python (\u00dcbung) | | Pr\u00fcfungsnummer 2302 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |",
+            "### Modul: Basismodul - Python-Programmierung\n**Inhalte:** Wintersemester: Grundlagen der Python-Programmierung; Datentypen in Python; g\u00e4ngige Programmkonstrukte; elementare Textverarbeitung. Sommersemester: Objektorientierte und funktionale Programmierung mit Python; Einsatz von Programm-Bibliotheken in den Bereichen Data Science und NLP; Grundz\u00fcge der Sorftware-Entwicklung.<br>",
+            "### Modul: Basismodul - Python-Programmierung\n**Lehrveranstaltungen und Lehrformen:** Einf\u00fchrung in die Programmierung mit Python (Seminar): Einf\u00fchrung in die Programmierung mit Python (Seminar) / 2301 | Einf\u00fchrung in die Programmierung mit Python (\u00dcbung): Einf\u00fchrung in die Programmierung mit Python (\u00dcbung) / 2302 | Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar): Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar) / 2303 | Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (\u00dcbung): Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (\u00dcbung) / 2304<br>",
+            "Desweiteren sieht der Studienplan f\u00fcr das erste Jahr einen Einstieg in computerlinguistische Programmierung mit Python vor, die neben Grundlagen auch aktuelle Methoden der Sprachtechnologie vermittelt."
+        ],
+        "reranking_scores": [
+            0.01218038983643055,
+            -0.054521623998880386,
+            -0.05610179528594017,
+            -0.09127773344516754,
+            -0.10898102819919586
+        ]
+    },
+    {
+        "user_input": "Mit wie vielen Parametern wurde das Sprachmodell GPT-4 trainiert?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "## 4.",
+            "**4.",
+            "Vektorsemantik, gro\u00dfe Sprachmodelle, Transformer-Architekturen in computerlinguistischen Anwendungen, Advanced Constituency Parsing, Dependency Parsing, Finite-State Morphology, Semantic Role Labeling, Discourse Representation Theory, Fuzzy Logic usw.",
+            "### 4. Semester Bachelor Computerlinguistik\n\n| **Aufbaumodul - Maschinelles Lernen [2/2]** | **1 Modulpr\u00fcfung** | **1 Studienleistung** | **8 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Deep Learning (Seminar) | | Pr\u00fcfungsnummer 4102 | 4 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Modulpr\u00fcfung | Pr\u00fcfungsnummer 4110 | | 4 ECTS-Leistungspunkte | |",
+            "### Modul: Aufbaumodul - Maschinelles Lernen\n**Angestrebte Lernergebnisse und Studieninhalte:** Die Teilnehmer k\u00f6nnen selbst\u00e4ndig lineare Modelle und neuronale Netze implementieren, um Aufgaben im NLP zu l\u00f6sen. Sie sind vertraut mit Methoden der Evaluation von Modellen und Problemen wie Overfitting und Replizierbarkeit.<br>"
+        ],
+        "reranking_scores": [
+            0.07466883212327957,
+            0.04468219727277756,
+            -0.00989525392651558,
+            -0.08527626097202301,
+            -0.08565015345811844
+        ]
+    },
+    {
+        "user_input": "In welchem Jahr wurde die Chomsky-Hierarchie zum ersten Mal publiziert?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "### Modul: Aufbaumodul - Mathematische Linguistik\n**Inhalte:** Sprachklassen basierend auf der Chomsky-Hierarchie (Automaten, Grammatiken); Sprachen und Relationen, rationale Relationen und Finite-State-Methoden; Komplexit\u00e4tstheorie und Lernbarkeitstheorie; Abschlusseigenschaften und Entscheidungsprobleme wichtiger Sprachklassen.<br>",
+            "\u2022 Computerlinguistik,",
+            "**Phase 1 Erwerb von Basiswissen f\u00fcr die Computerlinguistik:** Hierzu geh\u00f6rt die Vermittlung mathematischer und logischer Konzepte und Methoden, die f\u00fcr die Computerlinguistik wesentlich sind, eine Einf\u00fchrung in die Computerlinguistik, die einen \u00dcberblick \u00fcber zentrale computerlinguistische Fragestellungen und g\u00e4ngige Methoden in diesen Bereichen gibt, der Erwerb von Kenntnissen \u00fcber Formalismen und Methoden der Grammatikmodellierung und eine Einf\u00fchrung in die Statistik.",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung [1/2]** | | **2 Studienleistung** | **4 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Einf\u00fchrung in die Computerlinguistik (Seminar) | | Pr\u00fcfungsnummer 2201 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Einf\u00fchrung in die Computerlinguistik (\u00dcbung) | | Pr\u00fcfungsnummer 2202 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |",
+            "Au\u00dferdem werden die Bereiche syntaktische Verarbeitung und Automatentheorie und formale Sprachen in Hinblick auf computerlinguistische Problemstellungen vertieft."
+        ],
+        "reranking_scores": [
+            0.11305851489305496,
+            -0.050230592489242554,
+            -0.08677450567483902,
+            -0.08926993608474731,
+            -0.10017313808202744
+        ]
+    },
+    {
+        "user_input": "Wie hoch ist das durchschnittliche Einstiegsgehalt von Computerlinguisten in Deutschland?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "### 5. Semester Bachelor Computerlinguistik\n\n| **Praktikum & Orientierung [2/2]** | | **1 Studienleistung** | **9 ECTS-Leistungspunkte** | |\n| Praktikum (in der Regel 6 Wochen Vollzeit) | | Pr\u00fcfungsnummer 3010 | 9 ECTS-Leistungspunkte | |",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Python-Programmierung [1/2]** | | **2 Studienleistung** | **4 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Einf\u00fchrung in die Programmierung mit Python (Seminar) | | Pr\u00fcfungsnummer 2301 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Einf\u00fchrung in die Programmierung mit Python (\u00dcbung) | | Pr\u00fcfungsnummer 2302 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basiswissen Linguistik - Morphologie und Syntax** | **1 Modulpr\u00fcfung** | **2 Studienleistung** | **9 ECTS-Leistungspunkte** | **6 Semesterwochenstunden** |\n| Vorlesung | | Pr\u00fcfungsnummer 1301 | 2 ECTS-Leistungspunkte | 4 Semesterwochenstunden |\n| Tutorium | | Pr\u00fcfungsnummer 1302 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Modulpr\u00fcfung (Klausur) | Pr\u00fcfungsnummer 1310 | | 3 ECTS-Leistungspunkte | |",
+            "| **Art und Inhalt der Module und der Pr\u00fcfungen** | **Module:**<br>- Basismodul - Mathematische und logische Grundlagen (8 Semesterwochenstunden, 1 Modulpr\u00fcfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung (8 Semesterwochenstunden, 1 Modulpr\u00fcfung, 12 ECTS-Leistungspunkte)<br>- Basismodul - Python-Programmierung (8 Semesterwochenstunden, 1 Modulpr\u00fcfung, 12 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Morphologie und Syntax (6 Semesterwochenstunden, 1 Modulpr\u00fcfung, 9 ECTS-Leistungspunkte)<br>- Basiswissen Linguistik - Semantik und Pragmatik (6 Semesterwochenstunden, 1 Modulpr\u00fcfung, 9 ECTS-Leistungspunkte)<br>- Basismodul - Statistische Methoden in der Computerlinguistik (6 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Maschinelles Lernen (8 Semesterwochenstunden, 1 Modulpr\u00fcfung, 12 ECTS-Leistungspunkte)<br>- Aufbaumodul - Mathematische Linguistik (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Parsing (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Logische Programmierung (4 Semesterwochenstunden, 6 ECTS-Leistungspunkte)<br>- Aufbaumodul - Objektorientierte Programmierung (8 Semesterwochenstunden, 1 Modulpr\u00fcfung, 12 ECTS-Leistungspunkte)<br>- Praktikum und Orientierung (2 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - interdisziplin\u00e4r (8 Semesterwochenstunden, 1 Modulpr\u00fcfung, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 1 (8 Semesterwochenstunden, 12 ECTS-Leistungspunkte)<br>- Vertiefungsmodul - Computerlinguistik 2 (4 Semesterwochenstunden, 1 Modulpr\u00fcfung, 9 ECTS-Leistungspunkte)<br>- Abschlussarbeit und Forschungskolloquium (2 Semesterwochenstunden, 15 ECTS-Leistungspunkte)<br>- Profilbildungsbereich (18 ECTS-Leistungspunkte) |",
+            "# BA Computerlinguistik PO 2025"
+        ],
+        "reranking_scores": [
+            0.13783907890319824,
+            -0.042611490935087204,
+            -0.05877426639199257,
+            -0.07382018864154816,
+            -0.07769656181335449
+        ]
+    },
+    {
+        "user_input": "Welche Programmiersprache hat eine schnellere Ausf\u00fchrungszeit: Python oder C++?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "### Modul: Basismodul - Python-Programmierung\n**Angestrebte Lernergebnisse und Studieninhalte:** Die Studierenden erwerben grundlegende F\u00e4higkeiten in der Programmierung mit der Programmiersprache Python sowie Kenntnisse \u00fcber fortgeschrittene Konzepte der Python-Programmierung (objektorientierte und funktionale Programmierung). Au\u00dferdem werden Grundkenntnisse des Einsatzes von Python in den Bereichen Data Science und NLP (Natural Language Processing) erworben, sowie die F\u00e4higkeit ein kleines Software-Projekt durchzuf\u00fchren und zu pr\u00e4sentieren.<br>",
+            "Desweiteren sieht der Studienplan f\u00fcr das erste Jahr einen Einstieg in computerlinguistische Programmierung mit Python vor, die neben Grundlagen auch aktuelle Methoden der Sprachtechnologie vermittelt.",
+            "Daneben werden in dieser Phase weitere Paradigma von Programmiersprachen vermittelt, n\u00e4mlich objektorientiertes Programmieren und, im Kontext von Themen der computationellen Semantik, entweder logische oder funktionale Programmierung.",
+            "### 1. Semester Bachelor Computerlinguistik\n\n| **Basismodul - Python-Programmierung [1/2]** | | **2 Studienleistung** | **4 ECTS-Leistungspunkte** | **4 Semesterwochenstunden** |\n| Einf\u00fchrung in die Programmierung mit Python (Seminar) | | Pr\u00fcfungsnummer 2301 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |\n| Einf\u00fchrung in die Programmierung mit Python (\u00dcbung) | | Pr\u00fcfungsnummer 2302 | 2 ECTS-Leistungspunkte | 2 Semesterwochenstunden |",
+            "### Modul: Basismodul - Python-Programmierung\n**Kontaktzeit:** Einf\u00fchrung in die Programmierung mit Python (Seminar): 2 SWS / 30 Stunden / 1 ECTS-Leistungspunkt | Einf\u00fchrung in die Programmierung mit Python (\u00dcbung): 2 SWS/30 Stunden / 1 ECTS-Leistungspunkt | Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (Seminar): 2 SWS/30 Stunden / 1 ECTS-Leistungspunkt | Fortgeschrittene Python-Programmierung mit NLP-Anwendungen (\u00dcbung): 2 SWS/30 Stunden / 1 ECTS-Leistungspunkt<br>"
+        ],
+        "reranking_scores": [
+            0.019951434805989265,
+            0.010884581133723259,
+            -0.01709837093949318,
+            -0.06853953748941422,
+            -0.07149232178926468
+        ]
+    },
+    {
+        "user_input": "Was ist der genaue theoretische Unterschied zwischen Supervised Learning und Reinforcement Learning?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "### Modul: Aufbaumodul - Maschinelles Lernen\n**Inhalte:** Methoden des modernen maschinellen Lernens, die auf Vektorrepr\u00e4sentationen basieren. In a werden die grundlegenden, meist linearen Methoden wie lineare/logistische Regression, Support Vector Machines etc. theoretisch besprochen und implementiert. In b werden neuronale Netze und deren Anwendung im Natural Language Processing (NLP) erkl\u00e4rt und implementiert.<br>",
+            "### Modul: Aufbaumodul - Maschinelles Lernen\n**Lehrveranstaltungen und Lehrformen:** Grundlagen des maschinellen Lernens (Seminar und \u00dcbung): Grundlagen des maschinellen Lernens (Seminar und \u00dcbung) / 4101 | Deep Learning (Seminar): Deep Learning (Seminar) / 4102<br>",
+            "### Modul: Aufbaumodul - Maschinelles Lernen\n**Angestrebte Lernergebnisse und Studieninhalte:** Die Teilnehmer k\u00f6nnen selbst\u00e4ndig lineare Modelle und neuronale Netze implementieren, um Aufgaben im NLP zu l\u00f6sen. Sie sind vertraut mit Methoden der Evaluation von Modellen und Problemen wie Overfitting und Replizierbarkeit.<br>",
+            "### Modul: Aufbaumodul - Maschinelles Lernen\n**Modul-Nummer:** 4100<br>",
+            "**Phase 2 Aufbau von Fachkompetenzen f\u00fcr die Computerlinguistik:** Methodisch lernt man in dieser zweiten Phase die f\u00fcr die datengetriebene Computerlinguistik so zentralen Bereiche des Maschinellen Lernens und des Deep Learnings (also maschinelles Lernen mit k\u00fcnstlichen neuronalen Netzen) kennen, aufbauend auf dem Wissen \u00fcber Fragestellungen und Repr\u00e4sentationen der Computerlinguistik und auf soliden Kenntnissen der Programmiersprache Python (siehe Phase 1)."
+        ],
+        "reranking_scores": [
+            0.013075231574475765,
+            -0.061573099344968796,
+            -0.06160271540284157,
+            -0.10519737750291824,
+            -0.12102431058883667
+        ]
+    },
+    {
+        "user_input": "Wo kann man auf dem Campus der Universit\u00e4t D\u00fcsseldorf am besten kostenlos parken?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "NRW.",
+            "Die Ablieferung erfolgt durch das Hochladen des PDF-Dokuments im elektronischen Campus-Management-System der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf.",
+            "NRW.",
+            "Aufgrund des \u00a7 2 Absatz 4 und des \u00a7 64 Absatz 1 des Gesetzes \u00fcber die Hochschulen des Landes Nordrhein-Westfalen (Hochschulgesetz - HG) vom 16.09.2014 (GV.",
+            "(2) Die konkreten Anforderungen f\u00fcr Studienleistungen sind in der Veranstaltungsank\u00fcndigung im elektronischen Campus Management System der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf sp\u00e4testens zu Beginn der Belegfrist f\u00fcr Studierende bekannt zu geben."
+        ],
+        "reranking_scores": [
+            0.05911673232913017,
+            0.02081216685473919,
+            0.011895149014890194,
+            -0.0021227491088211536,
+            -0.05890155956149101
+        ]
+    },
+    {
+        "user_input": "Wie viele Einwohner hat die Stadt D\u00fcsseldorf aktuell?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "1222) hat die Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf folgende Ordnung erlassen:",
+            "Diese Ordnung tritt am Tage nach ihrer Ver\u00f6ffentlichung in den Amtlichen Bekanntmachungen der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf in Kraft.",
+            "NRW.",
+            "NRW.",
+            "# Ordnung f\u00fcr die Pr\u00fcfung in Studieng\u00e4ngen der Philosophischen Fakult\u00e4t der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf"
+        ],
+        "reranking_scores": [
+            -0.025230711326003075,
+            -0.03952837735414505,
+            -0.05991614982485771,
+            -0.08680185675621033,
+            -0.10324076563119888
+        ]
+    },
+    {
+        "user_input": "Wie wird das Wetter am kommenden Wochenende in Nordrhein-Westfalen?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "NRW.",
+            "NRW.",
+            "Aufgrund des \u00a7 2 Absatz 4 und des \u00a7 64 Absatz 1 des Gesetzes \u00fcber die Hochschulen des Landes Nordrhein-Westfalen (Hochschulgesetz - HG) vom 16.09.2014 (GV.",
+            "1222) hat die Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf folgende Ordnung erlassen:",
+            "Diese Ordnung tritt am Tage nach ihrer Ver\u00f6ffentlichung in den Amtlichen Bekanntmachungen der Heinrich-Heine-Universit\u00e4t D\u00fcsseldorf in Kraft."
+        ],
+        "reranking_scores": [
+            0.08452778309583664,
+            0.046658147126436234,
+            0.03876660391688347,
+            -0.07073415070772171,
+            -0.11286630481481552
+        ]
+    },
+    {
+        "user_input": "Wer hat die Fu\u00dfball-Europameisterschaft der Herren im Jahr 2024 gewonnen?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "NRW.",
+            "**4.",
+            "## 4.",
+            "NRW.",
+            "547), zuletzt ge\u00e4ndert durch das Gesetz zur \u00c4nderung des Hochschulgesetzes vom 19.12.2024 (GV."
+        ],
+        "reranking_scores": [
+            0.00777674512937665,
+            -0.011681795120239258,
+            -0.014695145189762115,
+            -0.024593794718384743,
+            -0.039628613740205765
+        ]
+    },
+    {
+        "user_input": "Bei welcher Temperatur und wie lange muss ein klassischer Marmorkuchen im Ofen backen?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "(1) Die Dauer einer m\u00fcndlichen Pr\u00fcfung betr\u00e4gt mindestens 15 und h\u00f6chstens 30 Minuten.",
+            "Die Dauer der m\u00fcndlichen Pr\u00e4sentation betr\u00e4gt mindestens 15 Minuten.",
+            "Art und Umfang der Aufgabenstellung k\u00f6nnen eine im Einzelfall abweichende Dauer erfordern.",
+            "Ausnahmsweise kann die Bearbeitungszeit abh\u00e4ngig vom Workload des Moduls auf h\u00f6chstens 180 Minuten verl\u00e4ngert oder auf mindestens 45 Minuten verk\u00fcrzt werden.",
+            "Alternativ kann eine Klausur von 45 Minuten Dauer an die Stelle der schriftlichen Ausarbeitung treten."
+        ],
+        "reranking_scores": [
+            0.032439183443784714,
+            -0.024568507447838783,
+            -0.028136445209383965,
+            -0.06282360851764679,
+            -0.07995165884494781
+        ]
+    },
+    {
+        "user_input": "Wie viele Kilometer ist die Sonne durchschnittlich von der Erde entfernt?",
+        "reference": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "response": "Dazu enthalten die bereitgestellten Dokumente keine Informationen.",
+        "retrieved_contexts": [
+            "**4.",
+            "**1.",
+            "**5.",
+            "von 3,6 bis 4,0: ausreichend",
+            "von 2,6 bis 3,5: befriedigend"
+        ],
+        "reranking_scores": [
+            0.047373026609420776,
+            0.03532753884792328,
+            0.006374988239258528,
+            -0.022273708134889603,
+            -0.031087955459952354
+        ]
+    }
+]
