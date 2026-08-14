@@ -11,6 +11,7 @@
 \usepackage{longtable}
 \usepackage{array}
 \usepackage{placeins}
+\usepackage{tabularx}
 \lstset{
   inputencoding=utf8,
   extendedchars=true,
@@ -545,7 +546,39 @@ Overall, RAG on linearized text files performed slightly better than on Markdown
 \end{itemize}
 \subsection{Text Chunking Strategies}
 \subsubsection{Paragraph Chunking}
-Overall,
+For Paragraph Chunking, every chunk is quite large and factually dense. This makes it easy for the retriever to find the relevant chunks, resulting in high context recall.
+However, the SLM sometimes struggles with this type of input (table \ref{tab:slm_evaluation_comparison_paragraph_text}). Especially specific information in the middle of a paragraph is often overlooked (lost-in-the-middle). This does not result in a low faithfulness score as it still mostly refers to information from the given context, just not the right information (Example A). In other cases, this results in the SLM rejecting the query (Example B). This results in a lower answer correctness.
+
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabularx}{\textwidth}{l X X}
+        \toprule
+        \textbf{Category}                                                                                                                                                                                                                                                                                              & \textbf{Example A: Partial / Incorrect Extraction} & \textbf{Example B: Erroneous Refusal / Hallucinated Absence} \\
+        \midrule
+        \textbf{User Query}                                                                                                                                                                                                                                                                                            &
+        Welche Vorkenntnisse brauche ich f\"ur das Aufbaumodul Mathematische Linguistik?                                                                                                                                                                                                                               &
+        Muss ich f\"ur den Python-Kurs Vorkenntnisse haben?                                                                                                                                                                                                                                                                                                                                                                                \\
+        \midrule
+        \textbf{Context Extract}                                                                                                                                                                                                                                                                                       &
+        \textit{"[...] Formale Teilnahmevoraussetzungen f\"ur das Aufbaumodul - Mathematische Linguistik sind keine, inhaltliche Teilnahmevoraussetzungen sind das Basismodul - Mathematische und logische Grundlagen und das Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung.[...]"} &
+        \textit{"[...] F\"ur die Teilnahme am Basismodul - Python-Programmierung sind keine formalen oder inhaltlichen Teilnahmevoraussetzungen erforderlich.[...]"}                                                                                                                                                                                                                                                                       \\
+        \midrule
+        \textbf{Reference Answer}                                                                                                                                                                                                                                                                                      &
+        Inhaltlich wird vorausgesetzt, dass du die Kurse aus dem "Basismodul - Mathematische und logische Grundlagen" sowie dem "Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung" kennst. Formale Zulassungsbeschr\"ankungen gibt es f\"ur dieses Modul nicht.                        &
+        Nein, f\"ur das Modul "Python-Programmierung" werden weder formale noch inhaltliche Vorkenntnisse vorausgesetzt.                                                                                                                                                                                                                                                                                                                   \\
+        \midrule
+        \textbf{SLM Response}                                                                                                                                                                                                                                                                                          &
+        Du brauchst keine Vorkenntnisse f\"ur das Aufbaumodul Mathematische Linguistik.                                                                                                                                                                                                                                &
+        Dazu enthalten die bereitgestellten Dokumente keine Informationen.                                                                                                                                                                                                                                                                                                                                                                 \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Information Extraction and Refusal Errors in SLM Outputs for Paragraph Chunking on text files}
+    \label{tab:slm_evaluation_comparison_paragraph_text}
+\end{table}
+
 \subsubsection{Character Chunking}
 \subsubsection{Dynamic Token Chunking}
 \subsubsection{LLM Chunking}
