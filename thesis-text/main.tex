@@ -8,6 +8,8 @@
 \usepackage{booktabs} % Required for professional table lines (\toprule, etc.)
 \usepackage{multirow}
 \usepackage{listings}
+\usepackage{longtable}
+\usepackage{array}
 \usepackage{placeins}
 \lstset{
   inputencoding=utf8,
@@ -274,7 +276,7 @@ Due to practical requirements for later deployment, a very small language model 
 Several RAG frameworks created by previous papers were tested or considered but in the end not included for various reasons.\\
 TableRAG \parencite{chen2024tablerag} uses an LLM to create queries for pandas. However, this does not take mixed documents into consideration, where there are both text and tables. Another TableRAG framework based on SQL \parencite{yu2025tablerag} takes both into account. However, the integration for the experiments and especially for later deployment was too complex due to database connections and a complex architecture.\\
 TabRAG \parencite{si2025tabrag} separates and includes both text and tables into RAG using a vision learning model. This was tested on the faculty GPU server, but the model turned out to be too large for the resources available on the server.\\
-MiniRAG \parencite{fan2025minirag} is a graph-based framework specifically designed for SLMs. It extracts entities and relationships from the documents and links entities to context. With the university documents, this method was hardly functionable. Some entities could be extracted, but the algorithm detected no relationships between them. Thus, the elaborate retrieval algorithm could did work and the generation results were worse than even for simple chunkers.
+MiniRAG \parencite{fan2025minirag} is a graph-based framework specifically designed for SLMs. It extracts entities and relationships from the documents and links entities to context. With the university documents, this method was hardly functionable. Some entities could be extracted, but the algorithm detected no relationships between them. Thus, the elaborate retrieval algorithm did not work and the generation results were worse than even for simple chunkers.
 
 
 \section{Experiments}
@@ -503,7 +505,7 @@ More broadly, the negative rejection rate appeared to be quite independent of an
 
 \FloatBarrier
 \section{Discussion}
-\subsection{Preprocessing}
+\subsection{Preprocessing methods}
 The first part of the preprocessing experiment hints to the fact that LLMs can outperform elaborate frameworks at complicated tasks. Docling was specifically designed for converting documents containing tables to markdown. Still, Gemini performed better with a simple one line prompt.\\
 The good results of the text linearization technique from \textcite{min2024exploring} could not be reproduced. Instead, also here, a custom prompt using the Markdown documents as input achieved a better answer correctness. One explanation for this could be the direct translation of the table transformation prompt from the paper into German, which might not have been understood properly by the model. Another possible explanation is that the prompt was highly fitted to the datasets used in the paper. As the university documents look significantly different, the combination of pdf-to-text and prompt from the paper might just not work here.\\
 
@@ -527,22 +529,31 @@ The primary exception to this pattern was the LLM chunker, which did not align w
 
 \subsection{Query Expansion}
 The results partly confirm the results from \textcite{jagerman2023query}. Chain of Thought performs best for more configurations than HyDE. However, also the approach without query preprocessing achieves good results, hinting to the fact that modern embedding models have improved coping with the query/document asymmetry.
-\section{Limitations and Future Research}
-As this work focuses on preprocessing, chunking and query expansion, the optimization of other pipeline components is neglected. Especially the online part of the pipeline has a lot more potential for optimization. Even the maximum context size and the factor between top\_k and top\_n are optimizable in context of the rest of the pipeline. This could be done in an independent experiment or as part of a bigger grid search.\\
-For the embedder, reranker, and generator, other models can be compared. For this work, only a few models were tested superficially, leaving this question open for future work. Especially for the generator, German-only models can be tested. Also larger models with a low quantization are an option. The retriever can even be combined with a sparse BM25 retriever. In previous work, this has outperformed a pure dense retriever. However, especially (but not exclusively) when switching to hybrid retrieval, the results for chunking and preprocessing might have to be re-evaluated. \\
-For improved retrieval results, the embedding model can be fine-tuned. As the topic is very specific and the number of documents is very limited, this could boost retrieval quality by a great margin. Furthermore, the query preprocessing can be more precise with fine-tuned embeddings. Query2doc achieves a performance gain over HyDE by fine-tuning an embedding model on extended queries.\\
-Furthermore, the components optimized in the first four experiments (preprocessor, chunking parameters, context threshold and query expansion) can be further improved in a grid search. As the experiments were conducted sequentially due to evaluation resource constraints, there is no guarantee that this thesis found the best pipeline configuration. The best chunk size for RAG is for example heavily dependent on retrieval threshold, which was only investigated after the chunker experiment here.
-With more computational and monetary resources, future research could improve the outcome by finding a better combination of components and settings.\\
-Future research could investigate all of the suggested improvement
-For chatbot deployment, the repository can be made more performant using lazy imports, i. e., moving imports into methods. Thus, imports are only triggered when really needed. By using vllm with a locally saved model instead of HuggingFace, there is an even greater potential gain in performance.
-
-\subsection{Main Experiment}
+\subsection{Comparison of Markdown and Text}
+Overall, RAG on linearized text files performed slightly better than on Markdown files. This is probably due to the fact that most of the training data for a language model is plain text. Another metric supporting this hypothesis is faithfulness. Plain text makes it easier for the SLM to adhere to the documents, thus achieving a higher faithfulness.
+\subsection{Markdown Chunking Strategies}
+\subsubsection{Paragraph Chunking and Whole Table Chunking}
 \begin{itemize}
     \item Whole Table and Paragraph for Markdown with similar results because similar strategies: paragraph splitting for markdown often splits at table/module borders and wholeparagraph splits at paragraph level for text documents[see example]
     \item both good at context recall because just has to retrieve the one or two right tables/paragraphs
     \item better than character chunking and SplitTable because keep tables together, LLMs often partly trained on markdown data and can handle as trained, worse if split inside the tables, also harder for the retriever to find right chunks as relevant table is split into several chunks hard to find in structured table format, resulting in low context recall
-    \item
+\end{itemize}
+\subsubsection{Character Chunking and Split Table Chunking}
+\begin{itemize}
+    \item asdf
 
+\end{itemize}
+\subsection{Text Chunking Strategies}
+\subsubsection{Paragraph Chunking}
+Overall,
+\subsubsection{Character Chunking}
+\subsubsection{Dynamic Token Chunking}
+\subsubsection{LLM Chunking}
+\subsubsection{Max-Min Chunking}
+
+\subsection{Negative Rejection}
+\begin{itemize}
+    \item high NRR important because hallucinations in the context of study regulation documents is a big problem. wrong information could result in students making wrong decisions
 \end{itemize}
 % Beispiele: eins (je) warum für character besser als dynamictoken;
 % evaluation funktioniert für beste 2
@@ -552,6 +563,96 @@ For chatbot deployment, the repository can be made more performant using lazy im
 
 
 \subsection{Evaluation Analysis}
+In table \ref{tab:qa_evaluation_all}, six examples of the evaluation of Max-Min Chunking with their Answer Correctness score are shown. For most examples, the score is intuitively correct. The response for sample 5 is completely correct, giving a score very close to 1.0. For sample 4, the documents needed to answer the questions could not be found, resulting in a "no information found" response. Thus, the score is close to 0.0.\\
+For partly correct answers, the scores were also mostly intuitively correct. In sample 3, the response only contains two of the four programming languages in the reference answer, thus the score is close to 0.5. The response of sample 1 is correct but missing the explanation, resulting in a score of 0.67.\\
+There are some instances where the score is very strict or even wrong. In sample 2, the LLM correctly answers the question but is missing how many hours of courses have to be taken in Computer Science, which was not part of the query, but is given a score of 0.7. In sample 6, the response is reformulated, but completely correct and thus should be judged with 1.0 but instead is given a score of 0.72. However, this marks an exception and overall, the evaluations are mostly intuitive and correct.
+\small
+\begin{longtable}{
+    c
+    >{\raggedright\arraybackslash}p{0.20\textwidth}
+    >{\raggedright\arraybackslash}p{0.25\textwidth}
+    >{\raggedright\arraybackslash}p{0.32\textwidth}
+    >{\centering\arraybackslash}p{0.08\textwidth}
+    }
+    % --- First Page Header ---
+    \caption{Evaluation of Question Answering Responses} \label{tab:qa_evaluation_all}                                                                                                                                                                                                                                                                                                                                                                                                                                               \\
+    \toprule
+    \textbf{\#}                                                                                                                                                                                                                                                                                                                                                                                                                              & \textbf{Query} & \textbf{Response} & \textbf{Reference Answer} & \textbf{Correctness} \\
+    \midrule
+    \endfirsthead
+
+    % --- Subsequent Page Header ---
+    \caption[]{(Fortsetzung) Evaluation of Question Answering Responses}                                                                                                                                                                                                                                                                                                                                                                                                                                                             \\
+    \toprule
+    \textbf{\#}                                                                                                                                                                                                                                                                                                                                                                                                                              & \textbf{Query} & \textbf{Response} & \textbf{Reference Answer} & \textbf{Correctness} \\
+    \midrule
+    \endhead
+
+    % --- Page Footer (when continuing) ---
+    \midrule
+    \multicolumn{5}{r}{\footnotesize\textit{Fortsetzung auf der nächsten Seite\dots}}                                                                                                                                                                                                                                                                                                                                                                                                                                                \\
+    \endfoot
+
+    % --- Final Footer ---
+    \bottomrule
+    \endlastfoot
+
+    % --- Table Content ---
+    1                                                                                                                                                                                                                                                                                                                                                                                                                                        &
+    Muss ich in mathematische Grundlagen und in Logik eine Klausur schreiben?                                                                                                                                                                                                                                                                                                                                                                &
+    Nein, es ist nicht erforderlich, in mathematische Grundlagen und in Logik eine Klausur zu schreiben.                                                                                                                                                                                                                                                                                                                                     &
+    Nein, du musst nicht in beiden Veranstaltungen eine Klausur schreiben. Für das gesamte "`Basismodul - Mathematische und logische Grundlagen"' ist nur eine einzige Modulprüfung in Form eines Portfolios vorgesehen.                                                                                                                                                                                                                     &
+    0.6767                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           \\
+    \addlinespace
+
+    2                                                                                                                                                                                                                                                                                                                                                                                                                                        &
+    Kann ich für das interdisziplinäre Vertiefungsmodul nur linguistische Kurse belegen?                                                                                                                                                                                                                                                                                                                                                     &
+    Nein, du kannst nicht nur linguistische Kurse belegen. Das interdisziplinäre Vertiefungsmodul erfordert neben Veranstaltungen aus der Computerlinguistik auch mindestens eine Veranstaltung aus der Informatik.                                                                                                                                                                                                                          &
+    Nein, das ist nicht erlaubt. Das Modul verlangt zwingend, dass Veranstaltungen aus der Informatik im Umfang von mindestens 4 Semesterwochenstunden (SWS) belegt werden müssen.                                                                                                                                                                                                                                                           &
+    0.7171                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           \\
+    \addlinespace
+
+    3                                                                                                                                                                                                                                                                                                                                                                                                                                        &
+    Welche Programmiersprachen lerne ich im Laufe des Studiums?                                                                                                                                                                                                                                                                                                                                                                              &
+    Im Laufe des Studiums lerne ich folgende Programmiersprachen: Python (im Basismodul) und R (im Modul Statistische Methoden in der Computerlinguistik).                                                                                                                                                                                                                                                                                   &
+    In den Basismodulen lernst du ausführlich die Programmierung mit Python. Im Aufbaumodul "`Objektorientierte Programmierung"' wird eine objektorientierte Programmiersprache erlernt. Im Aufbaumodul "`Logische Programmierung"' wird in das logische Programmierparadigma anhand der Sprache Prolog eingeführt. Im Bereich Statistik kann die statistische Programmierung in einer geeigneten Sprache (beispielsweise R) erlernt werden. &
+    0.5522                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           \\
+    \addlinespace
+
+    4                                                                                                                                                                                                                                                                                                                                                                                                                                        &
+    Muss ich ein Praktikum machen?                                                                                                                                                                                                                                                                                                                                                                                                           &
+    Dazu enthalten die bereitgestellten Dokumente keine Informationen.                                                                                                                                                                                                                                                                                                                                                                       &
+    Nein, alternativ zu einem mindestens 6-wöchigen Berufsfeldpraktikum kann auch eine Projektarbeit absolviert werden, sofern diese einen einschlägig computerlinguistischen Inhalt aufweist.                                                                                                                                                                                                                                               &
+    0.0514                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           \\
+    \addlinespace
+
+    5                                                                                                                                                                                                                                                                                                                                                                                                                                        &
+    Wie oft darf ich eine nicht bestandene Modulprüfung wiederholen?                                                                                                                                                                                                                                                                                                                                                                         &
+    Eine nicht bestandene Modulprüfung kann zweimal wiederholt werden.                                                                                                                                                                                                                                                                                                                                                                       &
+    Eine nicht bestandene Modulprüfung kann insgesamt zweimal wiederholt werden.                                                                                                                                                                                                                                                                                                                                                             &
+    0.9957                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           \\
+    \addlinespace
+
+    6                                                                                                                                                                                                                                                                                                                                                                                                                                        &
+    Wie viel Zeit haben die Lehrenden, um die Bewertung einer Klausur bekanntzugeben?                                                                                                                                                                                                                                                                                                                                                        &
+    Die Bewertung einer Klausur wird nach spätestens acht Wochen bekannt gemacht.                                                                                                                                                                                                                                                                                                                                                            &
+    Die Bewertung einer Klausur ist der Kandidatin oder dem Kandidaten nach spätestens acht Wochen bekannt zu machen.                                                                                                                                                                                                                                                                                                                        &
+    0.7245                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           \\
+\end{longtable}
+
+
+\section{Limitations and Future Research}
+As this work focuses on preprocessing, chunking and query expansion, the optimization of other pipeline components is neglected. Especially the online part of the pipeline has a lot more potential for optimization. Even the maximum context size and the factor between top\_k and top\_n are optimizable in context of the rest of the pipeline. This could be done in an independent experiment or as part of a bigger grid search.\\
+For the embedder, reranker, and generator, other models can be compared. For this work, only a few models were tested superficially, leaving this question open for future work. Especially for the generator, German-only models can be tested. Also larger models with a low quantization are an option. The retriever can even be combined with a sparse BM25 retriever. In previous work, this has outperformed a pure dense retriever. However, especially (but not exclusively) when switching to hybrid retrieval, the results for chunking and preprocessing might have to be re-evaluated. \\
+For improved retrieval results, the embedding model can be fine-tuned. As the topic is very specific and the number of documents is very limited, this could boost retrieval quality by a great margin. Furthermore, the query preprocessing can be more precise with fine-tuned embeddings. Query2doc achieves a performance gain over HyDE by fine-tuning an embedding model on extended queries.\\
+Furthermore, the components optimized in the first four experiments (preprocessor, chunking parameters, context threshold and query expansion) can be further improved in a grid search. As the experiments were conducted sequentially due to evaluation resource constraints, there is no guarantee that this thesis found the best pipeline configuration. The best chunk size for RAG is for example heavily dependent on retrieval threshold, which was only investigated after the chunker experiment here.
+With more computational and monetary resources, future research could improve the outcome by finding a better combination of components and settings.\\
+Future research could investigate all of the suggested improvements.
+For chatbot deployment, the repository can be made more performant using lazy imports, i. e., moving imports into methods. Thus, imports are only triggered when really needed. By using vllm with a locally saved model instead of HuggingFace, there is an even greater potential gain in performance.\\
+Concerning evaluation, more frameworks could be tested with even more robustness to differences in formulation.
+
+
+
 \section{Conclusion}
 
 \section*{Declaration of AI usage}
@@ -560,7 +661,7 @@ For chatbot deployment, the repository can be made more performant using lazy im
 
 \vspace{0.3cm}
 
-\noindent I hereby declare that for my thesis with the title Optimizing RAG Pipelines for Small Language Models, supervised by Prof. Dr. Wiebke Peterse and David Arps, I have used AI. The following list contains all tools that I have used as well as a short description of how and for what purpose these tools were used.
+\noindent I hereby declare that for my thesis with the title Optimizing RAG Pipelines for Small Language Models, supervised by Prof. Dr. Wiebke Petersen and David Arps, I have used AI. The following list contains all tools that I have used as well as a short description of how and for what purpose these tools were used.
 
 \vspace{0.5cm}
 
