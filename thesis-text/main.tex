@@ -581,7 +581,10 @@ However, the SLM sometimes struggles with this type of input (table \ref{tab:slm
 
 \subsubsection{Character Chunking}
 \subsubsection{Dynamic Token Chunking}
+
 \subsubsection{LLM Chunking}
+LLM chunking, specifically LumberChunker, did not produce the expected results. In previous studies, this chunker had given the best results for in-document retrieval. Here, however, the chunker did not fit the linearized document format. As the paragraphs are relatively coarse-grained in relation to the document length, LumberChunker chunked the document into very large chunks by always putting several paragraphs into one chunk. This problem came also due to the homogeneity of the documents, which the chunker was not constructed for.
+This resulted in the average chunk size surpassing 750 tokens, and thus, there was always only one contextually dense chunk given to the LLM due to the context limit of 1500 tokens. This, of course, led to a low context recall as even in the cases where the one passage retrieved was right, more than one passage might be needed. This retrieval problem and the lost-in-the-middle phenomenon for the long chunk resulted in a low answer correctness.
 \subsubsection{Max-Min Chunking}
 
 \subsection{Negative Rejection}
@@ -680,7 +683,8 @@ For the embedder, reranker, and generator, other models can be compared. For thi
 For improved retrieval results, the embedding model can be fine-tuned. As the topic is very specific and the number of documents is very limited, this could boost retrieval quality by a great margin. Furthermore, the query preprocessing can be more precise with fine-tuned embeddings. Query2doc achieves a performance gain over HyDE by fine-tuning an embedding model on extended queries.\\
 Furthermore, the components optimized in the first four experiments (preprocessor, chunking parameters, context threshold and query expansion) can be further improved in a grid search. As the experiments were conducted sequentially due to evaluation resource constraints, there is no guarantee that this thesis found the best pipeline configuration. The best chunk size for RAG is for example heavily dependent on retrieval threshold, which was only investigated after the chunker experiment here.
 With more computational and monetary resources, future research could improve the outcome by finding a better combination of components and settings.\\
-Future research could investigate all of the suggested improvements.
+Future research could investigate all of the suggested improvements.\\
+For LLM chunking, a customized chunker for the documents could be built. This chunker should be based on sentences instead of paragraphs, as paragraphs are to coarse-grained here.\\
 For chatbot deployment, the repository can be made more performant using lazy imports, i. e., moving imports into methods. Thus, imports are only triggered when really needed. By using vllm with a locally saved model instead of HuggingFace, there is an even greater potential gain in performance.\\
 Concerning evaluation, more frameworks could be tested with even more robustness to differences in formulation.
 
