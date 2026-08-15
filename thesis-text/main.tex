@@ -530,23 +530,35 @@ Across the evaluated strategies, a threshold benefit boundary emerges between 10
 
 The primary exception to this pattern was the LLM chunker, which did not align with the general trend. Characterized by unusually large average chunk sizes that typically resulted in retrieving only a single chunk per query, its sensitivity to threshold adjustments was unpredicted. Rather than signaling a genuine structural interaction, this behavior likely highlights the inherent variance and evaluation noise associated with conducting preliminary hyperparameter tuning on the smaller 15-item subset.
 
+Ultimately, the primary limitation preventing stricter thresholding from consistently improving performance across all configurations lies in the baseline retrieval quality. The dense retriever and cross-encoder struggle to consistently rank the most relevant information within the top two or three candidates, the relevant chunks often only being in the middle of the retrieved contexts. Thus, essential evidence often receives comparatively lower similarity scores. Under these conditions, enforcing a non-zero similarity cutoff risks prematurely discarding necessary context before it reaches the generator. Consequently, while similarity thresholding holds clear theoretical and empirical advantages for fine-grained representations, its success remains inherently bottlenecked by the initial ranking precision of the retrieval pipeline. For a fine-tuned retriever and reranker, retrieval threshold can hold a much higher benefit.
 \subsection{Query Expansion}
 The results partly confirm the results from \textcite{jagerman2023query}. Chain of Thought performs best for more configurations than HyDE. However, also the approach without query preprocessing achieves good results, hinting to the fact that modern embedding models have improved coping with the query/document asymmetry.
-\subsection{Comparison of Markdown and Text}
-Overall, RAG on linearized text files performed slightly better than on Markdown files. This is probably due to the fact that most of the training data for a language model is plain text. Another metric supporting this hypothesis is faithfulness. Plain text makes it easier for the SLM to adhere to the documents, thus achieving a higher faithfulness.
-\subsection{Markdown Chunking Strategies}
+\subsection{Detailed Analysis of Markdown Chunking Strategies}
 \subsubsection{Paragraph Chunking and Whole Table Chunking}
-\begin{itemize}
-    \item Whole Table and Paragraph for Markdown with similar results because similar strategies: paragraph splitting for markdown often splits at table/module borders and wholeparagraph splits at paragraph level for text documents[see example]
-    \item both good at context recall because just has to retrieve the one or two right tables/paragraphs
-    \item better than character chunking and SplitTable because keep tables together, LLMs often partly trained on markdown data and can handle as trained, worse if split inside the tables, also harder for the retriever to find right chunks as relevant table is split into several chunks hard to find in structured table format, resulting in low context recall
-\end{itemize}
+Here is the drafted subsubsection, structured logically to fit seamlessly into your thesis:
+
+\subsubsection{Paragraph Chunking and Whole Table Chunking}
+Whole Table Chunking and Paragraph Chunking yielded very similar performance on Markdown documents due to their analogous segmentation mechanics. In Markdown-formatted text, double line breaks typically demarcate natural structural boundaries, causing standard Paragraph Chunking to split documents primarily at table or module borders. Conversely, Whole Table Chunking is designed to isolate structured elements as self-contained entities while splitting unstructured prose at the paragraph level (as illustrated in Listing~\ref{lst:markdown_example}).
+
+Both approaches achieved strong Context Recall, as the retriever generally only needs to identify and return one or two comprehensive chunks to ensure that the required evidence is fully present in the prompt. Whole Table Chunking holds a slight structural advantage over standard Paragraph Chunking because it systematically binds contextual metadata, such as headings and table captions, directly to the relevant tabular data. This structural coherence proved particularly beneficial for complex, distributed queries. For instance, when answering multi-entity prompts such as listing all courses required in the first semester, Whole Table Chunking outperformed all other evaluated chunking strategies. While other chunkers only managed partially correct answers due to context fragmentation across multiple chunks or overloaded chunks, Whole Table Chunking provided the entire semester schedule within a single, coherent context.
+
+Despite these strengths, both Markdown-based strategies exhibited lower Faithfulness and marginally lower Answer Correctness compared to the top-performing chunkers operating on linearized text. Because Small Language Models (SLMs) with limited parameter counts are primarily optimized on natural language sequences, navigating dense, two-dimensional Markdown table syntax presents a notable challenge. When confronted with simple, fact-focused queries, the 2B generator frequently struggled to isolate specific numerical values or individual attributes from table cells, occasionally misassociating rows and columns. Consequently, while Whole Table and Paragraph Chunking excel at multi-attribute aggregation, their reliance on raw table structures introduces processing overhead that impairs the generator's factual precision.
+\begin{lstlisting}[basicstyle=\small\ttfamily, frame=single, breaklines=true, caption=Example of Markdown structure in Markdown-converted fPO, label=lst:markdown_example]
+### 1. Semester Bachelor Computerlinguistik
+*Summe: 4 Module, 2 MP, 8 Veranstaltungen, 22 SWS, 30 LP, davon 1 LP im PBB*
+
+| Modul / Veranstaltung | MP | SL | LP | SWS |
+| :--- | :--- | :--- | :--- | :--- |
+| **Basismodul - Mathematische und logische Grundlagen** | **1 MP** | **2 SL** | **12 LP** | **8 SWS** |
+\end{lstlisting}
 \subsubsection{Character Chunking and Split Table Chunking}
 \begin{itemize}
+    \item worse because don't keep tables together, LLMs often partly trained on markdown data and can handle as trained, worse if split inside the tables, also harder for the retriever to find right chunks as relevant table is split into several chunks hard to find in structured table format, resulting in low context recall
+
     \item asdf
 
 \end{itemize}
-\subsection{Text Chunking Strategies}
+\subsection{Detailed Analysis of Text Chunking Strategies}
 \subsubsection{Paragraph Chunking}
 For Paragraph Chunking, every chunk is quite large and factually dense. This makes it easy for the retriever to find the relevant chunks, resulting in high context recall.
 However, the SLM sometimes struggles with this type of input (table \ref{tab:slm_evaluation_comparison_paragraph_text}). Especially specific information in the middle of a paragraph is often overlooked (lost-in-the-middle). This does not result in a low faithfulness score as it still mostly refers to information from the given context, just not the right information (Example A). In other cases, this results in the SLM rejecting the query (Example B). This results in a lower answer correctness.
@@ -582,13 +594,8 @@ However, the SLM sometimes struggles with this type of input (table \ref{tab:slm
 \end{table}
 
 \subsubsection{Character Chunking}
-Character Chunking has the known problem of cutting off sentences and even words. The loss of context is mitigated by using an overlap. However, these random cuts in the beginning and in the end of a chunk result in worse vector representations and worse retrieval, thus worsening the context recall.
-Having said that, Character Chunking still achieves the highest answer correctness. The shorter chunks are easier for the SLM to handle and find the information, resulting in the high faithfulness. Furthermore, the SLM can easily separate the chunks from each other in its context due to their in-word separation.
-\begin{itemize}
-    \item surprising, normally harder for lm to handle because not normal sentences. assumption: (oben)
-    \item            chunk für kann ich praktikum machen wann ich will: "e Kenntnisse zum wissenschaftlichen Arbeiten, können eigene Forschungsfragen formulieren, diese angemessen eingrenzen und die zur Beantwortung notwendigen Schritte planen und umsetzen. Teilnahmevoraussetzungen für das Modul Praktikum \& Orientierung sind im 4. Fachsemester oder höher, und inhaltlich das Basismodul - Mathematische und logische Grundlagen, das Basismodul - Grundlagen der Computerlinguistik und formale Grammatikbeschreibung und das Basismodul - Python-Programmierung. Für dieses Modu"  (ende des chunks, anfang der frage)
-    \item also problems with not finding information in context but less than others
-\end{itemize}
+Character Chunking has the known problem of cutting off sentences and even words. The loss of context is mitigated by using an overlap. However, these random cuts in the beginning and in the end of a chunk result in worse vector representations and worse retrieval, thus worsening the context recall. Example B of table \ref{tab:slm_evaluation_comparison_retrieval_character} illustrates such a retrieval failure, where the retriever could not find the relevant chunk due to the information being in the middle of a chunk and the chunk starting mid-word of a different topic.\\
+Having said that, Character Chunking still achieves the highest answer correctness. The shorter chunks are easier for the SLM to handle and find the information, resulting in the high faithfulness. Furthermore, the SLM was able to separate the chunks in its context more easily and locate the relevant information than for other chunkers. This is surprising, because normally, it is harder for language models to cope with in-word splits as they are trained on full-sentence natural language. An explanation could be that the in-word splits enable the SLM to separate the chunks from each other more easily, but this has to be looked into more. The SLM still sometimes struggles to locate the right information in the context. Boosting faithfulness, even in these cases, is the fact that the SLM does not refuse to answer in these cases, but cites some non-relevant context. However, not finding the relevant context happens less often than for other chunkers. In example A of table \ref{tab:slm_evaluation_comparison_retrieval_character}, the SLM correctly identified the relevant information despite the relevant information being together in a chunk after two unrelated topics and the chunk starting mid-word. Furthermore, this was only the third retrieved chunk of seven, illustrating that chunk separation is easier for the SLM with Character Chunking.
 
 \begin{table}[htbp]
     \centering
@@ -615,16 +622,71 @@ Having said that, Character Chunking still achieves the highest answer correctne
         Dazu enthalten die bereitgestellten Dokumente keine Informationen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          \\
         \bottomrule
     \end{tabularx}
-    \caption{Comparison of Successful Extraction versus Missing Context Retrieval for Character Chunking}
-    \label{tab:slm_evaluation_comparison_retrieval}
+    \caption{Examples of Successful Extraction versus Missing Context Retrieval for Character Chunking}
+    \label{tab:slm_evaluation_comparison_retrieval_character}
 \end{table}
 \subsubsection{Dynamic Token Chunking}
-
+Dynamic Token Chunking should be a good compromise between Paragraph Chunking and Character Chunking, having shorter chunks than Paragraph Chunking but not cutting off in the middle of sentences or words like Character Chunking. In some instances, this enabled the SLM to answer questions it could not for both Paragraph Chunking and Character Chunking (Table \ref{tab:slm_evaluation_comparison_dynamic_token}, Example A). However, its answer correctness was worse than for Character Chunking. While the more structured chunks made retrieval easier, resulting in a higher context recall, their larger size led to a higher risk of the SLM struggling to extract the answer from the information-dense sentences (Example B).\\
+This dynamic highlights a critical trade-off in the RAG pipeline: while Dynamic Token Chunking successfully preserved syntactic integrity and boosted retrieval performance, it also increased the surrounding noise within each retrieved context. Consequently, the smaller language model, limited in its capacity to handle dense or distractor-heavy contexts, failed to reliably locate and extract the information from the larger text spans. Thus, this method should be tested with chunks smaller than 250 tokens.
+\begin{table}[htbp]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabularx}{\textwidth}{l X X}
+        \toprule
+        \textbf{Category}                                                                                                                                                                                                                                                                                                                       & \textbf{Example A: Successful Extraction} & \textbf{Example B: Information Lost / Extraction Failure}                                                                                                                                                                                                                        \\
+        \midrule
+        \textbf{User Query}                                                                                                                                                                                                                                                                                                                     &
+        Gibt es eine \"Ubung f\"ur den Kurs Mathematische Grundlagen?                                                                                                                                                                                                                                                                           &
+        Wann sollte ich Automatentheorie belegen?                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              \\
+        \midrule
+        \textbf{Context Extract}                                                                                                                                                                                                                                                                                                                &
+        \textit{"...Das Basismodul Mathematische und logische Grundlagen umfasst 1 MP, 2 SL, 12 LP und 8 SWS. Darin enthalten sind Einf\"uhrung in die computationelle Logik (Seminar mit \"Ubung, 4 LP, 4 SWS, Pnr. 2101), Mathematische Grundlagen (Seminar, 4 LP, 4 SWS, Pnr. 2102) und die Modulpr\"ufung (Portfolio, 4 LP, Pnr. 2110)..."} &
+        \textit{"...Das Modul Aufbaumodul - Mathematische Linguistik (Modul-Nummer: 4200) hat einen Umfang von 6 ECTS-Leistungspunkten und einen Workload von 180 Stunden. Die Dauer dieses Aufbaumoduls betr\"agt 1 Semester. Die Lehrveranstaltungen f\"ur dieses Aufbaumodul sind Automatentheorie \& Formale Sprachen (Seminar) mit der Nummer 4201 und \"Ubung zu Automatentheorie \& Formale Sprachen (\"Ubung) mit der Nummer 4202. Die Belegung f\"ur dieses Aufbaumodul erfordert die Teilnahme an Seminar (a) und \"Ubung (b). Das empfohlene Studiensemester f\"ur dieses Aufbaumodul ist das 3. Fachsemester (Wintersemester) f\"ur beide Lehrveranstaltungen..."} \\
+        \midrule
+        \textbf{Reference Answer}                                                                                                                                                                                                                                                                                                               &
+        Nein, f\"ur den Kurs "Mathematische Grundlagen" gibt es keine begleitende \"Ubung. Es handelt sich dabei ausschlie\ss{}lich um ein Seminar.                                                                                                                                                                                             &
+        Den Kurs Automatentheorie aus dem Modul Aufbaumodul -- Mathematische Linguistik solltest du im dritten Semester belegen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               \\
+        \midrule
+        \textbf{SLM Response}                                                                                                                                                                                                                                                                                                                   &
+        Nein, es gibt keine \"Ubung f\"ur den Kurs Mathematische Grundlagen.                                                                                                                                                                                                                                                                    &
+        Dazu enthalten die bereitgestellten Dokumente keine Informationen.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Examples of Successful Extraction versus Information Loss in Dynamic Token Chunking}
+    \label{tab:slm_evaluation_comparison_dynamic_token}
+\end{table}
 \subsubsection{LLM Chunking}
 LLM chunking, specifically LumberChunker, did not produce the expected results. In previous studies, this chunker had given the best results for in-document retrieval. Here, however, the chunker did not fit the linearized document format. As the paragraphs are relatively coarse-grained in relation to the document length, LumberChunker chunked the document into very large chunks by always putting several paragraphs into one chunk. This problem came also due to the homogeneity of the documents, which the chunker was not constructed for.
 This resulted in the average chunk size surpassing 750 tokens, and thus, there was always only one contextually dense chunk given to the LLM due to the context limit of 1500 tokens. This, of course, led to a low context recall as even in the cases where the one passage retrieved was right, more than one passage might be needed. This retrieval problem and the lost-in-the-middle phenomenon for the long chunk resulted in a low answer correctness.
 \subsubsection{Max-Min Chunking}
+Max-Min Chunking produced very compact segments, reinforcing the broader trade-off observed between retrieval performance and generation accuracy across different chunk sizes.
 
+On the retrieval side, the reduced chunk size diminished context recall. Splitting text into smaller spans occasionally fragmented cohesive information across chunk boundaries, preventing the retriever from capturing the complete semantic context necessary for query matching or preventing the SLM to answer some questions. The ECTS example from table \ref{tab:chunk_comparison_maxmin} illustrates this issue. Specifically, the credit point calculation for the \textit{Orientierungsseminar} (totalling 3~ECTS points) was severed across two separate chunks: Chunk~A specified the contact hours (2~SWS / 30~hours / 1~ECTS point), whereas Chunk~B detailed the independent self-study requirement (60~hours / 2~ECTS points). Because these complementary components were isolated from one another, the retrieval pipeline often returned only one of the two fragments—predominantly Chunk~A. Consequently, the SLM was deprived of the full mathematical context and generated an incomplete and factually incorrect answer (1~ECTS point) rather than aggregating the full workload.
+
+Conversely, these smaller, focused chunks proved advantageous for the generation stage. Because the SLM received tightly scoped contexts with minimal surrounding noise, it was far less susceptible to the lost-in-the-middle phenomenon and could easily isolate relevant facts. Furthermore, the underlying semantic splitting logic ensured that information needed for straightforward queries remained contained within a single chunk in most cases. An example for a good split can be seen in table \ref{tab:chunk_comparison_maxmin}. Here, the chunk about exam cancellation is completely thematically homogenous and minimal. As a result of these chunks, despite the lower context recall, Max-Min Chunking achieved the second-highest answer correctness overall.
+
+
+\begin{table}[htbp]
+    \centering
+    \caption{Comparison of Chunk Splitting Examples for Max-Min Chunking}
+    \label{tab:chunk_comparison_maxmin}
+    \begin{tabular}{@{} p{0.25\textwidth} p{0.70\textwidth} @{}}
+        \toprule
+        \textbf{Category}                                                  & \textbf{Text Content}                                                                                             \\
+        \midrule
+        \textbf{Good Split} \newline \textit{(Self-Contained Context)}     &
+        "Von einer Modulprüfung in Form einer Klausur oder mündlichen Prüfung kann sich die Kandidatin oder der Kandidat bis spätestens eine Woche vor dem jeweiligen Prüfungstermin abmelden. \\
+        \midrule
+        \textbf{Bad Split} \newline \textit{(Fragmented ECTS Calculation)} &
+        \textbf{[Chunk A]} \newline
+        "Die Kontaktzeit für das Orientierungsseminar (a) beträgt 2 SWS / 30 Stunden / 1 ECTS-Leistungspunkt." \par\medskip
+        \textbf{[Chunk B]} \newline
+        "Das Selbststudium für das Orientierungsseminar (a) beträgt 60 Stunden / 2 ECTS-Leistungspunkte. Es gibt keine ECTS-Leistungspunkte für die Modulprüfung dieses Moduls."               \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\FloatBarrier
 \subsection{Negative Rejection}
 \begin{itemize}
     \item high NRR important because hallucinations in the context of study regulation documents is a big problem. wrong information could result in students making wrong decisions
@@ -729,6 +791,12 @@ Concerning evaluation, more frameworks could be tested with even more robustness
 
 
 \section{Conclusion}
+\begin{itemize}
+    \item small chunks for plain text, larger chunks for markdown (not destroy structure)
+    \item in-sentence/word separation caused less problems than for previous research
+    \item
+\end{itemize}
+
 
 \section*{Declaration of AI usage}
 
