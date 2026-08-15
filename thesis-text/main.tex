@@ -726,12 +726,37 @@ Conversely, these smaller, focused chunks proved advantageous for the generation
 \end{table}
 \FloatBarrier
 \subsection{Negative Rejection}
-\begin{itemize}
-    \item
-\end{itemize}
-% Beispiele: eins (je) warum für character besser als dynamictoken;
-% evaluation funktioniert für beste 2
-% was macht maxmin richtig
+
+While Character Chunking on linearized text achieved the highest overall answer correctness, it proved weak regarding negative rejection, exhibiting a high propensity for hallucinations. This deficiency primarily stems from the algorithm's arbitrary text fragmentation, which arbitrarily cuts through sentences and groups disparate topics into single chunks. When confronted with unanswerable queries, the dense retriever pulls a highly fragmented, topically diverse set of text snippets. Lacking a reranking threshold to filter out low-confidence hits, the generator attempts to forcefully synthesize an answer from this noise. The first example in Table~\ref{tab:hallucination_examples} illustrates the most severe case of this failure: when asked for the professors teaching the Machine Learning module, the model completely hallucinates names (e.g., ``Prof. Dr. R. H.'') that do not appear anywhere in the provided documents.
+
+In contrast, the Max-Min and Dynamic Token chunking strategies demonstrated significantly better negative rejection rates. By respecting sentence boundaries, these methods preserve semantic coherence and reduce the topical overlap within individual chunks. More importantly, both configurations utilized a reranking threshold (0.05). This threshold acts as a strict filter, aggressively discarding irrelevant context before it reaches the generator. Confronted with a query that has no factual basis in the text, the retriever simply passes very few or zero chunks to the Small Language Model (SLM), making it much easier for the model to correctly reject the prompt rather than invent an answer.
+
+The large-scale Markdown strategies (Paragraph and Whole Table Chunking) showed moderate performance in negative rejection. The inherent structure of Markdown, particularly the presence of explicit table captions and clear module headers, generally assists the SLM in recognizing when a retrieved chunk is irrelevant to the prompt. However, the Markdown strategies inherently mix continuous text paragraphs from PO with tabular data, which can still occasionally mislead the model. As shown in the second example in Table~\ref{tab:hallucination_examples} (generated using the Whole Table Chunker), the model correctly identified an entity name from a retrieved administrative chunk but falsely mapped it to the query's intent, hallucinating that the university president (Anja Steinbeck) teaches the Machine Learning module.
+
+\begin{table}[htbp]
+    \small
+    \centering
+    \caption{Examples of Hallucinations and Their Context Anchors for Negative Rejection}
+    \label{tab:hallucination_examples}
+    \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash\hsize=0.7\hsize}X
+            >{\raggedright\arraybackslash\hsize=1.2\hsize}X
+            >{\raggedright\arraybackslash\hsize=1.1\hsize}X}
+        \toprule
+        \textbf{Query} & \textbf{Model Response}                                                                                                                                                                                                                                                                                                                                                                   & \textbf{Hallucinated From (Context)} \\
+        \midrule
+        Welche Dozenten oder Professoren unterrichten das Aufbaumodul Maschinelles Lernen?
+                       & Basierend auf den bereitgestellten Dokumenten unterrichten folgende Dozenten oder Professoren das Aufbaumodul Maschinelles Lernen: \newline\newline \textbullet\ \textbf{Prof. Dr. R. H.} (nachweislich in Source 1) \newline \textbullet\ \textbf{Prof. Dr. M. H.} (nachweislich in Source 2) \newline \textbullet\ \textbf{Prof. Dr. M. H.} (nachweislich in Source 3, 5, 6, 8, 10--12)
+                       & [none]                                                                                                                                                                                                                                                                                                                                                                                                                           \\
+        \midrule
+        Welche Dozenten oder Professoren unterrichten das Aufbaumodul Maschinelles Lernen?
+                       & Die Dozenten oder Professoren, die das Aufbaumodul Maschinelles Lernen unterrichten, sind: \newline\newline \textbullet\ \textbf{Anja Steinbeck} (Univ.-Prof. Dr. iur.)
+                       & \textit{[structured table chunk]}\texttt{*Anja Steinbeck (Univ.-Prof. Dr. iur.)*\textit{[structured table chunk]}}                                                                                                                                                                                                                                                                                                               \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+
+
 
 
 
@@ -749,14 +774,14 @@ There are some instances where the score is very strict or even wrong. In sample
     >{\centering\arraybackslash}p{0.08\textwidth}
     }
     % --- First Page Header ---
-    \caption{Evaluation of Question Answering Responses} \label{tab:qa_evaluation_all}                                                                                                                                                                                                                                                                                                                                                                                                                                               \\
+    \caption{Evaluation Analysis} \label{tab:qa_evaluation_all}                                                                                                                                                                                                                                                                                                                                                                                                                                                                      \\
     \toprule
     \textbf{\#}                                                                                                                                                                                                                                                                                                                                                                                                                              & \textbf{Query} & \textbf{Response} & \textbf{Reference Answer} & \textbf{Correctness} \\
     \midrule
     \endfirsthead
 
     % --- Subsequent Page Header ---
-    \caption[]{(Fortsetzung) Evaluation of Question Answering Responses}                                                                                                                                                                                                                                                                                                                                                                                                                                                             \\
+    \caption[]{(Fortsetzung) Evaluation Analysis}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    \\
     \toprule
     \textbf{\#}                                                                                                                                                                                                                                                                                                                                                                                                                              & \textbf{Query} & \textbf{Response} & \textbf{Reference Answer} & \textbf{Correctness} \\
     \midrule
