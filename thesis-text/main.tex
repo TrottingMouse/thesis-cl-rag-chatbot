@@ -268,9 +268,16 @@ For in-document retrieval, LumberChunker performed particularly well in a compar
 \subsection{Indexing and Retrieval}
 After chunking, the chunks are embedded using a sentence transformer model. The model used is jinaai/jina-embeddings-v5-nano, a cutting-edge embedding model with only 239M parameters \parencite{akram2026jina}. A particularly small model was chosen in order to keep resource usage limited, also for indexing and retrieval. FAISS was used for vector storage \parencite{douze2024faiss}.\\
 \subsection{Query expansion}
-Retrievers suffer from an elementary flaw: the query is structurally very different to the documents. For many models, this is solved during training, so a query is embedded differently than a document \parencite{akram2026jina}. This still does not completely solve the discrepancy. Query expansion techniques aim to bridge the structural gap by rewriting the query and retrieving against the expanded queries. Two of those techniques are tested and compared to the baseline with no query expansion. The SLM used for generating the RAG answer is also used for query expansion. The prompts for the two techniques are listed in appendix~\ref{sec:query_expansion_prompts}.\\
-HyDE (Hypothetical Document Embeddings) is one of the first and most used query expansion techniques \parencite{gao2023precise}. It uses an LLM to generate a hypothetical answer to the query without using any documents. Afterwards, it retrieves against this generated answer.\\
-\textcite{jagerman2023query} compared different query expansion techniques as zero-shot prompts (without examples in the prompt) and few-shot prompts (with some examples in the prompt). The main metric used in the original paper was recall@1K, which is the proportion of all actual relevant items that the system successfully returns in its top 1,000 retrieved results. The prompt with the highest recall was Chain-of-Thought, a prompt that explicitly asks the LLM to give the rationale before answering. This is the second prompt tested for query expansion. Query2doc, another popular method wasn't used because it relies on finetuning the embedding model together with query expansion \parencite{wang2023query2doc}.
+Retrievers suffer from an elementary flaw: the query is structurally very different to the documents. For many models, this is solved during training, so a query is embedded differently than a document \parencite{akram2026jina}. This still does not completely solve the discrepancy. Query expansion techniques aim to bridge the structural gap by rewriting the query and retrieving against the expanded queries. Two of those techniques are tested and compared to the baseline with no query expansion. The SLM used for generating the RAG answer is also used for query expansion.\\
+HyDE (Hypothetical Document Embeddings) is one of the first and most used query expansion techniques \parencite{gao2023precise}. It uses an LLM to generate a hypothetical answer to the query without using any documents. Afterwards, it retrieves against this generated answer. The prompt used is taken from the original paper translated to German (Listing \ref{lst:hyde_prompt})\\
+\begin{lstlisting}[breaklines=true, basicstyle=\ttfamily, label=lst:hyde_prompt, caption=Prompt for HyDE Query Expansion]
+    Bitte schreibe einen Textabschnitt, um die folgende Frage zu beantworten: {query}
+\end{lstlisting}
+\textcite{jagerman2023query} compared different query expansion techniques as zero-shot prompts (without examples in the prompt) and few-shot prompts (with some examples in the prompt). The main metric used in the original paper was recall@1K, which is the proportion of all actual relevant items that the system successfully returns in its top 1,000 retrieved results. The prompt with the highest recall was Chain-of-Thought, a prompt that explicitly asks the LLM to give the rationale before answering. This is the second prompt tested for query expansion (Listing \ref{lst:cot_prompt}). Query2doc, another popular method wasn't used because it relies on finetuning the embedding model together with query expansion \parencite{wang2023query2doc}.
+\begin{lstlisting}[breaklines=true, basicstyle=\ttfamily, label=lst:cot_prompt, caption=Prompt for CoT Query Expansion]
+    Beantworte die folgende Anfrage:
+    {query}
+    Gib die Begründung an, bevor du antwortest.\end{lstlisting}
 \subsection{Reranking}
 Reranking improves retrieval by retrieving $k$ documents, reranking the retrieved results and only returning the top-$n$ documents \parencite{nogueira2019passage}, thus $k > n$. The reranker is more computationally expensive than the retriever, as it uses cross-encoding instead of a simple vector similarity computation. Cross-encoding means processing the query and a retrieved document jointly through a transformer model. Afterwards, a classification token is returned to indicate the similarity between the query and the document. The reranker used here is jinaai/jina-reranker-v3.
 \subsection{Generation}
@@ -530,12 +537,10 @@ Across the evaluated strategies, a threshold benefit boundary emerges between 10
 
 The primary exception to this pattern was the LLM chunker, which did not align with the general trend. Characterized by unusually large average chunk sizes that typically resulted in retrieving only a single chunk per query, its sensitivity to threshold adjustments was unpredicted. Rather than signaling a genuine structural interaction, this behavior likely highlights the inherent variance and evaluation noise associated with conducting preliminary hyperparameter tuning on the smaller 15-item subset.
 
-Ultimately, the primary limitation preventing stricter thresholding from consistently improving performance across all configurations lies in the baseline retrieval quality. The dense retriever and cross-encoder struggle to consistently rank the most relevant information within the top two or three candidates, the relevant chunks often only being in the middle of the retrieved contexts. Thus, essential evidence often receives comparatively lower similarity scores. Under these conditions, enforcing a non-zero similarity cutoff risks prematurely discarding necessary context before it reaches the generator. Consequently, while similarity thresholding holds clear theoretical and empirical advantages for fine-grained representations, its success remains inherently bottlenecked by the initial ranking precision of the retrieval pipeline. For a fine-tuned retriever and reranker, retrieval threshold can hold a much higher benefit.
+Ultimately, the primary limitation preventing stricter thresholding from consistently improving performance across all configurations lies in the baseline reranking quality. The dense retriever and cross-encoder struggle to consistently rank the most relevant information within the top two or three candidates, the relevant chunks often only being in the middle of the retrieved contexts. Thus, essential evidence often receives comparatively lower similarity scores. Under these conditions, enforcing a non-zero similarity cutoff risks prematurely discarding necessary context before it reaches the generator. Consequently, while similarity thresholding holds clear theoretical and empirical advantages for fine-grained representations, its success remains inherently bottlenecked by the initial ranking precision of the retrieval pipeline. For a fine-tuned retriever and reranker, retrieval threshold can hold a much higher benefit.
 \subsection{Query Expansion}
 The results partly confirm the results from \textcite{jagerman2023query}. Chain of Thought performs best for more configurations than HyDE. However, also the approach without query preprocessing achieves good results, hinting to the fact that modern embedding models have improved coping with the query/document asymmetry.
 \subsection{Detailed Analysis of Markdown Chunking Strategies}
-\subsubsection{Paragraph Chunking and Whole Table Chunking}
-Here is the drafted subsubsection, structured logically to fit seamlessly into your thesis:
 
 \subsubsection{Paragraph Chunking and Whole Table Chunking}
 Whole Table Chunking and Paragraph Chunking yielded very similar performance on Markdown documents due to their analogous segmentation mechanics. In Markdown-formatted text, double line breaks typically demarcate natural structural boundaries, causing standard Paragraph Chunking to split documents primarily at table or module borders. Conversely, Whole Table Chunking is designed to isolate structured elements as self-contained entities while splitting unstructured prose at the paragraph level (as illustrated in Listing~\ref{lst:markdown_example}).
@@ -847,17 +852,39 @@ For improved retrieval results, the embedding model can be fine-tuned. As the to
 Furthermore, the components optimized in the first four experiments (preprocessor, chunking parameters, context threshold and query expansion) can be further improved in a grid search. As the experiments were conducted sequentially due to evaluation resource constraints, there is no guarantee that this thesis found the best pipeline configuration. The best chunk size for RAG is for example heavily dependent on retrieval threshold, which was only investigated after the chunker experiment here.
 With more computational and monetary resources, future research could improve the outcome by finding a better combination of components and settings.\\
 Future research could investigate all of the suggested improvements.\\
-For LLM chunking, a customized chunker for the documents could be built. This chunker should be based on sentences instead of paragraphs, as paragraphs are to coarse-grained here.\\
+For LLM chunking, a customized chunker for the documents could be built. This chunker should be based on sentences instead of paragraphs, as paragraphs are to coarse-grained here. Furthermore, the original Max-Min Chunking could potentially be improved by adding and overlap to the chunks, as the overlap improved results for other plain text chunkers with small chunk sizes.\\
 For chatbot deployment, the repository can be made more performant using lazy imports, i. e., moving imports into methods. Thus, imports are only triggered when really needed. By using vllm with a locally saved model instead of HuggingFace, there is an even greater potential gain in performance.\\
 Concerning evaluation, more frameworks could be tested with even more robustness to differences in formulation.
 
 
 
 \section{Conclusion}
+This thesis investigated the optimization of Retrieval-Augmented Generation (RAG) pipelines for Small Language Models (SLMs), using structured administrative documents from the Department of Computational Linguistics to develop a local, resource-efficient student advisory assistant. Because parameter-constrained models like Qwen3.5-2B are highly susceptible to lost-in-the-middle phenomena when processing dense contexts, the offline and online components of the pipeline were systematically evaluated to maximize generation quality and factual reliability, focusing on chunking, document preprocessing and query expansion.
+
+For evaluation, a dataset of 73 question-answer pairs of varying difficulty was created. These could be answered with the documents and served to evaluate answer correctness. Another 14 questions were created which could not be answered with the documents to test the negative rejection capability of the pipeline.
+
+The empirical results validate the fundamental necessity of targeted document processing and chunking. Chunking combined with preprocessing substantially outperformed unchunked baselines, elevating answer correctness from $0.423$ on raw text to over $0.570$ on optimized configurations. Furthermore, even the worst-preforming chunkers outperformed the unchunked baseline.
+
+For document conversion, prompting large models directly proved more effective than dedicated conversion frameworks. Task-specific prompts for Markdown extraction and text linearization consistently outperformed tools like Docling for Markdown, and a linearization strategy from existing literature. While the top-performing strategies on linearized text achieved a slight edge in faithfulness over Markdown representations, the performance difference was narrow enough that Markdown remains a viable, structurally expressive alternative for future RAG pipelines.
+
+The offline chunking experiments revealed distinct structural design principles across text formats. In structured Markdown documents, preserving complete module and table boundaries is critical: only Whole Table and Paragraph chunkers succeeded, whereas sub-table splitting caused catastrophic syntax disruption, grammatical degeneration, and extraction failures. Plain text, conversely, favored smaller chunk granularities. While Character chunking achieved the highest raw answer correctness when paired with an overlap to mitigate arbitrary cuts, it exhibited poor negative rejection by hallucinating non-existent facts when confronted with unanswerable queries. Max-Min chunking emerged as the most robust all-round strategy; when its hyperparameters were adapted to counter runaway aggregation in homogeneous administrative text, it delivered strong answer correctness while maintaining a high negative rejection rate of $0.857$. Dynamic Token chunking demonstrated similar potential, indicating that fine-grained, sentence-aware chunkers are well suited for SLM generation provided that chunk sizes remain compact.
+
+In the online phase, applying a moderate cross-encoder similarity cutoff of $0.05$ benefited fine-grained chunkers by filtering out noisy distractors on unambiguous queries, whereas larger chunks suffered from context loss. However, thresholding remains bottlenecked by baseline ranking precision, as critical evidence is not consistently positioned at the top of initial retrieval candidates. Regarding query expansion, Chain-of-Thought prompting slightly outperformed HyDE, but the unexpanded baseline remained competitive, underscoring the capacity of modern embedding models to bridge the asymmetry between student queries and source text without mandatory query transformation.
+
+In summary, deploying Small Language Models in high-stakes administrative environments requires compact, entity-dense contexts that minimize distractions while preserving semantic boundaries. For local deployment on resource-constrained hardware, a pipeline combining LLM-based linearization, Max-Min semantic chunking, and conservative cross-encoder thresholding provides an optimal balance between factual generation correctness and dependable hallucination rejection.
 \begin{itemize}
     \item small chunks for plain text, larger chunks for markdown (not destroy structure)
-    \item in-sentence/word separation caused less problems than for previous research
-    \item
+    \item small chunks need overlap to limit losses for context problem (short explanation)
+    \item in-sentence/word separation of character chunking caused less problems for qa-pairs than for previous research (with overlap best performing strategy in terms of answer correctness), however problem with negative rejection
+    \item best allround strategy: Max-Min chunking, hyperparameters fitted to homogenous documents with second best answer correctness and good negative rejection
+    \item dynamic token chunking could be good alternative with smaller chunks
+    \item for Markdown: only strategies leaving tables and modules together prevailed: simple Paragraph Chunker and Whole Table Chunker
+    \item best chunkers on linearized text slightly better than best on markdown, but margin not high enough to discard Markdown in the future
+    \item document preprocessing: both for Markdown conversion and linearization prompting LLMs with task better results than specifically designed frameworks
+    \item reranking threshold tested (give short explanation of concept here): chunkers with small size chunks profit because more flexibility (less noise for queries where clear right chunk), for larger chunks mostly result degradation. however, also not more efficient due to reranking quality: relevant chunks often not retrieved in beginning
+    \item Chain of Thought query processing with better performance than HyDE, however no query expansion also with good results (improved embedding model architecture for RAG)
+    \item effectiveness of query preprocessing shown: even without chunking better performance than with raw documents
+    \item all chunking methods clearly better AC than preprocessed and no chunking
 \end{itemize}
 
 
@@ -881,24 +908,6 @@ Concerning evaluation, more frameworks could be tested with even more robustness
 \end{tabular}
 
 \printbibliography[title={References}]
-
-\appendix
-\subsection{Query Expansion}
-\label{sec:query_expansion_prompts}
-HyDE:
-\begin{lstlisting}[breaklines=true, basicstyle=\ttfamily]
-    Du bist ein hilfreicher Assistent. 
-    Schreibe einen kurzen, sachlichen Textabschnitt (2-4 Sätze), 
-    der die folgende Frage beantwortet. 
-    Antworte ausschließlich mit dem Textabschnitt - ohne Einleitung, 
-    Überschrift oder sonstige Erklärungen.
-\end{lstlisting}
-Query2Doc:
-\begin{lstlisting}[breaklines=true, basicstyle=\ttfamily]
-    Beantworte die folgende Anfrage:
-    {query}
-    Gib die Begründung an, bevor du antwortest.
-\end{lstlisting}
 
 
 \end{document}
