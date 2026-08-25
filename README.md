@@ -228,12 +228,12 @@ User query
 documents:
   - "documents/PO.pdf"
   - "documents/MHB.pdf"
-  - "documents/my_new_document.pdf"   # ← add your file here
+  - "documents/newdocument.pdf"   # ← add your file here
 ```
 
 3. **Re-run the offline pipeline** (e.g. `python main.py`) so the new document is preprocessed, chunked, and indexed. Preprocessing results are cached, so only the new file will be processed from scratch.
 
-> If you are using `GeminiMarkdownProcessor`, the converted Markdown for the new document must already exist in `storage/cached_documents/` before running — this preprocessor does not perform conversion itself.
+> If you are using `GeminiMarkdownProcessor`, the converted Markdown for the new document must already exist in `storage/cached_documents/` before running — this preprocessor does not perform conversion itself. Put it there after conversion with an LLM. The filename after converting name.pdf needs to be name_markdown_gemini.txt.
 
 ---
 
