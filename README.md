@@ -235,6 +235,8 @@ documents:
 
 > If you are using `GeminiMarkdownProcessor`, the converted Markdown for the new document must already exist in `storage/cached_documents/` before running — this preprocessor does not perform conversion itself. Put it there after conversion with an LLM. The filename after converting name.pdf needs to be name_markdown_gemini.txt.
 
+> If you are using `WholeTableParagraphChunker` or `SplitTableChunker` and your new document is highly structural, you might need to fit the chunker to the new document.
+
 ---
 
 ## Adding New Components
