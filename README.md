@@ -22,7 +22,7 @@ A modular **Retrieval-Augmented Generation (RAG)** pipeline built for a bachelor
   - [Adding a Retriever](#adding-a-retriever)
   - [Adding a Reranker](#adding-a-reranker)
   - [Adding a Generator](#adding-a-generator)
-- [What `main.py` Does](#what-mainpy-does)
+- [Using `main.py`](#what-mainpy-does)
 - [Project Structure](#project-structure)
 
 ---
@@ -389,7 +389,7 @@ Optionally override `generate_batch` for batched inference. Use the inherited `c
 
 ---
 
-## What `main.py` Does
+## Using `main.py`
 
 `main.py` is the full evaluation entry point used for thesis experiments. It:
 
